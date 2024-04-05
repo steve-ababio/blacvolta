@@ -15,7 +15,7 @@ export default function Calender(){
         setDialogVisible(false);
     }
     return(
-        <div className="h-dvh bg-blak">
+        <div className="h-dvh bg-black">
             <Header />
             <div className="h-full flex flex-col items-center justify-center">
                 <div className="text-center -mt-[150px] mb-[90px]">

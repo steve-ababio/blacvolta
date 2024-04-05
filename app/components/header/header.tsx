@@ -20,7 +20,9 @@ export default function Header(){
     }
     return (
         <header className={`fixed top-0 left-0 w-full flex justify-center px-[5%] py-[3%] ${scrolldistancereached ? 'bg-black py-[5px] duration-700':''}`}>
-            <Image alt="website logo" width={74} height={100} src="/assets/images/logo.png" priority />
+            <div className="max-w-[70px]">
+                <Image alt="website logo" width={74} height={100} className="aspect-auto"  src="/assets/images/logo.png" priority />
+            </div>
         </header>
     )
 }

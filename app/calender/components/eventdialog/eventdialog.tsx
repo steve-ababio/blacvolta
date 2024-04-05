@@ -15,6 +15,7 @@ export default function EventDialog({visible,closeEventDialog,date}:EventDialogP
             resizable={false}
             position='top' 
             visible={visible}
+            closeOnEscape
             onHide={closeEventDialog} 
         >
             <Suspense fallback={<Loading />}>

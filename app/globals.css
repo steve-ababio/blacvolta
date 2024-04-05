@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer tailwind-base, primereact, tailwind-utilities;
+
+@layer tailwind-base {
+  @tailwind base;
+}
+
+@layer tailwind-utilities {
+  @tailwind components;
+  @tailwind utilities;
+}
+ 
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -30,4 +41,16 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+*,*::before,*::after{
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+.asap{
+  font-family: var(--font-asap);
+}
+.poppins{
+  font-family: var(--font-poppins);
 }

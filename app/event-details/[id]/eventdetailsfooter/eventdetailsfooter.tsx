@@ -4,7 +4,7 @@ export default function EventDetailFooter({icon,text}:{icon:React.ReactElement,t
             <div>
                 {icon}
             </div>
-        <p>{text}</p>
+        <p className="text-[13px] sm:text[16px]">{text}</p>
     </div>
     )
 }

@@ -7,7 +7,7 @@ import { LuCalendarClock } from "react-icons/lu";
 import { BsDownload } from "react-icons/bs";
 import { CgNotes } from "react-icons/cg";
 import Link from "next/link";
-import EventDetailFooter from "./footer/footer";
+import EventDetailFooter from "./eventdetailsfooter/eventdetailsfooter";
 
 export default function EventDetail({searchParams,}: {searchParams: IEventDetails;}) {
   const {

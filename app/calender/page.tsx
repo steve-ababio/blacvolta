@@ -1,19 +1,7 @@
-"use client"
-import { Calendar } from 'primereact/calendar';
-import { useState } from 'react';
 import Header from '../components/header/header';
-import EventDialog from './components/eventdialog/eventdialog';
+import CalenderModal from './components/calendermodal/calendermodal';
 
 export default function Calender(){
-    const[date,setDate] = useState<Date|null>();
-    const[dialogvisible,setDialogVisible] = useState(false);
-    
-    function showEventDialog(){
-        setDialogVisible(true)
-    }
-    function closeEventDialog(){
-        setDialogVisible(false);
-    }
     return(
         <div className="h-dvh bg-black">
             <Header />
@@ -21,9 +9,9 @@ export default function Calender(){
                 <div className="text-center -mt-[150px] mb-[90px]">
                     <h1 className='poppins text-[20px] sm:text-[30px] text-white'>UPCOMING EVENTS</h1>
                 </div>
-                <Calendar value={date}  onChange={(e) => {setDate(e.value);showEventDialog()}} inline/>
+                <CalenderModal />
             </div>
-            <EventDialog date={date} visible={dialogvisible} closeEventDialog={closeEventDialog}  />
+            
         </div>
     )
 }

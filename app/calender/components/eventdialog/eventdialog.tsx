@@ -1,7 +1,5 @@
 import { Dialog } from 'primereact/dialog';
-import { Suspense } from 'react';
 import DialogContent from '../eventdialogcontent/eventdialogcontent';
-import Loading from '../../loading';
 
 type EventDialogProps = {
     visible:boolean,
@@ -17,10 +15,9 @@ export default function EventDialog({visible,closeEventDialog,date}:EventDialogP
             visible={visible}
             closeOnEscape
             onHide={closeEventDialog} 
+            className="h-[90dvh] sm:h-auto"
         >
-            <Suspense fallback={<Loading />}>
-                <DialogContent date={date?.toDateString()} />   
-            </Suspense>
+            <DialogContent date={date?.toDateString()} />   
         </Dialog>
     )
 }

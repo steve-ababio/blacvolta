@@ -74,8 +74,8 @@ export default function EventDetail({searchParams,}: {searchParams: IEventDetail
         <div>
             <h2 className="px-[10px] py-[20px] text-slate-700 font-bold text-[20px]">About this event</h2>
             <div className="p-[40px] flex text-slate-500">
-                <EventDetailFooter text="Inquiry" icon={<BsDownload size={25}/>}/>
-                <EventDetailFooter text="Add to calender" icon={<BsDownload size={25}/>}/>
+                <EventDetailFooter text="Inquiry" icon={<CgNotes size={25}/>}/>
+                <EventDetailFooter text="Add to calender" icon={<BsCalendar4 size={25}/>}/>
                 <EventDetailFooter text="Follow Event" icon={<BsEnvelopePlus size={25}/>}/>
                 <EventDetailFooter text="Download Flyer" icon={<BsDownload size={25}/>}/>
             </div>

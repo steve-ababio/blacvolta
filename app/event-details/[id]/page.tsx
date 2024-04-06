@@ -21,7 +21,7 @@ export default function EventDetail({searchParams,}: {searchParams: IEventDetail
 
   const eventdate = new Date(EventDate).toDateString();
   return (
-    <main className="bg-white min-h-dvh">
+    <main className="bg-white min-h-dvh asap">
       <nav className="flex p-[10px]">
         <Link href="/calender">
             <div className="mr-[20px]">
@@ -40,34 +40,36 @@ export default function EventDetail({searchParams,}: {searchParams: IEventDetail
             alt="Event flyer"
             />
         </div>
-        <h2 className="text-slate-700 font-bold p-[10px] text-[25px]">
-            {EventName}
-        </h2>
-        <div className="p-[10px] bg-gray-200/50 border-b-slate-400 border pb-[10px]">
-            <div className="flex items-center">
-                <div className="flex-1 flex justify-center items-center">
-                    <BsCalendar4 size={25} color="rgb(71 85 105" />
+        <div className="p-[10px] border-b-slate-300 border-b">
+            <h2 className="text-slate-700 font-bold p-[10px] text-[25px]">
+                {EventName}
+            </h2>
+            <div className="p-[10px] bg-blue-200/20 rounded-[15px]  pb-[10px]">
+                <div className="flex items-center">
+                    <div className="flex-1 flex justify-center items-center">
+                        <BsCalendar4 size={25} color="rgb(71 85 105" />
+                    </div>
+                    <div className="text-slate-600 flex-[7] m-[10px]">
+                        <h2 className="text-slate-700 text-[16px] font-bold">{eventdate}</h2>
+                        <time className="text-slate-400 text-[14px] font-semibold">{EventTime}</time>
+                    </div>
                 </div>
-                <div className="text-slate-600 flex-[7] m-[10px]">
-                    <h2 className="text-slate-700 text-[16px] font-bold">{eventdate}</h2>
-                    <time className="text-slate-400 text-[14px] font-semibold">{EventTime}</time>
-                </div>
-            </div>
-            <div className="flex items-center">
-                <div className="flex-1 flex justify-center items-center">
-                    <ImLocation2 size={25} color="rgb(71 85 105" />
-                </div>
-                <div className="text-slate-600 flex-[7] m-[10px]">
-                <   h2 className="my-[10px] text-[16px] font-bold">{Venue}</h2>
-                </div>
-            </div>        
-            <div className="flex items-center">
-                <div className="flex-1 flex justify-center items-center">
-                    <HiTicket size={25} color="rgb(71 85 105)" />
-                </div>
-                <div className="text-slate-600 flex-[7] m-[10px]">
-                    <h2 className="my-[10px] text-[16px] font-bold">Get your tickets</h2>
-                    <a className="text-[14px]" href={TicketLinks}>{TicketLinks}</a>
+                <div className="flex items-center">
+                    <div className="flex-1 flex justify-center items-center">
+                        <ImLocation2 size={25} color="rgb(71 85 105" />
+                    </div>
+                    <div className="text-slate-600 flex-[7] m-[10px]">
+                    <   h2 className="my-[10px] text-[16px] font-bold">{Venue}</h2>
+                    </div>
+                </div>        
+                <div className="flex items-center">
+                    <div className="flex-1 flex justify-center items-center">
+                        <HiTicket size={25} color="rgb(71 85 105)" />
+                    </div>
+                    <div className="text-slate-600 flex-[7] m-[10px]">
+                        <h2 className="my-[10px] text-[16px] font-bold">Get your tickets</h2>
+                        <a className="text-[14px]" href={TicketLinks}>{TicketLinks}</a>
+                    </div>
                 </div>
             </div>
         </div>

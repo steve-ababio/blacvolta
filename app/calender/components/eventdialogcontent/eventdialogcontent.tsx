@@ -1,7 +1,7 @@
 import { BASE_URL } from "@/app/constants/constants";
 import EventDialogDetails from "../eventdialogdetails/eventdialogdetails";
 import useSWR from "swr";
-import Loading from "../../loading";
+import Loading from "../eventdialog/loading";
 
 type Event = {
     Description:string,

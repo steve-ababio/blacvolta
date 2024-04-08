@@ -6,7 +6,7 @@ import Footer from "./components/footer/footer";
 export default function App() {
   
   return (
-    <main>
+    <main className="min-h-screen">
       <Home />
       <UpcomingEvent />
       <PodcastStations />

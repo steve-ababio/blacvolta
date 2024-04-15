@@ -1,4 +1,4 @@
-export const BASE_URL = "https://blacvolta.com/api.php?";
+export const BASE_URL = "/api/events";
 
 export interface IEventDetails {
     Description:string,
@@ -8,7 +8,9 @@ export interface IEventDetails {
     FlyerImagePath:string,
     Id:string,
     InquiryNumber:string,
-    SocialLink:string,
+    SocialLinks:string,
     TicketLinks:string,
-    Venue:string
+    Venue:string,
+    IsEventWeekly:boolean,
+    DayofWeek:string
 }

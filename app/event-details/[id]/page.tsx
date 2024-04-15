@@ -7,9 +7,9 @@ import { BiLeftArrowAlt } from "react-icons/bi";
 import Link from "next/link";
 import EventDetailFooter from "./eventdetailsfooter/eventdetailsfooter";
 
-export default function EventDetail({searchParams,}: {searchParams: IEventDetails;}) {
+export default function EventDetail({searchParams}: {searchParams: IEventDetails;}) {
   const {EventName,EventDate,FlyerImagePath,EventTime,Venue,TicketLinks,Description} = searchParams;
-
+  console.log("venue:",Venue)
   const eventdate = new Date(EventDate).toDateString();
 
   return (
@@ -36,7 +36,7 @@ export default function EventDetail({searchParams,}: {searchParams: IEventDetail
             <h2 className="text-slate-700 font-bold p-[10px] text-[25px]">
                 {EventName}
             </h2>
-            <div className="p-[10px] bg-blue-200/20 rounded-[15px]  pb-[10px]">
+            <div className="p-[10px] bg-zinc-200/40 rounded-[15px]  pb-[10px]">
                 <div className="flex items-center">
                     <div className="flex-1 flex justify-center items-center">
                         <BsCalendar4 size={25} color="rgb(71 85 105" />

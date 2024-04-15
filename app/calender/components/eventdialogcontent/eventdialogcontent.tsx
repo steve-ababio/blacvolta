@@ -1,30 +1,14 @@
-import { BASE_URL } from "@/app/constants/constants";
+import { IEventDetails } from "@/app/constants/constants";
 import EventDialogDetails from "../eventdialogdetails/eventdialogdetails";
 import useSWR from "swr";
 import Loading from "../eventdialog/loading";
 
-type Event = {
-    Description:string,
-    EventDate:string,
-    EventName:string,
-    EventTime:string,
-    FlyerImagePath:string,
-    Id:string,
-    InquiryNumber:string,
-    SocialLink:string,
-    TicketLinks:string,
-    Venue:string
-}
-
-const url = new URL(BASE_URL);
-let events:Event[]; 
+let events:IEventDetails[]; 
 
 const fetcher = (url:string) => fetch(url).then(res => res.json());
 export default  function DialogContent({date}:{date:string|undefined}){
     const selecteddate = new Date(date as string).toLocaleDateString("sv");
-    let searchparams = new URLSearchParams({date:selecteddate});
-    url.search = searchparams.toString();
-    const {data,error,isLoading} = useSWR(url.href,fetcher);
+    const {data,error,isLoading} = useSWR(`/api/events?date=${selecteddate}`,fetcher);
 
     if (error) return <div>Failed to load</div>
     if(isLoading) return <Loading />

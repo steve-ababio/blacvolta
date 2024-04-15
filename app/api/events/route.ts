@@ -23,7 +23,7 @@ export async function GET(req:NextRequest){
     const alleventsthatmatchprovideddatepromise = fetchAllEventsThatMatchDateProvided(date);
     const [allweeklyevents,alleventsthatmatchprovideddate] = await Promise.all([allweeklyeventspromise, alleventsthatmatchprovideddatepromise]);
 
-    const weeklyeventsofselecteddate:IEventDetails[] = []
+    const weeklyeventsofselecteddate:IEventDetails[] = [];
     for(let event of allweeklyevents){
         if(Object.is(event.DayofWeek,dayofweekofselecteddate)){
             event.EventDate = date;

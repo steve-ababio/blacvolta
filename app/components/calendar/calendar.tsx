@@ -16,10 +16,14 @@ export default function CalenderModal(){
         setDialogVisible(false);
     }
     useEffect(()=>{
-        calendarsection.current?.scrollIntoView({block:"start",behavior:"smooth"});
+        window.addEventListener("DOMContentLoaded",()=>{
+            console.log("page loaded")
+            calendarsection.current?.scrollIntoView({block:"start",behavior:"smooth"});
+        })
+       
     },[]);
     return (
-        <section ref={calendarsection} className="h-full flex flex-col items-center justify-center pt-[3%] pb-11 bg-black">
+        <section ref={calendarsection} className="h-full flex flex-col items-center justify-center pt-[3%] pb-11">
             <div className="text-center pb-8">
                 <h1 className="poppins text-[20px] sm:text-[30px] text-white">UPCOMING EVENTS</h1>
             </div>

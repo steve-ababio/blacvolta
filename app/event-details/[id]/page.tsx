@@ -15,7 +15,7 @@ export default function EventDetail({searchParams}: {searchParams: IEventDetails
   return (
     <main className="bg-white min-h-dvh">
       <nav className="flex p-[10px]">
-        <Link href="/calender">
+        <Link href="/">
             <div className="mr-[20px]">
                 <BiLeftArrowAlt color="rgb(71 85 105" className="hover:scale-125 duration-300" size={30}  />
             </div>

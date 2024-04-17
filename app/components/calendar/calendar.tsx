@@ -19,7 +19,7 @@ export default function CalenderModal(){
         calendarsection.current?.scrollIntoView({block:"start",behavior:"smooth"});
     },[]);
     return (
-        <section ref={calendarsection} className="h-full flex flex-col items-center justify-center pt-[3%] pb-11">
+        <section ref={calendarsection} className="h-full flex flex-col items-center justify-center pt-[3%] pb-11 bg-black">
             <div className="text-center pb-8">
                 <h1 className="poppins text-[20px] sm:text-[30px] text-white">UPCOMING EVENTS</h1>
             </div>

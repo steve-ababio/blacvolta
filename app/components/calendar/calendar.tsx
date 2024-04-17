@@ -16,11 +16,7 @@ export default function CalenderModal(){
         setDialogVisible(false);
     }
     useEffect(()=>{
-        window.addEventListener("DOMContentLoaded",()=>{
-            console.log("page loaded")
-            calendarsection.current?.scrollIntoView({block:"start",behavior:"smooth"});
-        })
-       
+        calendarsection.current?.scrollIntoView({block:"start",behavior:"smooth"}); 
     },[]);
     return (
         <section ref={calendarsection} className="h-full flex flex-col items-center justify-center pt-[3%] pb-11">
@@ -29,6 +25,7 @@ export default function CalenderModal(){
             </div>
             <div className="max-w-[40rem] w-[90%]">
                 <Calendar
+                    autoFocus
                     value={date}
                     className='w-full' onChange={(e) => {setDate(e.value);showEventDialog()}}
                     inline

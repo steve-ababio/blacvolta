@@ -13,6 +13,4 @@ export interface IEventDetails {
     Venue:string,
     IsEventWeekly:boolean,
     DayofWeek:string
-    paid:boolean,
-    approved:boolean
 }

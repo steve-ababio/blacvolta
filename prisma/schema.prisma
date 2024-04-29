@@ -21,3 +21,9 @@ model Event{
   IsEventWeekly Boolean
   DayofWeek String 
 }
+
+model AdminUser{
+  id String @id @default(cuid())
+  username String @unique
+  passwords String
+}

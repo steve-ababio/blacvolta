@@ -23,7 +23,9 @@ function downloadFile(hrefvalue:string,filename:string){
 export async function downloadEventFlyer(e:React.MouseEvent,FlyerImagePath:string){
     const response = await fetch(`${FlyerImagePath}`,{mode:"no-cors"});
     const imageblob = await response.blob();
+    console.log(imageblob);
     const imageurl = URL.createObjectURL(imageblob);
+    console.log("imageurl: " + imageurl);
     downloadFile(imageurl,"eventflyer");
 }
 

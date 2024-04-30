@@ -13,11 +13,12 @@ type EventDetailFooterProps = {
     eventDate:string,
     venue:string,
     eventTime:string,
-    phonenumber:string
+    phonenumber:string,
+    sociallink:string,
 }
 
 
-export default function EventDetailFooter({description,flyerImagePath,phonenumber,venue,eventName,eventDate,eventTime}:EventDetailFooterProps){
+export default function EventDetailFooter({description,flyerImagePath,sociallink,phonenumber,venue,eventName,eventDate,eventTime}:EventDetailFooterProps){
     const [downloading,setDownloading] = useState(false);
     
     async function downloadEventFlyer(e:React.MouseEvent,FlyerImagePath:string){
@@ -37,7 +38,7 @@ export default function EventDetailFooter({description,flyerImagePath,phonenumbe
             <div className="p-[40px] flex text-slate-500">
                 <Link className="flex-1 flex justify-center items-center" href={`tel:${phonenumber}`}><EventDetailFooterItem text="Inquiry" icon={<CgNotes size={25}/>}/></Link>
                 <EventDetailFooterItem text="Add to calendar" onclick={(e)=>addToCalender(e,{eventDate,eventName,eventTime,venue,description})} icon={<BsCalendar4 size={25}/>}/>
-                <EventDetailFooterItem text="Follow Event" icon={<BsEnvelopePlus size={25}/>}/>
+                <Link href={sociallink}><EventDetailFooterItem text="Follow Event" icon={<BsEnvelopePlus size={25}/>}/></Link>
                 {
                     downloading ?
                     <div className="flex-1 flex justify-center items-center">

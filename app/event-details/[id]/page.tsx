@@ -8,7 +8,7 @@ import EventDetailFooter from "./eventdetailsfooter/eventdetailsfooter";
 import { FaCalendarMinus } from "react-icons/fa";
 
 export default function EventDetail({searchParams}: {searchParams: IEventDetails;}) {
-  const {EventName,EventDate,FlyerImagePath,EventTime,Venue,TicketLinks,InquiryNumber,Description} = searchParams;
+  const {EventName,EventDate,FlyerImagePath,SocialLinks,EventTime,Venue,TicketLinks,InquiryNumber,Description} = searchParams;
   const eventdate = new Date(EventDate).toDateString();
 
   return (
@@ -73,6 +73,7 @@ export default function EventDetail({searchParams}: {searchParams: IEventDetails
             eventTime={EventTime}
             venue={Venue}
             phonenumber={InquiryNumber}
+            sociallink={SocialLinks}
         />
       </main>
     </main>

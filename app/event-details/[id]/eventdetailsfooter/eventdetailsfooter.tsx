@@ -35,14 +35,14 @@ export default function EventDetailFooter({description,flyerImagePath,phonenumbe
                 <p className="text-[1rem] text-slate-400">{description}</p>
             </div>
             <div className="p-[40px] flex text-slate-500">
-                <Link className="flex-1" href={`tel:${phonenumber}`}><EventDetailFooterItem text="Inquiry" icon={<CgNotes size={25}/>}/></Link>
+                <Link className="flex-1 flex justify-center items-center" href={`tel:${phonenumber}`}><EventDetailFooterItem text="Inquiry" icon={<CgNotes size={25}/>}/></Link>
                 <EventDetailFooterItem text="Add to calendar" onclick={(e)=>addToCalender(e,{eventDate,eventName,eventTime,venue,description})} icon={<BsCalendar4 size={25}/>}/>
                 <EventDetailFooterItem text="Follow Event" icon={<BsEnvelopePlus size={25}/>}/>
                 {
                     downloading ?
                     <div className="flex-1 flex justify-center items-center">
                         <RotatingLines 
-                            strokeColor="black" 
+                            strokeColor="rgb(54, 58, 69)" 
                             strokeWidth="4"
                             animationDuration="0.8"
                             width="25"

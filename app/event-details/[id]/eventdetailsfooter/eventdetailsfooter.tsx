@@ -36,7 +36,7 @@ export default function EventDetailFooter({description,flyerImagePath,sociallink
                 <p className="text-[1rem] text-slate-400">{description}</p>
             </div>
             <div className="p-[40px] flex text-slate-500">
-                <Link className="flex-1 flex justify-center items-center" href={`tel:${phonenumber}`}><EventDetailFooterItem text="Inquiry" icon={<CgNotes size={25}/>}/></Link>
+                <Link className="flex-1 flex justify-center" href={`tel:${phonenumber}`}><EventDetailFooterItem text="Inquiry" icon={<CgNotes size={25}/>}/></Link>
                 <EventDetailFooterItem text="Add to calendar" onclick={(e)=>addToCalender(e,{eventDate,eventName,eventTime,venue,description})} icon={<BsCalendar4 size={25}/>}/>
                 <Link href={sociallink}><EventDetailFooterItem text="Follow Event" icon={<BsEnvelopePlus size={25}/>}/></Link>
                 {

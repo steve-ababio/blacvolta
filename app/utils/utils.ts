@@ -1,3 +1,5 @@
+import downloadjs from "downloadjs";
+import html2canvas from "html2canvas";
 import { createEvent, EventAttributes } from "ics";
 
 const createEventPromise = function(eventattributes:EventAttributes):Promise<string>{
@@ -21,13 +23,14 @@ function downloadFile(hrefvalue:string,filename:string){
 }
 
 export async function downloadEventFlyer(e:React.MouseEvent,FlyerImagePath:string){
-    const response = await fetch(`${FlyerImagePath}`,{mode:"no-cors"});
-    console.log(response);
-    const imageblob = await response.blob();
-    console.log(imageblob);
-    const imageurl = URL.createObjectURL(imageblob);
-    console.log("imageurl: " + imageurl);
-    downloadFile(imageurl,"eventflyer");
+    // const response = await fetch(`${FlyerImagePath}`);
+    // const imageblob = await response.blob();
+    // const imageurl = URL.createObjectURL(imageblob);
+    // downloadFile(imageurl,"eventflyer");
+    const image = document.querySelector("#flyerimage") as HTMLImageElement;
+    const canvas = await html2canvas(image);
+    const dataurl = canvas.toDataURL("image/png");
+    downloadjs(dataurl,"eventflyer","image/png")
 }
 
 type EventDetails = {

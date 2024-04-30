@@ -3,11 +3,9 @@ import Link from "next/link";
 
 export default function EventDialogDetails(props:IEventDetails){
     const {Id,EventDate,EventName,EventTime,Venue,FlyerImagePath,Description,TicketLinks} = props;
-    let eventdate = new Date(EventDate).toDateString();
 
     return (
         <>
-            <h2 className="my-3 font-bold text-slate-600">{eventdate} Events</h2>
             <div className="flex border-b border-b-[#9A9A9A]">
                 <div className="p-[10px] rounded-lg flex-1">
                     <img className="rounded-[10px] max-w-full block" src={FlyerImagePath} alt="Event flyer" />

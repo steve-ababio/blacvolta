@@ -48,14 +48,14 @@ export default  function DialogContent({date}:{date:string|undefined}){
             return 1;
         }
     });
-    console.log("events: ",events);
-
-    console.log("sorted events:",sortedevents);
     return(
         <div>
             {
-               (data.length === 0) ? <div className='text-[1.1rem] sm:text-[1.5em] text-center mt-[50%] font-bold'>No events found for {date}</div>: 
-               (sortedevents.map(event => <EventDialogDetails key={event.Id} {...event} />))
+               (data.length === 0) ? <div className='text-[1.1rem] sm:text-[1.5em] text-center mt-[50%] font-bold'>No events found for {date}</div>:
+               <div> 
+                    <h2 className="my-3 font-bold text-slate-600">{new Date(sortedevents[0].EventDate).toDateString()} Events</h2>
+                    {(sortedevents.map(event => <EventDialogDetails key={event.Id} {...event} />))}
+               </div>
             } 
         </div>
     )

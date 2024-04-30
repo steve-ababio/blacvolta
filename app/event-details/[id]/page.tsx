@@ -6,6 +6,7 @@ import { BsCalendar4} from "react-icons/bs";
 import { BiLeftArrowAlt } from "react-icons/bi";
 import Link from "next/link";
 import EventDetailFooter from "./eventdetailsfooter/eventdetailsfooter";
+import { FaCalendarMinus } from "react-icons/fa";
 
 export default function EventDetail({searchParams}: {searchParams: IEventDetails;}) {
   const {EventName,EventDate,FlyerImagePath,EventTime,Venue,TicketLinks,InquiryNumber,Description} = searchParams;
@@ -39,7 +40,7 @@ export default function EventDetail({searchParams}: {searchParams: IEventDetails
             <div className="p-[10px] bg-zinc-200/40 rounded-[15px]  pb-[10px]">
                 <div className="flex items-center">
                     <div className="flex-1 flex justify-center items-center">
-                        <BsCalendar4 size={25} color="rgb(71 85 105" />
+                        <FaCalendarMinus size={25} color="rgb(71 85 105" />
                     </div>
                     <div className="text-slate-600 flex-[7] m-[10px]">
                         <h2 className="text-slate-700 text-[16px] font-bold">{eventdate}</h2>

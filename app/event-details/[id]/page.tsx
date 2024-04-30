@@ -8,7 +8,7 @@ import Link from "next/link";
 import EventDetailFooter from "./eventdetailsfooter/eventdetailsfooter";
 
 export default function EventDetail({searchParams}: {searchParams: IEventDetails;}) {
-  const {EventName,EventDate,FlyerImagePath,EventTime,Venue,TicketLinks,Description} = searchParams;
+  const {EventName,EventDate,FlyerImagePath,EventTime,Venue,TicketLinks,InquiryNumber,Description} = searchParams;
   console.log("venue:",Venue)
   const eventdate = new Date(EventDate).toDateString();
 
@@ -60,7 +60,7 @@ export default function EventDetail({searchParams}: {searchParams: IEventDetails
                     </div>
                     <div className="text-slate-600 flex-[7] m-[10px]">
                         <h2 className="my-[10px] text-[16px] font-bold">Get your tickets</h2>
-                        <a className="text-[14px] underline" target="_blank" href={TicketLinks}>{TicketLinks}</a>
+                        <Link className="text-[14px] underline" target="_blank" href={TicketLinks}>{TicketLinks}</Link>
                     </div>
                 </div>
             </div>
@@ -72,6 +72,7 @@ export default function EventDetail({searchParams}: {searchParams: IEventDetails
             eventName={EventName}
             eventTime={EventTime}
             venue={Venue}
+            phonenumber={InquiryNumber}
         />
       </main>
     </main>

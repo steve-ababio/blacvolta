@@ -13,22 +13,7 @@ const createEventPromise = function(eventattributes:EventAttributes):Promise<str
         })
     })
 }
-function downloadFile(hrefvalue:string,filename:string){
-    const link = document.createElement("a");
-    link.href = hrefvalue;
-    link.download = filename;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-}
 
-export async function downloadEventFlyer(e:React.MouseEvent,FlyerImagePath:string){
-    const response = await fetch(`/api/image?imagepath=${FlyerImagePath}`);
-    const imageblob = await response.blob();
-    const imageurl = URL.createObjectURL(imageblob);
-    downloadFile(imageurl,"eventflyer");
-    
-}
 
 type EventDetails = {
     eventDate:string,

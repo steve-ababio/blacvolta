@@ -5,13 +5,13 @@ type EventDetailFooterItemProps = {
 };
 export default function EventDetailFooterItem({icon,text,onclick}:EventDetailFooterItemProps){
     return(
-        <div className="cursor-pointer flex-1" onClick={onclick}>
+        <button className="cursor-pointer flex-1" onClick={onclick}>
             <div className="flex flex-col items-center">
                 <div>
                     {icon}
                 </div>
                 <p className="text-[13px] sm:text[16px] text-center">{text}</p>
             </div>
-        </div>
+        </button>
     )
 }

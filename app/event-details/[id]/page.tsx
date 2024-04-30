@@ -2,7 +2,6 @@
 import { IEventDetails } from "@/app/constants/constants";
 import { HiTicket } from "react-icons/hi2";
 import { ImLocation2 } from "react-icons/im";
-import { BsCalendar4} from "react-icons/bs";
 import { BiLeftArrowAlt } from "react-icons/bi";
 import Link from "next/link";
 import EventDetailFooter from "./eventdetailsfooter/eventdetailsfooter";
@@ -24,8 +23,8 @@ export default function EventDetail({searchParams}: {searchParams: IEventDetails
             <h1 className="ml-[20px] flex-1 text-slate-700 font-bold text-[20px]">{EventName}</h1>
         </header>
       </nav>
-      <main>
-        <div className={`h-[30dvh] my-[30px]`}>
+      <main className="w-[95%] max-w-[55rem] mx-auto">
+        <div className={`h-[30dvh] my-[30px] border-b-slate-300 border-b`}>
             <img
                 id="flyerimage"
                 src={`${FlyerImagePath}`}
@@ -33,7 +32,7 @@ export default function EventDetail({searchParams}: {searchParams: IEventDetails
                 alt="Event flyer"
             />
         </div>
-        <div className="p-[10px] border-b-slate-300 border-b">
+        <div className="p-[10px] border-b-slate-300  border-b">
             <h2 className="text-slate-700 font-bold p-[10px] text-[25px]">
                 {EventName}
             </h2>

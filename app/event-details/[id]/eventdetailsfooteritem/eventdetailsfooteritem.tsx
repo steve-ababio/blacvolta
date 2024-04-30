@@ -6,7 +6,7 @@ type EventDetailFooterItemProps = {
 export default function EventDetailFooterItem({icon,text,onclick}:EventDetailFooterItemProps){
     return(
         <button className="cursor-pointer flex-1" onClick={onclick}>
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center hover:text-blue-400 duration-200">
                 <div>
                     {icon}
                 </div>

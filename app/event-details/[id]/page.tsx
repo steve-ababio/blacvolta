@@ -24,11 +24,11 @@ export default function EventDetail({searchParams}: {searchParams: IEventDetails
         </header>
       </nav>
       <main className="w-[95%] max-w-[55rem] mx-auto">
-        <div className={`h-[40dvh] w-[100%] rounded-[8px] mx-auto max-w-[25rem] my-[35px]`}>
+        <div className={`h-[40dvh] w-[100%] rounded-[8px] mx-auto my-[35px]`}>
             <img
                 id="flyerimage"
                 src={`${FlyerImagePath}`}
-                className="max-w-full h-full w-full object-cover rounded-[10px]"
+                className="max-w-full max-h-full rounded-[10px]"
                 alt="Event flyer"
             />
         </div>

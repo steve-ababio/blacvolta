@@ -5,6 +5,7 @@ import { addToCalender, downloadFile } from "@/app/utils/utils";
 import Link from "next/link";
 import { useState } from "react";
 import { RotatingLines } from "react-loader-spinner";
+import { MdManageSearch } from "react-icons/md";
 
 type EventDetailFooterProps = {
     description:string,
@@ -36,7 +37,7 @@ export default function EventDetailFooter({description,flyerImagePath,sociallink
                 <p className="text-[1rem] text-slate-400">{description}</p>
             </div>
             <div className="p-[40px] flex text-slate-500">
-                <Link className="flex-1 flex justify-center" href={`tel:${phonenumber}`}><EventDetailFooterItem text="Inquiry" icon={<CgNotes size={25}/>}/></Link>
+                <Link className="flex-1 text-center" href={`tel:${phonenumber}`}><EventDetailFooterItem text="Inquiry" icon={<MdManageSearch size={25}/>}/></Link>
                 <EventDetailFooterItem text="Add to calendar" onclick={(e)=>addToCalender(e,{eventDate,eventName,eventTime,venue,description})} icon={<BsCalendar4 size={25}/>}/>
                 <Link href={sociallink}><EventDetailFooterItem text="Follow Event" icon={<BsEnvelopePlus size={25}/>}/></Link>
                 {

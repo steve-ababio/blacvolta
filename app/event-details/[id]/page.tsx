@@ -61,7 +61,7 @@ export default function EventDetail({searchParams}: {searchParams: IEventDetails
                     </div>
                     <div className="text-slate-600 flex-[7] m-[10px]">
                         <h2 className="my-[10px] text-[16px] font-bold">Get your tickets</h2>
-                        <Link className="text-[14px] underline" target="_blank" href={TicketLinks}>{TicketLinks}</Link>
+                        <Link className="text-[14px] text-blue-500 underline" target="_blank" href={TicketLinks}>{TicketLinks}</Link>
                     </div>
                 </div>
             </div>

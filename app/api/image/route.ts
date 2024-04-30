@@ -5,5 +5,5 @@ export async function GET(req:NextRequest){
     const imagepath = searchParams.get("imagepath")!;
     const response = await fetch(imagepath);
     const data = await response.blob();
-    return new Response(data,{headers:{"content-type": "image/png"}});
+    return new Response(data);
 }

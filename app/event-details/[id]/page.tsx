@@ -28,7 +28,7 @@ export default function EventDetail({searchParams}: {searchParams: IEventDetails
             <img
                 id="flyerimage"
                 src={`${FlyerImagePath}`}
-                className="max-w-full max-h-full rounded-[10px]"
+                className="max-w-full max-h-full mx-auto rounded-[10px]"
                 alt="Event flyer"
             />
         </div>

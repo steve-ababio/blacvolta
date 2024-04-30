@@ -23,14 +23,11 @@ function downloadFile(hrefvalue:string,filename:string){
 }
 
 export async function downloadEventFlyer(e:React.MouseEvent,FlyerImagePath:string){
-    // const response = await fetch(`${FlyerImagePath}`);
-    // const imageblob = await response.blob();
-    // const imageurl = URL.createObjectURL(imageblob);
-    // downloadFile(imageurl,"eventflyer");
-    const image = document.querySelector("#flyerimage") as HTMLImageElement;
-    const canvas = await html2canvas(image);
-    const dataurl = canvas.toDataURL("image/png");
-    downloadjs(dataurl,"eventflyer","image/png")
+    const response = await fetch(`/api/image?imagepath=${FlyerImagePath}`);
+    const imageblob = await response.blob();
+    const imageurl = URL.createObjectURL(imageblob);
+    downloadFile(imageurl,"eventflyer");
+    
 }
 
 type EventDetails = {

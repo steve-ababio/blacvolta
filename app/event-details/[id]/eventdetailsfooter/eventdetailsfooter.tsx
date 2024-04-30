@@ -40,12 +40,14 @@ export default function EventDetailFooter({description,flyerImagePath,phonenumbe
                 <EventDetailFooterItem text="Follow Event" icon={<BsEnvelopePlus size={25}/>}/>
                 {
                     downloading ?
-                    <RotatingLines 
-                        strokeColor="white" 
-                        strokeWidth="4"
-                        animationDuration="0.8"
-                        width="25"
-                        visible={true} />
+                    <div className="flex-1 flex justify-center items-center">
+                        <RotatingLines 
+                            strokeColor="black" 
+                            strokeWidth="4"
+                            animationDuration="0.8"
+                            width="25"
+                            visible={true} />
+                    </div>
                     :<EventDetailFooterItem 
                         text="Download Flyer" 
                         onclick={e=>downloadEventFlyer(e,flyerImagePath)} 

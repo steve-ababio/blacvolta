@@ -1,5 +1,3 @@
-import downloadjs from "downloadjs";
-import html2canvas from "html2canvas";
 import { createEvent, EventAttributes } from "ics";
 
 const createEventPromise = function(eventattributes:EventAttributes):Promise<string>{
@@ -21,6 +19,14 @@ type EventDetails = {
     venue:string,
     description:string,
     eventName:string
+}
+export function downloadFile(hrefvalue:string,filename:string){
+    const link = document.createElement("a");
+    link.href = hrefvalue;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 }
 export async function addToCalender(e:React.MouseEvent,{eventDate,eventTime,venue,eventName,description}:EventDetails){
     const datearray = eventDate.split("-");

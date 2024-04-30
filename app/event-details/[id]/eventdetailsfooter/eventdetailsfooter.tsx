@@ -1,7 +1,7 @@
 import { BsDownload,BsEnvelopePlus,BsCalendar4 } from "react-icons/bs";
 import { CgNotes } from "react-icons/cg";
 import EventDetailFooterItem from "../eventdetailsfooteritem/eventdetailsfooteritem";
-import { addToCalender, downloadEventFlyer } from "@/app/utils/utils";
+import { addToCalender, downloadFile } from "@/app/utils/utils";
 import Link from "next/link";
 import { useState } from "react";
 import { RotatingLines } from "react-loader-spinner";
@@ -15,14 +15,7 @@ type EventDetailFooterProps = {
     eventTime:string,
     phonenumber:string
 }
-function downloadFile(hrefvalue:string,filename:string){
-    const link = document.createElement("a");
-    link.href = hrefvalue;
-    link.download = filename;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-}
+
 
 export default function EventDetailFooter({description,flyerImagePath,phonenumber,venue,eventName,eventDate,eventTime}:EventDetailFooterProps){
     const [downloading,setDownloading] = useState(false);

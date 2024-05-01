@@ -6,11 +6,11 @@ export default function EventDialogDetails(props:IEventDetails){
 
     return (
         <>
-            <div className="grid grid-cols-[minmax(74px,1fr) 3fr] border-b border-b-[#9A9A9A]">
-                <div className="p-[10px] rounded-lg">
+            <div className="sm:flex border-b border-b-[#9A9A9A]">
+                <div className="p-[10px] rounded-lg sm:flex-[1]">
                     <img className="rounded-[10px] max-h-full max-w-full block" src={FlyerImagePath} alt="Event flyer" />
                 </div>
-                <div className="p-[10px]text-[1rem] text-slate-600 ">
+                <div className="p-[10px] sm:flex-[3] text-[1rem] text-slate-600 ">
                     <div className="text-[#d2042d] font-bold my-[5px]">{EventTime} | {Venue}</div>
                     <div className="font-bold my-[5px]">{EventName}</div>
                     <a href={TicketLinks} target="_blank" className="my-[5px] block underline text-slate-600">{TicketLinks}</a>
@@ -23,7 +23,7 @@ export default function EventDialogDetails(props:IEventDetails){
                         }}
                         // as={`/event-details/${Id}`}
                         >
-                            <button className="bg-slate-800 hover:bg-slate-900 text-white px-3 py-1 rounded-[4px] text-[13px]">more info</button>
+                            <button className="bg-slate-800 hover:bg-slate-900 my-4 sm:my-0 text-white px-3 py-1 rounded-[4px] text-[13px]">more info</button>
                         </Link>
                     </div>
                 </div>

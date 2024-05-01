@@ -3,7 +3,8 @@ const nextConfig = {
     images:{
         remotePatterns:[
             {
-                hostname:"blacvolta.com",
+                hostname:"files.blacvolta.com",
+                pathname:"/uploads/**"
             }
         ]
     }

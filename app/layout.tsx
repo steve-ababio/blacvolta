@@ -25,9 +25,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link rel="preload" href="/assets/images/bg.webp" as="image"/>
-      </head>
       <PrimeReactProvider>
         <body className={`${asap.variable} ${poppins.variable}`}>{children}</body>
       </PrimeReactProvider>

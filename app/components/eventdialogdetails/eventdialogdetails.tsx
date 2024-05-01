@@ -1,4 +1,5 @@
 import { IEventDetails } from "@/app/constants/constants";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function EventDialogDetails(props:IEventDetails){
@@ -7,8 +8,8 @@ export default function EventDialogDetails(props:IEventDetails){
     return (
         <>
             <div className="flex border-b border-b-[#9A9A9A]">
-                <div className="p-[10px] rounded-lg flex-1">
-                    <img className="rounded-[10px] max-w-full block" src={FlyerImagePath} alt="Event flyer" />
+                <div className="p-[10px] rounded-lg flex-[1]">
+                    <Image fill fetchPriority="high" className="rounded-[10px] max-w-full block" src={FlyerImagePath} alt="Event flyer" />
                 </div>
                 <div className="p-[10px] flex-[3] text-[1rem] text-slate-600 ">
                     <div className="text-[#d2042d] font-bold my-[5px]">{EventTime} | {Venue}</div>

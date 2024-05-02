@@ -44,7 +44,7 @@ export default function EventDetail({searchParams}: {searchParams: IEventDetails
                     </div>
                     <div className="text-slate-600 flex-[7] m-[10px]">
                         <h2 className="text-slate-700 text-[16px] font-bold">{eventdate}</h2>
-                        <time className="text-slate-400 text-[14px] font-semibold">{EventTime}</time>
+                        <time className="text-slate-500 text-[14px] font-semibold">{EventTime}</time>
                     </div>
                 </div>
                 <div className="flex items-center">

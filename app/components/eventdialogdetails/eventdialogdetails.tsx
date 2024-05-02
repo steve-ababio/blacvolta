@@ -13,7 +13,7 @@ export default function EventDialogDetails(props:IEventDetails){
                 <div className="p-[10px] sm:flex-[3] text-[1rem] text-slate-600 ">
                     <div className="text-[#d2042d] font-bold my-[5px]">{EventTime} | {Venue}</div>
                     <div className="font-bold my-[5px]">{EventName}</div>
-                    <a href={TicketLinks} target="_blank" className="my-[5px] block underline text-slate-600">{TicketLinks}</a>
+                    <Link href={TicketLinks} target="_blank" className="my-[5px] block underline text-blue-400">{TicketLinks}</Link>
                     <div className="font-bold my-[5px]">{Description}</div>
                     <div className="mt-[5px] text-right my-[5px]">
                         <Link

@@ -22,23 +22,25 @@ export default function EventDetail({searchParams}: {searchParams: IEventDetails
             <h2 className="text-slate-700 font-bold p-[10px] mb-8 text-[25px]">
                 {EventName}
             </h2>
-            <EventMainInfo
-                title={eventdate} 
-                className="bg-orange-400/40"
-                Icon={FaCalendarMinus}
-                titlesibling={<time className="text-slate-500 text-[14px] font-semibold">{EventTime}</time>}
-            />
-            <EventMainInfo
-                title={Venue} 
-                className="bg-blue-400/40"
-                Icon={ImLocation2}
-            />     
-            <EventMainInfo
-                title={"Get your tickets"} 
-                className="bg-red-400/40"
-                Icon={HiTicket}
-                titlesibling={<Link className="text-[14px] text-blue-500 underline" target="_blank" href={TicketLinks}>{TicketLinks}</Link>}
-            />
+            <div className="py-[20px] px-[20px] bg-stone-200/40 flex flex-col gap-y-8 rounded-[15px]">
+                <EventMainInfo
+                    title={eventdate} 
+                    className="bg-orange-400/40"
+                    Icon={FaCalendarMinus}
+                    titlesibling={<time className="text-slate-500 text-[14px] font-semibold">{EventTime}</time>}
+                />
+                <EventMainInfo
+                    title={Venue} 
+                    className="bg-blue-400/40"
+                    Icon={ImLocation2}
+                />     
+                <EventMainInfo
+                    title={"Get your tickets"} 
+                    className="bg-red-400/40"
+                    Icon={HiTicket}
+                    titlesibling={<Link className="text-[14px] text-blue-500 underline" target="_blank" href={TicketLinks}>{TicketLinks}</Link>}
+                />
+            </div>
         </div>
         <EventDetailFooter 
             description={Description}

@@ -8,9 +8,6 @@ export default function EventDialogDetails(props:IEventDetails){
     return (
         <>
             <div className="grid grid-cols-[1fr] sm:grid-cols-[250px,1fr] md:grid-cols-[300px,1fr] lg:grid-cols-[350px,1fr] border-b w-full border-b-[#9A9A9A]">
-                {/* <div className="p-[10px] h-[250px] sm:h-auto rounded-lg sm:flex-[1]">
-                    <img fetchPriority="high" className="rounded-[10px] max-h-full max-w-full block" src={FlyerImagePath} alt="Event flyer" />
-                </div> */}
                 <div className="m-[10px] place-content-center max-w-[250px] sm:max-w-none relative h-[250px] md:h-[300px] lg:h-[350px] rounded-lg">
                     <Image
                         priority

@@ -8,9 +8,9 @@ interface EventMainDetailsProps extends React.HtmlHTMLAttributes<HTMLDivElement>
 }
 export default function EventMainInfo({Icon,title,titlesibling,className}:EventMainDetailsProps){
     return(
-        <div className="flex items-center mb-6 gap-x-7">
+        <div className="flex items-center gap-x-7 mb-8">
             <div className={twMerge(`flex justify-center items-center h-[42px] w-[42px] rounded-[8px]`,className)}>
-                <Icon className="text-slate-600" size={23} />
+                <Icon className="text-slate-600" size={20} />
             </div>
             <div className="text-slate-600 flex-[7]">
                 <h2 className="text-[16px] font-bold">{title}</h2>

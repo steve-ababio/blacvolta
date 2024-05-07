@@ -19,7 +19,7 @@ export default function EventDetail({searchParams}: {searchParams: IEventDetails
       <main className="w-[95%] max-w-[55rem] mx-auto">
         <EventImage FlyerImagePath={FlyerImagePath} />
         <div className="p-[10px] border-y-slate-300  border-y">
-            <h2 className="text-slate-700 font-bold p-[10px] text-[25px]">
+            <h2 className="text-slate-700 font-bold p-[10px] mb-8 text-[25px]">
                 {EventName}
             </h2>
             <EventMainInfo

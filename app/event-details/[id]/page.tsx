@@ -27,7 +27,7 @@ export default function EventDetail({searchParams}: {searchParams: IEventDetails
                 <EventMainInfo
                     title={eventdate} 
                     className="bg-orange-400/40"
-                    Icon={LuCalendarClock }
+                    Icon={FaCalendarMinus }
                     titlesibling={<time className="text-slate-500 text-[14px] font-semibold">{EventTime}</time>}
                 />
                 <EventMainInfo

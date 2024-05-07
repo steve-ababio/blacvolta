@@ -36,18 +36,19 @@ export default function EventDetailFooter({description,flyerImagePath,sociallink
                 <p className="text-[1rem] text-slate-500">{description}</p>
             </div>
             <div className="py-[40px] px-[10px] flex justify-between items-start text-slate-500">
-                <Link className="text-center" href={`tel:${phonenumber}`}><EventDetailFooterItem text="Inquiry" icon={<MdManageSearch size={25}/>}/></Link>
-                <EventDetailFooterItem classname="" text="Add to calendar" onclick={(e)=>addToCalender(e,{eventDate,eventName,eventTime,venue,description})} icon={<BsCalendar4 size={25}/>}/>
-                <Link href={sociallink} className="text-center"><EventDetailFooterItem text="Follow Event" icon={<BsEnvelopePlus size={25}/>}/></Link>
+                <Link className="text-center flex-1" href={`tel:${phonenumber}`}><EventDetailFooterItem text="Inquiry" icon={<MdManageSearch size={25}/>}/></Link>
+                <EventDetailFooterItem  text="Add to calendar" onclick={(e)=>addToCalender(e,{eventDate,eventName,eventTime,venue,description})} icon={<BsCalendar4 size={25}/>}/>
+                <Link href={sociallink} className="text-center flex-1"><EventDetailFooterItem text="Follow Event" icon={<BsEnvelopePlus size={25}/>}/></Link>
                 {
                     downloading ?
-                    <div className="flex-1 flex justify-center items-center">
+                    <div className="flex flex-1 justify-center self-center">
                         <RotatingLines 
                             strokeColor="rgb(54, 58, 69)" 
                             strokeWidth="4"
                             animationDuration="0.8"
                             width="25"
-                            visible={true} />
+                            visible={true}
+                        />
                     </div>
                     :<EventDetailFooterItem 
                         text="Download Flyer" 

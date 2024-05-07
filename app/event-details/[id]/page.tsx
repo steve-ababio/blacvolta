@@ -17,13 +17,13 @@ export default function EventDetail({searchParams}: {searchParams: IEventDetails
   return (
     <main className="bg-white min-h-dvh">
       <EventHeader EventName={EventName}  />
-      <main className="w-[95%] max-w-[55rem] mx-auto">
+      <main className="w-[95%] max-w-[50rem] mx-auto">
         <EventImage FlyerImagePath={FlyerImagePath} />
         <div className="p-[10px] border-y-slate-300  border-y">
             <h2 className="text-slate-700 font-bold p-[10px] mb-8 text-[25px]">
                 {EventName}
             </h2>
-            <div className="py-[20px] px-[20px] bg-zinc-200/40 flex flex-col gap-y-8 rounded-[15px]">
+            <div className="py-[20px] md:px-[40px] md:py-[40px] px-[20px] bg-zinc-200/40 flex flex-col gap-y-8 rounded-[15px]">
                 <EventMainInfo
                     title={eventdate} 
                     className="bg-orange-400/40"

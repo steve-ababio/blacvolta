@@ -15,7 +15,7 @@ export default function EventDialog({visible,closeEventDialog,date}:EventDialogP
             visible={visible}
             closeOnEscape
             onHide={closeEventDialog} 
-            className="h-[90dvh] sm:h-auto"
+            className="h-[90dvh] w-full sm:h-auto"
         >
             <DialogContent date={date?.toDateString()} />   
         </Dialog>

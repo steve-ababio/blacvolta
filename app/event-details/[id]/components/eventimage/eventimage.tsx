@@ -1,12 +1,14 @@
+import Image from "next/image";
+
 export default function EventImage({FlyerImagePath}:{FlyerImagePath:string}){
     return(
-        <div className={`h-[40vh] w-[100%] rounded-[8px] mx-auto my-[35px]`}>
-            <img
-                id="flyerimage"
-                src={`${FlyerImagePath}`}
-                className="max-w-full max-h-full mx-auto rounded-[10px]"
+        <div className={`h-[38vh] aspect-[1/1] rounded-[10px] relative mx-auto my-[35px]`}>
+            <Image
+                src={FlyerImagePath}
+                style={{borderRadius:"10px"}}
+                layout="fill"
+                objectFit="contain"
                 alt="Event flyer"
-                fetchPriority="high"
             />
         </div>
     )

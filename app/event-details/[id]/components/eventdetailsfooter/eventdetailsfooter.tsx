@@ -1,5 +1,4 @@
 import { BsDownload,BsEnvelopePlus,BsCalendar4 } from "react-icons/bs";
-import { CgNotes } from "react-icons/cg";
 import EventDetailFooterItem from "../eventdetailsfooteritem/eventdetailsfooteritem";
 import { addToCalender, downloadFile } from "@/app/utils/utils";
 import Link from "next/link";

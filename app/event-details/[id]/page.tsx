@@ -2,10 +2,12 @@
 import { IEventDetails } from "@/app/constants/constants";
 import { HiTicket } from "react-icons/hi2";
 import { ImLocation2 } from "react-icons/im";
-import { BiLeftArrowAlt } from "react-icons/bi";
 import Link from "next/link";
-import EventDetailFooter from "./eventdetailsfooter/eventdetailsfooter";
+import EventDetailFooter from "./components/eventdetailsfooter/eventdetailsfooter";
 import { FaCalendarMinus } from "react-icons/fa";
+import EventMainInfo from "./components/eventmaindetails/eventmaindetails";
+import EventImage from "./components/eventimage/eventimage";
+import EventHeader from "./components/header/header";
 
 export default function EventDetail({searchParams}: {searchParams: IEventDetails;}) {
   const {EventName,EventDate,FlyerImagePath,SocialLinks,EventTime,Venue,TicketLinks,InquiryNumber,Description} = searchParams;
@@ -13,58 +15,30 @@ export default function EventDetail({searchParams}: {searchParams: IEventDetails
 
   return (
     <main className="bg-white min-h-dvh">
-      <nav className="flex p-[10px]">
-        <Link href="/">
-            <div className="mr-[20px]">
-                <BiLeftArrowAlt color="rgb(71 85 105" className="hover:scale-125 duration-300" size={30}  />
-            </div>
-        </Link>
-        <header>
-            <h1 className="ml-[20px] flex-1 text-slate-700 font-bold text-[20px]">{EventName}</h1>
-        </header>
-      </nav>
+      <EventHeader EventName={EventName}  />
       <main className="w-[95%] max-w-[55rem] mx-auto">
-        <div className={`h-[40dvh] w-[100%] rounded-[8px] mx-auto my-[35px]`}>
-            <img
-                id="flyerimage"
-                src={`${FlyerImagePath}`}
-                className="max-w-full max-h-full mx-auto rounded-[10px]"
-                alt="Event flyer"
-                fetchPriority="high"
-            />
-        </div>
+        <EventImage FlyerImagePath={FlyerImagePath} />
         <div className="p-[10px] border-y-slate-300  border-y">
             <h2 className="text-slate-700 font-bold p-[10px] text-[25px]">
                 {EventName}
             </h2>
-            <div className="p-[10px] bg-zinc-200/40 rounded-[15px]  pb-[10px]">
-                <div className="flex items-center">
-                    <div className="flex-1 flex justify-center items-center">
-                        <FaCalendarMinus size={25} color="rgb(71 85 105" />
-                    </div>
-                    <div className="text-slate-600 flex-[7] m-[10px]">
-                        <h2 className="text-slate-700 text-[16px] font-bold">{eventdate}</h2>
-                        <time className="text-slate-500 text-[14px] font-semibold">{EventTime}</time>
-                    </div>
-                </div>
-                <div className="flex items-center">
-                    <div className="flex-1 flex justify-center items-center">
-                        <ImLocation2 size={25} color="rgb(71 85 105" />
-                    </div>
-                    <div className="text-slate-600 flex-[7] m-[10px]">
-                    <   h2 className="my-[10px] text-[16px] font-bold">{Venue}</h2>
-                    </div>
-                </div>        
-                <div className="flex items-center">
-                    <div className="flex-1 flex justify-center items-center">
-                        <HiTicket size={25} color="rgb(71 85 105)" />
-                    </div>
-                    <div className="text-slate-600 flex-[7] m-[10px]">
-                        <h2 className="my-[10px] text-[16px] font-bold">Get your tickets</h2>
-                        <Link className="text-[14px] text-blue-500 underline" target="_blank" href={TicketLinks}>{TicketLinks}</Link>
-                    </div>
-                </div>
-            </div>
+            <EventMainInfo
+                title={eventdate} 
+                className="bg-orange-400/40"
+                Icon={FaCalendarMinus}
+                titlesibling={<time className="text-slate-500 text-[14px] font-semibold">{EventTime}</time>}
+            />
+            <EventMainInfo
+                title={Venue} 
+                className="bg-blue-400/40"
+                Icon={ImLocation2}
+            />     
+            <EventMainInfo
+                title={"Get your tickets"} 
+                className="bg-red-400/40"
+                Icon={HiTicket}
+                titlesibling={<Link className="text-[14px] text-blue-500 underline" target="_blank" href={TicketLinks}>{TicketLinks}</Link>}
+            />
         </div>
         <EventDetailFooter 
             description={Description}

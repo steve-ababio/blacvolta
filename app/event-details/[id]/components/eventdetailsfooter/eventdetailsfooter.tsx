@@ -35,7 +35,7 @@ export default function EventDetailFooter({description,flyerImagePath,sociallink
                 <h2 className="py-[20px] text-slate-700 font-bold text-[20px]">About this event</h2>
                 <p className="text-[1rem] text-slate-500">{description}</p>
             </div>
-            <div className="py-[40px] px-[10px] flex justify-between items-start text-slate-500">
+            <div className="py-[40px] px-[10px] flex  items-start text-slate-500">
                 <Link className="text-center flex-1" href={`tel:${phonenumber}`}><EventDetailFooterItem text="Inquiry" icon={<MdManageSearch size={25}/>}/></Link>
                 <EventDetailFooterItem  text="Add to calendar" onclick={(e)=>addToCalender(e,{eventDate,eventName,eventTime,venue,description})} icon={<BsCalendar4 size={25}/>}/>
                 <Link href={sociallink} className="text-center flex-1"><EventDetailFooterItem text="Follow Event" icon={<BsEnvelopePlus size={25}/>}/></Link>

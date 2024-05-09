@@ -3,8 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function EventDialogDetails(props:IEventDetails){
-    const {Id,EventDate,EventName,EventTime,Venue,FlyerImagePath,Description,TicketLinks} = props;
-
+    const {Id,EventName,EventTime,Venue,FlyerImagePath,Description,TicketLinks} = props;
     return (
         <>
             <div className="grid grid-cols-[1fr] sm:grid-cols-[250px,1fr] md:grid-cols-[300px,1fr] lg:grid-cols-[350px,1fr] border-b w-full border-b-[#9A9A9A]">

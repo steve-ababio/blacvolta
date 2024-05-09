@@ -30,7 +30,9 @@ export default function RootLayout({
         <link rel="preload" imageSrcSet="/assets/images/bgtablet.webp" media="((min-width:640.1px) and (max-width:768px)" as="image"/>
         <link rel="preload" imageSrcSet="/assets/images/bgminidesktop.webp" media="(min-width:768.1px) and (max-width:1280px)" as="image"/>
         <link rel="preload" imageSrcSet="/assets/images/bg.webp" media="(min-width:1280.1px)" as="image"/>
-
+        <noscript>
+          Sorry! Your need to enable JavaScript to use this app.!
+        </noscript>  
       </head>
       <PrimeReactProvider>
         <body className={`${asap.variable} ${poppins.variable}`}>{children}</body>

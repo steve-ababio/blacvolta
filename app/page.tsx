@@ -10,7 +10,6 @@ export default function App() {
     <main className="min-h-screen">
       <Home />
       <CalenderModal />
-      <UpcomingEvent />
       <PodcastStations />
       <Footer />
     </main>

@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 export default function Footer(){
+    const currentyear = new Date().getFullYear();
     return(
         <footer>
             <div className="px-[5%] bg-black">
@@ -9,7 +10,7 @@ export default function Footer(){
                         <div className="">
                             <Image src="/assets/images/logo.png" width={74} height={100} alt="website logo"/>
                         </div>
-                        <p className="text-[18px] text-white"><span>&copy;</span> BLACVOLTA 2023 | all rights reserved</p>
+                        <p className="text-[18px] text-white"><span>&copy;</span> BLACVOLTA {currentyear} | all rights reserved</p>
                     </div>
                 </div>
             </div>

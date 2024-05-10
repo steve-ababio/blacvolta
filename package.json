@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@prisma/client": "^5.12.1",
+    "@vercel/analytics": "^1.2.2",
     "downloadjs": "^1.4.7",
     "html2canvas": "^1.4.1",
     "ics": "^2.37.0",

@@ -31,7 +31,7 @@ export default function EventDetailFooter({description,flyerImagePath,sociallink
     return(
         <div>
             <div className="px-[10px]">
-                <h2 className="pt-[20px] pb-[5px] text-slate-700 font-bold text-[20px]">About this event</h2>
+                <h2 className="pt-[20px] pb-[5px] text-slate-700 font-bold text-[20px]">About this event: </h2>
                 <p className="text-[1rem] text-slate-500">{description}</p>
             </div>
             <div className="py-[40px] px-[10px] flex  items-start text-slate-500">

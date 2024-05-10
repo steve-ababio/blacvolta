@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter,Poppins,Asap } from "next/font/google";
-import {PrimeReactProvider} from "primereact/api"
+import {PrimeReactProvider} from "primereact/api";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const asap = Asap({
@@ -35,7 +36,10 @@ export default function RootLayout({
         </noscript>  
       </head>
       <PrimeReactProvider>
-        <body className={`${asap.variable} ${poppins.variable}`}>{children}</body>
+        <body className={`${asap.variable} ${poppins.variable}`}>
+          {children}
+          <Analytics />
+        </body>
       </PrimeReactProvider>
     </html>
   );

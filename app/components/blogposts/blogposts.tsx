@@ -5,7 +5,7 @@ import { BsArrowRight } from "react-icons/bs";
 import { FcKindle } from "react-icons/fc";
 
 async function getBlogLatestPosts(){
-    return await prisma.blogPost.findMany({
+    let results =  await prisma.blogPost.findMany({
         relationLoadStrategy:"join",
         include:{
             paragraph:true
@@ -15,6 +15,7 @@ async function getBlogLatestPosts(){
         },
         take:3
     });
+    return results;
 }
 
 export default async function BlogPosts(){

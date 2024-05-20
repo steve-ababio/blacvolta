@@ -1,9 +1,9 @@
-import UpcomingEvent from "./components/ads/upcomingevent";
 import PodcastStations from "./components/podcaststations/podcaststations";
 import Home from "./components/home/home";
 import Footer from "./components/footer/footer";
 import CalenderModal from "./components/calendar/calendar";
 import BlogPosts from "./components/blogposts/blogposts";
+import { Suspense } from "react";
 
 export default function App() {
   
@@ -12,7 +12,9 @@ export default function App() {
       <Home />
       <CalenderModal />
       <BlogPosts />
-      <PodcastStations />
+      <Suspense fallback={<div>loading blogs</div>}>
+        <PodcastStations />
+      </Suspense>
       <Footer />
     </main>
   );

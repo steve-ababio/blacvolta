@@ -62,7 +62,7 @@ export default function RootLayout({
       <PrimeReactProvider>
         <body className={` ${asap.variable} ${poppins.variable} ${futura.variable} ${ibmsans.variable} ${kamericbook.variable}`}>
           {children}
-          {/* <Analytics /> */}
+          <Analytics />
         </body>
       </PrimeReactProvider>
     </html>

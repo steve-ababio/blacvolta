@@ -28,17 +28,28 @@ export function downloadFile(hrefvalue:string,filename:string){
     link.click();
     document.body.removeChild(link);
 }
-
+function formatTime(hourstring:string,other:string){
+    const [minutestring,meridian] = other.split(" ");
+    let hour = parseInt(hourstring,10);
+    let minute = parseInt(minutestring,10);
+    if(hour != 12 && meridian === "PM"){
+        hour += 12;
+    }
+    if(hour === 12 && meridian === "AM"){
+        hour = 0;
+    }
+    return [hour,minute]
+}
 export async function addToCalender(e:React.MouseEvent,{eventDate,eventTime,venue,eventName,description}:EventDetails){
     const datearray = eventDate.split("-");
     const eventdate = datearray.map((value)=>parseInt(value));
     const timearray = eventTime.split(":");
-    const eventtime = timearray.map((value)=>parseInt(value));
 
+    const [hour,minute] = formatTime(timearray[0],timearray[1]);
     const event:EventAttributes = {
         title:eventName,
-        start:[eventdate[0],eventdate[1],eventdate[2],eventtime[0],eventtime[1]],
-        end:[eventdate[0],eventdate[1],eventdate[2],eventtime[0],eventtime[1]],
+        start:[eventdate[0],eventdate[1],eventdate[2],hour,minute],
+        end:[eventdate[0],eventdate[1],eventdate[2],hour,minute],
         location:venue,
         description:description,
     };

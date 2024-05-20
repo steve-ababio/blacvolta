@@ -4,7 +4,7 @@ import Footer from "./components/footer/footer";
 import CalenderModal from "./components/calendar/calendar";
 import BlogPosts from "./components/blogposts/blogposts";
 
-export default function HomePage() {
+export default async function HomePage() {
   
   return (
     <main className="min-h-screen">

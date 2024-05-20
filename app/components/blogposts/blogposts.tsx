@@ -6,10 +6,6 @@ import { FcKindle } from "react-icons/fc";
 
 async function getBlogLatestPosts(){
     let results =  await prisma.blogPost.findMany({
-        relationLoadStrategy:"join",
-        include:{
-            paragraph:true
-        },
         orderBy:{
             id:"desc"
         },

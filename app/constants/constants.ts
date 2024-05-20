@@ -1,16 +1,19 @@
-export const BASE_URL = "/api/events";
 
 export interface IEventDetails {
-    Description:string,
+    Id:string,
+    adminUserId:string|null,
+    userId:string|null,
+    Venue:string,
     EventDate:string,
     EventName:string,
     EventTime:string,
-    FlyerImagePath:string,
-    Id:string,
-    InquiryNumber:string,
     SocialLinks:string,
     TicketLinks:string,
-    Venue:string,
+    Description:string,
+    FlyerImagePath:string,
+    InquiryNumber:string,
     IsEventWeekly:boolean,
-    DayofWeek:string
+    DayofWeek:string,
+    approved:boolean
+    paid:boolean
 }

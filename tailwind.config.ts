@@ -8,6 +8,13 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+          asap:'var(--font-asap)',
+          ibmsans:'var(--font-ibmsans)',
+          futura:'var(--font-futura)',
+          poppins:'var(--font-poppins)',
+          kamerik:'var(--font-kamerik)',
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

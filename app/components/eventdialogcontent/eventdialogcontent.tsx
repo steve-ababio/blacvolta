@@ -10,7 +10,7 @@ export default  function DialogContent({date}:{date:string|undefined}){
     const selecteddate = new Date(date as string).toLocaleDateString("sv");
     const {data,error,isLoading} = useSWR(`/api/events?date=${selecteddate}`,fetcher);
 
-    if (error) return <div>Failed to load</div>
+    if (error) return <div className="text-white font-[25px]">Failed to load</div>
     if(isLoading) return <Loading />
     events = data;
     const sortedevents = events.sort((event1,event2)=>{
@@ -49,11 +49,11 @@ export default  function DialogContent({date}:{date:string|undefined}){
         }
     });
     return(
-        <div>
+        <div className="h-full">
             {
-               (data.length === 0) ? <div className='text-[1.1rem] sm:text-[1.5em] text-center mt-[50%] font-bold'>No events found for {date}</div>:
+               (data.length === 0) ? <div className='text-[1.1rem] h-[80vh] w-full flex justify-center items-center sm:text-[1.5em] text-white text-center font-bold'>No events found for {date}</div>:
                <div> 
-                    <h2 className="my-3 font-bold text-slate-600">{new Date(sortedevents[0].EventDate).toDateString()} Events</h2>
+                    <h2 className="my-3 font-bold text-white text-[23px]">{new Date(sortedevents[0].EventDate).toDateString()} Events</h2>
                     {(sortedevents.map(event => <EventDialogDetails key={event.Id} {...event} />))}
                </div>
             } 

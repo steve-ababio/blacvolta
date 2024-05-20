@@ -2,9 +2,9 @@ import PodcastCard from "../podcastcard/podcastcard"
 
 export default function PodcastStations(){
     return(
-        <section className="flex flex-col bg-black">
-            <div className="px-[5%] pb-[5%]">
-                <h2 className="my-[30px] text-[30px] font-[1000] text-center text-white">OUR PODCAST STATIONS</h2>
+        <section className="flex flex-col bg-black pt-[3rem]">
+            <div className="px-[5%]">
+                <h2 className="pb-8 text-[25px] kamerik font-bold md:text-[30px] text-center text-white">OUR PODCAST STATIONS</h2>
                 <div className="flex flex-col sm:flex-row gap-[30px]">
                     <PodcastCard>
                         <iframe 

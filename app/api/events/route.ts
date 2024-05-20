@@ -1,15 +1,24 @@
 import { IEventDetails } from "@/app/constants/constants";
 import { prisma } from "@/app/lib/prisma";
 import { NextRequest, NextResponse } from "next/server";
+
 function fetchAllIsWeeklyEvents(){
     let promise = prisma.event.findMany({
-        where:{IsEventWeekly:true}
+        where:{
+            IsEventWeekly:true,
+            approved:true,
+            paid:true,
+        }
     });
     return promise;
 }
 function fetchAllEventsThatMatchDateProvided(date:string){
     let promise =  prisma.event.findMany({
-        where:{EventDate:date}
+        where:{
+            EventDate:date,
+            approved:true,
+            paid:true
+        }
     });
     return promise;
 }
@@ -18,7 +27,6 @@ export async function GET(req:NextRequest){
     const {searchParams} = new URL(req.url);
     const date = searchParams.get("date") as string;
     const dayofweekofselecteddate = new Date(date).getDay().toString();
-
     const allweeklyeventspromise = fetchAllIsWeeklyEvents();
     const alleventsthatmatchprovideddatepromise = fetchAllEventsThatMatchDateProvided(date);
     const [allweeklyevents,alleventsthatmatchprovideddate] = await Promise.all([allweeklyeventspromise, alleventsthatmatchprovideddatepromise]);
@@ -33,4 +41,3 @@ export async function GET(req:NextRequest){
     const selectedevents = alleventsthatmatchprovideddate.concat(weeklyeventsofselecteddate);
     return NextResponse.json(selectedevents);
 }
-

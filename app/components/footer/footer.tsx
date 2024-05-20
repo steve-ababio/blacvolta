@@ -10,7 +10,7 @@ export default function Footer(){
                         <div className="">
                             <Image src="/assets/images/logo.png" width={74} height={100} alt="website logo"/>
                         </div>
-                        <p className="text-[18px] text-white"><span>&copy;</span> BLACVOLTA {currentyear} | all rights reserved</p>
+                        <p className=" text-[19px] font-normal font-kamerik text-white"><span>&copy;</span> BLACVOLTA {currentyear} | all rights reserved</p>
                     </div>
                 </div>
             </div>

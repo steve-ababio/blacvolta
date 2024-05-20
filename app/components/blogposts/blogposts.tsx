@@ -1,4 +1,5 @@
 import { prisma } from "@/app/lib/prisma";
+import { unstable_noStore } from "next/cache";
 import Image from "next/image";
 import Link from "next/link";
 import { BsArrowRight } from "react-icons/bs";
@@ -12,8 +13,9 @@ async function getBlogLatestPosts(){
         take:3
     });
 }
-
+export const dynamic = 'force-dynamic';
 export default async function BlogPosts(){
+    unstable_noStore(); 
     const blogposts = await getBlogLatestPosts();
     console.log("blogposts: ",blogposts);
     return(

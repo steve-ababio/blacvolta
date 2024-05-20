@@ -5,7 +5,6 @@ import CalenderModal from "./components/calendar/calendar";
 import BlogPosts from "./components/blogposts/blogposts";
 import { unstable_noStore } from "next/cache";
 
-export const dynamic = 'force-dynamic';
 export default async function HomePage() 
 {
   unstable_noStore();  

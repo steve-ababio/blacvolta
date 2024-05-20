@@ -1,4 +1,5 @@
 import { prisma } from "@/app/lib/prisma";
+import { unstable_noStore } from "next/cache";
 import Image from "next/image";
 import Link from "next/link";
 import { FcKindle } from "react-icons/fc";
@@ -14,8 +15,9 @@ async function getAllBlogPosts(){
         },
     });
 }
-
+export const dynamic = 'force-dynamic';
 export default async function BlogList(){
+    unstable_noStore(); 
     const blogposts = await getAllBlogPosts();
     console.log("page blogposts: ",blogposts.length);
     return(

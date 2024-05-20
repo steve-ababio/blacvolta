@@ -1,6 +1,5 @@
 "use client"
 import { BlogPostType } from "@/app/components/blogposts/blogposts";
-import { prisma } from "@/app/lib/prisma";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";

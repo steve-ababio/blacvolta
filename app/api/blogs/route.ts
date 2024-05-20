@@ -14,5 +14,5 @@ async function getAllBlogPosts(){
 }
 export async function GET(){
     const blogs = await getAllBlogPosts();
-    NextResponse.json(blogs);
+    return NextResponse.json(blogs);
 }

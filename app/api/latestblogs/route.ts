@@ -11,5 +11,5 @@ async function getBlogLatestPosts(){
 }
 export async function GET(){
     const latestblogs = await getBlogLatestPosts();
-    NextResponse.json(latestblogs);
+    return NextResponse.json(latestblogs);
 }

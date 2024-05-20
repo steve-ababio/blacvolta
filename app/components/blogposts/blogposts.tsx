@@ -14,7 +14,6 @@ async function getBlogLatestPosts(){
 }
 
 export default async function BlogPosts(){
-    console.log("blog posts");
     const blogposts = await getBlogLatestPosts();
     console.log("blogposts: ",blogposts);
     return(
@@ -25,7 +24,8 @@ export default async function BlogPosts(){
                     {
                         blogposts.length === 0 ? 
                         <div className="text-white text-[18px] font-kamerik flex justify-center items-center gap-x-4">There are no blogs <FcKindle size={40} /></div>
-                        :blogposts.map(({title,author,imagepath,date,id})=>{
+                        :
+                        blogposts.map(({title,author,imagepath,date,id})=>{
                             const blogdate = new Date(date).toLocaleDateString("en-us",{
                                 month:"short",
                                 year:"numeric",
@@ -38,7 +38,7 @@ export default async function BlogPosts(){
                                     </div>
                                     <div className="px-3 text-white kamerik">
                                         <div title={title} className="overflow-hidden text-[16px] md:text-[20px] mb-4 font-bold text-ellipsis whitespace-nowrap">{title}</div>
-                                        <div >
+                                        <div>
                                             <div className="text-[12px] font-kamerik mb-1 font-bold">By <span className="font-bold">{author}</span></div>
                                             <div className="text-[12px] font-kamerik font-bold text-[#9A9A9A]">{blogdate}</div>
                                         </div>

@@ -38,7 +38,7 @@ function formatTime(hourstring:string,other:string){
     if(hour === 12 && meridian === "AM"){
         hour = 0;
     }
-    return [hour,minute]
+    return [hour,minute];
 }
 export async function addToCalender(e:React.MouseEvent,{eventDate,eventTime,venue,eventName,description}:EventDetails){
     const datearray = eventDate.split("-");

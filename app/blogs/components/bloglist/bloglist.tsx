@@ -19,7 +19,6 @@ export const dynamic = 'force-dynamic';
 export default async function BlogList(){
     unstable_noStore(); 
     const blogposts = await getAllBlogPosts();
-    console.log("page blogposts: ",blogposts.length);
     return(
         <div className="overflow-x-hidden justify-center items-center px-10 flex flex-col max-w-full md:grid md:grid-cols-[repeat(auto-fit,300px)] py-12 gap-14">
             {

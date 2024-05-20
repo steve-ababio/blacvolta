@@ -11,7 +11,7 @@ export default function App() {
     <main className="min-h-screen">
       <Home />
       <CalenderModal />
-      <Suspense fallback={<div>loading blogs</div>}>
+      <Suspense fallback={<div className="flex justify-center items-center">loading blogs</div>}>
         <BlogPosts />
       </Suspense>
       <PodcastStations />

@@ -28,7 +28,6 @@ export function downloadFile(hrefvalue:string,filename:string){
     link.click();
     document.body.removeChild(link);
 }
-
 function formatTime(hourstring:string,other:string){
     const [minutestring,meridian] = other.split(" ");
     let hour = parseInt(hourstring,10);

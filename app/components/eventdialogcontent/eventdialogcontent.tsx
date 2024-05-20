@@ -51,7 +51,7 @@ export default  function DialogContent({date}:{date:string|undefined}){
     return(
         <div className="h-full">
             {
-               (data.length === 0) ? <div className='text-[1.1rem] h-[80vh] w-full flex justify-center items-center sm:text-[1.5em] text-white text-center font-bold'>No events found for {date}</div>:
+               (data.length === 0) ? <div className='text-[1.1rem] h-[80vh] w-full flex justify-center font-kamerik items-center sm:text-[1.5em] text-white text-center font-bold'>No events found for {date}</div>:
                <div> 
                     <h2 className="my-3 font-bold text-white text-[23px]">{new Date(sortedevents[0].EventDate).toDateString()} Events</h2>
                     {(sortedevents.map(event => <EventDialogDetails key={event.Id} {...event} />))}

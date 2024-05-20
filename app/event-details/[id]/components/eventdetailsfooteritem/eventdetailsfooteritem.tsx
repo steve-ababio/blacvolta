@@ -13,7 +13,7 @@ export default function EventDetailFooterItem({icon,classname,text,onclick}:Even
                 <div>
                     {icon}
                 </div>
-                <p className="kamerik font-normal text-[13px]  sm:text[16px] text-center">{text}</p>
+                <p className="font-kamerik font-normal text-[13px] sm:text[16px] text-center">{text}</p>
             </div>
         </button>
     )

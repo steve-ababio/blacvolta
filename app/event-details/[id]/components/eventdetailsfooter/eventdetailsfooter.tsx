@@ -34,8 +34,8 @@ export default function EventDetailFooter({description,flyerImagePath,sociallink
                 {
                     description.length > 0 &&
                     <>
-                        <h2 className="kamerik pt-[20px] pb-[5px] text-slate-200 font-bold text-[20px]">About this event </h2>
-                        <p className="text-[1rem] text-slate-500">{description}</p>
+                        <h2 className="font-kamerik pt-[20px] pb-[5px] text-slate-200 font-bold text-[20px]">About this event </h2>
+                        <p className="text-[1rem] text-[#9A9A9A]">{description}</p>
                     </>
                 }
             </div>

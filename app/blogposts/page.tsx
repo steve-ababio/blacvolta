@@ -24,7 +24,7 @@ export default async function BlogPosts(){
             <div className="overflow-x-hidden justify-center items-center px-10 flex flex-col max-w-full md:grid md:grid-cols-[repeat(auto-fit,300px)] py-12 gap-14">
                     {
                         blogposts.length === 0 ?
-                        <div className="text-white text-[18px] font-kamerik">There are no blogs <FcKindle size={40} /></div>
+                        <div className="text-white text-[18px] font-kamerik flex justify-center items-center gap-x-4">There are no blogs <FcKindle size={40} /></div>
                         :blogposts.map(({title,author,imagepath,date,id})=>{
                             const blogdate = new Date(date).toLocaleDateString("en-us",{
                                 month:"short",

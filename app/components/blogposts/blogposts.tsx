@@ -28,7 +28,9 @@ export default function BlogPosts(){
             let response = await fetch("/api/latestblogs");
             let data = await response.json();
             setLatestBlogs(data);
+            console.log("latest blogs: ",data)
         }
+        
         fetchLatestBlogs();
     },[])
     return(

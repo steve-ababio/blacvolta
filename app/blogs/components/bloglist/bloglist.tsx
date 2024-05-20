@@ -13,6 +13,7 @@ export default function BlogList(){
             let response = await fetch("/api/blogs");
             let data = await response.json();
             setBlogs(data);
+            console.log("blogs: ",data)
         }
         fetchLatestBlogs();
     },[])

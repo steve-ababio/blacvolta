@@ -12,7 +12,7 @@ async function getBlogLatestPosts(){
         take:3
     });
 }
-
+export const revalidate = 0;
 export default async function BlogPosts(){
     const blogposts = await getBlogLatestPosts();
     console.log("blogposts: ",blogposts);

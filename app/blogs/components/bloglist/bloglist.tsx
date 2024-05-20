@@ -14,7 +14,7 @@ async function getAllBlogPosts(){
         },
     });
 }
-
+export const revalidate = 0
 export default async function BlogList(){
     const blogposts = await getAllBlogPosts();
     console.log("page blogposts: ",blogposts.length);

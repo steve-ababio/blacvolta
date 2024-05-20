@@ -1,48 +1,31 @@
-"use client"
+import { prisma } from "@/app/lib/prisma";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { BsArrowRight } from "react-icons/bs";
 import { FcKindle } from "react-icons/fc";
 
-export type ParagraphType = {
-    id:string
-    imagepath:string,
-    title:string,
-    body:string,
-    blogID:number
-}
-export type BlogPostType = {
-    id: number;
-    author: string;
-    title: string;
-    date: string;
-    imagepath:string,
-    paragraph:ParagraphType[]
+async function getBlogLatestPosts(){
+    return await prisma.blogPost.findMany({
+        orderBy:{
+            id:"desc"
+        },
+        take:3
+    });
 }
 
-export default function BlogPosts(){
-    const [latestblogs,setLatestBlogs] = useState<BlogPostType[]>([])
-    useEffect(()=>{
-        async function fetchLatestBlogs(){
-            let response = await fetch("/api/latestblogs");
-            let data = await response.json();
-            setLatestBlogs(data);
-            console.log("latest blogs: ",data)
-        }
-        
-        fetchLatestBlogs();
-    },[])
+export default async function BlogPosts(){
+    const blogposts = await getBlogLatestPosts();
+    console.log("blogposts: ",blogposts);
     return(
         <section className="flex flex-col pt-[3rem]">
             <div className="px-[5%] ">
                 <h2 className="text-[25px] pb-8 font-kamerik font-bold md:text-[30px] text-center text-white">BLOGS</h2>
                 <div className="justify-center items-center flex flex-col w-full md:grid md:grid-cols-[repeat(auto-fit,350px)] gap-14">
                     {
-                        latestblogs.length === 0 ? 
+                        blogposts.length === 0 ? 
                         <div className="text-white text-[18px] font-kamerik flex justify-center items-center gap-x-4">There are no blogs <FcKindle size={40} /></div>
                         :
-                        latestblogs.map(({title,author,imagepath,date,id})=>{
+                        blogposts.map(({title,author,imagepath,date,id})=>{
                             const blogdate = new Date(date).toLocaleDateString("en-us",{
                                 month:"short",
                                 year:"numeric",
@@ -66,7 +49,7 @@ export default function BlogPosts(){
                     }
                 </div>
                 {
-                    latestblogs.length > 0 &&
+                    blogposts.length > 0 &&
                     <Link className="flex py-8 hover:underline gap-x-1 items-center" href="/blogs">
                         <span className="text-white text-[1rem] font-kamerik font-bold">View more blogs</span>
                         <BsArrowRight color="white" size={20} />

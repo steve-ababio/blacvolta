@@ -1,28 +1,29 @@
-"use client"
-import { BlogPostType } from "@/app/components/blogposts/blogposts";
+import { prisma } from "@/app/lib/prisma";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { FcKindle } from "react-icons/fc";
 
+async function getAllBlogPosts(){
+    return await prisma.blogPost.findMany({
+        relationLoadStrategy:"join",
+        include:{
+            paragraph:true
+        },
+        orderBy:{
+            id:"desc"
+        },
+    });
+}
 
-export default function BlogList(){
-    const [blog,setBlogs] = useState<BlogPostType[]>([])
-    useEffect(()=>{
-        async function fetchLatestBlogs(){
-            let response = await fetch("/api/blogs");
-            let data = await response.json();
-            setBlogs(data);
-            console.log("blogs: ",data)
-        }
-        fetchLatestBlogs();
-    },[])
+export default async function BlogList(){
+    const blogposts = await getAllBlogPosts();
+    console.log("page blogposts: ",blogposts.length);
     return(
         <div className="overflow-x-hidden justify-center items-center px-10 flex flex-col max-w-full md:grid md:grid-cols-[repeat(auto-fit,300px)] py-12 gap-14">
             {
-                blog.length === 0 ?
+                blogposts.length === 0 ?
                 <div className="text-white text-[18px] font-kamerik flex justify-center items-center gap-x-4">There are no blogs <FcKindle size={40} /></div>
-                :blog.map(({title,author,imagepath,date,id})=>{
+                :blogposts.map(({title,author,imagepath,date,id})=>{
                     const blogdate = new Date(date).toLocaleDateString("en-us",{
                         month:"short",
                         year:"numeric",

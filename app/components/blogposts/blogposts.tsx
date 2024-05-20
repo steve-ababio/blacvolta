@@ -14,6 +14,7 @@ async function getBlogLatestPosts(){
 }
 
 export default async function BlogPosts(){
+    console.log("blog posts");
     const blogposts = await getBlogLatestPosts();
     console.log("blogposts: ",blogposts);
     return(

@@ -18,6 +18,7 @@ async function getAllBlogPosts(){
 
 export default async function BlogPosts(){
     const blogposts = await getAllBlogPosts();
+    console.log("page blogposts: " ,blogposts.length);
     return(
         <main className="h-screen">
             <BlogHeader />

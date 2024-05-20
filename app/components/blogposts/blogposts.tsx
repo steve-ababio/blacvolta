@@ -19,6 +19,7 @@ async function getBlogLatestPosts(){
 
 export default async function BlogPosts(){
     const blogposts = await getBlogLatestPosts();
+    console.log("blogposts: ",blogposts);
     return(
         <section className="flex flex-col pt-[3rem]">
             <div className="px-[5%] ">

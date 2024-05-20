@@ -2,6 +2,7 @@ import { prisma } from "@/app/lib/prisma";
 import Image from "next/image";
 import Link from "next/link";
 import { BsArrowRight } from "react-icons/bs";
+import { FcKindle } from "react-icons/fc";
 
 async function getBlogLatestPosts(){
     return await prisma.blogPost.findMany({
@@ -25,7 +26,7 @@ export default async function BlogPosts(){
                 <div className="justify-center items-center flex flex-col w-full md:grid md:grid-cols-[repeat(auto-fit,350px)] gap-14">
                     {
                         blogposts.length === 0 ? 
-                        <div className="text-white text-[18px] font-kamerik">There are no blogs</div>
+                        <div className="text-white text-[18px] font-kamerik">There are no blogs <FcKindle size={40} /></div>
                         :blogposts.map(({title,author,imagepath,date,id})=>{
                             const blogdate = new Date(date).toLocaleDateString("en-us",{
                                 month:"short",

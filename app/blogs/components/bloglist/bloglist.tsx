@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { FcKindle } from "react-icons/fc";
 
 
-export default async function BlogList(){
+export default function BlogList(){
     const [blog,setBlogs] = useState<BlogPostType[]>([])
     useEffect(()=>{
         async function fetchLatestBlogs(){

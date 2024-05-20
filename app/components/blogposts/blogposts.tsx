@@ -21,7 +21,7 @@ export type BlogPostType = {
     paragraph:ParagraphType[]
 }
 
-export default async function BlogPosts(){
+export default function BlogPosts(){
     const [latestblogs,setLatestBlogs] = useState<BlogPostType[]>([])
     useEffect(()=>{
         async function fetchLatestBlogs(){

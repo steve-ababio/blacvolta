@@ -5,7 +5,7 @@ import CalenderModal from "./components/calendar/calendar";
 import BlogPosts from "./components/blogposts/blogposts";
 import { Suspense } from "react";
 
-export default function App() {
+export default function HomePage() {
   
   return (
     <main className="min-h-screen">

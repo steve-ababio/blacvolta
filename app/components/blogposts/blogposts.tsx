@@ -5,12 +5,13 @@ import { BsArrowRight } from "react-icons/bs";
 import { FcKindle } from "react-icons/fc";
 
 async function getBlogLatestPosts(){
-    let results =  await prisma.blogPost.findMany({
+    let results = await prisma.blogPost.findMany({
         orderBy:{
             id:"desc"
         },
         take:3
     });
+    console.log('results:', results);
     return results;
 }
 

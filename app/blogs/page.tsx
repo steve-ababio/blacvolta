@@ -7,9 +7,7 @@ export default async function Blogs(){
     return(
         <main className="h-screen">
             <BlogHeader />
-            <Suspense fallback={<div className="flex justify-center items-center">loading blogs</div>}>
-                <BlogList />
-            </Suspense>
+            <BlogList />
         </main>
     )
 }

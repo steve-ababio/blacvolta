@@ -11,9 +11,7 @@ export default function HomePage() {
     <main className="min-h-screen">
       <Home />
       <CalenderModal />
-      <Suspense fallback={<div className="flex justify-center items-center">loading blogs</div>}>
-        <BlogPosts />
-      </Suspense>
+      <BlogPosts />
       <PodcastStations />
       <Footer />
     </main>

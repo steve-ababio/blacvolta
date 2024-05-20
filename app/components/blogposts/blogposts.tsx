@@ -25,7 +25,7 @@ export default async function BlogPosts(){
                 <div className="justify-center items-center flex flex-col w-full md:grid md:grid-cols-[repeat(auto-fit,350px)] gap-14">
                     {
                         blogposts.length === 0 ? 
-                        <div className="text-white text-[18px] font-kamerik">There are blogs</div>
+                        <div className="text-white text-[18px] font-kamerik">There are no blogs</div>
                         :blogposts.map(({title,author,imagepath,date,id})=>{
                             const blogdate = new Date(date).toLocaleDateString("en-us",{
                                 month:"short",
@@ -49,10 +49,13 @@ export default async function BlogPosts(){
                         })
                     }
                 </div>
-                <Link className="flex py-8 hover:underline gap-x-1 items-center" href="/blogposts">
+                {
+                    blogposts.length > 0 &&
+                    <Link className="flex py-8 hover:underline gap-x-1 items-center" href="/blogposts">
                         <span className="text-white text-[1rem] font-kamerik font-bold">View more blogs</span>
                         <BsArrowRight color="white" size={20} />
-                </Link>
+                    </Link>
+                }
             </div>
         </section>
     )

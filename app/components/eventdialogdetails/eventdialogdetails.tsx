@@ -11,7 +11,7 @@ export default function EventDialogDetails(props:IEventDetails){
                 <div className="m-[10px] place-content-center max-w-[250px] sm:max-w-none relative h-[250px] md:h-[300px] lg:h-[350px] rounded-lg">
                     <Image
                         priority
-                        src={"/uploads/eventflyer.jpeg"}
+                        src={FlyerImagePath}
                         style={{borderRadius:"10px",display:"block"}}
                         layout="fill"
                         className="text-white"

@@ -5,6 +5,7 @@ import CalenderModal from "./components/calendar/calendar";
 import BlogPosts from "./components/blogposts/blogposts";
 import { unstable_noStore } from "next/cache";
 import { Suspense } from "react";
+import BlogLoader from "./components/blogloader/blogloader";
 
 export default async function HomePage() 
 {
@@ -13,7 +14,7 @@ export default async function HomePage()
     <main className="min-h-screen">
       <Home />
       <CalenderModal />
-      <Suspense fallback={<div className="text-[20px] text-white font-kamerik flex justify-center items-center">Fetching blogs</div>}>
+      <Suspense fallback={<BlogLoader size={3} />}>
         <BlogPosts />
       </Suspense>
       <PodcastStations />

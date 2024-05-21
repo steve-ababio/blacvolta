@@ -2,16 +2,16 @@
 import { Suspense } from "react";
 import BlogHeader from "../components/blogheader/blogheader";
 import BlogList from "./components/bloglist/bloglist";
+import BlogLoader from "../components/blogloader/blogloader";
 
 
 export default async function Blogs(){
     return(
         <main className="h-screen">
             <BlogHeader />
-            <Suspense fallback={<div className="text-[20px] text-white font-kamerik flex justify-center items-center">Fetching blogs</div>}>
+            <Suspense fallback={<BlogLoader size={9} />}>
                 <BlogList />    
             </Suspense>
-            
         </main>
     )
 }

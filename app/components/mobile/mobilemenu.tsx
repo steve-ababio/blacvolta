@@ -13,7 +13,7 @@ export default function MobileMenu({closeMobileMenu}:MobileMenuProps){
                     <div onClick={closeMobileMenu}>HOME</div>
                 </NavItem>
                 <NavItem href="/blogs" >
-                    <span>BLOGS</span>
+                    <span>EDITORIALS</span>
                 </NavItem>
                 <NavItem href="#bv-calender" >
                     <div onClick={closeMobileMenu}>CALENDAR</div>

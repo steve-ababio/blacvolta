@@ -12,7 +12,7 @@ export default function DesktopMenu(){
                     <span>CALENDAR</span>
                 </NavItem>
                 <NavItem href="/blogs" >
-                    <span>BLOGS</span>
+                    <span>EDITORIALS</span>
                 </NavItem>
             </div>
             <div className="hidden items-center md:flex py-4">

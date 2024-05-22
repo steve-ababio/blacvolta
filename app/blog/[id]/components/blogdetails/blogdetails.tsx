@@ -12,7 +12,7 @@ export default function BlogDetails({title,author,blogdate,blogimagepath}: BlogD
     return(
         <div className="border-b w-full pb-3 mt-6 border-b-slate-300/40">
             <h1 className="text-[35px] md:text-[40px] mb-5 kamerik font-black md:text-center text-white">{title}</h1>
-            <div className="w-full relative h-auto mb-7">
+            <div className="w-full relative aspect-video mb-7">
                 <Image src={blogimagepath} className="max-w-full max-h-full text-white" alt="paragraph image" fill />
             </div>
             <div className="flex items-center mb-2 gap-x-3">

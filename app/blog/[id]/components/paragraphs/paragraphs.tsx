@@ -18,9 +18,9 @@ export default function Paragraphs({paragraphs}:{paragraphs:ParagraphType[]}){
                     <div className="mt-7" key={paragraph.id}>
                         {
                             paragraph.imagepath.length > 0 && 
-                            <div className="w-full aspect-video relative mb-7">
-                                <Image src={paragraph.imagepath} className="absolute inset-0 text-white" alt="paragraph image" fill />
-                            </div>
+                            <>
+                                <img src={paragraph.imagepath} className="max-w-full h-auto text-white" alt="paragraph image" />
+                            </>
                         }
                         {paragraph.title.length > 0 && <h2 className="pb-3 text-white font-bold kamerik text-[30px]">{paragraph.title}</h2>}
                         {

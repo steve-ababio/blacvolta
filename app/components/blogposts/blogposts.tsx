@@ -52,7 +52,7 @@ export default async function BlogPosts(){
                 {
                     blogposts.length > 0 &&
                     <Link className="flex py-8 hover:underline gap-x-1 items-center" href="/blogs">
-                        <span className="text-white text-[1rem] font-kamerik font-bold">View more blogs</span>
+                        <span className="text-white text-[1rem] font-kamerik font-bold">View more editorials</span>
                         <BsArrowRight color="white" size={20} />
                     </Link>
                 }

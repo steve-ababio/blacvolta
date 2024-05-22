@@ -8,6 +8,8 @@ type ParagraphType = {
     body:string,
     blogID:number
 }
+
+
 export default function Paragraphs({paragraphs}:{paragraphs:ParagraphType[]}){
     return(
         <div >

@@ -26,7 +26,7 @@ export default async function Blog({params}:{params:{id:number}}){
             <div>
                 <BlogHeader />
                 <main className="md:px-[20%] px-8">
-                    <BlogDetails blogdate={blogdate} author={blog!.author} title={blog!.title}/>
+                    <BlogDetails blogimagepath={blog!.imagepath} blogdate={blogdate} author={blog!.author} title={blog!.title}/>
                     <Paragraphs paragraphs={blog!.paragraph} />
                 </main>
             </div>

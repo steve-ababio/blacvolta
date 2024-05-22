@@ -17,15 +17,14 @@ export const dynamic = 'force-dynamic';
 export default async function BlogPosts(){
     unstable_noStore(); 
     const blogposts = await getBlogLatestPosts();
-    console.log("blogposts: ",blogposts);
     return(
         <section className="flex flex-col pt-[3rem]">
             <div className="px-[5%] ">
-                <h2 className="text-[25px] pb-8 font-kamerik font-bold md:text-[30px] text-center text-white">BLOGS</h2>
+                <h2 className="text-[25px] pb-8 font-kamerik font-bold md:text-[30px] text-center text-white">EDITORIALS</h2>
                 <div className="justify-center items-center flex flex-col w-full  md:grid md:grid-cols-[repeat(auto-fit,350px)] gap-14">
                     {
                         blogposts.length === 0 ? 
-                        <div className="text-white text-[18px] font-kamerik flex justify-center items-center gap-x-4">There are no blogs <FcKindle size={40} /></div>
+                        <div className="text-white text-[18px] font-kamerik flex justify-center items-center gap-x-4">There are no editorials <FcKindle size={40} /></div>
                         :
                         blogposts.map(({title,author,imagepath,date,id})=>{
                             const blogdate = new Date(date).toLocaleDateString("en-us",{
@@ -36,7 +35,7 @@ export default async function BlogPosts(){
                             return(
                                 <Link href={`/blog/${id}`} className="border block h-auto pb-10 border-slate-300/40  rounded-[8px] w-full lg:hover:scale-[1.02] duration-200" key={id}>
                                     <div className="relative mb-4 h-[200px]">
-                                        <Image src={imagepath} className="rounded-t-[8px]" objectFit="cover" layout="fill" alt="blog title" />
+                                        <Image src={imagepath} className="rounded-t-[8px] absolute inset-0"  fill alt="blog title" />
                                     </div>
                                     <div className="px-3 text-white kamerik">
                                         <div title={title} className="overflow-hidden text-[16px] md:text-[20px] mb-4 font-bold text-ellipsis whitespace-nowrap">{title}</div>

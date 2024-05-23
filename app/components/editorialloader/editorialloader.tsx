@@ -1,7 +1,6 @@
 import { IoImageOutline } from "react-icons/io5";
 
-
-export default function BlogLoader({size}:{size:number}){
+export default function EditorialLoader({size}:{size:number}){
     let newarray = new Array(size);
     let blogs = [...newarray];
     return(

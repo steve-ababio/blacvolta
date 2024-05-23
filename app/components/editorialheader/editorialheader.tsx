@@ -3,7 +3,7 @@ import Link from "next/link";
 import { BiLeftArrowAlt } from "react-icons/bi";
 
 
-export default function BlogHeader(){
+export default function EditorialHeader(){
     return(
         <header className="
             flex items-center justify-center h-[50vh] 

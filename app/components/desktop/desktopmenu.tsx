@@ -11,7 +11,7 @@ export default function DesktopMenu(){
                 <NavItem href="#bv-calender" >
                     <span>CALENDAR</span>
                 </NavItem>
-                <NavItem href="/blogs" >
+                <NavItem href="editorials" >
                     <span>EDITORIALS</span>
                 </NavItem>
             </div>

@@ -8,7 +8,7 @@ type BlogDetailsProp = {
     blogdate: string,
     blogimagepath:string
 }
-export default function BlogDetails({title,author,blogdate,blogimagepath}: BlogDetailsProp){
+export default function EditorialDetails({title,author,blogdate,blogimagepath}: BlogDetailsProp){
     return(
         <div className="border-b w-full pb-3 mt-6 border-b-slate-300/40">
             <h1 className="text-[35px] md:text-[40px] mb-5 kamerik font-black md:text-center text-white">{title}</h1>

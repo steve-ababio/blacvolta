@@ -1,9 +1,9 @@
 import { prisma } from "@/app/lib/prisma";
 import Paragraphs from "./components/paragraphs/paragraphs";
-import BlogDetails from "./components/blogdetails/blogdetails";
-import BlogHeader from "@/app/components/blogheader/blogheader";
+import EditorialDetails from "./components/editorialdetails/editorialdetails";
+import EditorialHeader from "@/app/components/editorialheader/editorialheader";
 
-async function getBlogPost(id:number){
+async function getEditorial(id:number){
     return await prisma.blogPost.findUnique({
         where:{
             id
@@ -14,8 +14,8 @@ async function getBlogPost(id:number){
         },
     });
 }
-export default async function Blog({params}:{params:{id:number}}){
-    const blog = await getBlogPost(parseInt(params.id.toString(),10));
+export default async function Editorial({params}:{params:{id:number}}){
+    const blog = await getEditorial(parseInt(params.id.toString(),10));
     const blogdate = new Date(blog!.date).toLocaleDateString("en-us",{
         year:'numeric',
         month:"short",
@@ -24,9 +24,9 @@ export default async function Blog({params}:{params:{id:number}}){
     return(
         <div className="h-screen w-full overflow-x-hidden">
             <div>
-                <BlogHeader />
+                <EditorialHeader />
                 <main className="md:px-[20%] px-8">
-                    <BlogDetails blogimagepath={blog!.imagepath} blogdate={blogdate} author={blog!.author} title={blog!.title}/>
+                    <EditorialDetails blogimagepath={blog!.imagepath} blogdate={blogdate} author={blog!.author} title={blog!.title}/>
                     <Paragraphs paragraphs={blog!.paragraph} />
                 </main>
             </div>

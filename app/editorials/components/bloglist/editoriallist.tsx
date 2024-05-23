@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FcKindle } from "react-icons/fc";
 
-async function getAllBlogPosts(){
+async function getAllEditorials(){
     return await prisma.blogPost.findMany({
         relationLoadStrategy:"join",
         include:{
@@ -16,9 +16,9 @@ async function getAllBlogPosts(){
     });
 }
 export const dynamic = 'force-dynamic';
-export default async function BlogList(){
+export default async function EditorialList(){
     unstable_noStore(); 
-    const blogposts = await getAllBlogPosts();
+    const blogposts = await getAllEditorials();
     return(
         <div className="px-[5%]">
             <div className="justify-center items-center flex flex-col max-w-full md:grid md:grid-cols-[repeat(auto-fit,300px)] py-12 gap-14">
@@ -32,9 +32,9 @@ export default async function BlogList(){
                             day:"numeric"
                         })
                         return(
-                            <Link href={`/blog/${id}`} className="border block h-auto pb-10 border-slate-300/40 rounded-[8px] w-full hover:scale-[1.02] duration-200" key={id}>
-                                <div className="relative mb-4 h-[200px]">
-                                    <Image src={imagepath} className="rounded-t-[8px] absolute inset-0" fill alt="blog title" />
+                            <Link href={`/editorial/${id}`} className="border block h-auto pb-10 border-slate-300/40 rounded-[8px] w-full hover:scale-[1.02] duration-200" key={id}>
+                                <div className="relative mb-4">
+                                    <img src={imagepath} className="rounded-t-[8px] w-full h-auto"  alt="blog title" />
                                 </div>
                                 <div className="px-3 text-white font-kamerik">
                                     <div title={title} className="overflow-hidden text-[16px] md:text-[20px] mb-4 font-bold text-ellipsis whitespace-nowrap">{title}</div>

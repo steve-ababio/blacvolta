@@ -35,7 +35,7 @@ export default async function Editorials(){
                             return(
                                 <Link href={`/editorial/${id}`} className="border block h-auto pb-10 border-slate-300/40  rounded-[8px] w-full lg:hover:scale-[1.02] duration-200" key={id}>
                                     <div className="relative mb-4 lg:h-[250px]">
-                                        <img src={imagepath} className="rounded-t-[8px] w-full h-auto lg:h-full lg:object-cover"  alt="blog title" />
+                                        <img src={imagepath} className="rounded-t-[8px] w-full h-auto lg:h-full lg:object-top lg:object-cover"  alt="blog title" />
                                     </div>
                                     <div className="px-3 text-white kamerik">
                                         <div title={title} className="overflow-hidden text-[16px] md:text-[20px] mb-4 font-bold text-ellipsis whitespace-nowrap">{title}</div>

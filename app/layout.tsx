@@ -39,7 +39,7 @@ const futura = localFont({
   variable:"--font-futura"
 });
 export const metadata: Metadata = {
-  title: "Blac Volta",
+  title: "Blacvolta",
   description: "Entertainment Hub - Africa",
 };
 

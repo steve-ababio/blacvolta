@@ -33,8 +33,8 @@ export default function MobileMenu({closeMobileMenu}:MobileMenuProps){
                     <NavItem href="https://instagram.com/blacvolta">
                         <RiInstagramLine size={25} />
                     </NavItem>
-                    <NavItem>
-                    <FiMail  size={25} />
+                    <NavItem href="mailto:blacvolta@gmail.com">
+                        <FiMail  size={25} />
                     </NavItem>
                 </div>
             </div>

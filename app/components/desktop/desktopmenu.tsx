@@ -28,7 +28,7 @@ export default function DesktopMenu(){
                 <NavItem href="https://instagram.com/blacvolta">
                     <RiInstagramLine size={30} />
                 </NavItem>
-                <NavItem href="/mail">
+                <NavItem href="mailto:blacvolta@gmail.com">
                     <RiMailLine size={30} />
                 </NavItem>
             </div>

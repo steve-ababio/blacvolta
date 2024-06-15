@@ -15,17 +15,17 @@ export default function About(){
                 <p className="[word-spacing:-2px]">
                     Our core business spans a diverse range of services, including event production, events,
                     e-commerce, tech innovation, talent management, and broadcasting. BlacVolta is not just a company;
-                    it's a movement aimed at reshaping how African nightlife, culture, and technology are perceived globally.
+                    it&apos;s a movement aimed at reshaping how African nightlife, culture, and technology are perceived globally.
                      Our work is driven by a passion for showcasing the vibrancy and potential of the African continent.
                 </p>
                 <p className="[word-spacing:-2px]">
-                    Joseph Adjei's leadership has been instrumental in propelling BlacVolta to the forefront of the industry.
-                    His commitment to highlighting Ghana's nightlife and broader African entertainment has garnered international attention,
+                    Joseph Adjei&apos;s leadership has been instrumental in propelling BlacVolta to the forefront of the industry.
+                    His commitment to highlighting Ghana&apos;s nightlife and broader African entertainment has garnered international attention,
                     with notable initiatives such as the BlacVolta Nightlife Podcast featuring high-profile guests
                     like Chance The Rapper and Bozoma Saint John.
                 </p>
                 <p className="[word-spacing:-2px]">
-                    BlacVolta's recent expansion into Uganda includes impactful initiatives like the Creatives & Creator Community
+                    BlacVolta&apos;s recent expansion into Uganda includes impactful initiatives like the Creatives & Creator Community
                     Mixer and strategic partnerships with local influencers and businesses, further cementing our role as a transformative
                     force in media and entertainment across Africa.
                 </p>

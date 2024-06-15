@@ -33,8 +33,8 @@ export default function NavBar(){
     }
     return (
         <nav className={`
-            min-w-full fixed z-[1000] top-0 left-0 h-[60px] lg:h-auto  ${showmobilemenu ? 'lg:bg-transparent bg-black':''} 
-            flex flex-col md:flex-row lg:px-[2rem] xl:px-[7rem] md:py-4 justify-between
+            min-w-full fixed z-[1000] top-0 left-0 h-[60px] md:h-auto  ${showmobilemenu ? 'lg:bg-transparent bg-black':''} 
+            flex flex-col md:flex-row md:px-[2rem] xl:px-[7rem] md:py-4 justify-between
             text-white ${scrolldistancereached ? 'bg-black py-[8px] lg:py-[5px] duration-300':''}
         `}>
             <header className={`self-center grow flex items-center w-full px-4 lg:w-auto lg:px-0 lg:block justify-between`}>

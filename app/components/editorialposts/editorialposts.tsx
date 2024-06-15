@@ -20,7 +20,7 @@ export default async function Editorials(){
         <section className="flex flex-col pt-[3rem]">
             <div className="px-[5%] ">
                 <h2 className="text-[25px] pb-8 font-kamerik font-bold md:text-[30px] text-center text-white">EDITORIALS</h2>
-                <div className="justify-center items-center flex flex-col w-full md:grid md:grid-cols-[repeat(auto-fit,350px)] gap-14">
+                <div className="justify-center items-center md:items-start flex flex-col w-full md:grid md:grid-cols-[repeat(auto-fit,350px)] gap-14">
                     {
                         blogposts.length === 0 ? 
                         <div className="text-white text-[18px] font-kamerik flex justify-center items-center gap-x-4">There are no editorials <FcKindle size={40} /></div>

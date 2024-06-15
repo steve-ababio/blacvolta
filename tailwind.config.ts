@@ -34,6 +34,9 @@ const config: Config = {
       },
       animation:{
         "card-loading":"cardloading 1s linear infinite"
+      },
+      screens:{
+        
       }
     },
   },

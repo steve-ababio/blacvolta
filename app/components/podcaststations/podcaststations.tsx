@@ -1,4 +1,4 @@
-import PodcastCard from "../podcastcard/podcastcard"
+import PodcastCard from "@/app/components/podcastcard/podcastcard"
 
 export default function PodcastStations(){
     return(

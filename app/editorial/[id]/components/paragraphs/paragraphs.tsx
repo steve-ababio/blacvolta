@@ -1,6 +1,3 @@
-import Image from "next/image";
-
- 
 type ParagraphType = {
     id:string
     title:string,
@@ -8,8 +5,6 @@ type ParagraphType = {
     body:string,
     blogID:number
 }
-
-
 export default function Paragraphs({paragraphs}:{paragraphs:ParagraphType[]}){
     return(
         <div >

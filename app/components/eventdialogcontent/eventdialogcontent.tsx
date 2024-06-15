@@ -1,16 +1,24 @@
 import { IEventDetails } from "@/app/constants/constants";
-import EventDialogDetails from "../eventdialogdetails/eventdialogdetails";
+import EventDialogDetails from "@/app/components/eventdialogdetails/eventdialogdetails";
 import useSWR from "swr";
-import Loading from "../eventdialog/loading";
+import Loading from "@/app/components/eventdialog/loading";
+import { VscDebugDisconnect } from "react-icons/vsc";
 
 let events:IEventDetails[]; 
 
 const fetcher = (url:string) => fetch(url).then(res => res.json());
-export default  function DialogContent({date}:{date:string|undefined}){
+export default function DialogContent({date}:{date:string|undefined}){
     const selecteddate = new Date(date as string).toLocaleDateString("sv");
     const {data,error,isLoading} = useSWR(`/api/events?date=${selecteddate}`,fetcher);
 
-    if (error) return <div className="text-white font-[25px]">Failed to load</div>
+    if (error) {
+        return(
+            <div className="flex justify-center items-center">
+                <VscDebugDisconnect size={40} color="white"/>
+                <div className="text-red-600 font-[25px]">Failed to load</div>
+            </div>
+        )
+    }
     if(isLoading) return <Loading />
     events = data;
     const sortedevents = events.sort((event1,event2)=>{

@@ -20,7 +20,7 @@ export default async function EditorialList(){
     const blogposts = await getAllEditorials();
     return(
         <div className="px-[5%]">
-            <div className="justify-center items-center flex flex-col max-w-full md:grid md:grid-cols-[repeat(auto-fit,350px)] py-12 gap-14">
+            <div className="justify-center md:items-start items-center flex flex-col max-w-full md:grid md:grid-cols-[repeat(auto-fit,350px)] py-12 gap-14">
                 {
                     blogposts.length === 0 ?
                     <div className="text-white text-[18px] font-kamerik flex justify-center items-center gap-x-4">There are no editorials <FcKindle size={40} /></div>

@@ -1,6 +1,6 @@
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(req:NextRequest){
+export async function GET(req:NextRequest,res:NextResponse){
     const {searchParams} = new URL(req.url);
     const imagepath = searchParams.get("imagepath")!;
     const response = await fetch(imagepath);

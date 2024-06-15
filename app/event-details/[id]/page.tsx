@@ -1,14 +1,13 @@
-"use client"
 import { IEventDetails } from "@/app/constants/constants";
-
 import Link from "next/link";
-import EventDetailFooter from "./components/eventdetailsfooter/eventdetailsfooter";
-import EventMainInfo from "./components/eventmaindetails/eventmaindetails";
-import EventImage from "./components/eventimage/eventimage";
-import EventHeader from "./components/header/header";
 import { LuCalendarClock } from "react-icons/lu";
 import { IoLocationOutline } from "react-icons/io5";
 import { PiTicketLight } from "react-icons/pi";
+import EventDetailFooter from "@/app/event-details/[id]/components/eventdetailsfooter/eventdetailsfooter";
+import EventMainInfo from "@/app/event-details/[id]/components/eventmaindetails/eventmaindetails";
+import EventImage from "@/app/event-details/[id]/components/eventimage/eventimage";
+import EventHeader from "@/app/event-details/[id]/components/header/header";
+
 
 export default function EventDetail({searchParams}: {searchParams: IEventDetails;}) {
   const {EventName,EventDate,FlyerImagePath,SocialLinks,EventTime,Venue,TicketLinks,InquiryNumber,Description} = searchParams;

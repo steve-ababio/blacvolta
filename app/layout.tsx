@@ -5,6 +5,7 @@ import {IBM_Plex_Sans} from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import localFont from "next/font/local";
 import "./globals.css";
+import AmplitudeContextProvider from "@/app/providers/amplitude";
 
 const asap = Asap({
   subsets:["latin"],
@@ -59,12 +60,14 @@ export default function RootLayout({
           Sorry! Your need to enable JavaScript to use this app.!
         </noscript>  
       </head>
-      <PrimeReactProvider>
-        <body className={` ${asap.variable} ${poppins.variable} ${futura.variable} ${ibmsans.variable} ${kamericbook.variable}`}>
-          {children}
-          <Analytics />
-        </body>
-      </PrimeReactProvider>
+      <body className={` ${asap.variable} ${poppins.variable} ${futura.variable} ${ibmsans.variable} ${kamericbook.variable}`}>
+        <PrimeReactProvider>
+          <AmplitudeContextProvider>
+              {children}
+              <Analytics />
+          </AmplitudeContextProvider>
+        </PrimeReactProvider>
+      </body>
     </html>
   );
 }

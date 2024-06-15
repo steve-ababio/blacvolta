@@ -1,14 +1,12 @@
-
 import { Suspense } from "react";
-import BlogList from "./components/bloglist/editoriallist";
-import EditorialHeader from "../components/editorialheader/editorialheader";
-import EditorialLoader from "../components/editorialloader/editorialloader";
-import EditorialList from "./components/bloglist/editoriallist";
+import Hero from "@/app/components/hero/hero";
+import EditorialLoader from "@/app/components/editorialloader/editorialloader";
+import EditorialList from "@/app/editorials/components/editoriallist/editoriallist";
 
 export default async function Editorials(){
     return(
         <main className="h-screen">
-            <EditorialHeader />
+            <Hero headertext="EDITORIALS" />
             <Suspense fallback={<EditorialLoader size={9} />}>
                 <EditorialList />    
             </Suspense>

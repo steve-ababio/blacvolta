@@ -1,10 +1,10 @@
 import { RiInstagramLine, RiMailLine, RiTwitterLine } from "react-icons/ri";
-import NavItem from "../navitem/navitem";
+import NavItem from "@/app/components/navitem/navitem";
 
 export default function DesktopMenu(){
     return(
         <>
-            <div className=" md:flex grow hidden items-center gap-y-10 py-5 ">
+            <div className=" lg:flex grow hidden items-center gap-y-10 py-5 ">
                 <NavItem href="/" >
                     <span>HOME</span>
                 </NavItem>
@@ -14,8 +14,14 @@ export default function DesktopMenu(){
                 <NavItem href="editorials" >
                     <span>EDITORIALS</span>
                 </NavItem>
+                <NavItem href="/team">
+                    <span>TEAM</span>
+                </NavItem>
+                <NavItem href="/about">
+                    <span>ABOUT US</span>
+                </NavItem>
             </div>
-            <div className="hidden items-center md:flex py-4">
+            <div className="hidden items-center lg:flex py-4">
                 <NavItem href="https://twitter.com/blacvolta">
                     <RiTwitterLine size={30} />
                 </NavItem>

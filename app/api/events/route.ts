@@ -39,5 +39,8 @@ export async function GET(req:NextRequest){
         }
     }
     const selectedevents = alleventsthatmatchprovideddate.concat(weeklyeventsofselecteddate);
-    return NextResponse.json(selectedevents);
+    return new NextResponse(JSON.stringify(selectedevents),{
+        status:200,
+        headers:{"Content-Type": "application/json"},
+    })
 }

@@ -1,7 +1,8 @@
-import { BsDownload,BsEnvelopePlus,BsCalendar4 } from "react-icons/bs";
-import EventDetailFooterItem from "../eventdetailsfooteritem/eventdetailsfooteritem";
-import { addToCalender, downloadFile } from "@/app/utils/utils";
+"use client"
 import Link from "next/link";
+import EventDetailFooterItem from "@/app/event-details/[id]/components/eventdetailsfooteritem/eventdetailsfooteritem";
+import { BsDownload,BsEnvelopePlus,BsCalendar4 } from "react-icons/bs";
+import { addToCalender, downloadFile } from "@/app/utils/utils";
 import { useState } from "react";
 import { RotatingLines } from "react-loader-spinner";
 import { MdManageSearch } from "react-icons/md";
@@ -19,7 +20,6 @@ type EventDetailFooterProps = {
 
 export default function EventDetailFooter({description,flyerImagePath,sociallink,phonenumber,venue,eventName,eventDate,eventTime}:EventDetailFooterProps){
     const [downloading,setDownloading] = useState(false);
-    
     async function downloadEventFlyer(e:React.MouseEvent,FlyerImagePath:string){
         setDownloading(true);
         const response = await fetch(`/api/image?imagepath=${FlyerImagePath}`);

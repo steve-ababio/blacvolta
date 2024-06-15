@@ -1,5 +1,4 @@
 import { twMerge } from "tailwind-merge";
-
 type EventDetailFooterItemProps = {
     icon:React.ReactElement,
     text:string

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@amplitude/analytics-browser": "^2.8.1",
     "@prisma/client": "^5.14.0",
     "@vercel/analytics": "^1.2.2",
     "downloadjs": "^1.4.7",

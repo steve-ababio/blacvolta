@@ -3,7 +3,7 @@ import Link from "next/link";
 import { BiLeftArrowAlt } from "react-icons/bi";
 
 
-export default function EditorialHeader(){
+export default function Hero({headertext}:{headertext:string}){
     return(
         <header className="
             flex items-center justify-center h-[50vh] 
@@ -17,7 +17,7 @@ export default function EditorialHeader(){
                 </div>
             </Link>
             <Image alt="" className="aspect-video object-cover w-full absolute  h-full" src="/assets/images/blogbg.jpg" width={1000} height={600}/>
-            <h1 className="md:text-[80px] sm:text-[60px] text-[50px] text-white font-kamerik font-black relative z-30 text-center">EDITORIALS</h1>
+            <h1 className="md:text-[80px] sm:text-[60px] text-[50px] text-white font-kamerik font-black relative z-30 text-center">{headertext}</h1>
         </header>
     )
 }

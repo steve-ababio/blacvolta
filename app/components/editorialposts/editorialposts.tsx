@@ -1,6 +1,5 @@
 import { prisma } from "@/app/lib/prisma";
 import { unstable_noStore } from "next/cache";
-import Image from "next/image";
 import Link from "next/link";
 import { BsArrowRight } from "react-icons/bs";
 import { FcKindle } from "react-icons/fc";

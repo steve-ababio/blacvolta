@@ -1,7 +1,7 @@
 import { prisma } from "@/app/lib/prisma";
-import Paragraphs from "./components/paragraphs/paragraphs";
-import EditorialDetails from "./components/editorialdetails/editorialdetails";
-import EditorialHeader from "@/app/components/editorialheader/editorialheader";
+import Paragraphs from "@/app/editorial/[id]/components/paragraphs/paragraphs";
+import EditorialDetails from "@/app/editorial/[id]/components/editorialdetails/editorialdetails";
+import Hero from "@/app/components/hero/hero";
 
 async function getEditorial(id:number){
     return await prisma.blogPost.findUnique({
@@ -24,7 +24,7 @@ export default async function Editorial({params}:{params:{id:number}}){
     return(
         <div className="h-screen w-full overflow-x-hidden">
             <div>
-                <EditorialHeader />
+                <Hero headertext="EDITORIALS" />
                 <main className="md:px-[20%] px-8">
                     <EditorialDetails blogimagepath={blog!.imagepath} blogdate={blogdate} author={blog!.author} title={blog!.title}/>
                     <Paragraphs paragraphs={blog!.paragraph} />

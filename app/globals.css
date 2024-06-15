@@ -42,3 +42,18 @@ body {
   scroll-behavior: smooth;
 }
 
+
+  @media screen and (min-width:510px) and (max-width:640px) {
+    .theteam{
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+  }
+  @media screen and (min-width:640px) and (max-width:838px) {
+    .teamcard__img-height{
+      height:400px;
+    }
+    .theteam{
+      padding:0 60px
+    }
+  }

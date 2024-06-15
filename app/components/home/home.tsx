@@ -1,4 +1,4 @@
-import NavBar from "../navbar/navbar";
+import NavBar from "@/app/components/navbar/navbar";
 
 export default function Home(){
     return(

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { BsCalendar2Date } from "react-icons/bs";
 import { FaRegUser } from "react-icons/fa";
 

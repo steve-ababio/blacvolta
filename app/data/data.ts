@@ -26,6 +26,12 @@ export const bvteam = [
         quotes:[]
     },
     {
+        fullname:"Emmanuel Asare",
+        role:"Lead, Cinematographer",
+        imageurl:"/assets/images/emmanuel.jpg",
+        quotes:[]
+    },
+    {
         fullname:"Elorm Zormelo",
         role:"Chief Legal Officer",
         imageurl:"/assets/images/bvteam/elorm.jpg",

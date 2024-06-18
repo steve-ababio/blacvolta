@@ -9,7 +9,7 @@ import EventImage from "@/app/event-details/[id]/components/eventimage/eventimag
 import EventHeader from "@/app/event-details/[id]/components/header/header";
 
 
-export default function EventDetail({searchParams}: {searchParams: IEventDetails;}) {
+export default function EventDetail({searchParams}: {searchParams: IEventDetails}) {
   const {EventName,EventDate,FlyerImagePath,SocialLinks,EventTime,Venue,TicketLinks,InquiryNumber,Description} = searchParams;
   const eventdate = new Date(EventDate).toDateString();
 

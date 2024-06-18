@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { BsChatLeftQuote, BsFillChatRightQuoteFill } from "react-icons/bs";
+import {  BsFillChatRightQuoteFill } from "react-icons/bs";
 
 type TeamCardProps = {
     fullname:string,

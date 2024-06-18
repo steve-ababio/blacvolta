@@ -8,7 +8,6 @@ export default function EventDialogDetails(props:IEventDetails){
     const {trackAmplitudeEvent} = useAmplitudeContext();
 
     function trackClickEvent(){
-        console.log("clicked")
         trackAmplitudeEvent("selected-event",{
             EventName,
             Venue,

@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/react";
 import localFont from "next/font/local";
 import "./globals.css";
 import AmplitudeContextProvider from "@/app/providers/amplitude";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const asap = Asap({
   subsets:["latin"],
@@ -65,6 +66,7 @@ export default function RootLayout({
           <AmplitudeContextProvider>
               {children}
               <Analytics />
+              <SpeedInsights/>
           </AmplitudeContextProvider>
         </PrimeReactProvider>
       </body>

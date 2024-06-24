@@ -12,6 +12,7 @@
     "@amplitude/analytics-browser": "^2.8.1",
     "@prisma/client": "^5.14.0",
     "@vercel/analytics": "^1.2.2",
+    "@vercel/speed-insights": "^1.0.12",
     "downloadjs": "^1.4.7",
     "html2canvas": "^1.4.1",
     "ics": "^2.37.0",

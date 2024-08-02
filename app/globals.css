@@ -57,3 +57,29 @@ body {
       padding:0 60px
     }
   }
+  @layer components{
+    .form-control{
+      @apply border border-slate-200 focus:ring-2 outline-none
+       text-white duration-300 px-4 focus:ring-white
+       rounded-[5px] w-full py-2
+    }
+    .tooltip{
+      @apply lg:after:text-center lg:after:block lg:after:w-[6rem]
+      lg:after:rounded-[5px] lg:after:text-[14px] lg:after:-translate-x-[50%] lg:after:left-[50%] 
+      lg:after:hover:bg-[rgb(50,50,50)] lg:after:py-[5px] lg:after:text-white lg:after:top-[calc(100%+5px)]
+      lg:after:absolute lg:after:opacity-0 lg:hover:after:opacity-100
+      lg:after:duration-300 lg:after:pointer-events-none
+    }
+  }
+  
+  @keyframes anim-spin{
+    to{ 
+        transform: rotate(360deg);
+    }
+  }
+  .anim-spin{
+    animation-name: anim-spin;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+  }

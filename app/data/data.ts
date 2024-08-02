@@ -37,7 +37,6 @@ export const bvteam = [
         imageurl:"/assets/images/bvteam/elorm.jpg",
         quotes:[
             "Seek first to understand, then to be understood.",
-            "Are you living or are you existing Gotta start living, can't be resistant No matter how you get it, just be persistent, consistent, so not to become a statistic"
         ]
     },
     

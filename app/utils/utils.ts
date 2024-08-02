@@ -1,5 +1,5 @@
 import { createEvent, EventAttributes } from "ics";
-
+import { FILE_UPLOAD_URL } from "../constants";
 const createEventPromise = function(eventattributes:EventAttributes):Promise<string>{
     return new Promise((resolve,reject)=>{
         createEvent(eventattributes,
@@ -40,6 +40,13 @@ function formatTime(hourstring:string,other:string){
     }
     return [hour,minute];
 }
+export async function uploadImage(image:File){
+    const imageformdata = new FormData();
+    imageformdata.append("image",image)
+    const imageresponse = await fetch(FILE_UPLOAD_URL,{method:"POST",body:imageformdata});
+    const {file_name} = await imageresponse.json();
+    return file_name as string;
+}
 export async function addToCalender(e:React.MouseEvent,{eventDate,eventTime,venue,eventName,description}:EventDetails){
     const datearray = eventDate.split("-");
     const eventdate = datearray.map((value)=>parseInt(value));
@@ -56,4 +63,3 @@ export async function addToCalender(e:React.MouseEvent,{eventDate,eventTime,venu
     const value = await createEventPromise(event);
     downloadFile(`data:text/calendar,${encodeURIComponent(value)}`,"calendar-event");
 }
-

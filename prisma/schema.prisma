@@ -46,11 +46,29 @@ model Event {
   paid           Boolean
 }
 
+model UserEvent {
+  Id       String   @id @default(cuid())
+  Organizationname  String
+  Email   String
+  Phonenumber    String
+  EventName      String
+  EventDate      String
+  EventTime      String
+  Venue          String
+  TicketLinks    String
+  SocialLinks    String
+  Description    String
+  InquiryNumber  String
+  FlyerImagePath String
+  IsEventWeekly  Boolean
+  DayofWeek      String
+  approved  Boolean
+}
+
 model Paragraph{
   id String     @id @unique @default(cuid())
-  title String
-  imagepath String
   body String
+  position Int
   blog  BlogPost @relation(fields: [blogID], references: [id],onUpdate: Cascade,onDelete: Cascade)
   blogID Int
 }

@@ -21,6 +21,9 @@ export default function MobileMenu({closeMobileMenu}:MobileMenuProps){
                 <NavItem href="/team">
                     <span>TEAM</span>
                 </NavItem>
+                <NavItem href="/uploadevent">
+                    <span>UPLOAD EVENT</span>
+                </NavItem>
                 <NavItem href="/about">
                     <span>ABOUT US</span>
                 </NavItem>

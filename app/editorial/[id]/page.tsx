@@ -3,6 +3,7 @@ import Paragraphs from "@/app/editorial/[id]/components/paragraphs/paragraphs";
 import EditorialDetails from "@/app/editorial/[id]/components/editorialdetails/editorialdetails";
 import Hero from "@/app/components/hero/hero";
 import { Metadata } from "next";
+import { BASE_URI } from "@/app/constants/constants";
 
 async function getEditorial(id:number){
     return await prisma.blogPost.findUnique({
@@ -18,7 +19,7 @@ async function getEditorial(id:number){
 
 export async function generateMetadata({params}:{params:{id:number}}):Promise<Metadata>{
     try{
-        const response = await fetch(`http://localhost:3000/api/editorial?id=${params.id}`,{cache:'no-store'});
+        const response = await fetch(`${BASE_URI}/editorial?id=${params.id}`,{cache:'no-store'});
         const metadata = await response.json();
         return{
             title:metadata?.title,
@@ -54,7 +55,12 @@ export default async function Editorial({params}:{params:{id:number}}){
                 <div>
                     <Hero headertext="EDITORIALS" />
                     <main className="md:px-[20%] px-8">
-                        <EditorialDetails blogimagepath={editorial!.imagepath} blogdate={editorialdate} author={editorial!.author} title={editorial!.title}/>
+                        <EditorialDetails 
+                            blogimagepath={editorial!.imagepath}
+                            blogdate={editorialdate} 
+                            author={editorial!.author}
+                            title={editorial!.title}
+                        />
                         <Paragraphs paragraphs={editorial!.paragraph} />
                     </main>
                 </div>

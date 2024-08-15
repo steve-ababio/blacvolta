@@ -37,7 +37,7 @@ export default function NavBar(){
         `}>
             <header className={`self-center grow flex items-center w-full px-4 lg:w-auto lg:px-0 lg:block justify-between`}>
                 <Image alt="Blacvolta logo" className="aspect-[4/3] object-contain lg:h-auto lg:w-auto" width={60} height={60}  src="/assets/images/logo.png" priority />
-                <button className="lg:hidden" onClick={toggleMobileMenu}>
+                <button aria-label="menu button" className="lg:hidden" onClick={toggleMobileMenu}>
                     {showmobilemenu ? <CgClose size={30} />:<RxHamburgerMenu  size={30} color="white"/>}
                 </button>
             </header>

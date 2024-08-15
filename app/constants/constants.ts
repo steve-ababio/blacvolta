@@ -1,8 +1,10 @@
 
 export interface IEventDetails {
     Id:string,
-    adminUserId:string|null,
-    userId:string|null,
+    Organizationname?:string,
+    Email?:string,
+    Phonenumber?:string,
+    EventId?:string,
     Venue:string,
     EventDate:string,
     EventName:string,
@@ -17,3 +19,5 @@ export interface IEventDetails {
     approved:boolean
     paid:boolean
 }
+
+export const BASE_URI = "www.blacvolta.com";

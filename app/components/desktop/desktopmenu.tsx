@@ -8,17 +8,17 @@ export default function DesktopMenu(){
                 <NavItem href="/" >
                     <span>HOME</span>
                 </NavItem>
-                <NavItem href="#bv-calender" >
-                    <span>CALENDAR</span>
+                <NavItem href="/#bv-calender" >
+                    <span>EVENT CALENDAR</span>
                 </NavItem>
-                <NavItem href="editorials" >
+                <NavItem href="/editorials" >
                     <span>EDITORIALS</span>
                 </NavItem>
                 <NavItem href="/team">
                     <span>TEAM</span>
                 </NavItem>
-                <NavItem href="/uploadevent">
-                    <span>PUBLISH MY EVENT</span>
+                <NavItem href="/jobs">
+                    <span>JOBS</span>
                 </NavItem>
                 <NavItem href="/about">
                     <span>ABOUT US</span>

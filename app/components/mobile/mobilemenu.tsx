@@ -16,13 +16,13 @@ export default function MobileMenu({closeMobileMenu}:MobileMenuProps){
                     <span>EDITORIALS</span>
                 </NavItem>
                 <NavItem href="#bv-calender" >
-                    <div onClick={closeMobileMenu}>CALENDAR</div>
+                    <div onClick={closeMobileMenu}>EVENT CALENDAR</div>
                 </NavItem>
                 <NavItem href="/team">
                     <span>TEAM</span>
                 </NavItem>
-                <NavItem href="/uploadevent">
-                    <span>UPLOAD EVENT</span>
+                <NavItem href="/jobs">
+                    <span>JOBS</span>
                 </NavItem>
                 <NavItem href="/about">
                     <span>ABOUT US</span>

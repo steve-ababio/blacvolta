@@ -6,7 +6,7 @@ import EditorialList from "@/app/editorials/components/editoriallist/editorialli
 export default async function Editorials(){
     return(
         <main className="h-screen">
-            <Hero headertext="EDITORIALS" />
+            <Hero headertext="EDITORIALS"/>
             <Suspense fallback={<EditorialLoader size={9} />}>
                 <EditorialList />    
             </Suspense>

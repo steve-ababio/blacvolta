@@ -1,6 +1,6 @@
 import Hero from "@/app/components/hero/hero";
 import TeamCard from "@/app/components/teamcard/teamcard";
-import { bvteam } from "@/app/data/data";
+import { bvteam } from "@/app/data/team/data";
 
 export default function Team(){
     return(

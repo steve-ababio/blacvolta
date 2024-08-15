@@ -12,4 +12,9 @@ export const EventSchema = object({
     sociallinks:string(),
     inquirynumber:string(),
     eventflyer:any()
+});
+
+export const HiringFormSchema = object({
+    email:string().email({message:"Email is required"}),
+    name:string().min(1,{message:"Full name is required"}),
 })

@@ -5,6 +5,8 @@ import EventDialog from '@/app/components/eventdialog/eventdialog';
 import 'primereact/resources/themes/lara-light-blue/theme.css';
 import { useAmplitudeContext } from '@/app/hooks/amplitude';
 import { Nullable } from 'primereact/ts-helpers';
+import Link from 'next/link';
+import CtaButton from '../ctabutton/ctabutton';
 
 export default function CalenderModal(){
     const[date,setDate] = useState<Date|null>();
@@ -25,7 +27,8 @@ export default function CalenderModal(){
     },[]);
     return (
         <section ref={calendarsection} id="bv-calender" className="h-full flex flex-col bg-bvprimary items-center justify-center pt-[3rem]">
-            <div className="text-center pb-8">
+            <CtaButton href="/uploadevent" label="PUBLISH MY EVENT" />
+            <div className="text-center pb-8 mt-12">
                 <h2 className="font-kamerik font-bold text-[25px] md:text-[30px] text-white">UPCOMING EVENTS</h2>
             </div>
             <div className="max-w-[40rem] w-[90%]">

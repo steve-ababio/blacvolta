@@ -1,11 +1,11 @@
 import { IEventDetails } from "@/app/constants/constants";
 import EventDialogDetails from "@/app/components/eventdialogdetails/eventdialogdetails";
 import useSWR from "swr";
-import Loading from "@/app/components/eventdialog/loading";
+// import Loading from "@/app/components/eventdialog/loading";
 import { VscDebugDisconnect } from "react-icons/vsc";
+import PulseLoader from "@/app/components/pulseloader/pulseloader";
 
 let events:IEventDetails[]; 
-
 const fetcher = (url:string) => fetch(url).then(res => res.json());
 export default function DialogContent({date}:{date:string|undefined}){
     const selecteddate = new Date(date as string).toLocaleDateString("sv");
@@ -19,7 +19,7 @@ export default function DialogContent({date}:{date:string|undefined}){
             </div>
         )
     }
-    if(isLoading) return <Loading />
+    if(isLoading) return <PulseLoader />
     events = data;
     const sortedevents = events.sort((event1,event2)=>{
         let time1meridian = event1.EventTime.split(" ");
@@ -59,7 +59,7 @@ export default function DialogContent({date}:{date:string|undefined}){
     return(
         <div className="h-full">
             {
-               (data.length === 0) ? <div className='text-[1.1rem] h-[80vh] w-full flex justify-center font-kamerik items-center sm:text-[1.5em] text-bvlight text-center font-bold'>No events found for {date}</div>:
+               (data.length === 0) ? <div className='text-[1.1rem] h-screen w-full flex justify-center font-kamerik items-center sm:text-[1.5em] text-bvlight text-center font-bold'>No events found for {date}</div>:
                <div> 
                     <h2 className="my-3 font-bold text-bvlight text-[23px]">{new Date(sortedevents[0].EventDate).toDateString()} Events</h2>
                     {(sortedevents.map(event => <EventDialogDetails key={event.Id} {...event} />))}

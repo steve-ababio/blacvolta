@@ -1,3 +1,4 @@
+import CtaButton from "@/app/components/ctabutton/ctabutton";
 import { prisma } from "@/app/lib/prisma";
 import { unstable_noStore } from "next/cache";
 import Link from "next/link";
@@ -5,6 +6,9 @@ import { FcKindle } from "react-icons/fc";
 
 async function getAllEditorials(){
     return await prisma.blogPost.findMany({
+        where:{
+            approved:true
+        },
         relationLoadStrategy:"join",
         include:{
             paragraph:true
@@ -20,6 +24,7 @@ export default async function EditorialList(){
     const blogposts = await getAllEditorials();
     return(
         <div className="px-[5%]">
+            <CtaButton href="uploadeditorial" className="mt-12 mx-auto" label="PUBLISH EDITORIAL" />
             <div className="justify-center md:items-start items-center flex flex-col max-w-full md:grid md:grid-cols-[repeat(auto-fit,350px)] py-12 gap-14">
                 {
                     blogposts.length === 0 ?

@@ -12,17 +12,19 @@ export default function EventDialogDetails(props:IEventDetails){
             EventName,
             Venue,
             EventDate
-        })
+        });
     }
     return (
         <>
-            <div className="grid grid-cols-[1fr] sm:grid-cols-[250px,1fr] md:grid-cols-[300px,1fr] lg:grid-cols-[350px,1fr] border-b w-full border-b-[#9A9A9A]">
-                <div className="m-[10px] place-content-center max-w-[250px] sm:max-w-none relative h-[250px] md:h-[300px] lg:h-[350px] rounded-lg">
+            <div className="grid grid-cols-[1fr] sm:grid-cols-[250px,1fr] md:grid-cols-[300px,1fr] lg:gap-x-12 md:py-8 md:gap-x-6 lg:grid-cols-[350px,1fr] border-b w-full border-b-[#9A9A9A]">
+                <div className="m-[10px] place-content-center h-full w-full relative rounded-lg">
                     <Image
                         priority
                         src={FlyerImagePath}
-                        style={{borderRadius:"10px",display:"block"}}
-                        layout="fill"
+                        style={{borderRadius:"10px",height:'auto',width:'auto',display:"block"}}
+                        height={0}
+                        width={0}
+                        sizes="100vw"
                         className="text-bvlight"
                         alt="Event flyer"
                     />

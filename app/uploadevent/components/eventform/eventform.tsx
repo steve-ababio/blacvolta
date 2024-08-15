@@ -103,7 +103,7 @@ export default function EventForm(){
         setIsEventWeekly(e.target.checked);
     }
     return(
-        <form onSubmit={handleSubmit(submitFormData)} className="flex flex-col bg-bvprimary gap-y-5">
+        <form onSubmit={handleSubmit(submitFormData)} className="flex flex-col bg-bvprimary mt-8 gap-y-5">
             <EventFormControl 
                 onChange={()=>clearErrors("organizationname")}
                 register={register}

@@ -22,7 +22,7 @@ function fetchAllEventsThatMatchDateProvided(date:string){
     });
     return promise;
 }
-
+type TEventDetails= Omit<IEventDetails,"Email"|"Organizationname"|"Phonenumber"|"EventId"> & {Email:string|null,Organizationname:string|null,Phonenumber:string|null,EventId:string|null};
 export async function GET(req:NextRequest){
     const {searchParams} = new URL(req.url);
     const date = searchParams.get("date") as string;
@@ -31,7 +31,7 @@ export async function GET(req:NextRequest){
     const alleventsthatmatchprovideddatepromise = fetchAllEventsThatMatchDateProvided(date);
     const [allweeklyevents,alleventsthatmatchprovideddate] = await Promise.all([allweeklyeventspromise, alleventsthatmatchprovideddatepromise]);
 
-    const weeklyeventsofselecteddate:IEventDetails[] = [];
+    const weeklyeventsofselecteddate:TEventDetails[] = [];
     for(let event of allweeklyevents){
         if(Object.is(event.DayofWeek,dayofweekofselecteddate)){
             event.EventDate = date;

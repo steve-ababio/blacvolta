@@ -1,6 +1,7 @@
 import { prisma } from "@/app/lib/prisma";
 import { uploadImage } from "@/app/utils/utils";
 import { NextResponse } from "next/server";
+import shortuuid from "short-uuid";
 
 export async function POST(req:Request){
     const data = await req.formData();
@@ -22,7 +23,8 @@ export async function POST(req:Request){
     
     try{
         const imageurl = await uploadImage(image);
-        await prisma.userEvent.create({
+        const eventid = `BV-${shortuuid.generate()}`;
+        await prisma.event.create({
             data:{
                 Organizationname:organizationname,
                 Email:email,
@@ -38,7 +40,9 @@ export async function POST(req:Request){
                 InquiryNumber,
                 IsEventWeekly,
                 DayofWeek,
+                EventId:eventid,
                 approved:false,
+                paid:false
             }
         });
     }catch(error){

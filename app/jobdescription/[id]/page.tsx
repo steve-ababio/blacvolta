@@ -55,7 +55,7 @@ export default function JobDescription({ params }: { params: { id: string } }){
             </div>
             <footer className="py-8 bg-white">
                 <div className="w-[90%] max-w-[45rem] mx-auto text-center">
-                    <span className="text-slate-700 text-[1.1rem] text-start font-bold">Deadline of submission 17th May</span>
+                    <span className="text-slate-700 text-[1.1rem] text-start font-bold">Deadline of submission 17th October</span>
                 </div>
             </footer>
             <GenericDialog visible={show} closeEventDialog={closeDialog}>

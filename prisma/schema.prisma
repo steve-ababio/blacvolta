@@ -12,7 +12,7 @@ datasource db {
 
 model Event {
   Id            String     @id @default(cuid())
-  Email       String?  @unique
+  Email       String? 
   Organizationname String?
   Phonenumber String?
   EventName      String

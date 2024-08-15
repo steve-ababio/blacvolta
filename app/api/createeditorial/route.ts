@@ -39,7 +39,7 @@ export async function POST(req:NextRequest){
     const blogimage = data.get("blogimage") as File;
 
     // upload editorial image
-    // let blogimagepath = await uploadImage(blogimage);
+    let blogimagepath = await uploadImage(blogimage);
     //Store editorial into database
     const approved = false;
     let {id} = await createEditorial(author,date,blogtitle,"blogimagepath",approved);
@@ -59,9 +59,9 @@ export async function POST(req:NextRequest){
         }
         //upload paragraph image 
         let paragraphimagepath = "";
-        // if(paragraphimage instanceof File) {
-        //     paragraphimagepath = await uploadImage(paragraphimage);
-        // }
+        if(paragraphimage instanceof File) {
+            paragraphimagepath = await uploadImage(paragraphimage);
+        }
         // associate paragraphs with the editorial created
         paragraphs.push({
             blogID:id,

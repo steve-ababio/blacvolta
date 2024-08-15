@@ -14,8 +14,9 @@ export default function Paragraphs({paragraphs}:{paragraphs:ParagraphType[]}){
     return(
         <div >
             {
-                sortedparagraphs.map(paragraph =>(
-                    <div className="mt-2" key={paragraph.id}>
+                sortedparagraphs.map(paragraph =>{
+                    console.log("instagram postlink:",paragraph.instagrampostlink)
+                    return(<div className="mt-2" key={paragraph.id}>
                         {
                             paragraph.imagepath.length > 0 && 
                             <>
@@ -33,7 +34,7 @@ export default function Paragraphs({paragraphs}:{paragraphs:ParagraphType[]}){
                             <p className="ibmsans pb-2 w-full leading-8 text-white font-normal text-[16px]">{paragraph.body}</p>
                         }
                     </div>
-                ))
+                )}) 
             }
         </div>
     )

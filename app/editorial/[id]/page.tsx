@@ -19,7 +19,8 @@ async function getEditorial(id:number){
 
 export async function generateMetadata({params}:{params:{id:number}}):Promise<Metadata>{
     try{
-        const response = await fetch(`/api/editorial?id=${params.id}`,{cache:'no-store'});
+        console.log(params.id);
+        const response = await fetch(`https://www.blacvolta.com/api/editorial?id=${params.id}`,{cache:'no-store'});
         const metadata = await response.json();
         return{
             title:metadata?.title,

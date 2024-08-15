@@ -3,7 +3,6 @@ import Paragraphs from "@/app/editorial/[id]/components/paragraphs/paragraphs";
 import EditorialDetails from "@/app/editorial/[id]/components/editorialdetails/editorialdetails";
 import Hero from "@/app/components/hero/hero";
 import { Metadata } from "next";
-import { BASE_URI } from "@/app/constants/constants";
 
 async function getEditorial(id:number){
     return await prisma.blogPost.findUnique({

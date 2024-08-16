@@ -194,7 +194,7 @@ export default function EventForm(){
                     }}
                     className="
                         form-control focus:ring-2
-                      focus:ring-white mb-2
+                      focus:ring-white mb-2 placeholder:text-[#9b9b9b]
                       text-white bg-transparent
                     " 
                 />

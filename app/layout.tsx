@@ -42,7 +42,7 @@ const futura = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase:new URL("https://www.blacvolta.com"),
+  // metadataBase:new URL("https://www.blacvolta.com"),
   title: {
     default:"Blacvolta",
     template:`%s | Blacvolta`

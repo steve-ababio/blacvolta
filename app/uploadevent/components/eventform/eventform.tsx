@@ -9,6 +9,7 @@ import { IEventForm } from "@/app/constants";
 import Error from "@/app/uploadevent/components/error/error";
 import Select from "@/app/uploadevent/components/select/select";
 import EventFormControl from "@/app/uploadevent/components/eventformcontrol/eventformcontrol";
+import Toast from "../toast/toast";
 
 const options = {
     fields: ["address_components", "geometry", "icon", "name"],
@@ -194,7 +195,7 @@ export default function EventForm(){
                     }}
                     className="
                         form-control focus:ring-2
-                      focus:ring-white mb-2 placeholder:text-[#9b9b9b]
+                      focus:ring-white mb-2
                       text-white bg-transparent
                     " 
                 />
@@ -250,6 +251,7 @@ export default function EventForm(){
                             :<span className="text-[14px]">Add Event</span>
                     }
             </button>
+            <Toast closePopup={closePopup} open={open} />
         </form>
     )
 }

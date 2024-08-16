@@ -18,20 +18,19 @@ async function getEditorial(id:number){
 
 export async function generateMetadata({params}:{params:{id:number}}):Promise<Metadata>{
     try{
-        console.log(params.id);
         const response = await fetch(`https://www.blacvolta.com/api/editorial?id=${params.id}`,{cache:'no-store'});
         const metadata = await response.json();
         return{
             title:metadata?.title,
             description:metadata?.description,
             alternates:{
-                canonical:`/editorial/${metadata?.id}`
+                canonical:`/editorial/${params.id}`
             },
             openGraph:{
                 title:metadata?.title,
                 description:metadata?.description,
                 images:[metadata!.imagepath],
-                url:`www.blacvolta.com/editorial/${metadata?.id}`
+                url:`/editorial/${params.id}`
             }
         }
     }catch(error){

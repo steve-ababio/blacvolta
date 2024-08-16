@@ -9,7 +9,6 @@ import { IEventForm } from "@/app/constants";
 import Error from "@/app/uploadevent/components/error/error";
 import Select from "@/app/uploadevent/components/select/select";
 import EventFormControl from "@/app/uploadevent/components/eventformcontrol/eventformcontrol";
-import Toast from "@/app/uploadevent/components/toast/toast";
 
 const options = {
     fields: ["address_components", "geometry", "icon", "name"],
@@ -86,9 +85,6 @@ export default function EventForm(){
         const response = await fetch("/api/submitevent",{method:"POST",body:formdata});
         const {message} = await response.json();
         setOpen(true);
-        toast.success(message,{
-            transition:Slide
-        });
     }
     function obtainImageFile(e:React.ChangeEvent<HTMLInputElement>){
        if(e.target.files && e.target.files.length){
@@ -254,7 +250,6 @@ export default function EventForm(){
                             :<span className="text-[14px]">Add Event</span>
                     }
             </button>
-            <Toast closePopup={closePopup} open={open} />
         </form>
     )
 }

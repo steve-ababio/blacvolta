@@ -24,6 +24,7 @@ export async function POST(req:Request){
     try{
         const imageurl = await uploadImage(image);
         const eventid = `BV-${shortuuid.generate()}`;
+        console.log(eventid,organizationname,email);
         await prisma.event.create({
             data:{
                 Organizationname:organizationname,

@@ -24,13 +24,13 @@ export async function generateMetadata({params}:{params:{id:number}}):Promise<Me
             title:metadata?.title,
             description:metadata?.description,
             alternates:{
-                canonical:`/editorial/${params.id}`
+                canonical:`https://www.blacvolta.com/editorial/${params.id}`
             },
             openGraph:{
                 title:metadata?.title,
                 description:metadata?.description,
                 images:[metadata!.imagepath],
-                url:`/editorial/${params.id}`
+                url:`https://www.blacvolta.com/editorial/${params.id}`
             }
         }
     }catch(error){

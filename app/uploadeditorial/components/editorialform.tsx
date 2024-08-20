@@ -118,7 +118,7 @@ export default function EditorialForm(){
                         {...register("blogimage",{
                             required:"Blog image is required"
                         })}
-                        id="blog-image" className="w-0 h-0 peer overflow-hidden"
+                        id="blog-image" className="w-0 h-0 peer opacity-0 overflow-hidden"
                         onChange={(e)=>{clearErrors("blogimage");ObtainBlogImageFile(e)}}
                         type="file" aria-required="true"
                         accept="image/*" name="blogimage"
@@ -162,7 +162,7 @@ export default function EditorialForm(){
                             <div className="h-fit mt-6 mb-5">
                                     <input 
                                         data-index={index}
-                                        id={`image-${index}`} className="w-0 h-0 peer"
+                                        id={`image-${index}`} className="w-0 h-0 peer opacity-0"
                                         onChange={e=>obtainParagraphImageFile(e,index)} name="image"
                                         type="file" aria-required="false" accept="image/*" 
                                     />

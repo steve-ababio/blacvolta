@@ -32,12 +32,12 @@ export default function NavBar(){
         setShowMobileMenu(false);
     }
     return (
-        <nav className={`min-w-full fixed z-[100] top-0 left-0 h-[60px] md:h-auto  ${showmobilemenu ? 'lg:bg-transparent bg-bvprimary':''}  flex flex-col md:flex-row md:px-[2rem] xl:px-[3rem] md:py-4 justify-between
+        <nav className={`min-w-full fixed z-[100] top-0 left-0 h-[60px] md:h-auto  ${showmobilemenu ? 'xl:bg-transparent bg-bvprimary':''}  flex flex-col md:flex-row md:px-[2rem] xl:px-[3rem] md:py-4 justify-between
             text-bvlight ${scrolldistancereached ? 'bg-bvprimary py-[8px] lg:py-[5px] duration-300':''}
         `}>
-            <header className={`self-center grow flex items-center w-full px-4 lg:w-auto lg:px-0 lg:block justify-between`}>
-                <Image alt="Blacvolta logo" className="aspect-[4/3] object-contain lg:h-auto lg:w-auto" width={60} height={60}  src="/assets/images/logo.png" priority />
-                <button aria-label="menu button" className="lg:hidden" onClick={toggleMobileMenu}>
+            <header className={`self-center grow flex items-center w-full px-4 xl:w-auto lg:px-0 xl:block justify-between`}>
+                <Image alt="Blacvolta logo" className="aspect-[4/3] object-contain xl:h-auto xl:w-auto" width={60} height={60}  src="/assets/images/logo.png" priority />
+                <button aria-label="menu button" className="xl:hidden" onClick={toggleMobileMenu}>
                     {showmobilemenu ? <CgClose size={30} />:<RxHamburgerMenu  size={30} color="white"/>}
                 </button>
             </header>

@@ -8,7 +8,7 @@ async function getAllEditorials(){
     return await prisma.blogPost.findMany({
         where:{
             approved:true,
-            dettydecember:false
+            dettydecember:true
         },
         relationLoadStrategy:"join",
         include:{
@@ -19,18 +19,18 @@ async function getAllEditorials(){
         },
     });
 }
+
 export const dynamic = 'force-dynamic';
-export default async function EditorialList(){
+export default async function DettyDecemberGuides(){
     unstable_noStore(); 
-    const blogposts = await getAllEditorials();
+    const dettydecemberguides = await getAllEditorials();
     return(
         <div className="px-[5%]">
-            <CtaButton href="uploadeditorial" className="mt-12 mx-auto" label="PUBLISH EDITORIAL" />
             <div className="justify-center md:items-start items-center flex flex-col max-w-full md:grid md:grid-cols-[repeat(auto-fit,350px)] py-12 gap-14">
                 {
-                    blogposts.length === 0 ?
-                    <div className="text-white text-[18px] font-kamerik flex justify-center items-center gap-x-4">There are no editorials <FcKindle size={40} /></div>
-                    :blogposts.map(({title,author,imagepath,date,id})=>{
+                    dettydecemberguides.length === 0 ?
+                    <div className="text-white text-[18px] font-kamerik flex justify-center items-center gap-x-4">There are no guides <FcKindle size={40} /></div>
+                    :dettydecemberguides.map(({title,author,imagepath,date,id})=>{
                         const blogdate = new Date(date).toLocaleDateString("en-us",{
                             month:"short",
                             year:"numeric",

@@ -6,6 +6,7 @@ import Footer from "@/app/components/footer/footer";
 import CalenderModal from "@/app/components/calendar/calendar";
 import BlogLoader from "@/app/components/editorialloader/editorialloader";
 import Editorials from "@/app/components/editorialposts/editorialposts";
+import LatestDettyDecemberGuide from "./components/latestdettydecemberguide/latestdettydecemberguide";
 
 export default async function HomePage() 
 {
@@ -15,6 +16,9 @@ export default async function HomePage()
       
       <Home />
       <CalenderModal />
+      <Suspense fallback={<BlogLoader size={3} />}>
+        <LatestDettyDecemberGuide />
+      </Suspense>
       <Suspense fallback={<BlogLoader size={3} />}>
         <Editorials />
       </Suspense>

@@ -47,6 +47,7 @@ model BlogPost{
   date String
   imagepath String
   approved Boolean
+  dettydecember Boolean
   paragraph Paragraph[]
 }
 

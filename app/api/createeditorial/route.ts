@@ -7,7 +7,8 @@ type ParagraphType = {
     body:string,
     position:number,
     imagepath:string,
-    instagrampostlink:string
+    instagrampostlink:string,
+    dettydecember:boolean
 }
 function createParagraphs(paragraphs:ParagraphType[]){
     return prisma.paragraph.createMany({
@@ -68,7 +69,8 @@ export async function POST(req:NextRequest){
             body:paragraph.body,
             position:parseInt(paragraph.position,10),
             imagepath:paragraphimagepath,
-            instagrampostlink:paragraph.instagrampostlink
+            instagrampostlink:paragraph.instagrampostlink,
+            dettydecember:false
         });
     }
     try{

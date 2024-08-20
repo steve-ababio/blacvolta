@@ -127,7 +127,7 @@ export default function EventForm(){
             />
              <div className="h-fit my-3">
                 <input 
-                    id="image" className="w-0 h-0 overflow-hidden peer"
+                    id="image" className="w-0 h-0 opacity-0 overflow-hidden peer"
                     {...register("eventflyer",{required:"Event flyer image is required"})}
                     onChange={e=>{clearErrors("eventflyer"); obtainImageFile(e)}} type="file"
                     aria-required="true" accept="image/*"

@@ -22,7 +22,9 @@ async function createEditorial(author:string,date:string,title:string,imagepath:
             date,
             title,
             imagepath,
-            approved
+            approved,
+            dettydecember:false
+
         },
         select:{
             id:true

@@ -60,7 +60,7 @@ export default async function Editorial({params}:{params:{id:number}}){
                             author={editorial!.author}
                             title={editorial!.title}
                         />
-                        <Paragraphs paragraphs={editorial!.paragraph} />
+                        <Paragraphs isdettydecember={editorial!.dettydecember} paragraphs={editorial!.paragraph} />
                     </main>
                 </div>
             </div>

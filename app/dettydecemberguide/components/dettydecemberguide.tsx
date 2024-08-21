@@ -43,7 +43,7 @@ export default async function DettyDecemberGuides(){
                                 </div>
                                 <div className="px-3 text-white font-kamerik">
                                     <div title={title} className="overflow-hidden text-[16px] md:text-[20px] mb-4 font-bold text-ellipsis whitespace-nowrap">{title}</div>
-                                    <div >
+                                    <div>
                                         <div className="text-[12px] mb-1 font-kamerik font-bold">By <span className="font-bold">{author}</span></div>
                                         <div className="text-[12px] font-kamerik font-bold text-[#9A9A9A]">{blogdate}</div>
                                     </div>

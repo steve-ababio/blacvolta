@@ -21,7 +21,7 @@ export default function DesktopMenu(){
                     <span>JOBS</span>
                 </NavItem>
                 <NavItem href="/dettydecemberguide">
-                    <span>Detty December Guide</span>
+                    <span className="uppercase">Detty December Guide</span>
                 </NavItem>
                 <NavItem href="/about">
                     <span>ABOUT US</span>

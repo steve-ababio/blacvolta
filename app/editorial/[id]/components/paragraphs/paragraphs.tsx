@@ -19,7 +19,7 @@ export default function Paragraphs({paragraphs,isdettydecember}:ParagraphsProps)
         <div >
             {
                 sortedparagraphs.map(paragraph=>(
-                    <div className={`mt-2 flex ${isdettydecember ? 'flex-col-reverse':'flex-col'}`}key={paragraph.id}>
+                    <div className={`mt-2 flex flex-col-reverse`}key={paragraph.id}>
                         <div>
                             {
                                 paragraph.imagepath.length > 0 && 
@@ -36,7 +36,9 @@ export default function Paragraphs({paragraphs,isdettydecember}:ParagraphsProps)
                             }
                         </div>
                         {
-                            <p className="ibmsans pb-2 w-full leading-8 text-white font-normal text-[16px]">{paragraph.body}</p>
+                            <p className="ibmsans pb-2 w-full leading-8 text-white font-normal text-[16px]">
+                                {paragraph.body}
+                            </p>
                         }
                     </div>
                 ))

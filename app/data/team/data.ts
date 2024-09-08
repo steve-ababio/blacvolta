@@ -13,12 +13,12 @@ export const bvteam = [
         imageurl:"/assets/images/bvteam/foster.jpg",
         quotes:[]
     },
-    {
-        fullname:"Belinda Adusei",
-        role:"Lead, Technology",
-        imageurl:"/assets/images/bvteam/belinda.jpg",
-        quotes:[]
-    },
+    // {
+    //     fullname:"Belinda Adusei",
+    //     role:"Lead, Technology",
+    //     imageurl:"/assets/images/bvteam/belinda.jpg",
+    //     quotes:[]
+    // },
     {
         fullname:"Ridwan Kadri",
         role:"Lead, Talent and Partnerships",

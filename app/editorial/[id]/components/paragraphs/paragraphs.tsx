@@ -19,7 +19,7 @@ export default function Paragraphs({paragraphs,isdettydecember}:ParagraphsProps)
         <div >
             {
                 sortedparagraphs.map(paragraph=>(
-                    <div className={`mt-2 flex flex-col-reverse`}key={paragraph.id}>
+                    <div className={`mt-2 flex flex-col-reverse`} key={paragraph.id}>
                         <div>
                             {
                                 paragraph.imagepath.length > 0 && 

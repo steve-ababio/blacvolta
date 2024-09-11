@@ -36,7 +36,6 @@ model Paragraph{
   body String
   position Int
   instagrampostlink String
-  dettydecember Boolean
   imagepath String
   blog  BlogPost @relation(fields: [blogID], references: [id],onUpdate: Cascade,onDelete: Cascade)
   blogID Int

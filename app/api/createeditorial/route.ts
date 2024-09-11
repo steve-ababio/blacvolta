@@ -8,7 +8,6 @@ type ParagraphType = {
     position:number,
     imagepath:string,
     instagrampostlink:string,
-    dettydecember:boolean
 }
 async function createParagraphs(paragraphs:ParagraphType[]){
     return await prisma.paragraph.createMany({
@@ -45,7 +44,7 @@ export async function POST(req:NextRequest){
     let blogimagepath = await uploadImage(blogimage);
     //Store editorial into database
     const approved = false;
-    let {id} = await createEditorial(author,date,blogtitle,"blogimagepath",approved);
+    let {id} = await createEditorial(author,date,blogtitle,blogimagepath,approved);
 
     // retreive paragraphs and store in memory
     let paragraphstring = data.getAll("paragraph");
@@ -72,7 +71,6 @@ export async function POST(req:NextRequest){
             position:parseInt(paragraph.position,10),
             imagepath:paragraphimagepath,
             instagrampostlink:paragraph.instagrampostlink,
-            dettydecember:false
         });
     }
     try{

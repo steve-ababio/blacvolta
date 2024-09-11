@@ -33,6 +33,7 @@ async function createEditorial(author:string,date:string,title:string,imagepath:
 }
 export async function POST(req:NextRequest){
     const data = await req.formData();
+    console.log("creating editorial")
     const paragraphs:ParagraphType[] = [];
     
     // Retrieve form data
@@ -63,7 +64,7 @@ export async function POST(req:NextRequest){
         //upload paragraph image 
         let paragraphimagepath = "";
         if(paragraphimage instanceof File) {
-            paragraphimagepath = await uploadImage(paragraphimage);
+            paragraphimagepath = await uploadImage(paragraphimage) as string;
         }
         // associate paragraphs with the editorial created
         paragraphs.push({

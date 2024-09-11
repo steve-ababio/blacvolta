@@ -37,7 +37,7 @@ export async function generateMetadata({params}:{params:{id:number}}):Promise<Me
         console.log(error)
         return{
             title:"Not found",
-            description:"The page you are looking for does not exist"
+            description:"The page you are looking for does not exist",
         }
     }
 }

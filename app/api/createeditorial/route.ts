@@ -10,8 +10,8 @@ type ParagraphType = {
     instagrampostlink:string,
     dettydecember:boolean
 }
-async function createParagraphs(paragraphs:ParagraphType[]){
-    return await prisma.paragraph.createMany({
+function createParagraphs(paragraphs:ParagraphType[]){
+    return prisma.paragraph.createMany({
         data:paragraphs
     });
 }
@@ -33,7 +33,6 @@ async function createEditorial(author:string,date:string,title:string,imagepath:
 }
 export async function POST(req:NextRequest){
     const data = await req.formData();
-    console.log("creating editorial")
     const paragraphs:ParagraphType[] = [];
     
     // Retrieve form data
@@ -64,7 +63,7 @@ export async function POST(req:NextRequest){
         //upload paragraph image 
         let paragraphimagepath = "";
         if(paragraphimage instanceof File) {
-            paragraphimagepath = await uploadImage(paragraphimage) as string;
+            paragraphimagepath = await uploadImage(paragraphimage);
         }
         // associate paragraphs with the editorial created
         paragraphs.push({

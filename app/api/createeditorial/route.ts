@@ -10,8 +10,8 @@ type ParagraphType = {
     instagrampostlink:string,
     dettydecember:boolean
 }
-function createParagraphs(paragraphs:ParagraphType[]){
-    return prisma.paragraph.createMany({
+async function createParagraphs(paragraphs:ParagraphType[]){
+    return await prisma.paragraph.createMany({
         data:paragraphs
     });
 }

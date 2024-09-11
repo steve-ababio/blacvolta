@@ -17,7 +17,7 @@ export async function POST(req:Request){
     const SocialLinks = data.get("sociallinks") as string;
     const InquiryNumber = data.get("inquirynumber") as string;
     const IsEventWeeklyString = data.get("iseventweekly");
-    const image = data.get("eventflyer") as File;
+    const image = data.get("eventflyer") as File
     const DayofWeek = data.get("dayofweek") as string;
     const IsEventWeekly = JSON.parse(IsEventWeeklyString as string) as boolean;
     

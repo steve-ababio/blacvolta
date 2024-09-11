@@ -22,7 +22,7 @@ export async function POST(req:Request){
     const IsEventWeekly = JSON.parse(IsEventWeeklyString as string) as boolean;
     
     try{
-        const imageurl = await uploadImage(image);
+        const imageurl = await uploadImage(image) as string;
         const eventid = `BV-${shortuuid.generate()}`;
         console.log(eventid,organizationname,email);
         await prisma.event.create({

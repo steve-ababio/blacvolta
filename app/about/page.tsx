@@ -17,7 +17,7 @@ export default function About(){
                     videography, and e-commerce, all with the goal of reshaping
                     how African nightlife, culture, and technology are perceived
                     globally. Driven by a passion for showcasing Africa&apos;s vibrancy 
-                    and potential, BlacVolta is committed to celebrating the continent's 
+                    and potential, BlacVolta is committed to celebrating the continent&apos;s 
                     rich cultural diversity through innovative projects and strategic collaborations.
                 </p>
                 <p className="[word-spacing:-2px]">

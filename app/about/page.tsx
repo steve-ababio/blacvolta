@@ -25,7 +25,7 @@ export default function About(){
                     BlacVolta Nightlife Podcast, featuring international guests, 
                     and our expansion into Uganda with the Creatives & Creator Community Mixer.
                     We are committed to celebrating Africa&apos;s rich cultural diversity and continuing
-                    to lead innovation in media and entertainment.
+                    to lead innovation in media and entertainment.
                 </p>
             </div>
         </main>

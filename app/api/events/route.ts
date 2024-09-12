@@ -2,8 +2,8 @@ import { IEventDetails } from "@/app/constants/constants";
 import { prisma } from "@/app/lib/prisma";
 import { NextRequest, NextResponse } from "next/server";
 
-function fetchAllIsWeeklyEvents(){
-    let promise = prisma.event.findMany({
+async function fetchAllIsWeeklyEvents(){
+    let promise = await prisma.event.findMany({
         where:{
             IsEventWeekly:true,
             approved:true,
@@ -12,8 +12,8 @@ function fetchAllIsWeeklyEvents(){
     });
     return promise;
 }
-function fetchAllEventsThatMatchDateProvided(date:string){
-    let promise =  prisma.event.findMany({
+async function fetchAllEventsThatMatchDateProvided(date:string){
+    let promise = await prisma.event.findMany({
         where:{
             EventDate:date,
             approved:true,

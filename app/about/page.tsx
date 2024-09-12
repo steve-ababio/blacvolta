@@ -6,32 +6,26 @@ export default function About(){
             <Hero headertext="ABOUT US" />
             <div className="text-white text-justify md:px-[10%] lg:px-[20%] px-8 text-[1rem] leading-8 md:text-[1.1rem] py-12">
                 <p className="[word-spacing:-2px]">
-                    BlacVolta is a dynamic media, lifestyle, and tech startup committed to revolutionizing
-                    the entertainment landscape across Africa. Founded in October 2022 by visionary
-                    creative director Joseph Adjei, BlacVolta operates out of its headquarters in Ghana
-                    and extends its influence into East Africa, particularly Uganda and Rwanda,
-                    the United States of America and the United Kingdom.
+                    BlacVolta is a dynamic digital media platform transforming
+                    the entertainment and tech landscape across Africa.
+                    Founded in October 2022, BlacVolta operates from its
+                    headquarters in Ghana with a presence in East Africa,
+                    the USA, and the UK.
                 </p>
                 <p className="[word-spacing:-2px]">
-                    Our core business spans a diverse range of services, including event production, events,
-                    e-commerce, tech innovation, talent management, and broadcasting. BlacVolta is not just a company;
-                    it&apos;s a movement aimed at reshaping how African nightlife, culture, and technology are perceived globally.
-                     Our work is driven by a passion for showcasing the vibrancy and potential of the African continent.
+                    We specialize in media, digital marketing, content creation, 
+                    videography, and e-commerce, all with the goal of reshaping
+                    how African nightlife, culture, and technology are perceived
+                    globally. Driven by a passion for showcasing Africa’s vibrancy 
+                    and potential, BlacVolta is committed to celebrating the continent's 
+                    rich cultural diversity through innovative projects and strategic collaborations.
                 </p>
                 <p className="[word-spacing:-2px]">
-                    Joseph Adjei&apos;s leadership has been instrumental in propelling BlacVolta to the forefront of the industry.
-                    His commitment to highlighting Ghana&apos;s nightlife and broader African entertainment has garnered international attention,
-                    with notable initiatives such as the BlacVolta Nightlife Podcast featuring high-profile guests
-                    like Chance The Rapper and Bozoma Saint John.
-                </p>
-                <p className="[word-spacing:-2px]">
-                    BlacVolta&apos;s recent expansion into Uganda includes impactful initiatives like the Creatives & Creator Community
-                    Mixer and strategic partnerships with local influencers and businesses, further cementing our role as a transformative
-                    force in media and entertainment across Africa.
-                </p>
-                <p className="[word-spacing:-2px]">
-                    Join us as we continue to innovate and celebrate the rich cultural tapestry of Africa through
-                    our diverse and groundbreaking projects.
+                    BlacVolta’s impact is felt through initiatives like the
+                    BlacVolta Nightlife Podcast, featuring international guests, 
+                    and our expansion into Uganda with the Creatives & Creator Community Mixer.
+                    We are committed to celebrating Africa’s rich cultural diversity and continuing
+                    to lead innovation in media and entertainment.
                 </p>
             </div>
         </main>

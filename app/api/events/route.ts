@@ -29,18 +29,25 @@ export async function GET(req:NextRequest){
     const dayofweekofselecteddate = new Date(date).getDay().toString();
     const allweeklyeventspromise = fetchAllIsWeeklyEvents();
     const alleventsthatmatchprovideddatepromise = fetchAllEventsThatMatchDateProvided(date);
-    const [allweeklyevents,alleventsthatmatchprovideddate] = await Promise.all([allweeklyeventspromise, alleventsthatmatchprovideddatepromise]);
+    try{
+        const [allweeklyevents,alleventsthatmatchprovideddate] = await Promise.all([allweeklyeventspromise, alleventsthatmatchprovideddatepromise]);
 
-    const weeklyeventsofselecteddate:TEventDetails[] = [];
-    for(let event of allweeklyevents){
-        if(Object.is(event.DayofWeek,dayofweekofselecteddate)){
-            event.EventDate = date;
-            weeklyeventsofselecteddate.push(event);
+        const weeklyeventsofselecteddate:TEventDetails[] = [];
+        for(let event of allweeklyevents){
+            if(Object.is(event.DayofWeek,dayofweekofselecteddate)){
+                event.EventDate = date;
+                weeklyeventsofselecteddate.push(event);
+            }
         }
+        const selectedevents = alleventsthatmatchprovideddate.concat(weeklyeventsofselecteddate);
+        return new NextResponse(JSON.stringify(selectedevents),{
+            status:200,
+            headers:{"Content-Type": "application/json"},
+        })
+    }catch(error){
+        console.log(error);
+        return new NextResponse("Internal server error",{
+            status:500
+        })
     }
-    const selectedevents = alleventsthatmatchprovideddate.concat(weeklyeventsofselecteddate);
-    return new NextResponse(JSON.stringify(selectedevents),{
-        status:200,
-        headers:{"Content-Type": "application/json"},
-    })
 }

@@ -16,15 +16,15 @@ export default function About(){
                     We specialize in media, digital marketing, content creation, 
                     videography, and e-commerce, all with the goal of reshaping
                     how African nightlife, culture, and technology are perceived
-                    globally. Driven by a passion for showcasing Africa’s vibrancy 
+                    globally. Driven by a passion for showcasing Africa&apos;s vibrancy 
                     and potential, BlacVolta is committed to celebrating the continent's 
                     rich cultural diversity through innovative projects and strategic collaborations.
                 </p>
                 <p className="[word-spacing:-2px]">
-                    BlacVolta’s impact is felt through initiatives like the
+                    BlacVolta&apos;s impact is felt through initiatives like the
                     BlacVolta Nightlife Podcast, featuring international guests, 
                     and our expansion into Uganda with the Creatives & Creator Community Mixer.
-                    We are committed to celebrating Africa’s rich cultural diversity and continuing
+                    We are committed to celebrating Africa&apos;s rich cultural diversity and continuing
                     to lead innovation in media and entertainment.
                 </p>
             </div>

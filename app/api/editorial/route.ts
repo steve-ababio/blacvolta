@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 async function getEditorial(id:number){
     return await prisma.blogPost.findUnique({
         where:{
-            id
+            id:id
         },
         relationLoadStrategy:"join",
         include:{

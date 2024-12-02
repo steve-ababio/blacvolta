@@ -17,7 +17,9 @@ export interface IEventDetails {
     IsEventWeekly:boolean,
     DayofWeek:string,
     approved:boolean
-    paid:boolean
+    paid:boolean,
+    hidden:boolean
+
 }
 
 export const BASE_URI = "www.blacvolta.com";

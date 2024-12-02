@@ -8,6 +8,7 @@ async function fetchAllIsWeeklyEvents(){
             IsEventWeekly:true,
             approved:true,
             paid:true,
+            hidden:false
         }
     });
     return promise;
@@ -17,7 +18,8 @@ async function fetchAllEventsThatMatchDateProvided(date:string){
         where:{
             EventDate:date,
             approved:true,
-            paid:true
+            paid:true,
+            hidden:false
         }
     });
     return promise;

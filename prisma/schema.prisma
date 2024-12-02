@@ -12,7 +12,7 @@ datasource db {
 
 model Event {
   Id            String     @id @default(cuid())
-  Email       String? 
+  Email       String? @unique
   Organizationname String?
   Phonenumber String?
   EventName      String
@@ -29,6 +29,7 @@ model Event {
   EventId String? @unique
   approved       Boolean
   paid           Boolean
+  hidden         Boolean @default(false)
 }
 
 model Paragraph{

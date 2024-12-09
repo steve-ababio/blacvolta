@@ -7,15 +7,17 @@ import CalenderModal from "@/app/components/calendar/calendar";
 import BlogLoader from "@/app/components/editorialloader/editorialloader";
 import Editorials from "@/app/components/editorialposts/editorialposts";
 import LatestDettyDecemberGuide from "./components/latestdettydecemberguide/latestdettydecemberguide";
+import Ads from "./components/ads/upcomingevent";
+import TicketPopup from "./components/ticketpopup/ticketpopup";
 
 export default async function HomePage() 
 {
   unstable_noStore();  
   return (
     <main className="min-h-screen">
-      
       <Home />
       <CalenderModal />
+      <Ads />
       <Suspense fallback={<BlogLoader size={3} />}>
         <LatestDettyDecemberGuide />
       </Suspense>
@@ -24,6 +26,7 @@ export default async function HomePage()
       </Suspense>
       <PodcastStations />
       <Footer />
+      <TicketPopup />
     </main>
   );
 }

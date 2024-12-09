@@ -1,6 +1,4 @@
-import { Dialog } from 'primereact/dialog';
 import DialogContent from '@/app/components/eventdialogcontent/eventdialogcontent';
-import { IoCloseOutline } from 'react-icons/io5';
 import GenericDialog from '../genericdialog/genericdialog';
 
 type EventDialogProps = {

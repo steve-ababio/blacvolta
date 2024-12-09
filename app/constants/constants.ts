@@ -19,7 +19,7 @@ export interface IEventDetails {
     approved:boolean
     paid:boolean,
     hidden:boolean
-
+    rating:number,
 }
 
 export const BASE_URI = "www.blacvolta.com";

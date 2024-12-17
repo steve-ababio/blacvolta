@@ -19,10 +19,10 @@ export default async function HomePage()
       <CalenderModal />
       <Ads />
       <Suspense fallback={<BlogLoader size={3} />}>
-        <LatestDettyDecemberGuide />
+        <Editorials />
       </Suspense>
       <Suspense fallback={<BlogLoader size={3} />}>
-        <Editorials />
+        <LatestDettyDecemberGuide />
       </Suspense>
       <PodcastStations />
       <Footer />

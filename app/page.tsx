@@ -26,7 +26,7 @@ export default async function HomePage()
       </Suspense>
       <PodcastStations />
       <Footer />
-      <TicketPopup />
+      {/* <TicketPopup /> */}
     </main>
   );
 }

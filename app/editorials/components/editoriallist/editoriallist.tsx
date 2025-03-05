@@ -25,7 +25,7 @@ export default async function EditorialList(){
     const blogposts = await getAllEditorials();
     return(
         <div className="px-[5%]">
-            <CtaButton href="uploadeditorial" className="mt-12 mx-auto" label="PUBLISH EDITORIAL" />
+            <CtaButton href="uploadeditorial" className="mt-12 mx-auto" label="CLICK HERE TO PUBLISH AN EDITORIAL" />
             <div className="justify-center md:items-start items-center flex flex-col max-w-full md:grid md:grid-cols-[repeat(auto-fit,350px)] py-12 gap-14">
                 {
                     blogposts.length === 0 ?

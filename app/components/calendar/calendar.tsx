@@ -27,7 +27,7 @@ export default function CalenderModal(){
     },[]);
     return (
         <section ref={calendarsection} id="bv-calender" className="h-full flex flex-col bg-bvprimary items-center justify-center pt-[3rem]">
-            <CtaButton href="/uploadevent" label="PUBLISH MY EVENT" />
+            <CtaButton href="/uploadevent" label="CLICK HERE TO PUBLISH AN EVENT" />
             {/* <div className="h-[100px] w-full mt-10 relative">
                 <Image src="/assets/images/ads/visa.png" fill className="object-contain absolute mx-auto w-full height-auto" alt="visa ad" />
             </div> */}

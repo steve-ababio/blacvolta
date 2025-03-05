@@ -9,8 +9,8 @@ interface CtaButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement>{
 export default function CtaButton({href,label,className}:CtaButtonProps) {
     return(
         <Link className={twMerge(`
-            block w-[90%] max-w-[11rem] text-center h-full
-          bg-white text-[0.88rem] py-3 
+            block w-[90%] max-w-[15rem] text-center h-full
+          bg-white text-[0.88rem] py-3 px-4
           text-slate-700 rounded-[40px] font-bold focus-visible:outline-2
          focus:outline-white focus:outline-offset-[4px]
             duration-300 hover:bg-[#bdbdbd]`,className)} href={href}>

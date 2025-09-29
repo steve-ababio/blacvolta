@@ -263,7 +263,7 @@ const FAQ = () => {
           <div className="container mx-auto px-4 py-16">
             <div className="max-w-3xl mx-auto text-center">
               <MessageCircle className="mx-auto h-12 w-12 text-blacvolta-gold mb-6" />
-              <h2 className="text-3xl font-bold mb-4">Didn't find your answer?</h2>
+              <h2 className="text-3xl font-bold mb-4">Didn&apos;t find your answer?</h2>
               <p className="text-white/80 mb-8 text-lg">
                 Our support team is here to help you with any questions about your BlacVolta Lifestyle Card.
               </p>

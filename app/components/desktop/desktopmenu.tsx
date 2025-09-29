@@ -26,6 +26,9 @@ export default function DesktopMenu(){
                 <NavItem href="/about">
                     <span>ABOUT US</span>
                 </NavItem>
+                <NavItem href="/faq">
+                    <span>SUPPORT</span>
+                </NavItem>
             </div>
             <div className="hidden items-center justify-center gap-x-4 xl:flex py-4">
                 <NavItem href="https://twitter.com/blacvolta">

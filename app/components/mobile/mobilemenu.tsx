@@ -30,6 +30,9 @@ export default function MobileMenu({closeMobileMenu}:MobileMenuProps){
                 <NavItem href="/about">
                     <span>ABOUT US</span>
                 </NavItem>
+                <NavItem href="/faq">
+                    <span>SUPPORT</span>
+                </NavItem>
             </div>
             <div className="text-center before:content-[''] before:mb-3 before:block w-[85%] mx-auto before:h-[1px] before:w-full before:bg-[#707070]">
                 <div className="flex w-full gap-x-4 justify-center py-4">

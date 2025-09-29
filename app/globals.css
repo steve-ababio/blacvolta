@@ -2,17 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer tailwind-base, primereact, tailwind-utilities;
-
-@layer tailwind-base {
-  @tailwind base;
-}
-
-@layer tailwind-utilities {
-  @tailwind components;
-  @tailwind utilities;
-}
- 
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -37,80 +26,167 @@ body {
   }
 }
 
-html,body{
+html, body {
   height: 100%;
   width: 100%;
 }
-*,*::before,*::after{
+
+*, *::before, *::after {
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
 
+@media screen and (min-width: 510px) and (max-width: 640px) {
+  .theteam {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
 
-  @media screen and (min-width:510px) and (max-width:640px) {
-    .theteam{
-      padding-left: 40px;
-      padding-right: 40px;
-    }
+@media screen and (min-width: 640px) and (max-width: 838px) {
+  .teamcard__img-height {
+    height: 400px;
   }
-  @media screen and (min-width:640px) and (max-width:838px) {
-    .teamcard__img-height{
-      height:400px;
-    }
-    .theteam{
-      padding:0 60px
-    }
+  .theteam {
+    padding: 0 60px;
   }
-  @layer components{
-    .form-control{
-      @apply border border-slate-200 focus:ring-2 outline-none
-       text-white duration-300 px-4 focus:ring-white
-       rounded-[5px] w-full py-2
-    }
-    .tooltip{
-      @apply lg:after:text-center lg:after:block lg:after:w-[6rem]
-      lg:after:rounded-[5px] lg:after:text-[14px] lg:after:-translate-x-[50%] lg:after:left-[50%] 
-      lg:after:hover:bg-[rgb(50,50,50)] lg:after:py-[5px] lg:after:text-white lg:after:top-[calc(100%+5px)]
-      lg:after:absolute lg:after:opacity-0 lg:hover:after:opacity-100
-      lg:after:duration-300 lg:after:pointer-events-none
-    }
+}
+
+@layer components {
+  .form-control {
+    @apply border border-slate-200 focus:ring-2 outline-none text-white duration-300 px-4 focus:ring-white rounded-[5px] w-full py-2;
   }
-  
-  @keyframes anim-spin{
-    to{ 
-        transform: rotate(360deg);
-    }
+  .tooltip {
+    @apply lg:after:text-center lg:after:block lg:after:w-[6rem] lg:after:rounded-[5px] lg:after:text-[14px] lg:after:-translate-x-[50%] lg:after:left-[50%] lg:after:hover:bg-[rgb(50,50,50)] lg:after:py-[5px] lg:after:text-white lg:after:top-[calc(100%+5px)] lg:after:absolute lg:after:opacity-0 lg:hover:after:opacity-100 lg:after:duration-300 lg:after:pointer-events-none;
   }
-  .anim-spin{
-    animation-name: anim-spin;
-    animation-duration: 1s;
-    animation-timing-function: linear;
-    animation-iteration-count: 1;
+}
+
+@keyframes anim-spin {
+  to {
+    transform: rotate(360deg);
   }
-  .anim-pulse{
-    height:70px;
-    width:70px;
-    z-index: 10;
+}
+
+.anim-spin {
+  animation-name: anim-spin;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+}
+
+.anim-pulse {
+  height: 70px;
+  width: 70px;
+  z-index: 10;
+}
+
+.anim-pulse::before, .anim-pulse::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  z-index: -1;
+  background-color: white;
+  opacity: 0.7;
+}
+
+.anim-pulse::before {
+  animation: animpulse 1s ease-in-out infinite;
+}
+
+.anim-pulse::after {
+  animation: animpulse 2s 1s ease-in-out infinite;
+}
+
+@keyframes animpulse {
+  100% {
+    transform: scale(2.0);
+    opacity: 0;
   }
-  .anim-pulse::before,.anim-pulse::after{
-    content:"";
-    position:absolute;
-    width:100%;
-    height:100%;
-    border-radius:50%;
-    z-index: -1;
-    background-color:white;
-    opacity: 0.7;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 6% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5% 64.9%;
+    --blacvolta-dark: 240 6% 6%;
+    --blacvolta-gold: 45 90% 60%;
+    --blacvolta-gold-muted: 45 30% 40%;
+    --blacvolta-accent: 210 40% 90%;
+    --gradient-premium: linear-gradient(135deg, hsl(var(--blacvolta-dark)), hsl(240 8% 12%));
+    --gradient-gold: linear-gradient(135deg, hsl(var(--blacvolta-gold)), hsl(45 70% 50%));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(240 4.8% 95.9%));
+    --shadow-premium: 0 20px 40px -10px hsl(var(--blacvolta-dark) / 0.3);
+    --shadow-card: 0 4px 20px -4px hsl(var(--blacvolta-dark) / 0.1);
+    --shadow-glow: 0 0 30px hsl(var(--blacvolta-gold) / 0.2);
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
-  .anim-pulse::before{
-    animation: animpulse 1s ease-in-out infinite;
+
+  .dark {
+    --background: 240 6% 6%;
+    --foreground: 0 0% 98%;
+    --card: 240 8% 12%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 8% 12%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 45 90% 60%;
+    --primary-foreground: 240 6% 6%;
+    --secondary: 240 8% 18%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 8% 18%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 8% 18%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 8% 18%;
+    --input: 240 8% 18%;
+    --ring: 45 90% 60%;
+    --blacvolta-gold:37 61% 69%;
+    --blacvolta-gold-muted: 45 50% 50%;
+    --gradient-premium: linear-gradient(135deg, hsl(var(--blacvolta-dark)), hsl(240 10% 15%));
+    --shadow-premium: 0 25px 50px -15px hsl(240 6% 6% / 0.5);
+    --shadow-glow: 0 0 40px hsl(var(--blacvolta-gold) / 0.3);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
-  .anim-pulse::after{
-    animation: animpulse 2s 1s ease-in-out infinite;
+
+  * {
+    border-color: hsl(var(--border));
   }
-  @keyframes animpulse{
-    100%{
-      transform:scale(2.0);
-      opacity: 0;
-    }
+  body {
+    @apply bg-background text-foreground;
   }
+}

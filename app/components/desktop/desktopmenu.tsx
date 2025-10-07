@@ -27,7 +27,7 @@ export default function DesktopMenu(){
                     <span>ABOUT US</span>
                 </NavItem>
                 <NavItem href="/faq">
-                    <span>SUPPORT</span>
+                    <span>BLACVOLTA LIFESTYLE CARD</span>
                 </NavItem>
             </div>
             <div className="hidden items-center justify-center gap-x-4 xl:flex py-4">

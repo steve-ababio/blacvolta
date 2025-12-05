@@ -615,7 +615,7 @@ const PrivacyPolicy = () => {
                     </p>
                     <p>
                       <strong className="text-white">Asia:</strong>{" "}
-                      Singapore PDPA, India's DPDP Act - varying degrees of
+                      Singapore PDPA, India&apos;s DPDP Act - varying degrees of
                       GDPR-style protections
                     </p>
                   </AccordionContent>

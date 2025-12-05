@@ -6,7 +6,6 @@ import { Search, ChevronDown, HelpCircle, MessageCircle } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/app/components/ui/accordion";
 import { Button } from "@/app/components/ui/button";
 import { RiWhatsappFill } from "react-icons/ri";
-import { IoLogoWhatsapp } from "react-icons/io5";
 import NavBar from "../components/navbar/navbar";
 import Link from "next/link";
 

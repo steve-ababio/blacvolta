@@ -58,6 +58,52 @@ const config: Config = {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // input: "hsl(var(--input))",
+        // ring: "hsl(var(--ring))",
+        // background: "hsl(var(--background))",
+        // foreground: "hsl(var(--foreground))",
+        // primary: {
+        //   DEFAULT: "hsl(var(--primary))",
+        //   foreground: "hsl(var(--primary-foreground))",
+        // },
+        // secondary: {
+        //   DEFAULT: "hsl(var(--secondary))",
+        //   foreground: "hsl(var(--secondary-foreground))",
+        // },
+        // destructive: {
+        //   DEFAULT: "hsl(var(--destructive))",
+        //   foreground: "hsl(var(--destructive-foreground))",
+        // },
+        termsmuted: {
+          DEFAULT: "hsl(var(--termsmuted))",
+          foreground: "hsl(var(--terms-muted-foregound))",
+        },
+        termsborder:{
+          DEFAULT: "hsl(var(--privacy-border))",
+          accent: "hsl(var(---privacy-accent))",
+        },
+        termsaccent: {
+          DEFAULT: "hsl(var(--privacy-accent))",
+          foreground: "hsl(var(--privacy-accent-foreground))",
+        },
+        termspopover: {
+          DEFAULT: "hsl(var(--term-popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        termscard: {
+          DEFAULT: "hsl(var(--terms-card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+        // sidebar: {
+        //   DEFAULT: "hsl(var(--sidebar-background))",
+        //   foreground: "hsl(var(--sidebar-foreground))",
+        //   primary: "hsl(var(--sidebar-primary))",
+        //   "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
+        //   accent: "hsl(var(--sidebar-accent))",
+        //   "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
+        //   border: "hsl(var(--sidebar-border))",
+        //   ring: "hsl(var(--sidebar-ring))",
+        // },
       },
       fontFamily: {
           asap:'var(--font-asap)',

@@ -7,7 +7,7 @@ interface MobileMenuProps {
 }
 export default function MobileMenu({closeMobileMenu}:MobileMenuProps){
     return(
-        <div className={`flex h-[calc(100%-60px)] items-center flex-col duration-300 origin-top fixed inset-0 top-[60px] bg-black`}>
+        <div className="flex h-[calc(100vh-60px)] items-center flex-col duration-300 origin-top fixed top-[60px] left-0 right-0 bg-black">
             <div className="grow flex flex-col gap-y-12 py-10 ">
                 <NavItem href="/" >
                     <div onClick={closeMobileMenu}>HOME</div>

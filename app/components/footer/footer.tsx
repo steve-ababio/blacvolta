@@ -14,9 +14,10 @@ export default function Footer(){
                         <p className=" text-[19px] font-normal font-kamerik text-white"><span>&copy;</span> BLACVOLTA {currentyear} | all rights reserved</p>
                     </div>
                     <div className="md:mr-8 lg:mr-16 flex items-center justify-center flex-col" > 
-                        <p className="mb-2 text-white text-[24px]">Legal</p>
-                        <div className="text-[#A1A1A1] font-normal text-[14px]">
+                        <p className="mb-4 text-white text-[24px]">Legal</p>
+                        <div className="text-[#A1A1A1] flex flex-col gap-3 items-center font-normal text-[14px]">
                             <Link href="/terms-and-privacy">Privacy Policy</Link>
+                            <Link href="/regulatory-and-disclosure">Regulatory and Disclosure</Link>
                         </div>
                     </div>
                 </div>

@@ -173,7 +173,7 @@ html, body {
     --term-popover:0 0% 5%;
     --termsmuted:0 0% 15%;
   }
-
+  
   .dark {
     --background: 240 6% 6%;
     --foreground: 0 0% 98%;

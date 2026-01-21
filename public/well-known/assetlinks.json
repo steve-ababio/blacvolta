@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.blacvolta.app",
+      "sha256_cert_fingerprints": [
+        "B7:A1:59:B9:E5:82:0A:3D:AB:1C:09:6B:F6:96:03:77:3B:49:C9:0D:95:C2:D8:EC:77:59:D5:E4:AE:5C:3C:23"
+      ]
+    }
+  }
+]

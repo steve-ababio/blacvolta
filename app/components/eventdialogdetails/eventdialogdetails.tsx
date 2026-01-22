@@ -39,7 +39,6 @@ export default function EventDialogDetails(props:IEventDetails){
                             onClick={trackClickEvent}
                             href={{
                                 pathname:`/event-details/${Id}`,
-                                query:{...props}
                             }}
                         // as={`/event-details/${Id}`} bg-slate-800 hover:bg-slate-900
                         >

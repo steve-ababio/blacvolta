@@ -3,10 +3,17 @@ import EventDetailFooter from "@/app/event-details/[id]/components/eventdetailsf
 import EventImage from "@/app/event-details/[id]/components/eventimage/eventimage";
 import EventHeader from "@/app/event-details/[id]/components/header/header";
 import EventDetails from "./components/event-details/event-details";
+import { prisma } from "@/app/lib/prisma";
 
 
-export default function EventDetail({searchParams}: {searchParams: IEventDetails}) {
-  const {EventName,EventDate,FlyerImagePath,SocialLinks,EventTime,Venue,TicketLinks,InquiryNumber,Description,EventId} = searchParams;
+export default async function EventDetail({ params }: { params: { id: string } }) {
+    const event = await prisma.event.findUnique({
+        where: {
+          Id: params.id, 
+        },
+    });
+      
+  const {EventName,EventDate,FlyerImagePath,SocialLinks,EventTime,Venue,TicketLinks,InquiryNumber,Description,EventId} = event!;
   const eventdate = new Date(EventDate).toDateString();
 
   return (
@@ -26,7 +33,7 @@ export default function EventDetail({searchParams}: {searchParams: IEventDetails
             />
         </div>
         <EventDetailFooter 
-            id={EventId!}
+            id={params.id!}
             description={Description}
             flyerImagePath={FlyerImagePath}
             eventDate={EventDate}

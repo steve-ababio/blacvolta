@@ -58,6 +58,13 @@ const config: Config = {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        "action-sheet": {
+          DEFAULT: "hsl(var(--action-sheet-bg))",
+          handle: "hsl(var(--action-sheet-handle))",
+          "item-hover": "hsl(var(--action-sheet-item-hover))",
+          close: "hsl(var(--action-sheet-close))",
+          "close-hover": "hsl(var(--action-sheet-close-hover))",
+        },
         // input: "hsl(var(--input))",
         // ring: "hsl(var(--ring))",
         // background: "hsl(var(--background))",
@@ -94,6 +101,7 @@ const config: Config = {
           DEFAULT: "hsl(var(--terms-card))",
           foreground: "hsl(var(--card-foreground))",
         },
+
         // sidebar: {
         //   DEFAULT: "hsl(var(--sidebar-background))",
         //   foreground: "hsl(var(--sidebar-foreground))",

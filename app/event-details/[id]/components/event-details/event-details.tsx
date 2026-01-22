@@ -32,7 +32,11 @@ const DetailItem = ({ icon, label, value, delay = 0 }: DetailItemProps) => (
   </motion.div>
 );
 
+function isValidateDate(date:Date){
+    return date instanceof Date && isFinite(date.getTime());
+}
 const EventDetails = ({eventDate,eventTime,venue,ticketLink}:EventDetailsProps) => {
+    const date = isValidateDate(new Date(eventDate)) || "";
   return (
     <motion.div
     initial={{ opacity: 0, y: 20 }}
@@ -44,7 +48,7 @@ const EventDetails = ({eventDate,eventTime,venue,ticketLink}:EventDetailsProps) 
       <DetailItem
         icon={<Calendar className="h-5 w-5" />}
         label="Date"
-        value={eventDate}
+        value={date}
         delay={0.3}
       />
       <DetailItem

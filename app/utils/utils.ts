@@ -63,3 +63,53 @@ export async function addToCalender(e:React.MouseEvent,{eventDate,eventTime,venu
     const value = await createEventPromise(event);
     downloadFile(`data:text/calendar,${encodeURIComponent(value)}`,"calendar-event");
 }
+
+export const setTokens = (accessToken: string, refreshToken: string) => {
+    localStorage.setItem('accessToken', accessToken);
+    localStorage.setItem('refreshToken', refreshToken);
+  };
+  
+  export const getAccessToken = () =>
+    localStorage.getItem('accessToken');
+  
+  export const getRefreshToken = () =>
+    localStorage.getItem('refreshToken');
+  
+  export const clearTokens = () => {
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('refreshToken');
+  };
+  export function formatEventDate(date: Date) {
+    const yyyy = date.getFullYear();
+    const mm = String(date.getMonth() + 1).padStart(2, '0');
+    const dd = String(date.getDate()).padStart(2, '0');
+    
+    const formatted = `${yyyy}-${mm}-${dd}`;
+    return formatted;
+  }
+  export function formatDateTime(
+    date: string | Date,
+    timezone: string = Intl.DateTimeFormat().resolvedOptions().timeZone
+  ): string {
+    const parsedDate = typeof date === 'string' ? new Date(date) : date;
+  
+    if (isNaN(parsedDate.getTime())) {
+      return '';
+    }
+  
+    return new Intl.DateTimeFormat('en-US', {
+      hour: 'numeric',
+      minute: '2-digit',
+      hour12: true,
+      timeZone: timezone,
+    }).format(parsedDate);
+  }
+  
+  export function formatDate(date: Date) {
+    const yyyy = date.getFullYear();
+    const mm = String(date.getMonth() + 1).padStart(2, '0');
+    const dd = String(date.getDate()).padStart(2, '0');
+    
+    const formatted = `${yyyy}-${mm}-${dd}`;
+    return formatted;
+  }

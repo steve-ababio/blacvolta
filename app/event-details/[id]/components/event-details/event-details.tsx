@@ -42,7 +42,7 @@ const EventDetails = ({eventDate,eventTime,venue,ticketLink}:EventDetailsProps) 
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.6, delay: 0.2 }}
-    className="border border-slate-200 rounded-2xl p-6"
+    className=" rounded-2xl py-6 px-3 sm:px-6 sm:border sm:border-slate-200"
   >
     <div className="space-y-5">
       <DetailItem

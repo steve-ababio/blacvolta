@@ -1,12 +1,7 @@
 "use client"
-import Link from "next/link";
-import EventDetailFooterItem from "@/app/event-details/[id]/components/eventdetailsfooteritem/eventdetailsfooteritem";
-import { BsDownload,BsEnvelopePlus,BsCalendar4 } from "react-icons/bs";
 import { addToCalender, downloadFile } from "@/app/utils/utils";
 import React, { useEffect, useState } from "react";
-import { RotatingLines } from "react-loader-spinner";
-import { MdManageSearch } from "react-icons/md";
-import { Calendar, Download, Heart, ListFilter, MailPlus, Share2 } from "lucide-react";
+import { Calendar, Download, ListFilter, MailPlus, Share2 } from "lucide-react";
 import { ActionSheet } from "../action-sheet/action-sheet";
 
 type EventDetailFooterProps = {
@@ -18,10 +13,10 @@ type EventDetailFooterProps = {
     venue:string,
     eventTime:string,
     phonenumber:string,
-    sociallink:string,
+    googleMapsLink:string
 }
 
-export default function EventDetailFooter({id,description,flyerImagePath,sociallink,phonenumber,venue,eventName,eventDate,eventTime}:EventDetailFooterProps){
+export default function EventDetailFooter({id,description,googleMapsLink,flyerImagePath,phonenumber,venue,eventName,eventDate,eventTime}:EventDetailFooterProps){
     const [downloading,setDownloading] = useState(false);
     const actions = [
         { 
@@ -82,9 +77,9 @@ export default function EventDetailFooter({id,description,flyerImagePath,sociall
         linkElement.click();
     }
     function followEvent(){
-        const linkElement = document.createElement("a");
-        linkElement.href = sociallink;
-        linkElement.click();
+        // const linkElement = document.createElement("a");
+        // linkElement.href = sociallink;
+        // linkElement.click();
        
     }
     // Prevent background scroll when sheet is open
@@ -107,9 +102,17 @@ export default function EventDetailFooter({id,description,flyerImagePath,sociall
                 description.length > 0 &&
                 <>
                     <h2 className="font-kamerik pt-[20px] pb-[5px] text-slate-200 font-bold text-[20px]">About this event </h2>
-                    <p className="text-[1rem] text-[#9A9A9A]">{description}</p>
+                    <p className="text-sm font-normal text-[#9A9A9A]">{description}</p>
                 </>
             }
+            </div>
+            <div className="px-[10px] mt-4">
+                <a
+                    href={googleMapsLink}
+                    className="mt-4 underline text-sm"
+                    target="_blank">
+                    Open in Google Maps
+                </a>
             </div>
             <div className="mt-4">
                 <button

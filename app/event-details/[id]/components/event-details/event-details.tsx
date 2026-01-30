@@ -13,7 +13,8 @@ interface EventDetailsProps{
     eventDate:string,
     eventTime:string,
     venue:string,
-    ticketLink:string
+    ticketLink:string,
+    mapUrl:string
 }
 const DetailItem = ({ icon, label, value, delay = 0 }: DetailItemProps) => (
   <motion.div
@@ -27,7 +28,7 @@ const DetailItem = ({ icon, label, value, delay = 0 }: DetailItemProps) => (
     </div>
     <div>
       <p className="text-sm  text-muted-foreground">{label}</p>
-      {value.startsWith("https") || value.startsWith("http")? <Link className="underline" href={value} >{value}</Link>: <p className="font-medium text-white">{value}</p>}
+      {value.startsWith("https") || value.startsWith("http") || label === "Location"? <Link className="underline" href={value} >{value}</Link>: <p className="font-medium text-white">{value}</p>}
     </div>
   </motion.div>
 );
@@ -35,7 +36,7 @@ const DetailItem = ({ icon, label, value, delay = 0 }: DetailItemProps) => (
 function validateDate(date:Date){
     return date instanceof Date && isFinite(date.getTime());
 }
-const EventDetails = ({eventDate,eventTime,venue,ticketLink}:EventDetailsProps) => {
+const EventDetails = ({eventDate,eventTime,venue,ticketLink,mapUrl}:EventDetailsProps) => {
     const isValidateDate = validateDate(new Date(eventDate));
   return (
     <motion.div
@@ -57,12 +58,13 @@ const EventDetails = ({eventDate,eventTime,venue,ticketLink}:EventDetailsProps) 
         value={eventTime}
         delay={0.4}
       />
-      <DetailItem
-        icon={<MapPin className="h-5 w-5" />}
-        label="Location"
-        value={venue}
-        delay={0.5}
-      />
+     
+        <DetailItem
+          icon={<MapPin className="h-5 w-5" />}
+          label="Location"
+          value={venue}
+          delay={0.5}
+        />
       <DetailItem
         icon={<TicketIcon className="h-5 w-5" />}
         label="Ticket Link"

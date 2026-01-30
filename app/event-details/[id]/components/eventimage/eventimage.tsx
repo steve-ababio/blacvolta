@@ -13,7 +13,7 @@ import Image from "next/image";
 //                 alt="Event flyer"
 //             />
 //         </div>
-//     )
+//     ){{}
 // }
 import { motion } from "framer-motion";
 import Link from "next/link";

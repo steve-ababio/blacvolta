@@ -3,6 +3,9 @@ import { addToCalender, downloadFile } from "@/app/utils/utils";
 import React, { useEffect, useState } from "react";
 import { Calendar, Download, ListFilter, MailPlus, Share2 } from "lucide-react";
 import { ActionSheet } from "../action-sheet/action-sheet";
+import GoogleMap from "@/app/components/google-map/google-map";
+import { Ticket } from "@/app/types/types";
+import TicketCard from "@/app/components/ticket-card/ticket-card";
 
 type EventDetailFooterProps = {
     id:string,
@@ -13,10 +16,13 @@ type EventDetailFooterProps = {
     venue:string,
     eventTime:string,
     phonenumber:string,
-    googleMapsLink:string
+    long:number,
+    lat:number,
+    tickets:Ticket[]
+    
 }
 
-export default function EventDetailFooter({id,description,googleMapsLink,flyerImagePath,phonenumber,venue,eventName,eventDate,eventTime}:EventDetailFooterProps){
+export default function EventDetailFooter({id,description,lat,long,flyerImagePath,phonenumber,tickets,venue,eventName,eventDate,eventTime}:EventDetailFooterProps){
     const [downloading,setDownloading] = useState(false);
     const actions = [
         { 
@@ -97,6 +103,19 @@ export default function EventDetailFooter({id,description,googleMapsLink,flyerIm
     
     return (
         <section className="px-3">
+            <div className="py-4">
+                <h2 className="text-white text-[24px] font-semibold mb-4">Tickets</h2>
+                <div className="flex flex-col items-start gap-4">
+                    {
+                        tickets.map((ticket)=>(
+                            <TicketCard
+                                ticket={ticket}
+                                eventId={id}
+                            />   
+                        ))
+                    }
+                </div>
+            </div>
             <div className="px-[10px]">
             {
                 description.length > 0 &&
@@ -107,12 +126,13 @@ export default function EventDetailFooter({id,description,googleMapsLink,flyerIm
             }
             </div>
             <div className="px-[10px] mt-4">
-                <a
-                    href={googleMapsLink}
-                    className="mt-4 underline text-sm"
-                    target="_blank">
-                    Open in Google Maps
-                </a>
+                {(long && lat) &&
+                    <GoogleMap
+                        lat={lat}
+                        lng={long}
+                    />
+                }
+                
             </div>
             <div className="mt-4">
                 <button

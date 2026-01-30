@@ -41,6 +41,7 @@ export default function EventDetail({ params }: { params: { id: string } }) {
                 venue={event.venue}
                 eventTime={time}
                 ticketLink={event.external_url}
+                mapUrl={event.google_maps_link}
               />
           </div>
           <EventDetailFooter 
@@ -52,7 +53,9 @@ export default function EventDetail({ params }: { params: { id: string } }) {
               eventTime={event.time}
               venue={event.venue}
               phonenumber={event.contact_phone!}
-              googleMapsLink={event.location.link}
+              lat={event.location.latitude}
+              long={event.location.longitude}
+              tickets={event.tickets}
           />
         </main>
       </main>

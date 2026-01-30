@@ -4,6 +4,7 @@ import {PrimeReactProvider} from "primereact/api";
 import {IBM_Plex_Sans} from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import localFont from "next/font/local";
+import {APIProvider} from '@vis.gl/react-google-maps';
 import "./globals.css";
 import AmplitudeContextProvider from "@/app/providers/amplitude";
 import { SpeedInsights } from "@vercel/speed-insights/next";

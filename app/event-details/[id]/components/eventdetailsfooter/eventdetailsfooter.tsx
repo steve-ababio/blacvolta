@@ -111,6 +111,7 @@ export default function EventDetailFooter({id,description,lat,long,flyerImagePat
                             <TicketCard
                                 ticket={ticket}
                                 eventId={id}
+                                key={ticket.id}
                             />   
                         ))
                     }

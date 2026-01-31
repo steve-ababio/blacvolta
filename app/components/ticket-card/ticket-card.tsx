@@ -28,7 +28,7 @@ const TicketCard = ({ ticket,eventId }: TicketCardProps) => {
     const isLowStock = availabilityPercentage <= 20;
     const isOnSale = ticket.status === "On Sale";
     function navigateToApp(){
-        window.location.href = `https://blacvolta.com/app/events/events/${eventId}`;
+        window.location.href = `https://blacvolta.com/app/events/${eventId}`;
     }
     return (
         <div className="relative group max-w-30 w-full shadow-lg">

@@ -4,38 +4,7 @@
       {
         "appID": "6FT485LZ56.com.blacvolta.app",
         "paths": [
-          "/app/home",
-          "/app/home/news/*",
-          "/app/home/tickets",
-          "/app/home/tickets/details",
-          "/app/home/settings",
-          "/app/home/settings/appearance",
-          "/app/home/settings/change-password",
-          "/app/home/settings/profile-information",
-          "/app/events",
-          "/app/events/*",
-          "/app/events/tickets",
-          "/app/places",
-          "/app/places/*",
-          "/app/shop",
-          "/app/shop/*",
-          "/app/shop/cart",
-          "/app/card",
-          "/app/card/request-new",
-          "/app/card/name_appearance",
-          "/app/card/verify_identity",
-          "/app/card/document_part_selection",
-          "/app/card/document_instructions",
-          "/app/card/document_capture",
-          "/app/card/captured_image",
-          "/app/card/activation-payment",
-          "/app/card/mobile_number_selection",
-          "/app/card/add-existing-card-phone",
-          "/app/card/request-status",
-          "/app/card/pickup",
-          "/app/card/transactions",
-          "/app/card/add-money",
-          "/app/card/payment-webview"
+          "/app/*"
         ]
       }
     ]

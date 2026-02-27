@@ -10,7 +10,7 @@ async function getAllEditorials(){
             approved:true,
             dettydecember:true
         },
-        relationLoadStrategy:"join",
+        // relationLoadStrategy:"join",
         include:{
             paragraph:true
         },

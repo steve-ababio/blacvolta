@@ -207,3 +207,111 @@ export interface TicketVerificationResult {
     expires_at: string;
     is_active: boolean;
   }
+
+  export type OrderReceiptPayload = {
+    guest: {
+      name: string;
+      email: string;
+      phoneNumber:string
+    };
+    order: {
+      id: string;
+      createdAt: string;
+      paymentStatus: string;
+      subTotal: number;
+      tax: number;
+      totalAmount: number;
+      status: string;
+      currency: string;
+    };
+    items: {
+      product: { name: string };
+      quantity: number;
+      unitPrice: number;
+    }[];
+    address: {
+      street: string;
+      city: string;
+      state: string;
+      postalCode: string;
+      country: string;
+    };
+  };
+
+  export interface Article {
+    id: number;
+    title: string;
+    description: string;
+    content: string; // HTML string
+    source: string;
+    excerpt: string;
+    status: "draft" | "published" | "rejected";
+    views: number;
+    saveCount: number;
+    isSaved: boolean;
+    estimatedReadingTime: number;
+    rejectionNote: string | null;
+    publishedAt: string; // ISO date
+    createdAt: string;   // ISO date
+    updatedAt: string;   // ISO date;
+  
+    category: Category;
+    writer: Writer;
+    images: ArticleImage[];
+    socialStats: SocialStats;
+  }
+  
+  export interface Category {
+    id: number;
+    name: string;
+    description: string;
+    isActive: boolean;
+    status: "active" | "inactive";
+    articleCount: number;
+    createdAt: string; // ISO date
+  }
+  
+  export interface Writer {
+    id: number;
+    firstName: string;
+    lastName: string;
+    username: string | null;
+    email: string;
+    profileImage: string | null;
+    role: "admin" | "writer" | "editor";
+    isVerified: boolean;
+    joinedAt: string; // ISO date
+    articleCount: number;
+  }
+  
+  export interface ArticleImage {
+    id: number;
+    mediaId: number;
+    imageUrl: string;
+    altText: string | null;
+    isPrimary: boolean;
+    sortOrder: number;
+    createdAt: string; // ISO date
+    updatedAt: string; // ISO date
+    media: Media;
+  }
+  
+  export interface Media {
+    id: number;
+    filename: string;
+    originalName: string;
+    mimeType: string;
+    storageUrl: string;
+    cdnUrl: string;
+    width: number;
+    height: number;
+    altText: string | null;
+    tags: string[] | null;
+  }
+  
+  export interface SocialStats {
+    likes: number;
+    shares: number;
+    comments: number;
+  }
+  

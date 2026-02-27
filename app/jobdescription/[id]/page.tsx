@@ -1,20 +1,20 @@
 "use client"
 import GenericDialog from "@/app/components/genericdialog/genericdialog";
 import NavBar from "@/app/components/navbar/navbar";
-import { jobinfo } from "@/app/data/jobs/data";
+import { jobData } from "@/app/data/jobs/data";
 import { useState } from "react";
 import JobApplication from "../components/jobapplication/jobapplication";
 
 export default function JobDescription({ params }: { params: { id: string } }){
-    const job = jobinfo[parseInt(params.id,10)];
-    const [show,setShow] = useState(false);
+    // const job = jobinfo[parseInt(params.id,10)];
+    // const [show,setShow] = useState(false);
     
-    function closeDialog(){
-        setShow(false);
-    }
+    // function closeDialog(){
+    //     setShow(false);
+    // }
     return(
         <main className=" bg-bvprimary pt-1 min-h-screen w-full">
-            <NavBar />
+            {/* <NavBar />
             <div className="w-full">
                 <header className="py-14 mt-[80px] md:mt-[130px] bg-white">
                     <h2 className="font-bold mx-auto max-w-[45rem] w-[90%] text-[2rem] md:text-[3rem] text-slate-900">{job.jobtitle}</h2>
@@ -60,7 +60,7 @@ export default function JobDescription({ params }: { params: { id: string } }){
             </footer>
             <GenericDialog visible={show} closeEventDialog={closeDialog}>
                 <JobApplication jobtitle={job.jobtitle}/>
-            </GenericDialog>
+            </GenericDialog> */}
         </main>
     )
 }

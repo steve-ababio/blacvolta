@@ -6,7 +6,6 @@ async function getEditorial(id:number){
         where:{
             id
         },
-        relationLoadStrategy:"join",
         include:{
             paragraph:true
         },

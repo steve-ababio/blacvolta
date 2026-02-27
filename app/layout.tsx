@@ -8,6 +8,7 @@ import {APIProvider} from '@vis.gl/react-google-maps';
 import "./globals.css";
 import AmplitudeContextProvider from "@/app/providers/amplitude";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { CartProvider } from "./context/cart-context";
 
 const asap = Asap({
   subsets:["latin"],
@@ -71,9 +72,12 @@ export default function RootLayout({
       <body className={` ${asap.variable} ${poppins.variable} ${futura.variable} ${ibmsans.variable} ${kamericbook.variable}`}>
         <PrimeReactProvider>
           <AmplitudeContextProvider>
+           <CartProvider>
               {children}
+            </CartProvider>
               <Analytics />
               <SpeedInsights/>
+            
           </AmplitudeContextProvider>
         </PrimeReactProvider>
       </body>

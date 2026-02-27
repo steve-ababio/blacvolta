@@ -1,5 +1,6 @@
 import { createEvent, EventAttributes } from "ics";
 import { FILE_UPLOAD_URL } from "../constants";
+
 const createEventPromise = function(eventattributes:EventAttributes):Promise<string>{
     return new Promise((resolve,reject)=>{
         createEvent(eventattributes,
@@ -112,4 +113,15 @@ export const setTokens = (accessToken: string, refreshToken: string) => {
     
     const formatted = `${yyyy}-${mm}-${dd}`;
     return formatted;
+  }
+
+  export const formatMoney = (amount: number, currency: string) =>
+    `${formatCurrency(amount, currency)}`;
+
+
+  export function formatCurrency(amount: number,currency = 'GHS',locale = 'en-GH'): string {
+    return new Intl.NumberFormat(locale, {
+        style: 'currency',
+        currency,
+    }).format(amount);
   }

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
-
 interface JobItemProps{
     name:string,
     department:string,

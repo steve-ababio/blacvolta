@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Order Receipt</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .container {
+        max-width: 600px;
+        margin: 30px auto;
+        background: #ffffff;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .header {
+        background: #000000;
+        color: #ffffff;
+        padding: 20px;
+      }
+      .content {
+        padding: 24px;
+      }
+      .section-title {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .text {
+        font-size: 14px;
+        color: #333333;
+        line-height: 1.6;
+      }
+      .badge {
+        display: inline-block;
+        padding: 4px 10px;
+        font-size: 12px;
+        border-radius: 12px;
+        background-color: #e5e7eb;
+        color: #111827;
+        margin-left: 6px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 16px;
+      }
+      th, td {
+        padding: 10px;
+        font-size: 14px;
+        border-bottom: 1px solid #e0e0e0;
+        text-align: left;
+      }
+      th {
+        background: #f9f9f9;
+      }
+      .totals td {
+        border: none;
+        padding: 6px 10px;
+      }
+      .totals .label {
+        text-align: right;
+        color: #666;
+        display: inline-block;
+      }
+      .totals .amount {
+        text-align: right;
+        font-weight: bold;
+        display: inline-block;
+      }
+      .footer {
+        background: #f9f9f9;
+        padding: 16px;
+        text-align: center;
+        font-size: 12px;
+        color: #777;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Header -->
+       
+      <div class="header">
+        <img width="40" height="50"style=" display:inline-block;vertical-align: middle;" src="https://files.blacvolta.com/uploads/logo.png" alt="blacvolta logo" />
+        <h2 style="margin-left:20px;text-align:center; display:inline-block;vertical-align: middle;">Thank you for your order!</h2>
+      </div>
+
+      <!-- Content -->
+      <div class="content">
+        <p class="text">
+          Hi <strong>{{guest.name}}</strong>,<br />
+          We’ve received your order and are currently processing it.
+        </p>
+
+        <!-- Order Info -->
+        <p class="text">
+          <strong>Order ID:</strong> {{order.id}}<br />
+          <strong>Order Date:</strong> {{order.createdAt}}<br />
+          <strong>Payment Status:</strong> <span class="badge">{{order.paymentStatus}}</span>
+        </p>
+
+        <!-- Items -->
+        <div class="section-title">Order Summary</div>
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Item</th>
+              <th>Qty</th>
+              <th>Unit Price</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Repeat for each OrderItem -->
+            <tr>
+              <!-- <td>{{item.product.name}}</td>
+              <td>{{item.quantity}}</td>
+              <td>{{currency}} {{item.unitPrice / 100}}</td>
+              <td>{{currency}} {{(item.unitPrice * item.quantity) / 100}}</td> -->
+              {{order.items}}
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Totals -->
+        <table class="totals">
+          <tr>
+            <td class="label">Subtotal:</td>
+            <td class="amount">{{order.subTotal}}</td>
+          </tr>
+          <!-- <tr>
+            <td class="label">Tax:</td>
+            <td class="amount">{{currency}} {{order.tax / 100}}</td>
+          </tr> -->
+          <tr>
+            <td class="label">Total:</td>
+            <td class="amount">{{order.totalAmount}}</td>
+          </tr>
+        </table>
+
+        <!-- Shipping -->
+        <div style="margin-top: 24px;">
+          <div class="section-title">Shipping Address</div>
+          <p class="text">
+            {{address.street}}<br />
+            {{address.city}}, {{address.state}}<br />
+            {{address.postalCode}}<br />
+            {{address.country}}
+          </p>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        <p>
+          If you have any questions, reply to this email or contact our support
+          team.
+        </p>
+        <p>© {{year}} Blacvolta Merch. All rights reserved.</p>
+      </div>
+    </div>
+  </body>
+</html>

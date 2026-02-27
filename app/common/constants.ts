@@ -1,0 +1,1 @@
+export const FILE_URL = "https://files.blacvolta.com/uploads/";

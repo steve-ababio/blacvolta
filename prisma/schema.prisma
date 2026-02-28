@@ -8,6 +8,9 @@ datasource db {
 
 model Event {
   Id               String  @id @default(cuid())
+  Email            String? @unique
+  Organizationname String?
+  Phonenumber      String?
   EventName        String
   EventDate        String
   EventTime        String
@@ -19,49 +22,182 @@ model Event {
   FlyerImagePath   String
   IsEventWeekly    Boolean
   DayofWeek        String
-  approved         Boolean @default(true)
-  paid             Boolean @default(true)
-  Email            String?
-  Phonenumber      String?
-  Organizationname String?
-  EventId          String? @unique(map: "EventId")
+  EventId          String? @unique
+  approved         Boolean
+  paid             Boolean
   hidden           Boolean @default(false)
   rating           Int     @default(10)
 }
 
 model Paragraph {
   id                String   @id @unique @default(cuid())
-  imagepath         String   @default("")
   body              String
+  position          Int
+  instagrampostlink String
+  imagepath         String
   blogID            Int
-  instagrampostlink String   @default("")
-  position          Int      @default(1)
   blog              BlogPost @relation(fields: [blogID], references: [id], onDelete: Cascade)
 }
 
 model BlogPost {
-  id            Int         @id(map: "id") @unique @default(autoincrement())
+  id            Int         @id @unique @default(autoincrement())
   author        String
   title         String
   date          String
   imagepath     String
-  approved      Boolean     @default(true)
-  dettydecember Boolean     @default(false)
+  approved      Boolean
+  dettydecember Boolean
   paragraph     Paragraph[]
 }
 
-model AdminUser {
-  id       String @id
-  username String
-  password String
-
-  @@unique([id, username])
+model Address {
+  id        String   @id @default(cuid())
+  orderId   String   @unique
+  city      String
+  region    String
+  street    String
+  // postalCode String
+  // country    String
+  createdAt DateTime @default(now())
+  Order     Order    @relation(fields: [orderId], references: [id])
 }
 
-model User {
-  id          String @id
-  email       String @unique(map: "User_username_key")
-  password    String
-  phonenumber String
-  fullname    String
+model Guest {
+  id          String   @id @default(cuid())
+  name        String
+  email       String   @unique
+  phoneNumber String?
+  createdAt   DateTime @default(now())
+  order       Order[]
+}
+
+model Order {
+  id        String      @id @default(cuid())
+  guestId   String?
+  status    OrderStatus @default(PENDING)
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @default(now())
+  address   Address?
+  guest     Guest?      @relation(fields: [guestId], references: [id])
+  orderItem OrderItem[]
+  payment   Payment?
+}
+
+model OrderItem {
+  id        String   @id @default(cuid())
+  orderId   String
+  productId String
+  quantity  Int
+  unitPrice Int
+  createdAt DateTime @default(now())
+  order     Order    @relation(fields: [orderId], references: [id])
+  product   Product  @relation(fields: [productId], references: [id])
+}
+
+model Payment {
+  id            String          @id @default(cuid())
+  orderId       String          @unique
+  provider      PaymentProvider
+  subTotal      Int
+  taxAmount     Int
+  totalAmount   Int
+  currency      Currency        @default(GHS)
+  status        PaymentStatus
+  paymentMethod PaymentMethod?
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @default(now())
+  order         Order           @relation(fields: [orderId], references: [id])
+}
+
+model Product {
+  id          String      @id @default(cuid())
+  type        ProductType
+  tag         ProductTag
+  foreground  Color
+  background  Color
+  currency    Currency    @default(GHS)
+  name        String
+  description String
+  price       Int
+  imageUrls   String[]
+  sizes       Size[]
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @default(now())
+  quantity    Int         @default(0)
+  orderItem   OrderItem[]
+}
+
+enum Color {
+  BLACK
+  WHITE
+  PINK
+  RED
+  BLUE
+  GREEN
+  YELLOW
+}
+
+enum Currency {
+  GHS
+  NGN
+  USD
+  EUR
+  GBP
+}
+
+enum OrderStatus {
+  PENDING
+  PAID
+  FULFILLED
+  SHIPPED
+  COMPLETED
+  CANCELED
+  REFUNDED
+}
+
+enum PaymentMethod {
+  MOBILE_MONEY
+  BANK
+  CARD
+}
+
+enum PaymentProvider {
+  STRIPE
+  PAYPAL
+  PAYSTACK
+  CASH_ON_DELIVERY
+}
+
+enum PaymentStatus {
+  PENDING
+  AUTHORIZED
+  PAID
+  FAILED
+  REFUNDED
+}
+
+enum ProductTag {
+  MEN
+  WOMEN
+  UNISEX
+  BAGS
+  ACCESSORIES
+  CAPS
+}
+
+enum ProductType {
+  TSHIRT
+  HOODIE
+  CAP
+  BAG
+  ACCESSORY
+}
+
+enum Size {
+  XS
+  S
+  M
+  L
+  XL
+  XXL
 }

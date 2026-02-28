@@ -19,9 +19,9 @@ export default function Checkout() {
     lastName: '',
     street: '',
     city: '',
-    state:'',
-    postalCode: '',
-    country: '',
+    region:'',
+    // postalCode: '',
+    // country: '',
     phone: '',
   });
 
@@ -31,7 +31,16 @@ export default function Checkout() {
         [e.target.name]: e.target.value
         }));
     };
-
+    const handleSelectChange = (
+      e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    ) => {
+      const { name, value } = e.target;
+    
+      setFormData((prev) => ({
+        ...prev,
+        region: value,
+      }));
+    };
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const customer = {
@@ -41,9 +50,9 @@ export default function Checkout() {
         address:{
             street: formData.street,
             city: formData.city,
-            state: formData.state,
-            postalCode: formData.postalCode,
-            country: formData.country,
+            region: formData.region,
+            // postalCode: formData.postalCode,
+            // country: formData.country,
         }
     };
     const order = {
@@ -145,15 +154,7 @@ export default function Checkout() {
                       className="input-field"
                     />
                   </div>
-                  <input
-                    type="text"
-                    name="street"
-                    placeholder="Street"
-                    required
-                    value={formData.street}
-                    onChange={handleInputChange}
-                    className="input-field"
-                  />
+                  
                   <div className="grid grid-cols-2 gap-4">
                     <input
                       type="text"
@@ -165,6 +166,15 @@ export default function Checkout() {
                       className="input-field"
                     />
                     <input
+                    type="text"
+                    name="street"
+                    placeholder="Street"
+                    required
+                    value={formData.street}
+                    onChange={handleInputChange}
+                    className="input-field"
+                  />
+                    {/* <input
                       type="text"
                       name="postalCode"
                       placeholder="Digital Address"
@@ -172,9 +182,9 @@ export default function Checkout() {
                       value={formData.postalCode}
                       onChange={handleInputChange}
                       className="input-field"
-                    />
+                    /> */}
                   </div>
-                  <input
+                  {/* <input
                     type="text"
                     name="country"
                     placeholder="Country"
@@ -182,19 +192,35 @@ export default function Checkout() {
                     value={formData.country}
                     onChange={handleInputChange}
                     className="input-field"
-                  />
+                  /> */}
                 </div>
                
               </div>
-               <input
-                    type="text"
-                    name="state"
-                    placeholder="State"
-                    required
-                    value={formData.state}
-                    onChange={handleInputChange}
-                    className="input-field"
-                />
+              <select
+                name="region"
+                required
+                value={formData.region}
+                onChange={handleSelectChange}
+                className="input-field"
+              >
+                <option value="" disabled>Select Region</option>
+                <option value="Ahafo">Ahafo</option>
+                <option value="Ashanti">Ashanti</option>
+                <option value="Bono">Bono</option>
+                <option value="Bono East">Bono East</option>
+                <option value="Central">Central</option>
+                <option value="Eastern">Eastern</option>
+                <option value="Greater Accra">Greater Accra</option>
+                <option value="North East">North East</option>
+                <option value="Northern">Northern</option>
+                <option value="Oti">Oti</option>
+                <option value="Savannah">Savannah</option>
+                <option value="Upper East">Upper East</option>
+                <option value="Upper West">Upper West</option>
+                <option value="Volta">Volta</option>
+                <option value="Western">Western</option>
+                <option value="Western North">Western North</option>
+              </select>
               {/* Payment */}
               {/* <div>
                 <h2 className="text-lg font-medium mb-4">Payment</h2>

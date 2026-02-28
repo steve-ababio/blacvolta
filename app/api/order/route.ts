@@ -91,7 +91,6 @@ async function createShippingAddress(address:ExpectedType<Address>){
     return result;
 }
 async function createOrder(order:ExpectedType<Order,"status">){
-
     const result = await prisma.order.create({
         data:order,
     });

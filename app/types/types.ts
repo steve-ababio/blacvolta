@@ -232,9 +232,9 @@ export interface TicketVerificationResult {
     address: {
       street: string;
       city: string;
-      state: string;
-      postalCode: string;
-      country: string;
+      region: string;
+      // postalCode: string;
+      // country: string;
     };
   };
 

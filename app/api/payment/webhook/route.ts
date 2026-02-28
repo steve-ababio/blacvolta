@@ -39,17 +39,17 @@ export async function POST(req: Request) {
           status:order.status,
           currency:payment.currency,
         },
-        items:order.items.map(item=>({
+        items:order.orderItem.map(item=>({
           quantity:item.quantity,
           unitPrice:item.unitPrice,
           product:item.product
         })),
         address:{
-          street:order.shippingAddress!.street,
-          city:order.shippingAddress!.city,
-          state:order.shippingAddress!.state,
-          postalCode:order.shippingAddress!.postalCode,
-          country:order.shippingAddress!.country
+          street:order.address!.street,
+          city:order.address!.city,
+          region:order.address!.region,
+          // postalCode:order.shippingAddress!.postalCode,
+          // country:order.shippingAddress!.country
         }
     }
     const receipientEmail = order.guest!.email
@@ -94,11 +94,11 @@ async function confirmOrder(orderId:string){
     },
     include:{
       guest:true,
-      items:{
+      orderItem:{
         include:{
           product:true
       }},
-      shippingAddress:true,
+      address:true,
       payment:true
     }
  });
@@ -111,13 +111,13 @@ async function sendEmails(email:string,orderReceiptPayload:OrderReceiptPayload){
         emailService.sendOrderReceiptEmail(
             email,
             "Order Confirmation",
-            "/templates/order-confirmation.html",
+            "/order-confirmation.html",
             orderReceiptPayload
         ),
         emailService.sendStoreManagerEmail(
             email,
             "New Order Received",
-            "/templates/store-receipt.html",
+            "/store-receipt.html",
             orderReceiptPayload
         )
     ]);

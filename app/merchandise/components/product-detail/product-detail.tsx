@@ -177,7 +177,7 @@ export default function ProductDetail({ product, onClose,products }: ProductDeta
                       key={size}
                       onClick={() => setSelectedSize(size)}
                       className={`size-btn border border-[#333333] ${
-                        selectedSize === size ? 'size-btn-active' : ''
+                        selectedSize === size ? 'bg-white text-black' : ''
                       }`}
                     >
                       {size}

@@ -8,7 +8,7 @@ import { OrderReceiptPayload } from "@/app/types/types";
 const TEMPLATE_PATH = path.join(
    process.cwd(),
   "public",
-  "email",
+  "templates",
   );
 
 export class EmailService {
@@ -54,9 +54,9 @@ export class EmailService {
           .replace("{{order.items}}", itemsHtml)
           .replace("{{address.street}}", orderPayload.address.street)
           .replace("{{address.city}}", orderPayload.address.city)
-          .replace("{{address.state}}", orderPayload.address.state)
-          .replace("{{address.postalCode}}", orderPayload.address.postalCode)
-          .replace("{{address.country}}", orderPayload.address.country);
+          .replace("{{address.region}}", orderPayload.address.region)
+        //   .replace("{{address.postalCode}}", orderPayload.address.postalCode)
+        //   .replace("{{address.country}}", orderPayload.address.country);
       
         return html;
       }
@@ -94,9 +94,9 @@ export class EmailService {
             .replace("{{order.totalAmount}}", formatMoney(orderPayload.order.subTotal, orderPayload.order.currency))
             .replace("{{address.street}}", orderPayload.address.street)
             .replace("{{address.city}}", orderPayload.address.city)
-            .replace("{{address.state}}", orderPayload.address.state)
-            .replace("{{address.postalCode}}", orderPayload.address.postalCode)
-            .replace("{{address.country}}", orderPayload.address.country)
+            .replace("{{address.region}}", orderPayload.address.region)
+            // .replace("{{address.postalCode}}", orderPayload.address.postalCode)
+            // .replace("{{address.country}}", orderPayload.address.country)
             .replace("{{year}}", new Date().getFullYear().toString());
 
         return html;

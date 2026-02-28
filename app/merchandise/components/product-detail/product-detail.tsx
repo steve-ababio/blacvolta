@@ -4,6 +4,8 @@ import { X, ChevronLeft, ChevronRight, Ruler, Truck, RotateCcw, Plus, Minus } fr
 import { useCart } from '@/app/context/cart-context';
 import { getColorHex, Product } from '@/app/data/product';
 import SizeGuide from '../size-guide/size-guide';
+import { GroupedProduct } from '@/app/types/types';
+import { formatMoney } from '@/app/utils/utils';
 
 
 interface ProductDetailProps {
@@ -129,7 +131,7 @@ export default function ProductDetail({ product, onClose,products }: ProductDeta
                 {selectedProduct.type}
               </p>
               <h2 className="text-2xl text-white md:text-3xl font-bold">{selectedProduct.name}</h2>
-              <p className="text-2xl text-white font-semibold mt-2">${selectedProduct.price}</p>
+              <p className="text-2xl text-white font-semibold mt-2">{formatMoney(selectedProduct.price,selectedProduct.currency)}</p>
             </div>
 
             {/* Color Swatches */}
@@ -292,3 +294,296 @@ export default function ProductDetail({ product, onClose,products }: ProductDeta
     </>
   );
 }
+
+
+
+
+
+
+
+// interface ProductDetailProps {
+//   product: GroupedProduct;
+//   onClose: () => void;
+// }
+
+// export default function ProductDetail({
+//   product,
+//   onClose,
+// }: ProductDetailProps) {
+//   const { addToCart } = useCart();
+
+//   const [[variantIndex, direction], setVariantIndex] =
+//     useState<[number, number]>([0, 0]);
+
+//   const [currentImageIndex, setCurrentImageIndex] =
+//     useState(0);
+
+//   const [selectedSize, setSelectedSize] =
+//     useState<string | null>(null);
+
+//   const [quantity, setQuantity] = useState(1);
+
+//   const [activeTab, setActiveTab] =
+//     useState<"details" | "shipping">("details");
+
+//   const activeVariant = product.variants[variantIndex];
+
+//   const isVariantOutOfStock =
+//     activeVariant.sizes.every(
+//       (s) => s.quantity === 0
+//     );
+
+//   const selectedSizeStock =
+//     activeVariant.sizes.find(
+//       (s) => s.size === selectedSize
+//     )?.quantity ?? 0;
+
+//   const paginateVariant = (dir: number) => {
+//     const newIndex =
+//       (variantIndex + dir + product.variants.length) %
+//       product.variants.length;
+
+//     setVariantIndex([newIndex, dir]);
+//     setCurrentImageIndex(0);
+//     setSelectedSize(null);
+//     setQuantity(1);
+//   };
+
+//   const handleAddToCart = () => {
+//     if (
+//       activeVariant.sizes.length > 0 &&
+//       !selectedSize
+//     )
+//       return;
+
+//     addToCart({
+//       productId: activeVariant.id,
+//       name: product.name,
+//       color: activeVariant.foreground,
+//       size: selectedSize,
+//       price: activeVariant.price,
+//       quantity,
+//     });
+
+//     onClose();
+//   };
+
+//   return (
+//     <>
+//       {/* Overlay */}
+//       <motion.div
+//         initial={{ opacity: 0 }}
+//         animate={{ opacity: 1 }}
+//         exit={{ opacity: 0 }}
+//         className="overlay z-50"
+//         onClick={onClose}
+//       />
+
+//       <motion.div
+//         initial={{ opacity: 0, scale: 0.96 }}
+//         animate={{ opacity: 1, scale: 1 }}
+//         exit={{ opacity: 0, scale: 0.96 }}
+//         className="fixed inset-4 md:inset-10 bg-[#0D0D0D] rounded-2xl z-50 overflow-hidden flex flex-col md:flex-row"
+//       >
+//         {/* IMAGE SECTION */}
+//         <div className="relative flex-1 bg-[#121212] flex items-center justify-center">
+
+//           <AnimatePresence mode="wait">
+//             <motion.img
+//               key={currentImageIndex}
+//               initial={{ opacity: 0 }}
+//               animate={{ opacity: 1 }}
+//               exit={{ opacity: 0 }}
+//               src={
+//                 activeVariant.imageUrls[
+//                   currentImageIndex
+//                 ]
+//               }
+//               className={`w-full h-full object-contain p-8 ${
+//                 isVariantOutOfStock
+//                   ? "opacity-40"
+//                   : ""
+//               }`}
+//             />
+//           </AnimatePresence>
+
+//           {/* Image Navigation */}
+//           {activeVariant.imageUrls.length > 1 && (
+//             <>
+//               <button
+//                 onClick={() =>
+//                   setCurrentImageIndex((prev) =>
+//                     prev ===
+//                     activeVariant.imageUrls.length -
+//                       1
+//                       ? 0
+//                       : prev + 1
+//                   )
+//                 }
+//                 className="absolute right-4 p-2 bg-black/70 rounded-full"
+//               >
+//                 ›
+//               </button>
+//             </>
+//           )}
+//         </div>
+
+//         {/* INFO SECTION */}
+//         <div className="flex-1 p-8 overflow-y-auto space-y-6">
+
+//           <div>
+//             <p className="text-sm text-gray-400 uppercase">
+//               {product.type}
+//             </p>
+//             <h2 className="text-3xl text-white font-bold">
+//               {product.name}
+//             </h2>
+//             <p className="text-xl text-white mt-2">
+//               ${activeVariant.price}
+//             </p>
+//           </div>
+
+//           {/* COLOR SELECTOR */}
+//           <div>
+//             <p className="text-sm text-white mb-3">
+//               Color:{" "}
+//               {activeVariant.foreground}
+//             </p>
+//             <div className="flex gap-3">
+//               {product.variants.map(
+//                 (variant, index) => {
+//                   const disabled =
+//                     variant.sizes.every(
+//                       (s) => s.quantity === 0
+//                     );
+
+//                   return (
+//                     <button
+//                       key={variant.id}
+//                       disabled={disabled}
+//                       onClick={() =>
+//                         paginateVariant(
+//                           index - variantIndex
+//                         )
+//                       }
+//                       className={`w-6 h-6 rounded-full border ${
+//                         index === variantIndex
+//                           ? "border-white"
+//                           : "border-gray-600"
+//                       } ${
+//                         disabled
+//                           ? "opacity-30 cursor-not-allowed"
+//                           : ""
+//                       }`}
+//                       style={{
+//                         backgroundColor:
+//                           variant.foreground.toLowerCase(),
+//                       }}
+//                     />
+//                   );
+//                 }
+//               )}
+//             </div>
+//           </div>
+
+//           {/* SIZE SELECTOR */}
+//           {activeVariant.sizes.length > 0 && (
+//             <div>
+//               <p className="text-sm text-white mb-3">
+//                 Size
+//               </p>
+//               <div className="flex gap-2 flex-wrap">
+//                 {activeVariant.sizes.map(
+//                   (size) => {
+//                     const disabled =
+//                       size.quantity === 0;
+
+//                     return (
+//                       <button
+//                         key={size.size}
+//                         disabled={disabled}
+//                         onClick={() =>
+//                           setSelectedSize(
+//                             size.size
+//                           )
+//                         }
+//                         className={`px-4 py-2 border rounded-md ${
+//                           selectedSize ===
+//                           size.size
+//                             ? "border-white text-white"
+//                             : "border-gray-600 text-gray-400"
+//                         } ${
+//                           disabled
+//                             ? "opacity-30 cursor-not-allowed"
+//                             : ""
+//                         }`}
+//                       >
+//                         {size.size}
+//                       </button>
+//                     );
+//                   }
+//                 )}
+//               </div>
+//             </div>
+//           )}
+
+//           {/* QUANTITY */}
+//           <div>
+//             <p className="text-sm text-white mb-3">
+//               Quantity
+//             </p>
+//             <div className="flex items-center gap-4">
+//               <button
+//                 onClick={() =>
+//                   setQuantity((q) =>
+//                     Math.max(1, q - 1)
+//                   )
+//                 }
+//                 className="px-3 py-1 border border-gray-600 text-white"
+//               >
+//                 -
+//               </button>
+//               <span className="text-white">
+//                 {quantity}
+//               </span>
+//               <button
+//                 onClick={() =>
+//                   setQuantity((q) =>
+//                     selectedSize
+//                       ? Math.min(
+//                           selectedSizeStock,
+//                           q + 1
+//                         )
+//                       : q + 1
+//                   )
+//                 }
+//                 className="px-3 py-1 border border-gray-600 text-white"
+//               >
+//                 +
+//               </button>
+//             </div>
+//           </div>
+
+//           {/* ADD TO CART */}
+//           <button
+//             onClick={handleAddToCart}
+//             disabled={
+//               isVariantOutOfStock ||
+//               (activeVariant.sizes.length >
+//                 0 &&
+//                 !selectedSize)
+//             }
+//             className="w-full py-4 bg-white text-black rounded-full disabled:opacity-40"
+//           >
+//             {isVariantOutOfStock
+//               ? "Out of Stock"
+//               : activeVariant.sizes.length >
+//                   0 && !selectedSize
+//               ? "Select Size"
+//               : "Add to Cart"}
+//           </button>
+//         </div>
+//       </motion.div>
+//     </>
+//   );
+// }

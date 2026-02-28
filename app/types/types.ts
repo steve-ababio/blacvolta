@@ -1,3 +1,5 @@
+import { Product } from "../data/product";
+
 export type EventStatus = 'draft' | 'published' | 'archived';
 export type EventType = 'general' | 'conference' | 'concert' | string;
 export type TicketStatus = 'On Sale' | 'Sold Out' | 'Paused';
@@ -315,3 +317,19 @@ export interface TicketVerificationResult {
     comments: number;
   }
   
+  export type ProductVariant = {
+    id: string;
+    foreground: string;
+    background: string;
+    imageUrls: string[];
+    price: number;
+    currency: string;
+    quantity: number;
+    sizes?:string[]
+  };
+  
+  export type GroupedProduct = {
+    type: string;
+    name: string;
+    variants: Product[];
+  };

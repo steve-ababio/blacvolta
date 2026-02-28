@@ -1,5 +1,7 @@
 import { createEvent, EventAttributes } from "ics";
 import { FILE_UPLOAD_URL } from "../constants";
+import { GroupedProduct } from "../types/types";
+import { Product } from "../data/product";
 
 const createEventPromise = function(eventattributes:EventAttributes):Promise<string>{
     return new Promise((resolve,reject)=>{
@@ -124,4 +126,35 @@ export const setTokens = (accessToken: string, refreshToken: string) => {
         style: 'currency',
         currency,
     }).format(amount);
+  }
+
+  export function groupProducts(products: Product[]): GroupedProduct[] {
+    const grouped: Record<string, GroupedProduct> = {};
+  
+    products.forEach((product) => {
+      if (!grouped[product.type]) {
+        grouped[product.type] = {
+          type: product.type,
+          name: product.type,
+          variants: [],
+        };
+      }
+  
+      grouped[product.type].variants.push({
+        id: product.id,
+        foreground: product.foreground,
+        background: product.background,
+        imageUrls: product.imageUrls,
+        price: product.price,
+        currency: product.currency,
+        quantity: product.quantity,
+        sizes:product.sizes,
+        name:product.name,
+        tag:product.tag,
+        type:product.type,
+        description:product.description
+      });
+    });
+  
+    return Object.values(grouped);
   }

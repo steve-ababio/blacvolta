@@ -8,6 +8,8 @@ import ProductCard from "../product-card/product-card";
 import ProductDetail from "../product-detail/product-detail";
 import useSWR from "swr";
 import ProductSkeletonLoader from "@/app/components/product-skeleton-loader/product-skeleton-loader";
+import { GroupedProduct } from "@/app/types/types";
+import { groupProducts } from "@/app/utils/utils";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -19,7 +21,7 @@ export default function ProductGrid() {
     `/api/products?tag=${activeCategory === "All" ? "" : activeCategory.toUpperCase()}`, 
     fetcher
   );
-
+  const groupedProducts = groupProducts(products);
   const visibleProducts = showAll ? products : products.slice(0, 6);
 
   if (error)
@@ -38,11 +40,11 @@ export default function ProductGrid() {
             <>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-7 px-4 sm:px-0 w-full">
                     <AnimatePresence mode="popLayout">
-                        {visibleProducts.map((product) => (
+                        {groupedProducts.map((product:GroupedProduct) => (
                             <ProductCard
-                                key={product.id}
+                                key={product.type}
                                 product={product}
-                                onClick={() => setSelectedProduct(product)}
+                                onClick={() => setSelectedProduct(product.variants[0])}
                             />
                         ))}
 

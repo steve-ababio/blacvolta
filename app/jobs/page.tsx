@@ -50,8 +50,8 @@ export default function Jobs(){
                   <h2 className="text-white font-semibold text-4xl text-center mb-8">Available Jobs</h2>
                   <div className="space-y-4 w-full grid justify-center grid-cols-[repeat(auto-fill,minmax(min(100%,420px),1fr))] ">
                     {jobsList.map((job) => (
-                      <div className="max-w-[420px] w-full">
-                        <JobPreviewCard key={job.id} job={job} />
+                      <div key={job.id} className="max-w-[420px] w-full">
+                        <JobPreviewCard  job={job} />
                       </div>
                     ))}
                   </div>

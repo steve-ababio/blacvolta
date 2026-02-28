@@ -22,7 +22,7 @@ export default function TeamGrid(){
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: index * 0.1 }}
-                        className="group cursor-pointer flex flex-col justify-center bg-black/10 p-3 rounded-lg items-center"
+                        className="group relative cursor-pointer flex flex-col justify-center bg-black/10 p-3 rounded-lg items-center"
                         onClick={() => setSelectedMember(member)}
                         >
                         <div className="relative w-full flex justify-center items-center mb-2 overflow-hidden">
@@ -38,11 +38,12 @@ export default function TeamGrid(){
                             <p className="text-sm opacity-40 text-white tracking-widest font-normal">{member.role}</p>
                         </div>
                         <button className="text-black bg-white py-2 px-3 rounded-sm w-full mt-2" onClick={() => setSelectedMember(member)}>More details</button>
-                       
+                        
                     </motion.div>
+                    
                 ))
             }
-           <TeamModal selectedMember={selectedMember} setSelectedMember={setSelectedMember}/>
+          <TeamModal selectedMember={selectedMember} setSelectedMember={setSelectedMember}/>
         </>
     )
 }

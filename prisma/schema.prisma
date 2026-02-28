@@ -1,203 +1,67 @@
-datasource db {
-  provider = "postgresql"
-}
 generator client {
   provider = "prisma-client-js"
 }
 
+datasource db {
+  provider = "postgresql"
+}
 
 model Event {
-  Id            String     @id @default(cuid())
-  Email       String? @unique
+  Id               String  @id @default(cuid())
+  EventName        String
+  EventDate        String
+  EventTime        String
+  Venue            String
+  TicketLinks      String
+  SocialLinks      String
+  Description      String
+  InquiryNumber    String
+  FlyerImagePath   String
+  IsEventWeekly    Boolean
+  DayofWeek        String
+  approved         Boolean @default(true)
+  paid             Boolean @default(true)
+  Email            String?
+  Phonenumber      String?
   Organizationname String?
-  Phonenumber String?
-  EventName      String
-  EventDate      String
-  EventTime      String
-  Venue          String
-  TicketLinks    String
-  SocialLinks    String
-  Description    String
-  InquiryNumber  String
-  FlyerImagePath String
-  IsEventWeekly  Boolean
-  DayofWeek      String
-  EventId String? @unique
-  approved       Boolean
-  paid           Boolean
-  hidden         Boolean @default(false)
-  rating Int @default(10)
+  EventId          String? @unique(map: "EventId")
+  hidden           Boolean @default(false)
+  rating           Int     @default(10)
 }
 
-model Paragraph{
-  id String     @id @unique @default(cuid())
-  body String
-  position Int
-  instagrampostlink String
-  imagepath String
-  blog  BlogPost @relation(fields: [blogID], references: [id],onUpdate: Cascade,onDelete: Cascade)
-  blogID Int
-}
-model BlogPost{
-  id Int     @id @unique @default(autoincrement())
-  author String
-  title String
-  date String
-  imagepath String
-  approved Boolean
-  dettydecember Boolean
-  paragraph Paragraph[]
+model Paragraph {
+  id                String   @id @unique @default(cuid())
+  imagepath         String   @default("")
+  body              String
+  blogID            Int
+  instagrampostlink String   @default("")
+  position          Int      @default(1)
+  blog              BlogPost @relation(fields: [blogID], references: [id], onDelete: Cascade)
 }
 
-
-enum ProductType {
-  TSHIRT
-  HOODIE
-  CAP
-  BAG
-  ACCESSORY
+model BlogPost {
+  id            Int         @id(map: "id") @unique @default(autoincrement())
+  author        String
+  title         String
+  date          String
+  imagepath     String
+  approved      Boolean     @default(true)
+  dettydecember Boolean     @default(false)
+  paragraph     Paragraph[]
 }
 
-  enum ProductTag {
-    MEN
-    WOMEN
-    UNISEX
-    BAGS
-    CAPS
-    ACCESSORIES
-  }
+model AdminUser {
+  id       String @id
+  username String
+  password String
 
-enum Color {
-    BLACK
-    WHITE
-    PINK
-    RED
-    BLUE
-    GREEN
-    YELLOW
+  @@unique([id, username])
 }
 
-enum Size {
-    XS
-    S
-    M
-    L
-    XL
-    XXL
-}
-
-enum Currency {
-  GHS
-  NGN
-  USD
-  EUR
-  GBP
-}
-
-
-model Product {
-  id           String        @id @default(cuid())
-  type         ProductType
-  tag          ProductTag
-  foreground   Color
-  background   Color
-  currency     Currency      @default(GHS)
-  name         String
-  description  String
-  price        Int           // store in major currency unit (e.g. GHS / USD)
-  imageUrls    String[]      // Prisma supports arrays (Postgres / Mongo)
-  sizes        Size[]
-  items           OrderItem[]
-  quantity    Int @default(0)
-  createdAt   DateTime       @default(now())
-  updatedAt   DateTime       @updatedAt
-}
-
-model Guest {
-  id        String  @id @default(cuid())
-  name      String
-  email     String @unique()
-  phoneNumber     String?
-  orders    Order[]
-  createdAt DateTime @default(now())
-}
-
-model Order {
-  id              String        @id @default(cuid())
-  guestId   String?
-  guest     Guest? @relation(fields: [guestId], references: [id])
-  status          OrderStatus   @default(PENDING)
-  items           OrderItem[]
-  shippingAddress Address?
-  payment         Payment?
-  createdAt       DateTime      @default(now())
-  updatedAt       DateTime      @updatedAt
-}
-
-model Address {
-  id        String  @id @default(cuid())
-  orderId   String  @unique
-  order     Order   @relation(fields: [orderId], references: [id])
-  city      String
-  state     String
-  street    String
-  postalCode String
-  country   String
-  createdAt DateTime @default(now())
-}
-model OrderItem {
-  id        String  @id @default(cuid())
-  orderId  String
-  productId String
-  order    Order   @relation(fields: [orderId], references: [id])
-  product  Product @relation(fields: [productId], references: [id])
-  quantity Int
-  unitPrice Int  
-  createdAt DateTime @default(now())
-}
-
-model Payment {
-  id            String        @id @default(cuid())
-  orderId       String        @unique
-  order         Order         @relation(fields: [orderId], references: [id])
-  provider      PaymentProvider
-  subTotal        Int           // cents
-  taxAmount       Int           // cents
-  totalAmount     Int           // cents
-  currency       Currency      @default(GHS)
-  status        PaymentStatus
-  paymentMethod PaymentMethod? 
-  createdAt     DateTime      @default(now())
-  updatedAt     DateTime      @updatedAt
-}
-
-enum OrderStatus {
-  PENDING
-  PAID
-  FULFILLED
-  SHIPPED
-  COMPLETED
-  CANCELED
-  REFUNDED
-}
-
-enum PaymentStatus {
-  PENDING
-  AUTHORIZED
-  PAID
-  FAILED
-  REFUNDED
-}
-
-enum PaymentProvider {
-  STRIPE
-  PAYPAL
-  PAYSTACK
-  CASH_ON_DELIVERY
-}
-
-enum PaymentMethod {
-  MOBILE_MONEY
-  BANK
-  CARD
+model User {
+  id          String @id
+  email       String @unique(map: "User_username_key")
+  password    String
+  phonenumber String
+  fullname    String
 }

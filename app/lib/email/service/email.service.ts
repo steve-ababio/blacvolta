@@ -7,9 +7,9 @@ import { OrderReceiptPayload } from "@/app/types/types";
 
 const TEMPLATE_PATH = path.join(
     process.cwd(),
-    "app",
-    "lib",
+    "public",
     "email",
+    "order-confirmation.html"
   );
 
 export class EmailService {
@@ -142,6 +142,7 @@ export class EmailService {
     
     private async getHtmlContent(filename: string): Promise<string> {
       try {
+            console.log("path:",path.join(TEMPLATE_PATH, filename));
           return await readFile(path.join(TEMPLATE_PATH, filename), 'utf8');
       } catch (error) {
           console.error(`Failed to load template: ${filename}`, error);

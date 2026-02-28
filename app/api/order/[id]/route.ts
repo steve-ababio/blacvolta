@@ -17,7 +17,7 @@ export async function GET( request: Request,{ params }: { params: { id: string }
             id: transactionId
       }},
       include: {
-        items: {
+        orderItem: {
             include:{
                 product:true
             }

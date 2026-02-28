@@ -6,10 +6,9 @@ import { formatMoney } from "@/app/utils/utils";
 import { OrderReceiptPayload } from "@/app/types/types";
 
 const TEMPLATE_PATH = path.join(
-    process.cwd(),
-    "public",
-    "email",
-    "order-confirmation.html"
+   process.cwd(),
+  "public",
+  "email",
   );
 
 export class EmailService {

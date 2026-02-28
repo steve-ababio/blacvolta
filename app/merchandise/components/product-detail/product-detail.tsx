@@ -67,7 +67,7 @@ export default function ProductDetail({ product, onClose,products }: ProductDeta
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.95 }}
-        className="fixed inset-4 md:inset-10 bg-[#0D0D0D] rounded-2xl z-50 overflow-hidden flex flex-col md:flex-row"
+        className="fixed inset-4 font-kamerik md:inset-10 bg-[#0D0D0D] rounded-2xl z-50 overflow-hidden flex flex-col md:flex-row"
       >
         <button
           onClick={onClose}

@@ -21,7 +21,7 @@ export default function ProductCard({ product, onClick }: ProductCardProps) {
         y: 0,
       }}
       exit={{ opacity: 0, y: 20 }}
-      className={` product-card cursor-pointer group rounded-[32px]`}
+      className={` product-card font-kamerik cursor-pointer group rounded-[32px]`}
       onClick={onClick}
     >
       <div className="aspect-square p-4 overflow-hidden bg-[#121212] rounded-[32px]">

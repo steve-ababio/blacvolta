@@ -3,7 +3,7 @@ import NavBar from '@/app/components/navbar/navbar';
 
 export default function Hero() {
   return (
-    <div className="relative h-[60vh] w-full bg-cover bg-center flex flex-col justify-between p-6" 
+    <div className="relative font-kamerik h-[60vh] w-full bg-cover bg-center flex flex-col justify-between p-6" 
          style={{ 
             backgroundImage: "linear-gradient(to bottom, transparent 0%, #000000 100%), url('/assets/images/merch.jpg')" 
         }}

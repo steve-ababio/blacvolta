@@ -9,7 +9,7 @@ interface JobPreviewCardProps {
 export const JobPreviewCard = ({ job }: JobPreviewCardProps) => (
   <Link
     href={`/job-detail/${job.id}`}
-    className="group block rounded-2xl bg-card p-6 sm:p-8 transition-all  hover:shadow-[0_0_30px_-10px_hsl(43_80%_58%/0.15)]"
+    className="group block w-full rounded-lg bg-card p-6 sm:p-8 transition-all  hover:shadow-[0_0_30px_-10px_hsl(43_80%_58%/0.15)]"
   >
     <div className="space-y-4">
       <div className="flex items-center gap-3">

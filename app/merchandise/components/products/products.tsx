@@ -26,7 +26,7 @@ export default function ProductGrid() {
     return <p className="text-white text-center mt-10">Failed to load products.</p>;
 
   return (
-    <section className="bg-black pt-32 pb-12 px-2 flex flex-col items-center mx-auto w-full max-w-6xl">
+    <section className="bg-black font-kamerik pt-32 pb-12 px-2 flex flex-col items-center mx-auto w-full max-w-6xl">
       <h2 className="text-2xl text-white font-medium mb-6">New Arrivals</h2>
       <SegmentedTabs
         activeCategory={activeCategory}

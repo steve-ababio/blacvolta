@@ -48,9 +48,11 @@ export default function Jobs(){
           
                 <main className="mx-auto w-full px-3 md:px-6 pb-4 mb-20">
                   <h2 className="text-white font-semibold text-4xl text-center mb-8">Available Jobs</h2>
-                  <div className="space-y-4 grid justify-center grid-cols-[repeat(auto-fill,minmax(420px,1fr))] ">
+                  <div className="space-y-4 w-full grid justify-center grid-cols-[repeat(auto-fill,minmax(min(100%,420px),1fr))] ">
                     {jobsList.map((job) => (
-                      <JobPreviewCard key={job.id} job={job} />
+                      <div className="max-w-[420px] w-full">
+                        <JobPreviewCard key={job.id} job={job} />
+                      </div>
                     ))}
                   </div>
                 </main>

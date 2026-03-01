@@ -10,6 +10,13 @@ interface JobHeroProps {
 //primary - #e8b346
 export const JobHero = ({ title, company, parent, location }: JobHeroProps) => (
   <header className="relative overflow-hidden border-b border-[#312c26]">
+    <div className="absolute inset-0">
+        <img
+              src="/assets/images/about-hero-bg.jpg"
+              alt=""
+              className="w-full h-full object-cover opacity-40"
+          />
+      </div>
     {/* Subtle gradient glow */}
     <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[500px] rounded-full bg-[#e8b346]/10 blur-[120px] pointer-events-none" />
 

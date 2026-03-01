@@ -15,7 +15,7 @@ export const JobResponsibilities = ({ data }: { data: ResponsibilityGroup[] }) =
             {group.items.map((item, i) => (
               <li
                 key={i}
-                className="flex gap-3 text-[#EBE2D3] leading-relaxed"
+                className="flex gap-3 text-[#ababab] leading-relaxed"
               >
                 <span className="mt-2 h-1.5 w-1.5 shrink-0 text-sm md:text-base lg:text-lg rounded-full bg-white" />
                 {item}

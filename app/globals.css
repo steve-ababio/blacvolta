@@ -620,3 +620,17 @@ html, body {
 .border-gradient-gold {
   border-image: linear-gradient(180deg, hsl(38 65% 52% / 0.3), transparent) 1;
 }
+
+.merch-hero {
+  background-image:
+    linear-gradient(to bottom, transparent 0%, #444 100%),
+    url("/assets/images/chichi.jpeg");
+}
+
+@media (max-width: 768px) {
+  .merch-hero {
+    background-image:
+      linear-gradient(to bottom, transparent 0%, #444 100%),
+      url("/assets/images/chichi-2.jpeg");
+  }
+}

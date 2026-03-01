@@ -45,9 +45,9 @@ const JobDetail = ({ params }: { params: { id: string } }) => {
         parent={job.parent}
         location={job.location}
       />
-      <main className="mx-auto max-w-3xl px-6 py-16 space-y-20">
+      <main className="mx-auto max-w-3xl bg-blacvolta-dark px-6 py-16 space-y-20">
         <JobSection title="Role Overview">
-          <p className="text-[#EBE2D3] leading-relaxed text-sm md:text-base lg:text-lg">
+          <p className="text-[#ababab] leading-relaxed text-sm md:text-base lg:text-lg">
             {job.overview}
           </p>
         </JobSection>

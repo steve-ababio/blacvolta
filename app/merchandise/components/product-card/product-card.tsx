@@ -182,7 +182,7 @@ export default function ProductCard({ product,onClick }: ProductCardProps) {
                 paginate(-1);
               }
             }}
-            className={`w-full h-full object-cover rounded-[16px] `}
+            className={`w-full h-full object-contain rounded-[16px] `}
           />
         </AnimatePresence>
 

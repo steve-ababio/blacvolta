@@ -83,6 +83,7 @@
 'use client'
 import { getColorHex } from "@/app/data/product";
 import { GroupedProduct } from "@/app/types/types";
+import { formatLabel, formatMoney } from "@/app/utils/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
 import { useMediaQuery } from "react-responsive";
@@ -222,9 +223,11 @@ export default function ProductCard({ product,onClick }: ProductCardProps) {
 
       {/* INFO SECTION */}
       <div className="p-4 space-y-4">
-
-        <div className="text-xs text-[#a6a6a6] uppercase tracking-wider">
-          {type}
+        <div className="flex items-center justify-between">
+          <div className="text-xs text-[#a6a6a6] uppercase tracking-wider">
+            {formatLabel(type)}
+          </div>
+          <span className="text-white text-xs font-semibold">{formatMoney(variants[0].price,variants[0].currency)}</span>
         </div>
 
         {/* COLOR SELECTORS */}

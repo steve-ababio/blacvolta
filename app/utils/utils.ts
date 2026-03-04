@@ -158,3 +158,8 @@ export const setTokens = (accessToken: string, refreshToken: string) => {
   
     return Object.values(grouped);
   }
+
+  
+export function formatLabel(val: string): string {
+  return val.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+}

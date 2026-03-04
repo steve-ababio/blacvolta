@@ -186,9 +186,11 @@ enum ProductCategory {
 }
 
 enum ProductType {
-  CROP_TOP
+  SLEEVELESS_CROP_TOP
+  SLEEVE_CROP_TOP
   TSHIRT
-  HOODIE
+  MEN_HOODIE
+  FEMALE
   CAP
   BAG
   ACCESSORY

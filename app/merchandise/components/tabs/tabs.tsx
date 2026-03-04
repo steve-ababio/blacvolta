@@ -10,7 +10,7 @@ interface SegmentedTabsProps {
 
 export default function SegmentedTabs({ activeCategory, onCategoryChange }: SegmentedTabsProps) {
   return (
-    <div className="w-full max-w-6xl mx-auto flex justify-center px-4">
+    <div className="w-full max-w-6xl mx-auto flex justify-center px-3">
       <div className="inline-flex w-full p-1 bg-[#1f1f1f] mb-10 rounded-full overflow-x-auto">
         {categories.map((tab) => (
           <button

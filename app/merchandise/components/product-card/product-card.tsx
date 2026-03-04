@@ -17,8 +17,7 @@ const swipePower = (offset: number, velocity: number) => {
 };
 
 export default function ProductCard({ product,onClick }: ProductCardProps) {
-  const { variants } = product;
-  const foregroundColors = [...new Set(variants.map((variant) => variant.foreground))];
+  const { name, variants } = product;
   const carouselPrev = useRef<HTMLButtonElement>(null);
   const carouselNext = useRef<HTMLButtonElement>(null);
   const productFaces = useRef<HTMLButtonElement>(null);
@@ -151,14 +150,14 @@ export default function ProductCard({ product,onClick }: ProductCardProps) {
 
         {/* COLOR SELECTORS */}
         <div className="flex gap-2">
-          {foregroundColors.map((color, index) => {
+          {variants.map((variant, index) => {
             // const outOfStock = variant.sizes.every(
             //   (size) => size.quantity === 0
             // );
 
             return (
               <button
-                key={color}
+                key={variant.foreground}
                 data-color-swatch
                 onClick={() => paginate(index - variantIndex)}
                 className={`w-5 h-5 rounded-full border-2 ${
@@ -168,7 +167,7 @@ export default function ProductCard({ product,onClick }: ProductCardProps) {
                 }`}
                 style={{
                   backgroundColor: getColorHex(
-                    color
+                    variant.foreground
                   ),
                 }}
               />

@@ -227,7 +227,7 @@ export default function ProductCard({ product,onClick }: ProductCardProps) {
           <div className="text-xs text-[#a6a6a6] uppercase tracking-wider">
             {formatLabel(type)}
           </div>
-          <span className="text-white text-xs font-semibold">{formatMoney(variants[0].price,variants[0].currency)}</span>
+          <span className="text-white text-xs font-semibold ">{formatMoney(variants[0].price,variants[0].currency)}</span>
         </div>
 
         {/* COLOR SELECTORS */}

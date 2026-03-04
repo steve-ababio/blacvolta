@@ -22,7 +22,8 @@ export async function POST(req: Request) {
     const email = event.data.email;
     const payment = await confirmPayment(reference,channel);
     const order = await confirmOrder(payment.orderId);
-
+    await Promise.all(order.orderItem.map(item=>updateProductQuantity(item.productId)));
+    
     const orderReceiptPayload:OrderReceiptPayload = {
         guest:{
           name:order.guest!.name,
@@ -120,6 +121,18 @@ async function sendEmails(email:string,orderReceiptPayload:OrderReceiptPayload){
             "/store-receipt.html",
             orderReceiptPayload
         )
-    ]);
+    ])
+}
 
+async function updateProductQuantity(productId:string){
+  await prisma.product.update({
+    where: {
+      id: productId
+    },
+    data: {
+      quantity: {
+        decrement: 1
+      }
+    }
+  })
 }

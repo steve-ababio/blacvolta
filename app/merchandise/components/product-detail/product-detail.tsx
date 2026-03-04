@@ -23,12 +23,18 @@ export default function ProductDetail({ product, onClose,products }: ProductDeta
   const { addToCart, setIsCartOpen } = useCart();
 
   // Find color variants
+  // const colorVariants = products.filter(
+  //   p => p.type === product.type && p.category === product.category && p.id !== product.id
+  // );
   const colorVariants = products.filter(
-    p => p.type === product.type && p.tag === product.tag && p.id !== product.id
+    p =>
+      p.type === product.type &&
+      p.category.some(cat => product.category.includes(cat)) &&
+      p.id !== product.id
   );
 
   const [selectedProduct, setSelectedProduct] = useState(product);
-
+  
   const nextImage = () => {
     setCurrentImageIndex((prev) => 
       prev === selectedProduct.imageUrls.length - 1 ? 0 : prev + 1

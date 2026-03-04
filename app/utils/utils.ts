@@ -150,7 +150,7 @@ export const setTokens = (accessToken: string, refreshToken: string) => {
         quantity: product.quantity,
         sizes:product.sizes,
         name:product.name,
-        tag:product.tag,
+        category:product.category,
         type:product.type,
         description:product.description
       });

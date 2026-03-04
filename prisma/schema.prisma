@@ -110,9 +110,9 @@ model Payment {
 }
 
 model Product {
-  id          String      @id @default(cuid())
+  id          String      @id @default(cuid()) @unique
   type        ProductType
-  tag         ProductTag
+  category    ProductCategory[]
   foreground  Color
   background  Color
   currency    Currency    @default(GHS)
@@ -176,7 +176,7 @@ enum PaymentStatus {
   REFUNDED
 }
 
-enum ProductTag {
+enum ProductCategory {
   MEN
   WOMEN
   UNISEX
@@ -186,6 +186,7 @@ enum ProductTag {
 }
 
 enum ProductType {
+  CROP_TOP
   TSHIRT
   HOODIE
   CAP

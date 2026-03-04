@@ -1,7 +1,7 @@
 export interface Product {
   id: string;
   type: string;
-  tag: string;
+  category: string[];
   foreground: string;
   background: string;
   imageUrls: string[];

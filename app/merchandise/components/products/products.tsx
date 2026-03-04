@@ -10,6 +10,7 @@ import useSWR from "swr";
 import ProductSkeletonLoader from "@/app/components/product-skeleton-loader/product-skeleton-loader";
 import { GroupedProduct } from "@/app/types/types";
 import { groupProducts } from "@/app/utils/utils";
+import { RiWhatsappFill } from "react-icons/ri";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -75,6 +76,16 @@ export default function ProductGrid() {
                     {showAll ? "Show Less ‹" : "Show More ›"}
                     </button>
                 )}
+                 <button
+                  onClick={() => {
+                  window.open("https://wa.me/233540973552", "_blank");
+                  }}
+                  className="bg-transparent block text-background border-4 border-white rounded-full h-[68px] w-[68px] fixed bottom-10 right-8 shadow-xl flex items-center justify-center"
+                  >
+                  {/* <IoLogoWhatsapp size={30} color="#25D366"/> */}
+                  
+                  <RiWhatsappFill size={85} color="#25D366" />
+            </button>
             </>
         )}
 

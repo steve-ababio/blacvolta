@@ -1,3 +1,4 @@
+import { RiWhatsappFill } from "react-icons/ri";
 import { CartProvider } from "../context/cart-context";
 import CartDrawer from "./components/cart/cart";
 import Footer from "./components/footer/footer";
@@ -11,6 +12,8 @@ export default function Merchandise(){
             <Products />
             <Footer />
             <CartDrawer />
+            
+                           
         </main>
     )
 }

@@ -6,7 +6,7 @@ export default function Hero() {
     <div className="relative font-kamerik h-screen w-full bg-cover bg-center flex flex-col justify-between p-6 merch-hero" 
     >
       {/* Overlay to darken image slightly */}
-      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 bg-black/30" />
       <div className="relative z-10 flex justify-center items-center h-full  w-full">
         <NavBar />
         <div className='z-50 text-white text-center'> 

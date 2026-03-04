@@ -1,85 +1,3 @@
-// 'use client'
-// import { getColorHex, Product } from '@/app/data/product';
-// import { formatCurrency } from '@/app/utils/utils';
-// import { motion } from 'framer-motion';
-// import { useEffect, useState } from 'react';
-
-// interface ProductCardProps {
-//   product: Product;
-//   onClick: () => void;
-// }
-
-// export default function ProductCard({ product, onClick }: ProductCardProps) {
-//   const { name, type, foreground, price, currency, quantity, imageUrls } = product;
-//   const amount = formatCurrency(price, currency);
-//   const isOutOfStock = quantity === 0;
-//   const [[currentIndex, direction], setCurrentIndex] = useState([0, 0]);
-
-//   const paginate = (newDirection: number) => {
-//     const newIndex =
-//       (currentIndex + newDirection + imageUrls.length) % imageUrls.length;
-
-//     setCurrentIndex([newIndex, newDirection]);
-//   };
-//   return (
-//     <motion.div
-//       initial={{ opacity: 0, y: 20 }}
-//       animate={{
-//         opacity: isOutOfStock ? 0.50 : 1,
-//         y: 0,
-//       }}
-//       exit={{ opacity: 0, y: 20 }}
-//       className={` product-card font-kamerik cursor-pointer group rounded-[32px]`}
-//       onClick={onClick}
-//     >
-//       <div className="aspect-square p-4 overflow-hidden bg-[#121212] rounded-[32px]">
-//         {/* <img
-//           src={imageUrls[0]}
-//           alt={name}
-//           className="w-full rounded-[16px]  h-full object-cover transition-transform duration-500 group-hover:scale-105"
-//         /> */}
-//          <motion.img
-//             key={currentIndex}
-//             src={imageUrls[currentIndex]}
-//             alt={name}
-//             drag="x"
-//             dragConstraints={{ left: 0, right: 0 }}
-//             onDragEnd={(e, info) => {
-//               if (info.offset.x > 50) paginate(-1);
-//               if (info.offset.x < -50) paginate(1);
-//             }}
-//             className="w-full h-full object-cover rou
-//             nded-[16px]"
-//         />
-//       </div>
-      
-//       <div className="p-4 space-y-2">
-//         <div className="flex items-start justify-between">
-//           <div className='flex flex-col items-start gap-2'>
-//               <h3 className="font-medium text-white">{name}</h3>
-//             {/* <div 
-//               className="w-4 h-4 rounded-full border border-[#333333]"
-//               style={{ backgroundColor: getColorHex(foreground) }}
-//             /> */}
-//             <div className="text-xs text-[#a6a6a6] uppercase tracking-wider">
-//               {type}
-//             </div>
-//           </div>
-//             <div className='flex items-center justify-between'>
-//               <p className="text-base text-[#c9c9c9] font-normal">{amount}</p>
-//               {/* {isOutOfStock && (
-//                 <div className='bg-gray-400/30 text-white px-2 py-1 rounded-md text-sm'>Out of stock</div>
-//               )}  */}
-//             </div>
-            
-//           </div>
-         
-        
-//       </div>
-//     </motion.div>
-//   );
-// }
-
 'use client'
 import { getColorHex } from "@/app/data/product";
 import { GroupedProduct } from "@/app/types/types";
@@ -99,7 +17,8 @@ const swipePower = (offset: number, velocity: number) => {
 };
 
 export default function ProductCard({ product,onClick }: ProductCardProps) {
-  const { type, variants } = product;
+  const { variants } = product;
+  const foregroundColors = [...new Set(variants.map((variant) => variant.foreground))];
   const carouselPrev = useRef<HTMLButtonElement>(null);
   const carouselNext = useRef<HTMLButtonElement>(null);
   const productFaces = useRef<HTMLButtonElement>(null);
@@ -225,21 +144,21 @@ export default function ProductCard({ product,onClick }: ProductCardProps) {
       <div className="p-4 space-y-4">
         <div className="flex items-center justify-between">
           <div className="text-xs text-[#a6a6a6] uppercase tracking-wider">
-            {formatLabel(type)}
+            {formatLabel(variants[0].name)}
           </div>
           <span className="text-white text-xs font-semibold ">{formatMoney(variants[0].price,variants[0].currency)}</span>
         </div>
 
         {/* COLOR SELECTORS */}
         <div className="flex gap-2">
-          {variants.map((variant, index) => {
+          {foregroundColors.map((color, index) => {
             // const outOfStock = variant.sizes.every(
             //   (size) => size.quantity === 0
             // );
 
             return (
               <button
-                key={variant.id}
+                key={color}
                 data-color-swatch
                 onClick={() => paginate(index - variantIndex)}
                 className={`w-5 h-5 rounded-full border-2 ${
@@ -249,7 +168,7 @@ export default function ProductCard({ product,onClick }: ProductCardProps) {
                 }`}
                 style={{
                   backgroundColor: getColorHex(
-                    variant.foreground
+                    color
                   ),
                 }}
               />

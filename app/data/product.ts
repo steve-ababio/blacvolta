@@ -112,7 +112,8 @@ export const getColorHex = (color: string): string => {
     GREEN: "#22c55e",
     YELLOW: "#eab308",
     BLACK: "#000000",
-    WHITE: "#ffffff"
+    WHITE: "#ffffff",
+    RED: "#ef4444",
   };
   return colors[color] || "#888888";
 };

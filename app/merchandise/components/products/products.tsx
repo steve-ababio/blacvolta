@@ -68,14 +68,14 @@ export default function ProductGrid() {
                         </div>
                     )
                 }
-                {products.length > 6 && (
+                {/* {products.length > 10 && (
                     <button
                     className="mt-8 self-center md:self-end text-base text-muted-foreground font-light hover:text-foreground transition-colors"
                     onClick={() => setShowAll((s) => !s)}
                     >
                     {showAll ? "Show Less ‹" : "Show More ›"}
                     </button>
-                )}
+                )} */}
                  <button
                   onClick={() => {
                   window.open("https://wa.me/233540973552", "_blank");

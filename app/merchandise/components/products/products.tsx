@@ -19,7 +19,7 @@ export default function ProductGrid() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const { data: products = [], error, isLoading } = useSWR<Product[]>(
-    `/api/products?category=${activeCategory === "All" ? "" : activeCategory.toUpperCase()}`, 
+    `/api/products?category=${activeCategory === "All" ? "" : activeCategory.toUpperCase()}&limit=50&page=1`, 
     fetcher
   );
   const groupedProducts = groupProducts(products);

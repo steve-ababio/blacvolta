@@ -133,9 +133,9 @@ export default function ProductDetail({ product, onClose,products }: ProductDeta
         <div className="flex-1 p-6 md:p-10 overflow-y-auto">
           <div className="space-y-6">
             <div>
-              <p className="text-sm text-[#A6A6A6] uppercase tracking-wider mb-2">
+              {/* <p className="text-sm text-[#A6A6A6] uppercase tracking-wider mb-2">
                 {selectedProduct.type}
-              </p>
+              </p> */}
               <h2 className="text-2xl text-white md:text-3xl font-bold">{selectedProduct.name}</h2>
               <p className="text-2xl text-white font-semibold mt-2">{formatMoney(selectedProduct.price,selectedProduct.currency)}</p>
             </div>

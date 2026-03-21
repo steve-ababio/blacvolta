@@ -27,7 +27,7 @@ const JobDetail = ({ params }: { params: { id: string } }) => {
   }
 
   return (
-    <main>
+    <main className="font-kamerik">
        <NavBar />
        <div className="min-h-screen mt-16 md:mt-20 bg-[#110F0D]">
        {/* <div className="mx-auto max-w-3xl px-6 pt-6">

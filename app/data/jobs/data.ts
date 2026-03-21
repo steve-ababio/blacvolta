@@ -123,8 +123,160 @@ export interface JobData {
         "Familiarity with influencer marketing and content-led growth strategies",
       ],
     },
+  
+    {
+      id: "lead-partnerships-business-development",
+      title: "Lead, Partnerships & Business Development",
+      company: "BlacVolta (BV Tech)",
+      parent: "",
+      location: "Ghana",
+      type: "Full-time",
+      overview:
+        "The Lead, Partnerships & Business Development will drive the growth of the BlacVolta App and Lifestyle Visa Card through merchant acquisition, strategic partnerships, and platform adoption. This role focuses on building a strong network of venues, brands, and service providers that make the BV ecosystem essential to everyday lifestyle in Ghana. You will sit at the intersection of commerce, culture, and technology, helping translate the platform into real-world usage and revenue.",
+      responsibilities: [
+        {
+          category: "Merchant Acquisition & Growth",
+          items: [
+            "Identify, pitch, and onboard restaurants, nightlife venues, retail, wellness, and service providers onto the BV platform",
+            "Build a strong pipeline of high-quality merchants aligned with BV’s lifestyle positioning",
+            "Structure offers, perks, and discounts tied to the BV Card",
+            "Maintain strong relationships to ensure active participation and performance",
+          ],
+        },
+        {
+          category: "Partnerships & Collaborations",
+          items: [
+            "Support and execute partnerships with brands, fintechs, banks, and lifestyle platforms",
+            "Assist in developing co-branded campaigns, offers, and activations",
+            "Contribute to negotiations and partnership execution",
+            "Identify opportunities for cross-platform collaborations within the BlacVolta ecosystem",
+          ],
+        },
+        {
+          category: "Platform Adoption & Growth",
+          items: [
+            "Drive user growth through merchant and partner channels",
+            "Work with marketing and product teams to improve visibility and engagement on the app",
+            "Support initiatives that increase transactions, bookings, and card usage",
+            "Gather insights from partners and users to improve platform experience",
+          ],
+        },
+        {
+          category: "Commercial Execution",
+          items: [
+            "Build and manage a consistent pipeline of leads and partnerships",
+            "Track onboarding, deal progress, and partner performance",
+            "Support revenue generation through merchant deals, commissions, and partnerships",
+            "Assist in developing proposals and partnership decks",
+          ],
+        },
+        {
+          category: "Platform Quality & Experience",
+          items: [
+            "Ensure merchants listed on the platform meet BV’s quality and brand standards",
+            "Monitor partner performance and user feedback",
+            "Support improvements to merchant onboarding and platform experience",
+          ],
+        },
+      ],
+      success: [
+        "Consistent onboarding of high-quality merchants and partners",
+        "Growth in active listings, transactions, and card usage",
+        "Strong pipeline of new partnerships and opportunities",
+        "Positive feedback from both users and merchants",
+        "BV App gaining traction as a go-to lifestyle platform",
+      ],
+      requirements: [
+        "3–4 years in business development, partnerships, sales, or account management",
+        "Experience in marketing, media, fintech, hospitality, or digital platforms",
+        "Strong communication and relationship-building skills",
+        "Ability to pitch, negotiate, and close deals",
+        "Commercial mindset with attention to execution and detail",
+        "Comfortable working in a fast-paced, startup environment",
+      ],
+      niceToHave: [
+        "Existing network across restaurants, nightlife, retail, or lifestyle brands",
+        "Experience working with platforms, apps, or marketplaces",
+        "Familiarity with payments, fintech, or loyalty programs",
+        "Experience in events, activations, or brand partnerships",
+      ],
+    },
+  
+    {
+      id: "associate-media-production-operations",
+      title: "Associate, Media Production & Operations",
+      company: "BV Social / BlacVolta",
+      parent: "",
+      location: "Ghana",
+      type: "Full-time",
+      overview:
+        "The Associate, Media Production & Operations will support and manage the end-to-end execution of BV’s media output — including the BlacVolta Podcast, digital content, and branded productions. This role is responsible for coordinating production, supporting creative development, managing distribution, and ensuring content translates into audience growth and revenue opportunities.",
+      responsibilities: [
+        {
+          category: "Production & Operations",
+          items: [
+            "Coordinate end-to-end production across podcasts, video shoots, and branded content",
+            "Manage production timelines, schedules, and deliverables",
+            "Work closely with videographers, editors, sound engineers, and creatives",
+            "Ensure all content meets BV’s quality and brand standards",
+          ],
+        },
+        {
+          category: "Podcast & Content Management",
+          items: [
+            "Support the execution of the BlacVolta Podcast (planning, recording, post-production, release)",
+            "Manage episode calendars and ensure consistent weekly output",
+            "Assist in developing new podcast formats, segments, and show ideas",
+            "Coordinate guest bookings, briefs, and recording logistics",
+          ],
+        },
+        {
+          category: "Creative Development",
+          items: [
+            "Contribute to content ideas, formats, and storytelling approaches",
+            "Support development of new shows and original series under BV",
+            "Work with the team to ensure content stays culturally relevant and engaging",
+          ],
+        },
+        {
+          category: "Distribution & Growth",
+          items: [
+            "Oversee distribution across YouTube, Spotify, Apple Podcasts, and social platforms",
+            "Ensure content is properly optimized for reach, engagement, and consistency",
+            "Track performance and suggest improvements based on audience insights",
+            "Coordinate rollout of snippets, clips, and campaign assets",
+          ],
+        },
+        {
+          category: "Client & Commercial Support",
+          items: [
+            "Assist in managing branded content and client productions",
+            "Support execution of campaign deliverables and partnerships",
+            "Work with the team to align production with client objectives and timelines",
+            "Identify opportunities to monetize content and grow revenue streams",
+          ],
+        },
+      ],
+      success: [
+        "Consistent, high-quality content output across platforms",
+        "Smooth, efficient production workflows",
+        "Growth in podcast listeners, views, and engagement",
+        "Strong execution of branded content and client projects",
+        "Contribution to new shows and content formats",
+      ],
+      requirements: [
+        "1–3 years in media production, content, or creative operations",
+        "Experience working on podcasts, video production, or digital content",
+        "Strong organizational and project management skills",
+        "Good understanding of content distribution and social platforms",
+        "Ability to multitask and execute in a fast-paced environment",
+        "Strong communication and teamwork skills",
+      ],
+      niceToHave: [
+        "Basic knowledge of editing tools (Premiere Pro, Final Cut, CapCut, etc.)",
+        "Experience with podcast platforms (Spotify, Apple Podcasts, YouTube)",
+        "Interest in entertainment, culture, and storytelling in Africa",
+        "Experience working with brands or client projects",
+      ],
+    },
   ];
-  
-  // Helper for backward compatibility
-  export const jobData = jobsList[0];
-  

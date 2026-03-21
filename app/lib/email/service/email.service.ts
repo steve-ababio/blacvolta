@@ -16,27 +16,26 @@ export class EmailService {
     constructor(){
         this.transporter = this.createTransport();
     }
-    private renderManagerEmail(htmlContent: string,orderPayload:OrderReceiptPayload) {
-        const escapeHtml = (s: string | number | undefined) =>
+    private escapeHtml = (s: string | number | undefined) =>
         String(s ?? "")
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;")
         .replace(/"/g, "&quot;");
-
+    private renderManagerEmail(htmlContent: string,orderPayload:OrderReceiptPayload) {
         const placeholder = "https://via.placeholder.com/50?text=No+Image";
 
         const itemsHtml = orderPayload.items
             .map((item: any) => {
             const rawUrl = item?.product?.imageUrls?.[0];
             const imageUrl = rawUrl ? encodeURI(rawUrl) : placeholder;
-            const alt = escapeHtml(item?.product?.name ?? "Product image");
+            const alt = this.escapeHtml(item?.product?.name ?? "Product image");
             return `<tr>
                 <td><img src="${imageUrl}" alt="${alt}" width="50" height="50" style="display:block;object-fit:cover"/></td>
-                <td>${escapeHtml(item?.product?.name)}</td>
-                <td>${escapeHtml(item?.quantity)}</td>
-                <td>${escapeHtml(formatMoney(item.unitPrice, orderPayload.order.currency))}</td>
-                <td>${escapeHtml(formatMoney(item.unitPrice * item.quantity, orderPayload.order.currency))}</td>
+                <td>${this.escapeHtml(item?.product?.name)}</td>
+                <td>${this.escapeHtml(item?.quantity)}</td>
+                <td>${this.escapeHtml(formatMoney(item.unitPrice, orderPayload.order.currency))}</td>
+                <td>${this.escapeHtml(formatMoney(item.unitPrice * item.quantity, orderPayload.order.currency))}</td>
             </tr>`;
             })
           .join("");
@@ -60,30 +59,35 @@ export class EmailService {
       
         return html;
       }
+      private renderJobApplicationEmail(htmlContent:string,jobApplicationPayload:any){
+        console.log("job application payload: ", jobApplicationPayload);
+        const html = htmlContent
+        .replace("{{jobTitle}}", jobApplicationPayload.jobTitle)
+        .replace("{{firstName}}", jobApplicationPayload.firstName)
+        .replace("{{lastName}}", jobApplicationPayload.lastName)
+        .replaceAll("{{email}}", jobApplicationPayload.email)
+        .replace("{{phone}}", jobApplicationPayload.phone)
+        .replace("{{linkedin}}", jobApplicationPayload.linkedIn)
+        .replace("{{cover}}", jobApplicationPayload.cover)
+        return html;
+      }
     private renderOrderReceiptEmail(htmlContent: string,orderPayload:OrderReceiptPayload) {
-        const escapeHtml = (s: string | number | undefined) =>
-            String(s ?? "")
-            .replace(/&/g, "&amp;")
-            .replace(/</g, "&lt;")
-            .replace(/>/g, "&gt;")
-            .replace(/"/g, "&quot;");
-    
-            const placeholder = "https://via.placeholder.com/50?text=No+Image";
-    
-            const itemsHtml = orderPayload.items
-                .map((item: any) => {
-                const rawUrl = item?.product?.imageUrls?.[0];
-                const imageUrl = rawUrl ? encodeURI(rawUrl) : placeholder;
-                const alt = escapeHtml(item?.product?.name ?? "Product image");
-                return `<tr>
-                    <td><img src="${imageUrl}" alt="${alt}" width="100" height="100" style="display:block;object-fit:cover"/></td>
-                    <td>${escapeHtml(item?.product?.name)}</td>
-                    <td>${escapeHtml(item?.quantity)}</td>
-                    <td>${escapeHtml(formatMoney(item.unitPrice, orderPayload.order.currency))}</td>
-                    <td>${escapeHtml(formatMoney(item.unitPrice * item.quantity, orderPayload.order.currency))}</td>
-                </tr>`;
-                })
-              .join("");
+        const placeholder = "https://via.placeholder.com/50?text=No+Image";
+
+        const itemsHtml = orderPayload.items
+        .map((item: any) => {
+        const rawUrl = item?.product?.imageUrls?.[0];
+        const imageUrl = rawUrl ? encodeURI(rawUrl) : placeholder;
+        const alt = this.escapeHtml(item?.product?.name ?? "Product image");
+        return `<tr>
+            <td><img src="${imageUrl}" alt="${alt}" width="100" height="100" style="display:block;object-fit:cover"/></td>
+            <td>${this.escapeHtml(item?.product?.name)}</td>
+            <td>${this.escapeHtml(item?.quantity)}</td>
+            <td>${this.escapeHtml(formatMoney(item.unitPrice, orderPayload.order.currency))}</td>
+            <td>${this.escapeHtml(formatMoney(item.unitPrice * item.quantity, orderPayload.order.currency))}</td>
+        </tr>`;
+        })
+        .join("");
         const html = htmlContent
             .replace("{{guest.name}}", orderPayload.guest.name)
             .replace("{{order.id}}", orderPayload.order.id)
@@ -138,10 +142,15 @@ export class EmailService {
         }
         return Promise.resolve();
     }
-    
+    async sendJobApplication (email:string,subject:string,htmlFileUrl: string,payload:any,attachment:Mail.Attachment[]){
+        let htmlContent = await this.getHtmlContent(htmlFileUrl);
+        const managerEmail = process.env.STORE_EMAIL as string;
+        console.log("manager email",managerEmail);
+        htmlContent = this.renderJobApplicationEmail(htmlContent,payload);
+        await this.sendEmail(managerEmail,subject,htmlContent,attachment);
+    }
     private async getHtmlContent(filename: string): Promise<string> {
       try {
-            console.log("path:",path.join(TEMPLATE_PATH, filename));
           return await readFile(path.join(TEMPLATE_PATH, filename), 'utf8');
       } catch (error) {
           console.error(`Failed to load template: ${filename}`, error);

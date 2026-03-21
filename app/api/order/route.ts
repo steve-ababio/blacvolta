@@ -1,7 +1,5 @@
-import { EmailService } from '@/app/lib/email/service/email.service';
 import { prisma } from '@/app/lib/prisma';
-import { OrderReceiptPayload } from '@/app/types/types';
-import { Address, Currency, Guest, Order, OrderItem, Payment, PaymentMethod, PaymentProvider, PaymentStatus } from '@prisma/client';
+import { Address, Currency, Guest, Order, OrderItem, Payment, PaymentProvider, PaymentStatus } from '@prisma/client';
 import axios from 'axios';
 import { NextRequest, NextResponse } from 'next/server';
 

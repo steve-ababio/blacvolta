@@ -3,7 +3,8 @@ import axios from "@/app/lib/axios";
 import { ArticleContent } from "./components/content/content";
 
 
-export async function generateMetadata({params}:{params:{id:number}}):Promise<Metadata>{
+export async function generateMetadata({params}:{params:{id:string}}):Promise<Metadata>{
+  console.log("metadata id: ",params.id);
   try{
       const response = await axios.get(`https://api.blacvolta.com/api/news?id=${params.id}`);
       const metadata = response.data.data;

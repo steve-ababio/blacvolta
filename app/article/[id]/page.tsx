@@ -14,7 +14,7 @@ export async function generateMetadata({params}:{params:{id:string}}):Promise<Me
     if (!response.ok) throw new Error("Failed");
       const json = await response.json();
       const metadata = json.data;
-      console.log( htmlToText(metadata?.description).slice(0,30))
+      console.log( htmlToText(metadata?.description))
       return{
           title:metadata?.title,
           description:htmlToText(metadata?.description).slice(0,30),

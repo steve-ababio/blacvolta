@@ -7,7 +7,41 @@ import EventDetails from "./components/event-details/event-details";
 import { formatDateTime } from "@/app/utils/utils";
 import { VscDebugDisconnect } from "react-icons/vsc";
 import PulseLoader from "@/app/components/pulseloader/pulseloader";
+import { htmlToText } from "@/app/utils/paystack/utils";
+import { Metadata } from "next";
 
+
+export async function generateMetadata({params}:{params:{id:string}}):Promise<Metadata>{
+  try{
+      const response = await fetch(`https://api.blacvolta.com/api/events/${params.id}`,{
+        next: { revalidate: 300 }, // cache for 5 mins
+      }
+    );
+   
+    if (!response.ok) throw new Error("Failed");
+      const json = await response.json();
+      const metadata = json.data;
+      return{
+          title:metadata?.title,
+          description:htmlToText(metadata?.description).slice(0,30),
+          alternates:{
+              canonical:`https://api.blacvolta.com/api/events/${params.id}`
+          },
+          openGraph:{
+              title:metadata?.title,
+              description:htmlToText(metadata?.description).slice(0,30),
+              images:[metadata.cover_image.value],
+              url: `https://api.blacvolta.com/api/events/${params.id}`
+          }
+      }
+  }catch(error){
+      console.log(error)
+      return{
+          title:"Not found",
+          description:"The page you are looking for does not exist"
+      }
+  }
+}
 const fetcher = (url:string) => fetch(url).then(res => res.json());
 export default function EventDetail({ params }: { params: { id: string } }) {
     const eventUrl = `https://api.blacvolta.com/api/events/${params.id}`;

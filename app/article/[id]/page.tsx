@@ -4,10 +4,16 @@ import { ArticleContent } from "./components/content/content";
 
 
 export async function generateMetadata({params}:{params:{id:string}}):Promise<Metadata>{
-  console.log("metadata id: ",params.id);
   try{
-      const response = await axios.get(`https://api.blacvolta.com/api/news?id=${params.id}`);
-      const metadata = response.data.data;
+      const response = await fetch(`https://api.blacvolta.com/api/news/${params.id}`,{
+        next: { revalidate: 300 }, // cache for 5 mins
+      }
+    );
+   
+    if (!response.ok) throw new Error("Failed");
+      const json = await response.json();
+      console.log("response: ",json);
+      const metadata = json.data;
       return{
           title:metadata?.title,
           description:metadata?.description,
@@ -16,7 +22,7 @@ export async function generateMetadata({params}:{params:{id:string}}):Promise<Me
           },
           openGraph:{
               title:metadata?.title,
-              description:metadata?.description,
+              description:metadata?.content.slice(0,30),
               images:[metadata!.images[0].imageUrl],
               url: `https://api.blacvolta.com/api/news/${params.id}`
           }

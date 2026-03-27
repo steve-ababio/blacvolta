@@ -4,16 +4,20 @@ export const menuItems = [
         href:"/"
     },
     {
+        label:"BV LIFESTYLE CARD",
+        href:"/faq"
+    },
+    {
+        label:"BV SOCIAL",
+        href:"/bv-social"
+    },
+    {
         label:"EVENT CALENDAR",
         href:"/#bv-calender"
     },
     {
         label:"EDITORIALS",
         href:"/editorials"
-    },
-    {
-        label:"TEAM",
-        href:"/team"
     },
     {
         label:"MERCHANDISE",
@@ -24,11 +28,12 @@ export const menuItems = [
         href:"/jobs"
     },
     {
+        label:"TEAM",
+        href:"/team"
+    },
+    {
         label:"ABOUT US",
         href:"/about"
     },
-    {
-        label:"BLACVOLTA LIFESTYLE CARD",
-        href:"/faq"
-    }
+   
 ]

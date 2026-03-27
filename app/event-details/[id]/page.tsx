@@ -27,6 +27,7 @@ export default function EventDetail({ params }: { params: { id: string } }) {
     const event = data.data;
     const eventdate = new Date(event.start_date).toDateString();
     const time = formatDateTime(event.start_date,event.timezone);
+
     return (
       <main className="bg-[rgb(22,22,22)] text-white min-h-dvh">
         <EventHeader EventName={data.title}  />
@@ -50,7 +51,7 @@ export default function EventDetail({ params }: { params: { id: string } }) {
               flyerImagePath={event.cover_image.value}
               eventDate={eventdate}
               eventName={event.title}
-              eventTime={event.time}
+              eventTime={time}
               venue={event.venue}
               phonenumber={event.contact_phone!}
               lat={event.location.latitude}

@@ -12,7 +12,7 @@ export default function NavItem({href, children,isActive,isHovered}:NavItemProps
     const showPill = isActive || isHovered;
     return(
         <>
-            <Link className="h-fit relative py-2 px-6 font-kamerik font-normal rounded-[4px] overflow-hidden text-[0.88rem]" 
+            <Link className="h-fit relative py-2 px-6 font-kamerik font-normal rounded-[4px] overflow-hidden text-sm" 
                 href={href||""}
             >
                 <span className="relative z-10">

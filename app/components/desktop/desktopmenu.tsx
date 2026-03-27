@@ -13,7 +13,7 @@ export default function DesktopMenu(){
     const [hoveredTab, setHoveredTab] = useState<string | null>(null)
     return(
         <>
-            <div className="xl:flex grow hidden items-center gap-x-3 py-5 ">
+            <div className="xl:flex grow hidden items-center gap-x-2 py-5 ">
                 {
                     menuItems.map(({label,href})=>{
                         const isActive = href === pathname;
@@ -37,7 +37,7 @@ export default function DesktopMenu(){
                     })
                 }
             </div>
-            <div className="hidden items-center justify-center gap-x-4 xl:flex py-4">
+            <div className="hidden items-center justify-center xl:flex py-4">
                 <NavItem href="https://twitter.com/blacvolta">
                     <RiTwitterLine size={30} />
                 </NavItem>

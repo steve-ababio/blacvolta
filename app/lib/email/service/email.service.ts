@@ -145,7 +145,6 @@ export class EmailService {
     async sendJobApplication (email:string,subject:string,htmlFileUrl: string,payload:any,attachment:Mail.Attachment[]){
         let htmlContent = await this.getHtmlContent(htmlFileUrl);
         const managerEmail = process.env.STORE_EMAIL as string;
-        console.log("manager email",managerEmail);
         htmlContent = this.renderJobApplicationEmail(htmlContent,payload);
         await this.sendEmail(managerEmail,subject,htmlContent,attachment);
     }

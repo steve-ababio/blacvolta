@@ -7,6 +7,35 @@ import Link from "next/link";
 import Navbar from "@/app/components/navbar/navbar";
 import Footer from "@/app/components/footer/footer";
 import { useRouter } from "next/navigation";
+import { Metadata } from "next";
+import axios from "@/app/lib/axios";
+
+
+export async function generateMetadata({params}:{params:{id:number}}):Promise<Metadata>{
+  try{
+      const response = await axios.get(`https://api.blacvolta.com/api/news?id=${params.id}`);
+      const metadata = response.data;
+      return{
+          title:metadata?.title,
+          description:metadata?.description,
+          alternates:{
+              canonical:`https://api.blacvolta.com/api/news/${params.id}`
+          },
+          openGraph:{
+              title:metadata?.title,
+              description:metadata?.description,
+              images:[metadata!.images[0].imageUrl],
+              url: `https://api.blacvolta.com/api/news/${params.id}`
+          }
+      }
+  }catch(error){
+      console.log(error)
+      return{
+          title:"Not found",
+          description:"The page you are looking for does not exist"
+      }
+  }
+}
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 const ArticleDetail = ({ params }: { params: { id: string } }) => {

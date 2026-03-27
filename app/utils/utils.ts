@@ -13,7 +13,7 @@ const createEventPromise = function(eventattributes:EventAttributes):Promise<str
             resolve(value);
         })
     })
-}
+} 
 
 
 type EventDetails = {
@@ -51,18 +51,29 @@ export async function uploadImage(image:File){
     return file_name as string;
 }
 export async function addToCalender(e:React.MouseEvent,{eventDate,eventTime,venue,eventName,description}:EventDetails){
-    const datearray = eventDate.split("-");
-    const eventdate = datearray.map((value)=>parseInt(value));
-    const timearray = eventTime.split(":");
+  const date = new Date(eventDate);
+  const [rawHour, rawMinute] = eventTime.split(":");
+  const [hour, minute] = formatTime(rawHour, rawMinute);
 
-    const [hour,minute] = formatTime(timearray[0],timearray[1]);
-    const event:EventAttributes = {
-        title:eventName,
-        start:[eventdate[0],eventdate[1],eventdate[2],hour,minute],
-        end:[eventdate[0],eventdate[1],eventdate[2],hour,minute],
-        location:venue,
-        description:description,
-    };
+  const event: EventAttributes = {
+    title: eventName,
+    start: [
+      date.getFullYear(),
+      date.getMonth() + 1,
+      date.getDate(),
+      hour,
+      minute
+    ],
+    end: [
+      date.getFullYear(),
+      date.getMonth() + 1,
+      date.getDate(),
+      hour + 1, // optional: add duration
+      minute
+    ],
+    location: venue,
+    description: description,
+  };
     const value = await createEventPromise(event);
     downloadFile(`data:text/calendar,${encodeURIComponent(value)}`,"calendar-event");
 }

@@ -1,3 +1,4 @@
+'use client'
 import Footer from "@/app/components/footer/footer";
 import { Article } from "@/app/types/types";
 import { format } from "date-fns/format";

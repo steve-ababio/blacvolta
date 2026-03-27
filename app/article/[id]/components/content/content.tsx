@@ -9,12 +9,12 @@ import useSWR from "swr";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 export function ArticleContent({id}:{id:string}){
-    const router = useRouter()
+    const router = useRouter();
     const { data,error, isLoading } = useSWR<{success:boolean,data:Article}>(
         `https://api.blacvolta.com/api/news/${id}`, 
         fetcher
     );
-    if(isLoading) return (<div>Loading Article</div>)
+    if(isLoading) return (<div>Loading Article</div>);
 
     const article = data!.data;
     if (!article) {

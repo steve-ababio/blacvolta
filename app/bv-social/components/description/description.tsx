@@ -20,7 +20,7 @@ export default function Description(){
                 </p>
                 <p>
                     At BV Social, we blend creativity with data-driven insights to build impactful campaigns that resonate with audiences across diverse platforms.
-                    Whether you're looking to elevate brand awareness, generate leads, or faster community loyalty, our team of experts is committed to turning you digital goals into reality.
+                    Whether you&apos;re looking to elevate brand awareness, generate leads, or faster community loyalty, our team of experts is committed to turning you digital goals into reality.
                 </p>
             </div>
             <h1 className="pt-10 underline text-white font-semibold text-2xl text-center">What we offer</h1>

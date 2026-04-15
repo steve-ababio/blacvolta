@@ -7,7 +7,6 @@ export default function EventDialogDetails(props:BvEvent){
     const {cover_image,start_date,title,location,description,category,timezone,id} = props;
     const time = formatDateTime(start_date,timezone);
 
-
     return (
         <>
             <div className="grid grid-cols-[1fr] sm:grid-cols-[250px,1fr] md:grid-cols-[300px,1fr] lg:gap-x-12 md:py-8 md:gap-x-6 lg:grid-cols-[350px,1fr] border-b w-full border-b-[#9A9A9A]">
@@ -31,7 +30,7 @@ export default function EventDialogDetails(props:BvEvent){
                          <div className="text-black bg-white rounded-[4px] w-fit px-4 py-1.5 text-sm">{category}</div>
                         <Link
                             href={{
-                                pathname:`/events/${id}`,
+                                pathname:`/app/events/${id}`,
                             }}
                         // as={`/event-details/${Id}`} bg-slate-800 hover:bg-slate-900
                         >

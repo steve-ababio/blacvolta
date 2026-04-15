@@ -17,13 +17,13 @@ export async function generateMetadata({params}:{params:{id:string}}):Promise<Me
           title:metadata?.title,
           description:htmlToText(metadata?.description).slice(0,30),
           alternates:{
-              canonical:`https://blacvolta.com/article/${params.id}`
+              canonical:`https://blacvolta.com/app/news/${params.id}`
           },
           openGraph:{
               title:metadata?.title,
               description:htmlToText(metadata?.description).slice(0,30),
               images:[metadata!.images[0].imageUrl],
-              url: `https://blacvolta.com/article/${params.id}`
+              url: `https://blacvolta.com/app/news/${params.id}`
           }
       }
   }catch(error){

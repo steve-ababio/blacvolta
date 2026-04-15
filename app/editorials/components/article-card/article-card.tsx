@@ -17,7 +17,7 @@ const ArticleCard = ({ article, variant = "secondary", imageImport, delay = 0 }:
   const imgSrc = imageImport || article.images[0].imageUrl;
   const { ref, isVisible } = useScrollAnimation(0.1);
 
-  const slug = `/article/${article.id}`;
+  const slug = `/app/news/${article.id}`;
 
   if (variant === "hero") {
     return (

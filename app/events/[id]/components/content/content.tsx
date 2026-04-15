@@ -55,8 +55,8 @@ export default function EventContent({id}:{id:string}){
               eventTime={time}
               venue={event.venue}
               phonenumber={event.contact_phone!}
-              lat={event.location.latitude}
-              long={event.location.longitude}
+              lat={event.location?.latitude}
+              long={event.location?.longitude}
               tickets={event.tickets}
           />
         </main>

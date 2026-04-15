@@ -15,7 +15,7 @@ export default function DialogContent({date}:{date:string|undefined}){
     const selectedDate = new Date(date as string).toLocaleDateString("sv");
     const startDate = formatEventDate(new Date(selectedDate));
     const endDate = formatEventDate(addDays(selectedDate, 1));
-    const eventUrl = `https://api.blacvolta.com/api/events?date_from=${startDate}&date_to=${endDate}&page=${page}&${limit}&status=published`
+    const eventUrl = `https://api.blacvolta.com/api/events?date_from=${startDate}&date_to=${endDate}&page=${page}&${limit}&status=published`;
     const {data,error,isLoading} = useSWR(eventUrl,fetcher);
     
     if (error) {

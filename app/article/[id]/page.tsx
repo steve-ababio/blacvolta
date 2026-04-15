@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import axios from "@/app/lib/axios";
 import { ArticleContent } from "./components/content/content";
 import { htmlToText } from "@/app/utils/paystack/utils";
 

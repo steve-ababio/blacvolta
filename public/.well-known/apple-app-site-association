@@ -8,11 +8,11 @@
           "6FT485LZ56.com.blacvolta.app"
         ],
         "paths": [
-          "*"
+          "/app/*"
         ],
         "components": [
           {
-            "/": "/*"
+            "/app": "/app/*"
           }
         ]
       }

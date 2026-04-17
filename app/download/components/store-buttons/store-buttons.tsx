@@ -25,7 +25,7 @@ interface StoreButtonProps {
       <a
         href={href}
         className={cn(
-          "group flex items-center gap-3 px-5 py-3.5 rounded-xl",
+          "group flex items-center gap-3 px-10 py-3.5 rounded-xl",
           "bg-secondary/80 border border-border/50",
           "hover:bg-secondary hover:border-primary/30 hover:shadow-glow",
           "transition-all duration-300 ease-out",

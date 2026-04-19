@@ -1,46 +1,3 @@
-// type JobType = {
-//     id:string,
-//     name:string,
-//     location:string,
-//     department:string
-// }
-// export const jobs:JobType[] = [
-//     {
-//         id:"0",
-//         name:"Social media account manager",
-//         location:"Accra",
-//         department:"Social Media",
-//     }
-// ]
-
-// export const jobinfo = [
-//     {
-//         id:"0",
-//         jobtitle:"Social Media Account Manager",
-//         responsibilities:[
-//             "Managing our social media accounts.",
-//             "Creating engaging content, and enhancing our online presence to drive traffic and increase customer engagement for our clients",
-//         ],
-//         qualifications:[
-//             "Bachelor's degree in Marketing, Communication, Hospitality Management, or related field.",
-//             "Proven experience in social media management and content creation, preferably in the nightlife, hospitality, or entertainment industry.",
-//             "Strong photography and/or videography skills, with the ability to capture and edit high-quality visual content that aligns with brand aesthetics.",
-//             "Excellent written and verbal communication skills, with a creative flair for storytelling and engaging copywriting.",
-//             "Proficiency in social media management tools and analytics platforms (e.g Hootsuite, Buffer, Sprout Social, Google Analytics).",
-//             "Familiarity with graphic design softwares (e.g. Adobe Photoshop, Canva) and video editing tools(e.g. Adobe Premiere Pro, Final cut Pro) is a plus.",
-//             "Knowledge of local nightlife trends, influencers and event marketing strategies.",
-//             "Ability to work flexible hours, including evenings and weekends, to cover live events and promotions.",
-//             "Passion for the nightlife and entertainment industry, with a strong understanding of the target audience and market dynamics."
-//         ]
-//     },{
-//         id:"1",
-//         jobtitle:"Business Developemnt Lead BV Social (Powered b Blackvolta",
-//         responsibilities:[
-
-//         ]
-//     }
-// ]
-
 export interface JobData {
     id: string;
     title: string;
@@ -58,6 +15,7 @@ export interface JobData {
     niceToHave: string[];
   }
   
+
   export const jobsList: JobData[] = [
     {
       id: "business-development-lead",
@@ -278,5 +236,88 @@ export interface JobData {
         "Interest in entertainment, culture, and storytelling in Africa",
         "Experience working with brands or client projects",
       ],
+    },
+    {
+      id: "business-operations-associate-blacvolta-lifestyle",
+      title: "Business Operations Associate – BlacVolta Lifestyle",
+      company: "BlacVolta",
+      parent: "",
+      location: "Ghana",
+      type: "Full-time",
+      overview:
+        "The Business Operations Associate will serve as the backbone of the BlacVolta Lifestyle ecosystem, supporting the day-to-day operations of the BlacVolta App and Lifestyle Card. This role sits at the intersection of product, operations, content, and customer experience, ensuring that everything users interact with — from events to locations to card benefits — is accurate, seamless, and premium. You will be the first point of contact for users, partners, and internal teams, playing a critical role in delivering a world-class lifestyle platform.",
+      responsibilities: [
+        {
+          category: "Platform Operations & Accuracy",
+          items: [
+            "Manage and update all content on the BlacVolta App (events, locations, offers, news)",
+            "Ensure 100% accuracy and real-time relevance of listings and information",
+            "Monitor platform activity daily to identify and resolve inconsistencies or issues",
+            "Maintain a clean, premium, and up-to-date user experience across the app",
+          ],
+        },
+        {
+          category: "Content Moderation & Publishing",
+          items: [
+            "Review and approve all content submitted by partners (events, venues, promotions)",
+            "Moderate user-generated and partner content to ensure quality and brand alignment",
+            "Publish and schedule content in line with BlacVolta’s editorial tone",
+            "Flag and escalate any inappropriate, inaccurate, or low-quality content",
+          ],
+        },
+        {
+          category: "Customer & Partner Support",
+          items: [
+            "Act as the first point of contact for all app and Lifestyle Card inquiries",
+            "Provide real-time support to users (tickets, RSVPs, bookings, card usage issues)",
+            "Support merchants and partners with onboarding, updates, and troubleshooting",
+            "Ensure fast response times and high satisfaction across all touchpoints",
+          ],
+        },
+        {
+          category: "Card & App Experience Management",
+          items: [
+            "Monitor usage and performance of the BlacVolta Lifestyle Card",
+            "Ensure partner benefits (discounts, priority access, etc.) are correctly applied",
+            "Work closely with partners to maintain seamless card integration at locations",
+            "Track and report issues affecting user experience",
+          ],
+        },
+        {
+          category: "Internal Coordination",
+          items: [
+            "Serve as the bridge between tech, partnerships, and content teams",
+            "Communicate bugs, feature requests, and user feedback to the tech team",
+            "Assist in testing new features before release",
+            "Support rollout of new product updates and activations",
+          ],
+        },
+        {
+          category: "Data Tracking & Insights",
+          items: [
+            "Track daily metrics (RSVPs, ticket sales, engagement, app activity)",
+            "Identify trends, gaps, and opportunities to improve performance",
+            "Provide weekly reports and actionable insights to the team",
+            "Help optimize what gets featured on the app",
+          ],
+        },
+      ],
+      success: [
+        "App content is always accurate, fresh, and engaging",
+        "Users have a seamless experience across app and card",
+        "Response times are fast and support is world-class",
+        "Partners are satisfied and actively using the platform",
+        "Issues are identified and resolved before they escalate",
+      ],
+      requirements: [
+        "1–3 years experience in operations, customer support, or digital platforms",
+        "Strong attention to detail — accuracy is critical",
+        "Excellent communication skills (written & verbal)",
+        "Ability to multitask in a fast-paced environment",
+        "Tech-savvy and comfortable working with dashboards, CMS tools, and apps",
+        "Strong understanding of lifestyle, entertainment, and digital culture in Ghana",
+        "Problem-solving mindset with a bias for action",
+      ],
+      niceToHave: [],
     },
   ];

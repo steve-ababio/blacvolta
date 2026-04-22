@@ -3,12 +3,21 @@
     "apps": [],
     "details": [
       {
-        "appID": "TEAMID.com.blacvolta.app",
+        "appID": "6FT485LZ56.com.blacvolta.app",
+        "appIDs":[
+          "6FT485LZ56.com.blacvolta.app"
+        ],
         "paths": [
-          "/app","/app/*"
+          "/app/*"
         ]
       }
     ]
+  },
+  "webcredentials": {
+    "apps": [
+      "6FT485LZ56.com.blacvolta.app"
+    ]
   }
 }
+
 

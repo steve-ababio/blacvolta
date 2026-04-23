@@ -2,7 +2,7 @@ import { IEventDetails } from "@/app/constants/constants";
 import { prisma } from "@/app/lib/prisma";
 import { NextRequest, NextResponse } from "next/server";
 
-async function fetchDayRecurringEvents(dayOfWeek:string){
+async function fetchDayRecurringEvents(){
     let promise = await prisma.event.findMany({
         where:{
             IsEventWeekly:true,
@@ -36,10 +36,9 @@ export async function GET(req:NextRequest){
     if (Number.isNaN(parsedDate.getTime())) {
         return NextResponse.json({ error: "Invalid date parameter" }, { status: 400 });
     }
-    const dayOfWeek = String(parsedDate.getDay());
     try {
         const [dayRecurringEvents, allEventsMatchingDate] = await Promise.all([
-            fetchDayRecurringEvents(dayOfWeek),
+            fetchDayRecurringEvents(),
             fetchAllEventsThatMatchDateProvided(dateParam)
         ]);
         const recurringEvents: TEventDetails[] = dayRecurringEvents.map(event=>({...event, EventDate:dateParam}));

@@ -16,12 +16,6 @@ export default function NotFound(){
             {/* <Smartphone className="w-16 h-16 text-primary" strokeWidth={1.5} /> */}
             <Image alt="Blacvolta logo" className="aspect-[4/3] object-contain xl:h-auto xl:w-auto" width={60} height={60}  src="/assets/images/logo.png" priority />
           </div>
-          <h1 className="text-7xl font-extrabold text-white">404</h1>
-
-            <p className="mt-4 text-lg text-gray-400 text-center md:text-left">
-            Oops... the page you are looking for does not exist.
-            </p>
-          {/* Heading */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center mb-4 tracking-tight">
             Download Our App
           </h1>
@@ -36,11 +30,6 @@ export default function NotFound(){
             <StoreButton store="apple" href="https://apps.apple.com/in/app/blacvolta/id6745515524" />
             <StoreButton store="google" href="https://play.google.com/store/apps/details?id=com.blacvolta.app&pcampaignid=web_share" />
           </div>
-  
-          {/* Footer note */}
-          {/* <p className="mt-16 text-sm text-muted-foreground/60">
-            Free download • No credit card required
-          </p> */}
         </div>
         <Footer />
       </main>

@@ -1,23 +1,19 @@
 {
   "applinks": {
-    "apps": [],
     "details": [
       {
-        "appID": "6FT485LZ56.com.blacvolta.app",
-        "appIDs":[
-          "6FT485LZ56.com.blacvolta.app"
-        ],
-        "paths": [
-          "/app/*"
-        ]
+          "appIDs": ["6FT485LZ56.com.blacvolta.app"],
+          "paths": ["/app/*"],
+          "components": [
+            {
+              "/app": "/app/*"
+            }
+          ]
       }
     ]
   },
   "webcredentials": {
-    "apps": [
-      "6FT485LZ56.com.blacvolta.app"
-    ]
+    "apps": ["6FT485LZ56.com.blacvolta.app"]
   }
 }
-
 

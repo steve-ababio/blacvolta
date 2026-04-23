@@ -4,7 +4,8 @@
     "target": {
       "namespace": "android_app",
       "package_name": "com.blacvolta.app",
-      "sha256_cert_fingerprints": ["13:F5:B0:7C:C6:E2:7B:2E:0C:80:64:88:24:64:93:64:DE:63:33:20:77:69:ED:C4:2E:60:10:00:D0:29:46:78"]
+      "sha256_cert_fingerprints":
+        ["B7:A1:59:B9:E5:82:0A:3D:AB:1C:09:6B:F6:96:03:77:3B:49:C9:0D:95:C2:D8:EC:77:59:D5:E4:AE:5C:3C:23"]
     }
   }
 ]

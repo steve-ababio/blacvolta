@@ -2,11 +2,12 @@
   "applinks": {
     "details": [
       {
+        "appID": "6FT485LZ56.com.blacvolta.app",
           "appIDs": ["6FT485LZ56.com.blacvolta.app"],
           "paths": ["/app/*"],
           "components": [
             {
-              "/app": "/app/*"
+              "/": "/app/*"
             }
           ]
       }

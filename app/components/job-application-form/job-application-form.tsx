@@ -38,8 +38,9 @@ export const JobApplicationForm = ({ jobTitle }: JobApplicationFormProps) => {
     }
     formData.append("jobTitle",jobTitle);
     try {
-      await axios.post("/api/job/apply", formData, {
-        headers: { "Content-Type": "multipart/form-data" },
+      await fetch("/api/job/apply", {
+        method: "POST",
+        body: formData,
       });
       setTimeout(() => {
         setLoading(false);

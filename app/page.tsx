@@ -15,7 +15,7 @@ export default async function HomePage()
     <main className="min-h-screen">
       <Home />
       <CalenderModal />
-      <AdBanner />
+      {/* <AdBanner /> */}
       <Ads />
       <Editorials />
       <PodcastStations />

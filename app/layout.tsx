@@ -65,6 +65,7 @@ export default function RootLayout({
         <link rel="preload" imageSrcSet="/assets/images/bgminidesktop.webp" media="(min-width:768.1px) and (max-width:1280px)" as="image"/>
         <link rel="preload" imageSrcSet="/assets/images/bg.webp" media="(min-width:1280.1px)" as="image"/>
         <script src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_MAPS_API_KEY}&libraries=places&callback=initMap`} async></script>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2651451908350497" crossOrigin="anonymous"></script>
         <noscript>
           Sorry! Your need to enable JavaScript to use this app.!
         </noscript>  

@@ -270,7 +270,7 @@ export default function Checkout() {
                 <div key={`${item.product.id}-${item.size}`} className="flex gap-4">
                   <div className="w-20 h-20 bg[#121212] rounded-lg overflow-hidden flex-shrink-0">
                     <img
-                      src={item.product.imageUrls[0]}
+                      src={item.product.imageUrls[0] ?? ""}
                       alt={item.product.name}
                       className="w-full h-full object-cover"
                     />

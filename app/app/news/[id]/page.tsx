@@ -22,7 +22,7 @@ export async function generateMetadata({params}:{params:{id:string}}):Promise<Me
           openGraph:{
               title:metadata?.title,
               description:htmlToText(metadata?.description).slice(0,30),
-              images:[metadata!.images[0].imageUrl],
+              images:[metadata?.images[0]?.imageUrl ?? ""],
               url: `https://blacvolta.com/app/news/${params.id}`
           }
       }

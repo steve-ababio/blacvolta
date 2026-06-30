@@ -4,9 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import EventDialog from '@/app/components/eventdialog/eventdialog';
 import 'primereact/resources/themes/lara-light-blue/theme.css';
 import { useAmplitudeContext } from '@/app/hooks/amplitude';
-import Image from "next/image";
 import { Nullable } from 'primereact/ts-helpers';
-import CtaButton from '../ctabutton/ctabutton';
 import { motion } from 'framer-motion';
 
 const fadeInUp = {

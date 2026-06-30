@@ -14,7 +14,7 @@ interface ArticleCardProps {
 
 const ArticleCard = ({ article, variant = "secondary", imageImport, delay = 0 }: ArticleCardProps) => {
   const date = format(new Date(article.publishedAt), "MMM d, yyyy");
-  const imgSrc = imageImport || article.images[0].imageUrl;
+  const imgSrc = imageImport || article?.images[0]?.imageUrl || "";
   const { ref, isVisible } = useScrollAnimation(0.1);
 
   const slug = `/app/news/${article.id}`;
@@ -30,7 +30,7 @@ const ArticleCard = ({ article, variant = "secondary", imageImport, delay = 0 }:
           <article className="relative overflow-hidden rounded-lg cursor-pointer aspect-[16/9] md:aspect-[2/1]">
             <img
               src={imgSrc}
-              alt={article.images[0].altText || "Article image"}
+              alt={article?.images[0]?.altText || "Article image"}
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
             />
             {/* Gradient overlay */}
@@ -72,7 +72,7 @@ const ArticleCard = ({ article, variant = "secondary", imageImport, delay = 0 }:
         <article className="relative overflow-hidden rounded-lg cursor-pointer aspect-[16/10] sm:aspect-[16/9]">
           <img
             src={imgSrc}
-            alt={article.images[0].altText || "Article image"}
+            alt={article?.images[0]?.altText || "Article image"}
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           />
           {/* Gradient overlay */}

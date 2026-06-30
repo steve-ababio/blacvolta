@@ -30,7 +30,7 @@ export function ArticleContent({id}:{id:string}){
         );
     }
 
-    const imgSrc = article.images[0].imageUrl;
+    const imgSrc = article?.images[0]?.imageUrl ?? "";
     const date = format(new Date(article.publishedAt), "MMMM d, yyyy");
 
     return (
@@ -47,7 +47,7 @@ export function ArticleContent({id}:{id:string}){
           </button>
           <img
             src={imgSrc}
-            alt={article.images[0].altText || "Article image"}
+            alt={article?.images[0]?.altText || "Article image"}
             className="w-full h-full object-cover"
           />
          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent" />

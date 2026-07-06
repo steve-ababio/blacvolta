@@ -9,7 +9,7 @@ const partnersUrl = [
   { name: "Exhale", url: "/assets/images/partners/exhale.png", location: "East Legon" },
   { name: "Front Back", url: "/assets/images/partners/front-back.png", location: "Osu" },
   { name: "Horizontal", url: "/assets/images/partners/horizontal.png", location: "Airport" },
-  { name: "Jamestown", url: "/assets/images/partners/jamestown.webp", location: "Labone" },
+  { name: "Jamestown", url: "/assets/images/partners/jamestown.png", location: "Labone" },
   { name: "Le-petit", url: "/assets/images/partners/le-petit.png", location: "Labone" },
   { name: "Polo Beach", url: "/assets/images/partners/polo-beach.png", location: "La" },
   { name: "Sol Lounge", url: "/assets/images/partners/sol-lounge.jpeg", location: "Osu" },
@@ -18,7 +18,7 @@ const partnersUrl = [
   { name: "Republic", url: "/assets/images/partners/republic.png", location: "Osu" },
   { name: "Sandbox", url: "/assets/images/partners/sandbox.png", location: "La" },
   { name: "Alley Bar", url: "/assets/images/partners/alley.png", location: "Accra" },
-   { name: "Beehive", url: "/assets/images/partners/beehive.jfif", location: "Accra" },
+   { name: "Beehive", url: "/assets/images/partners/beehive.png", location: "Accra" },
    { name: "Frozen Cabana", url: "/assets/images/partners/frozen.png", location: "Accra" },
 ];
 

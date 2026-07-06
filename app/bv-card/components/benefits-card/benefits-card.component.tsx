@@ -1,4 +1,4 @@
-import { Medal, Wallet2, ChartLine, Ticket, Star, Check } from "lucide-react";
+import { Medal, Wallet2, ChartLine, CreditCard, Star, Check } from "lucide-react";
 
 
 interface SavingsCard {
@@ -12,10 +12,10 @@ const cards: SavingsCard[] = [
     icon: <Wallet2 className="h-6 w-6" />,
     title: "Save Money",
     description: [
-      "Discounts at te top restaurants",
-      "Lounge & nightlife others",
-      "Hotel & staycation discounts",
-      "Event ticket savings",
+      "Discounts at top restaurants",
+      "Saving at bars & lounges",
+      "Hotel & staycation offers",
+      "Reduced event ticket ticket prices",
     ]
   },
   {
@@ -25,24 +25,37 @@ const cards: SavingsCard[] = [
       "Skip selected queues",
       "Priority reservations",
       "Exclusive guest lists",
-      "Early access to events",
+      "Early event access",
     ]
   },
   {
     icon: <Medal className="h-6 w-6" />,
-    title: "Members Only",
+    title: "Exclusive Rewards",
     description: [
       "Monthly partner offers",
-      "Surprise rewards",
-      "Birthday perks",
-      "Limited-time campaigns"
+      "Birthday rewards",
+      "Surprise member perks",
+      "Limited-time experiences"
     ]
   },
   {
     icon: <ChartLine className="h-6 w-6" />,
-    title: "Always Growing",
+    title: "Always Getting Better",
     description: [
-      "New merchants and benefits are added regularly so you always have more to enjoy."
+      "New partner venues every month",
+      "Fresh discounts and experiences",
+      "Exclusive campaigns",
+      "Expanding across Ghana and Africa"
+    ]
+  },
+  {
+    icon: <CreditCard className="h-6 w-6" />,
+    title: "One Card, One Lifestyle",
+    description: [
+      "Pay anywhere Visa is accepted",
+      "Access premium venues",
+      "Discover events through the app",
+      "Built for Africa's creators, professionals & diaspora"
     ]
   },
 ];

@@ -3,23 +3,29 @@ import { MapPin } from "lucide-react";
 
 const partnersUrl = [
   { name: "African Regent", url: "/assets/images/partners/african-regent.png", location: "Dzorwulu" },
-  { name: "Bella Afrik", url: "/assets/images/partners/bella-afrik.png", location: "Accra" },
-  { name: "Bloom", url: "/assets/images/partners/bloom.png", location: "Spintex" },
+  { name: "Bella Afrik", url: "/assets/images/partners/bellafrik.png", location: "Accra" },
+  { name: "Bloom", url: "/assets/images/partners/bloom-bar.png", location: "Spintex" },
+  { name: "Aria", url: "/assets/images/partners/aria.png", location: "Accra" },
+  { name: "BarX", url: "/assets/images/partners/barx.png", location: "Accra" },
   { name: "Enzo", url: "/assets/images/partners/enzo.png", location: "East Legon" },
   { name: "Exhale", url: "/assets/images/partners/exhale.png", location: "East Legon" },
-  { name: "Front Back", url: "/assets/images/partners/front-back.png", location: "Osu" },
+  { name: "Front Back", url: "/assets/images/partners/fb.png", location: "Osu" },
   { name: "Horizontal", url: "/assets/images/partners/horizontal.png", location: "Airport" },
-  { name: "Jamestown", url: "/assets/images/partners/jamestown.png", location: "Labone" },
-  { name: "Le-petit", url: "/assets/images/partners/le-petit.png", location: "Labone" },
+  { name: "Jamestown", url: "/assets/images/partners/jamestown-coffe.png", location: "Labone" },
+  { name: "Le-petit", url: "/assets/images/partners/lpo.png", location: "Labone" },
   { name: "Polo Beach", url: "/assets/images/partners/polo-beach.png", location: "La" },
-  { name: "Sol Lounge", url: "/assets/images/partners/sol-lounge.jpeg", location: "Osu" },
-  { name: "Allora", url: "/assets/images/partners/allora.jpeg", location: "La" },
-  { name: "Skybar", url: "/assets/images/partners/skybar.jpeg", location: "Accra" },
+  { name: "Sol Lounge", url: "/assets/images/partners/sol.png", location: "Osu" },
+  { name: "Allora", url: "/assets/images/partners/allora.png", location: "La" },
+  { name: "Skybar", url: "/assets/images/partners/skybar.png", location: "Accra" },
   { name: "Republic", url: "/assets/images/partners/republic.png", location: "Osu" },
   { name: "Sandbox", url: "/assets/images/partners/sandbox.png", location: "La" },
-  { name: "Alley Bar", url: "/assets/images/partners/alley.png", location: "Accra" },
+  { name: "Alley Bar", url: "/assets/images/partners/alley-bar.png", location: "Accra" },
    { name: "Beehive", url: "/assets/images/partners/beehive.png", location: "Accra" },
    { name: "Frozen Cabana", url: "/assets/images/partners/frozen.png", location: "Accra" },
+   { name: "Honey Suckle", url: "/assets/images/partners/honeysuckle.png", location: "Labone" },
+   { name: "Mad Club", url: "/assets/images/partners/madclub.png", location: "Accra" },
+   { name: "Mood Bar", url: "/assets/images/partners/mood.png", location: "Accra" },
+   { name: "RHPickleBallerTr", url: "/assets/images/partners/rhpickleballtr.png", location: "Accra" },
 ];
 
 export default function Partners() {
@@ -33,7 +39,7 @@ export default function Partners() {
         <div className="marquee-container flex w-max flex-nowrap">
           <div className="marquee-track flex flex-nowrap shrink-0 gap-5 items-center justify-around">
             {partnersUrl.map((company, i) => (
-              <div key={company.name + "-1-" + i} className="border border-blacvolta-gold/50 flex rounded-md py-4 p-3 flex-col items-center gap-2">
+              <div key={company.name + "-1-" + i} className="flex rounded-md py-4 p-3 flex-col items-center gap-2">
                 <Image
                   src={company.url}
                   alt={company.name}
@@ -57,7 +63,7 @@ export default function Partners() {
           </div>
           <div className="marquee-track flex flex-nowrap shrink-0 gap-5 items-center justify-around">
             {partnersUrl.map((company, i) => (
-              <div key={company.name + "-2-" + i} className="border border-blacvolta-gold/50 flex rounded-md py-4 p-3 flex-col items-center gap-2">
+              <div key={company.name + "-2-" + i} className="flex rounded-md py-4 p-3 flex-col items-center gap-2">
                 <Image
                   src={company.url}
                   alt={company.name}

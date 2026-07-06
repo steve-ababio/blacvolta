@@ -56,21 +56,6 @@ const FAQ = () => {
       category: "General",
       questions: [
         {
-          question: "What is the price of the BlacVolta Card?",
-          answer: `The BlacVolta Card costs ${
-            new Intl.NumberFormat("en-GH",{
-              style:"currency",
-              currency:"GHS",
-            }).format(1000)
-          }.. 
-          You also earn ${
-            new Intl.NumberFormat("en-GH",{
-              style:"currency",
-              currency:"GHS",
-            }).format(200)
-          } cashback for every successful referral when someone signs up through your referral link.`
-        },
-        {
           question: "What is the BlacVolta Lifestyle Card?",
           answer: "The BlacVolta Lifestyle Card is a premium lifestyle and payments card designed for Africans and the diaspora. It gives you access to curated discounts, VIP experiences, and seamless payments across top events, restaurants, lounges, and lifestyle destinations."
         },
@@ -81,6 +66,34 @@ const FAQ = () => {
         {
           question: "Is it a credit card or a debit card?",
           answer: "The BlacVolta Card functions as a prepaid Visa-powered lifestyle card. You can load money onto it and use it for payments, while also enjoying exclusive lifestyle perks."
+        }
+      ]
+    },
+     {
+      category: "Payments & Fees",
+      questions: [
+        {
+          question: "How much does the BlacVolta Card cost?",
+          answer: `The BlacVolta Card costs ${
+            new Intl.NumberFormat("en-GH",{
+              style:"currency",
+              currency:"GHS",
+            }).format(1000)
+          }.
+          You also earn ${
+            new Intl.NumberFormat("en-GH",{
+              style:"currency",
+              currency:"GHS",
+            }).format(200)
+          } cashback for every successful referral when someone signs up through your referral link.`
+        },
+        {
+          question: "Do I need a bank account to apply?",
+          answer: "No, you don't. You can apply directly via the app, load your card through mobile money, bank transfer, or cash at partner bank branches."
+        },
+        {
+          question: "Are there monthly or annual fees?",
+          answer: "There's no monthly maintenance fee. However, certain premium services (like concierge upgrades or exclusive event access) may carry additional costs."
         }
       ]
     },
@@ -115,23 +128,6 @@ const FAQ = () => {
         {
           question: "Does it work internationally?",
           answer: "Yes. The BlacVolta Card works anywhere Visa is accepted worldwide, but lifestyle perks are currently concentrated in Africa, starting with Ghana."
-        }
-      ]
-    },
-    {
-      category: "Payments & Fees",
-      questions: [
-        {
-          question: "How much does the BlacVolta Card cost?",
-          answer: "The card costs $100. Upon activation, you get an instant cashback of $20 to spend."
-        },
-        {
-          question: "Do I need a bank account to apply?",
-          answer: "No, you don't. You can apply directly via the app, load your card through mobile money, bank transfer, or cash at partner bank branches."
-        },
-        {
-          question: "Are there monthly or annual fees?",
-          answer: "There's no monthly maintenance fee. However, certain premium services (like concierge upgrades or exclusive event access) may carry additional costs."
         }
       ]
     },

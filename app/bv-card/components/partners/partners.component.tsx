@@ -37,9 +37,9 @@ export default function Partners() {
 
       <div className="relative overflow-hidden w-full [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
         <div className="marquee-container flex w-max flex-nowrap">
-          <div className="marquee-track flex flex-nowrap shrink-0 gap-5 items-center justify-around">
+          <div className="marquee-track flex flex-nowrap shrink-0 gap-4 items-center justify-around">
             {partnersUrl.map((company, i) => (
-              <div key={company.name + "-1-" + i} className="flex rounded-md py-4 p-3 flex-col items-center gap-2">
+              <div key={company.name + "-1-" + i} className="flex rounded-md py-4 flex-col items-center gap-2">
                 <Image
                   src={company.url}
                   alt={company.name}
@@ -61,9 +61,9 @@ export default function Partners() {
             ))}
             {/* border-[0.5px] border-blacvolta-gold/50 */}
           </div>
-          <div className="marquee-track flex flex-nowrap shrink-0 gap-5 items-center justify-around">
+          <div className="marquee-track flex flex-nowrap shrink-0 gap-4 items-center justify-around">
             {partnersUrl.map((company, i) => (
-              <div key={company.name + "-2-" + i} className="flex rounded-md py-4 p-3 flex-col items-center gap-2">
+              <div key={company.name + "-2-" + i} className="flex rounded-md py-4 flex-col items-center gap-2">
                 <Image
                   src={company.url}
                   alt={company.name}

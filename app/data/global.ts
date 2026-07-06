@@ -1,39 +1,39 @@
 export const menuItems = [
     {
-        label:"HOME",
-        href:"/"
+        label: "HOME",
+        href: "/"
     },
     {
-        label:"BV LIFESTYLE CARD",
-        href:"/faq"
+        label: "BV LIFESTYLE CARD",
+        href: "/bv-card"
     },
     {
-        label:"BV SOCIAL",
-        href:"/bv-social"
+        label: "BV SOCIAL",
+        href: "/bv-social"
     },
     {
-        label:"EVENT CALENDAR",
-        href:"/#bv-calender"
+        label: "EVENT CALENDAR",
+        href: "/#bv-calender"
     },
     {
-        label:"EDITORIALS",
-        href:"/editorials"
+        label: "EDITORIALS",
+        href: "/editorials"
     },
     {
-        label:"MERCHANDISE",
-        href:"/merchandise"
+        label: "MERCHANDISE",
+        href: "/merchandise"
     },
     {
-        label:"JOBS",
-        href:"/jobs"
+        label: "JOBS",
+        href: "/jobs"
     },
     {
-        label:"TEAM",
-        href:"/team"
+        label: "TEAM",
+        href: "/team"
     },
     {
-        label:"ABOUT US",
-        href:"/about"
+        label: "ABOUT US",
+        href: "/about"
     },
-   
+
 ]

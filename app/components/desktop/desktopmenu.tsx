@@ -13,26 +13,25 @@ export default function DesktopMenu(){
     const [hoveredTab, setHoveredTab] = useState<string | null>(null)
     return(
         <>
-            <div className="xl:flex grow hidden items-center gap-x-2 py-5 ">
+            <div 
+                className="xl:flex grow hidden items-center gap-x-2 py-5"
+                onMouseLeave={() => setHoveredTab(null)}
+            >
                 {
                     menuItems.map(({label,href})=>{
                         const isActive = href === pathname;
                         const isHovered = hoveredTab === label;
                         return(
-                            <button
+                            <NavItem 
                                 key={href}
+                                href={href}
+                                isActive={isActive}
+                                isHovered={isHovered}
+                                showPill={hoveredTab !== null ? isHovered : isActive}
                                 onMouseEnter={() => setHoveredTab(label)}
-                                onMouseLeave={() => setHoveredTab(null)}
-                                className="relative"
                             >
-                                <NavItem 
-                                    href={href}
-                                   isActive={isActive}
-                                   isHovered={isHovered}
-                                >
-                                    {label}
-                                </NavItem>
-                            </button>
+                                {label}
+                            </NavItem>
                         )
                     })
                 }

@@ -2,13 +2,52 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/app/components/ui/card";
 import { Input } from "@/app/components/ui/input";
-import { Search, ChevronDown, HelpCircle, MessageCircle } from "lucide-react";
+import { Search, ChevronDown, HelpCircle, MessageCircle,  UtensilsCrossed,
+  Martini,
+  Hotel,
+  Coffee,
+  Dumbbell,
+  Sparkles,
+  Ticket, } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/app/components/ui/accordion";
 import { Button } from "@/app/components/ui/button";
 import { RiWhatsappFill } from "react-icons/ri";
 import NavBar from "../components/navbar/navbar";
 import Link from "next/link";
+import { SavingsCards } from "./components/benefits-card/benefits-card.component";
+import Partners from "./components/partners/partners.component";
+import SavingsCalculator from "./components/savings-calculator/savings-calculator.component";
 
+const growingEveryMonth = [
+  {
+    name: "Restaurants",
+    icon: UtensilsCrossed,
+  },
+  {
+    name: "Bars & Clubs",
+    icon: Martini,
+  },
+  {
+    name: "Hotels",
+    icon: Hotel,
+  },
+  {
+    name: "Cafés",
+    icon: Coffee,
+  },
+  {
+    name: "Fitness",
+    icon: Dumbbell,
+  },
+  {
+    name: "Beauty",
+    icon: Sparkles,
+  },
+  {
+    name: "Experiences",
+    icon: Ticket,
+  },
+];
 const FAQ = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -16,6 +55,21 @@ const FAQ = () => {
     {
       category: "General",
       questions: [
+        {
+          question: "What is the price of the BlacVolta Card?",
+          answer: `The BlacVolta Card costs ${
+            new Intl.NumberFormat("en-GH",{
+              style:"currency",
+              currency:"GHS",
+            }).format(1000)
+          }.. 
+          You also earn ${
+            new Intl.NumberFormat("en-GH",{
+              style:"currency",
+              currency:"GHS",
+            }).format(200)
+          } cashback for every successful referral when someone signs up through your referral link.`
+        },
         {
           question: "What is the BlacVolta Lifestyle Card?",
           answer: "The BlacVolta Lifestyle Card is a premium lifestyle and payments card designed for Africans and the diaspora. It gives you access to curated discounts, VIP experiences, and seamless payments across top events, restaurants, lounges, and lifestyle destinations."
@@ -142,34 +196,114 @@ const FAQ = () => {
         <div className="bg-gradient-premium text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-10"></div>
           <div className="container mx-auto px-4 py-16 lg:py-24 relative z-10">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-3xl mt-10 md:mt-0 md:text-4xl lg:text-6xl font-bold mb-6 text-center text-white">
+            <div className="max-w-6xl mx-auto text-center">
+              {/* <h1 className="text-3xl mt-10 md:mt-0 md:text-4xl lg:text-6xl font-bold mb-6 text-center text-white">
                 Frequently Asked Questions
               </h1>
               <p className="text-[16px] md:text-xl text-white/80 mb-8">
                 Find everything you need to know about your BlacVolta Lifestyle Card
-              </p>
-              <div className="group flex justify-center items-center [perspective:1000px] w-full max-w-[600px] h-[300px] mx-auto">
-              <div
-                className="relative w-full h-full transition-transform duration-700 animate-flip [transform-style:preserve-3d]"
-              >
-                <img 
-                  src='/assets/images/bvcardfront.png'
-                  alt="BlacVolta Lifestyle Card"
-                  className="object-cover h-full w-full transition-all duration-500 absolute rounded-xl [backface-visibility:hidden]"
-                  
-                />
-                <img 
-                  src='/assets/images/bvcardback.png'
-                  alt="BlacVolta Lifestyle Card"
-                  className="transition-all duration-500 absolute w-full h-full rounded-xl object-cover [backface-visibility:hidden] [transform:rotateY(180deg)]"
-                />
+              </p> */}
+              <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-y-8 md:gap-x-8">
+                   {/*Benefits text*/}
+                <div className="order-2 md:order-1 md:text-start px-4 md:px-0 flex flex-col items-start md:gap-y-4 lg:py-24 w-full">
+                  <h1 className="text-[32px] sm:text-[36px] md:text-[48px] font-bold text-white leading-[120%] md:leading-tight">More Experiences.</h1>
+                  <h1 className="text-[32px] sm:text-[36px] md:text-[48px] font-bold text-blacvolta-gold leading-[120%] md:leading-tight">More Saving</h1>
+                  <h1 className="text-[32px] sm:text-[36px] md:text-[48px] font-bold text-white leading-[120%] md:leading-tight mb-4 md:mb-0">All with one card. </h1>
+                  <p className="text-sm md:text-base mb-4 md:mb-0 text-white/80 md:max-w-[500px] text-start">The BV Card gives you exclusive access special discounts and VIP treatment at the best places across Ghana.</p>
+                  <Link href="/download" className=" rounded-md w-fit px-10 py-3 text-base text-black bg-blacvolta-gold hover:bg-blacvolta-gold/90 transition-all duration-300">Get your card</Link>
+                  <div className="flex flex-row items-center gap-3 mt-6">
+                    <div className="flex -space-x-2.5">
+                      <img
+                        className="inline-block h-8 w-8 rounded-full ring-2 ring-[#0a0a0a] object-cover"
+                        src="/assets/images/members/member-1.jpg"
+                        alt="Member"
+                      />
+                      <img
+                        className="inline-block h-8 w-8 rounded-full ring-2 ring-[#0a0a0a] object-cover"
+                        src="/assets/images/members/member-2.jpg"
+                        alt="Member"
+                      />
+                      <img
+                        className="inline-block h-8 w-8 rounded-full ring-2 ring-[#0a0a0a] object-cover"
+                        src="/assets/images/members/member-3.jpg"
+                        alt="Member"
+                      />
+                      <img
+                        className="inline-block h-8 w-8 rounded-full ring-2 ring-[#0a0a0a] object-cover"
+                        src="/assets/images/members/member-4.jpg"
+                        alt="Member"
+                      />
+                    </div>
+                    <div className="text-sm font-normal text-white/80">
+                      <div>10,000+ members</div>
+                      <div className="text-gray-500"> and growing</div>
+                    </div>
+                  </div>
+                </div> 
+              <div className="order-1 md:order-2 group flex justify-center items-center [perspective:1000px] w-full max-w-[600px] h-[200px] sm:h-[260px] md:h-[300px] mx-auto">
+                <div
+                  className="relative w-full h-full transition-transform duration-700 animate-flip [transform-style:preserve-3d]"
+                >
+                  <img 
+                    src='/assets/images/bvcardfront.png'
+                    alt="BlacVolta Lifestyle Card"
+                    className="object-cover h-full w-full transition-all duration-500 absolute rounded-xl [backface-visibility:hidden]"
+                    
+                  />
+                  <img 
+                    src='/assets/images/bvcardback.png'
+                    alt="BlacVolta Lifestyle Card"
+                    className="transition-all duration-500 absolute w-full h-full rounded-xl object-cover [backface-visibility:hidden] [transform:rotateY(180deg)]"
+                  />
+                </div>
               </div>
-            </div>
+              </div>
             </div>
           </div>
         </div>
+        <div className="container mx-auto">
+          <h1 className="text-2xl text-center mb-12 md:text-3xl lg:text-4xl text-blacvolta-gold font-semibold">Your Benefits</h1>
+          <SavingsCards />
+        </div>
+         
+        <div className="px-4 md:px-20 mb-12">
+          <div className="flex flex-col md:flex-row bg-black px-6 py-8 md:px-10 md:py-6 rounded-xl border border-zinc-900 gap-8 md:gap-0 items-center">
+            <div className="border-b border-b-zinc-800 md:border-b-0 md:border-r md:border-r-zinc-800 max-w-none md:max-w-60 w-full pb-6 md:pb-0 md:pr-10 text-left flex flex-col ">
+              <div className="text-white text-sm mb-4">
+                <h3 className="mb-2 font-semibold text-lg">Growing Every Month</h3>
+                <h4 className="mb-0.5 text-zinc-400">New partners, New Benefits</h4>
+                <h4 className="text-zinc-400">More reasons to use your card.</h4>
+              </div>
+              <button className="bg-blacvolta-gold text-xs font-semibold text-black px-4 py-2 rounded-md hover:bg-blacvolta-gold/90 transition-colors duration-300">
+                UPDATED THIS MONTH
+              </button>
+            </div>
+            <div className="grid grid-cols-3 md:flex md:justify-between w-full gap-6 md:gap-0 px-2 md:px-14">
+              {growingEveryMonth.map((item) => {
+                const Icon = item.icon;
 
+                return (
+                  <div key={item.name} className="flex flex-col items-center gap-2 md:gap-4 text-center">
+                    <Icon className="h-8 w-8 md:h-10 md:w-10 font-normal text-blacvolta-gold" />
+                    <h2 className="text-white text-xs md:text-sm font-normal">{item.name}</h2>
+                  </div>
+                );
+              })}
+            </div>                             
+          </div>
+        </div>
+        <Partners />
+        <SavingsCalculator />
+        <div className="container mx-auto px-4 py-16 lg:py-24 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-3xl mt-10 md:mt-0 md:text-4xl lg:text-6xl font-bold mb-6 text-center text-white">
+              Frequently Asked Questions
+            </h1>
+            <p className="text-[16px] md:text-xl text-white/80 mb-8">
+              Find everything you need to know about your BlacVolta Lifestyle Card
+            </p>
+          </div>
+        </div>
         {/* Search Section */}
         <div className="sticky top-16 lg:top-20 z-20 max-w-2xl mx-auto">
           <div className="container mx-auto px-4 -mt-8 relative">
@@ -198,7 +332,7 @@ const FAQ = () => {
               </h2>
               <div className="grid md:grid-cols-2 gap-4 mb-12">
                 {popularQuestions.map((q, index) => (
-                  <Card key={index} className="hover:shadow-card transition-all h-[180px] duration-300 cursor-pointer border-l-4 border-l-blacvolta-gold">
+                  <Card key={index} className="hover:shadow-card transition-all min-h-[180px] h-auto duration-300 cursor-pointer border-l-4 border-l-blacvolta-gold">
                     <CardContent className="p-6">
                       <div className="flex items-start gap-3">
                         <HelpCircle className="text-blacvolta-gold h-5 w-5 mt-1 flex-shrink-0" />
@@ -274,14 +408,13 @@ const FAQ = () => {
                 </Link>
                
                   <button
-                     onClick={() => {
+                    onClick={() => {
                       window.open("https://wa.me/233540973552", "_blank");
                     }}
-                    className="bg-transparent block text-background border-4 border-white rounded-full h-[68px] w-[68px] fixed bottom-8 right-8 shadow-xl flex items-center justify-center"
+                    className="bg-[#25D366] text-white rounded-full h-14 w-14 fixed bottom-6 right-6 shadow-[0_4px_20px_rgba(37,211,102,0.3)] flex items-center justify-center z-50 transition-transform duration-300 hover:scale-110 active:scale-95"
+                    aria-label="Contact support on WhatsApp"
                   >
-                  {/* <IoLogoWhatsapp size={30} color="#25D366"/> */}
-                  
-                    <RiWhatsappFill size={85} color="#25D366" />
+                    <RiWhatsappFill size={32} />
                   </button>
                
               </div>

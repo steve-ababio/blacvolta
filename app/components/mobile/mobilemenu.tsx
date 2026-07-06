@@ -41,29 +41,28 @@ export default function MobileMenu({closeMobileMenu,isOpen}:MobileMenuProps){
       }, [isOpen]);
     return(
         <div className="flex min-h-screen items-center flex-col z-[100] duration-300 origin-top fixed top-[60px] left-0 right-0 bg-black">
-            <div className="flex flex-col gap-y-12 py-10 ">
+            <div 
+                className="flex flex-col gap-y-12 py-10"
+                onMouseLeave={() => setHoveredTab(null)}
+            >
                 {
                     menuItems.map(({label,href})=>{
                         const isActive = href === pathname;
                         const isHovered = hoveredTab === label
                         return(
-                            <button
+                            <NavItem 
                                 key={href}
+                                href={href}
+                                isActive={isActive}
+                                isHovered={isHovered}
+                                showPill={hoveredTab !== null ? isHovered : isActive}
+                                onMouseEnter={() => setHoveredTab(label)}
                                 onClick={() =>{
                                     label === "HOME" || label === "EVENT CALENDAR" ? closeMobileMenu() : null;
                                 }}
-                                onMouseEnter={() => setHoveredTab(label)}
-                                onMouseLeave={() => setHoveredTab(null)}
-                                className="relative"
                             >
-                                <NavItem 
-                                    href={href}
-                                    isActive={isActive}
-                                    isHovered={isHovered}
-                                >
-                                    {label}
-                                </NavItem>
-                            </button>
+                                {label}
+                            </NavItem>
                         )
                     })
                 }

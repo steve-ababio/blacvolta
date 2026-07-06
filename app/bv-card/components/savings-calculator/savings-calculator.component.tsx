@@ -16,7 +16,7 @@ export default function SavingsCalculator() {
   const totalAnnualSavings = totalMonthlySavings * 12;
 
   // Let's assume the card costs $100 (~GHS 1,500)
-  const cardCostGHS = 1500;
+  const cardCostGHS = 1000;
   const monthsToPayback = totalMonthlySavings > 0 
     ? (cardCostGHS / totalMonthlySavings).toFixed(1) 
     : "0.0";
@@ -202,7 +202,12 @@ export default function SavingsCalculator() {
                 <div className="flex items-start gap-2.5 text-zinc-400 text-xs mb-6">
                   {/* <Sparkles className="h-4 w-4 text-blacvolta-gold shrink-0 mt-0.5" /> */}
                   <span>
-                    Your card pays for itself (~GHS {cardCostGHS}) in just{" "}
+                    Your card pays for itself ( {
+                      new Intl.NumberFormat("en-GH",{
+                        style:"currency",
+                        currency:"GHS",
+                      }).format(cardCostGHS)
+                    }) in just{" "}
                     <strong className="text-white font-semibold">{monthsToPayback} months</strong>!
                   </span>
                 </div>

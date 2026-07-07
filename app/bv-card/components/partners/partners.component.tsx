@@ -45,6 +45,7 @@ export default function Partners() {
                   alt={company.name}
                   width={160}
                   height={160} 
+                  priority
                   className="mx-5 md:mx-10 transition-all duration-300 cursor-pointer object-contain aspect-[3/2]"
                 />
                 <div className="py-2">
@@ -69,6 +70,7 @@ export default function Partners() {
                   alt={company.name}
                   width={160}
                   height={160} 
+                  priority
                   className="object-contain aspect-[3/2] mx-5 md:mx-10 transition-all duration-300 cursor-pointer"
                 />
                 <div className="py-2">

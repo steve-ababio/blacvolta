@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     default:"Blacvolta",
     template:`%s | Blacvolta`
   },
-  description: "Entertainment Hub - Africa",
+  description: "The Platform Behind Africa's Creative Economy",
 };
 
 export default function RootLayout({

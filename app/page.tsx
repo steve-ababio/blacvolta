@@ -7,6 +7,7 @@ import CalenderModal from "@/app/components/calendar/calendar";
 import Editorials from "@/app/components/editorialposts/editorialposts";
 import Ads from "./components/ads/upcomingevent";
 import AdBanner from "./components/ads/ad-banner";
+import { FILE_BASE_URL } from "./constants";
 
 export default async function HomePage() 
 {
@@ -14,6 +15,9 @@ export default async function HomePage()
   return (
     <main className="min-h-screen">
       <Home />
+      <div className="py-5">
+      <video src={`${FILE_BASE_URL}bv-card-motion.mp4`} className="w-full h-auto object-contain" autoPlay loop muted></video>
+      </div>
       <CalenderModal />
       {/* <AdBanner /> */}
       <Ads />

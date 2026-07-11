@@ -8,6 +8,7 @@ import { CgClose } from "react-icons/cg";
 import { usePathname } from "next/navigation";
 import { useCart } from "@/app/context/cart-context";
 import { ShoppingBag } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 
 const SCROLL_THRESHOLD = 30;
 export default function NavBar(){  
@@ -58,13 +59,24 @@ export default function NavBar(){
                             </button>
                         )
                     }   
-                    <button aria-label="menu button" className="xl:hidden" onClick={toggleMobileMenu}>
-                        {showmobilemenu ? <CgClose size={30} />:<RxHamburgerMenu  size={30} color="white"/>}
+                    <button aria-label="menu button" className="xl:hidden focus:outline-none p-1" onClick={toggleMobileMenu}>
+                        <motion.div
+                            key={showmobilemenu ? "close" : "open"}
+                            initial={{ rotate: -90, opacity: 0, scale: 0.8 }}
+                            animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                            exit={{ rotate: 90, opacity: 0, scale: 0.8 }}
+                            transition={{ duration: 0.2 }}
+                            className="flex items-center justify-center"
+                        >
+                            {showmobilemenu ? <CgClose size={30} /> : <RxHamburgerMenu size={30} color="white" />}
+                        </motion.div>
                     </button>
                 </div>  
             </header>
             <DesktopMenu />
-            {showmobilemenu && <MobileMenu isOpen={showmobilemenu} closeMobileMenu={closeMobileMenu} />}
+            <AnimatePresence>
+                {showmobilemenu && <MobileMenu isOpen={showmobilemenu} closeMobileMenu={closeMobileMenu} />}
+            </AnimatePresence>
         </nav>
     )
 }

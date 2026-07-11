@@ -14,3 +14,4 @@ export interface IEventForm{
 }
 
 export const FILE_UPLOAD_URL = "https://files.blacvolta.com/upload.php";
+export const FILE_BASE_URL="https://files.blacvolta.com/uploads/";

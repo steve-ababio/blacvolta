@@ -27,10 +27,10 @@ export default function TeamGrid(){
                         >
                         <div className="relative w-full flex justify-center items-center mb-2 overflow-hidden">
                             <img
-                            src={member.image}
-                            alt={member.name}
-                            className=" h-[350px] w-full object-[0_20px] object-cover transition-transform duration-700 rounded-t-lg"
-                            referrerPolicy="no-referrer"
+                                src={member.image}
+                                alt={member.name}
+                                className=" h-[350px] w-full object-[0_20px] object-cover transition-transform duration-700 rounded-t-lg"
+                                referrerPolicy="no-referrer"
                             />
                         </div>
                         <div className="flex flex-col border border-gray-200/40 rounded-md justify-center w-full items-center text-center p-4">

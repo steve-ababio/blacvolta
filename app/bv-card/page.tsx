@@ -17,6 +17,7 @@ import Link from "next/link";
 import { SavingsCards } from "./components/benefits-card/benefits-card.component";
 import Partners from "./components/partners/partners.component";
 import SavingsCalculator from "./components/savings-calculator/savings-calculator.component";
+import { PartnerType } from "../types/enums";
 
 const growingEveryMonth = [
   {
@@ -231,7 +232,7 @@ const FAQ = () => {
                       />
                     </div>
                     <div className="text-sm font-normal text-white/80">
-                      <div>10,000+ members</div>
+                      <div>100+ members</div>
                       <div className="text-gray-500"> and growing</div>
                     </div>
                   </div>
@@ -288,7 +289,7 @@ const FAQ = () => {
             </div>                             
           </div>
         </div>
-        <Partners />
+        <Partners type={PartnerType.BV_CARD} />
         <SavingsCalculator />
         <div className="container mx-auto px-4 py-16 lg:py-24 relative z-10">
           <div className="max-w-4xl mx-auto text-center">

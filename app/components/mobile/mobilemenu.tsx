@@ -4,7 +4,7 @@ import NavItem from "@/app/components/navitem/navitem";
 import { menuItems } from "@/app/data/global";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 interface MobileMenuProps {
     closeMobileMenu:()=>void;
@@ -39,7 +39,7 @@ export default function MobileMenu({closeMobileMenu,isOpen}:MobileMenuProps){
         };
       }, [isOpen]);
 
-    const containerVariants = {
+    const containerVariants: Variants = {
         hidden: { 
             opacity: 0,
             y: "-100%",
@@ -70,7 +70,7 @@ export default function MobileMenu({closeMobileMenu,isOpen}:MobileMenuProps){
         }
     };
 
-    const itemVariants = {
+    const itemVariants: Variants = {
         hidden: { 
             opacity: 0, 
             y: 20,
@@ -96,7 +96,7 @@ export default function MobileMenu({closeMobileMenu,isOpen}:MobileMenuProps){
         }
     };
 
-    const footerVariants = {
+    const footerVariants: Variants = {
         hidden: { 
             opacity: 0, 
             y: 15

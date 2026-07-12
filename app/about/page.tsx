@@ -346,7 +346,7 @@ export default function App() {
                   <img 
                     src="/assets/images/bvteam/joey.jpeg" 
                     alt="Joseph Adjei" 
-                    className="w-full aspect-[4/4] object-cover"
+                    className="w-full aspect-[4/4] object-[center_0px] object-cover"
                     referrerPolicy="no-referrer"
                   />
                 </div>

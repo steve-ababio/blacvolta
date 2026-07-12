@@ -37,15 +37,6 @@ export default function DesktopMenu(){
                 }
             </div>
             <div className="hidden items-center justify-center xl:flex py-4">
-                <NavItem href="https://twitter.com/blacvolta">
-                    <RiTwitterLine size={30} />
-                </NavItem>
-                <NavItem href="https://instagram.com/blacvolta">
-                    <RiInstagramLine size={30} />
-                </NavItem>
-                <NavItem href="mailto:blacvolta@gmail.com">
-                    <RiMailLine size={30} />
-                </NavItem>
                 {
                     pathname === "/merchandise" && (
                         <button 

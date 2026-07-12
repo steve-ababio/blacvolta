@@ -22,12 +22,12 @@ const bvCardPartners = [
   { name: "Republic", url: "/assets/images/partners/republic.png", location: "Osu",invert:false },
   { name: "Sandbox", url: "/assets/images/partners/sandbox.png", location: "La",invert:false },
   { name: "Alley Bar", url: "/assets/images/partners/alley-bar.png", location: "Accra",invert:false },
-   { name: "Beehive", url: "/assets/images/partners/beehive.png", location: "Accra",invert:false },
-   { name: "Frozen Cabana", url: "/assets/images/partners/frozen.png", location: "Accra",invert:false },
-   { name: "Honey Suckle", url: "/assets/images/partners/honeysuckle.png", location: "Labone",invert:false },
-   { name: "Mad Club", url: "/assets/images/partners/madclub.png", location: "Accra",invert:false },
+  //  { name: "Beehive", url: "/assets/images/partners/beehive.png", location: "Accra",invert:false },
+  //  { name: "Frozen Cabana", url: "/assets/images/partners/frozen.png", location: "Accra",invert:false },
+  //  { name: "Honey Suckle", url: "/assets/images/partners/honeysuckle.png", location: "Labone",invert:false },
+  //  { name: "Mad Club", url: "/assets/images/partners/madclub.png", location: "Accra",invert:false },
    { name: "Mood Bar", url: "/assets/images/partners/mood.png", location: "Accra",invert:false },
-   { name: "RHPickleBallerTr", url: "/assets/images/partners/rhpickleballtr.png", location: "Accra",invert:false },
+  //  { name: "RHPickleBallerTr", url: "/assets/images/partners/rhpickleballtr.png", location: "Accra",invert:false },
 ];
 
 const bvSocialPartners = [

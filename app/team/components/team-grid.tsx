@@ -10,40 +10,67 @@ export interface TeamMember {
     role: string;
     image: string;
     bio: string;
-  }
-export default function TeamGrid(){
+    adjust?: boolean;
+}
+
+export default function TeamGrid() {
     const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
-    return(
+    
+    return (
         <>
-            {
-                bvteam.map((member,index) => (
-                    <motion.div
-                        key={index}
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: index * 0.1 }}
-                        className="group relative cursor-pointer flex flex-col justify-center bg-black/10 p-3 rounded-lg items-center"
-                        onClick={() => setSelectedMember(member)}
-                        >
-                        <div className="relative w-full flex justify-center items-center mb-2 overflow-hidden">
-                            <img
-                                src={member.image}
-                                alt={member.name}
-                                className=" h-[350px] w-full object-[0_20px] object-cover transition-transform duration-700 rounded-t-lg"
-                                referrerPolicy="no-referrer"
-                            />
-                        </div>
-                        <div className="flex flex-col border border-gray-200/40 rounded-md justify-center w-full items-center text-center p-4">
-                            <h3 className="text-lg text-left text-white font-normal mb-1">{member.name}</h3>
-                            <p className="text-sm opacity-40 text-white tracking-widest font-normal">{member.role}</p>
-                        </div>
-                        <button className="text-black bg-white py-2 px-3 rounded-sm w-full mt-2" onClick={() => setSelectedMember(member)}>More details</button>
+            {bvteam.map((member, index) => (
+                <motion.div
+                    key={member.id}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ 
+                        duration: 0.6, 
+                        delay: index * 0.1, 
+                        ease: [0.16, 1, 0.3, 1] 
+                    }}
+                    className="group cursor-pointer flex flex-col"
+                    onClick={() => setSelectedMember(member)}
+                >
+                    {/* Image Wrapper */}
+                    <div className="relative w-full aspect-[4/5] overflow-hidden rounded-xl bg-neutral-900 border border-neutral-800/50">
+                        <img
+                            src={member.image}
+                            alt={member.name}
+                            className={`w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-[1.04] filter grayscale group-hover:grayscale-0 ${
+                                member.adjust ? 'object-[center_-20px]' : 'object-[center_20px]'
+                            }`}
+                            referrerPolicy="no-referrer"
+                        />
+                        {/* Elegant overlay gradient */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-40" />
                         
-                    </motion.div>
-                    
-                ))
-            }
-          <TeamModal selectedMember={selectedMember} setSelectedMember={setSelectedMember}/>
+                        {/* Hover visual cue (faint accent border highlight) */}
+                        <div className="absolute inset-0 border border-transparent group-hover:border-blacvolta-gold-300 rounded-xl transition-colors duration-300" />
+                    </div>
+
+                    {/* Metadata */}
+                    <div className="flex flex-col pt-4">
+                        <h3 className="font-kamerik text-lg text-white font-medium group-hover:text-blacvolta-gold transition-colors duration-300">
+                            {member.name}
+                        </h3>
+                        <p className="font-kamerik text-xs text-neutral-400 uppercase tracking-wider font-light mt-1">
+                            {member.role}
+                        </p>
+                        
+                        <button 
+                            className="text-black bg-white hover:bg-neutral-100 active:scale-[0.98] font-kamerik text-sm font-medium py-2 px-3  w-full mt-3 transition-all duration-200 text-center"
+                            onClick={(e) => {
+                                e.stopPropagation(); // Prevent trigger event bubble up to container onClick
+                                setSelectedMember(member);
+                            }}
+                        >
+                            More details
+                        </button>
+                    </div>
+                </motion.div>
+            ))}
+            
+            <TeamModal selectedMember={selectedMember} setSelectedMember={setSelectedMember} />
         </>
-    )
+    );
 }

@@ -8,6 +8,8 @@ import Editorials from "@/app/components/editorialposts/editorialposts";
 import Ads from "./components/ads/upcomingevent";
 import AdBanner from "./components/ads/ad-banner";
 import { FILE_BASE_URL } from "./constants";
+import Partners from "./bv-card/components/partners/partners.component";
+import { PartnerType } from "./types/enums";
 
 export default async function HomePage() 
 {
@@ -15,12 +17,13 @@ export default async function HomePage()
   return (
     <main className="min-h-screen">
       <Home />
-      <div className="py-5">
-      <video src={`${FILE_BASE_URL}bv-card-motion.mp4`} className="w-full h-auto object-contain" autoPlay loop muted></video>
+      <div className="py-5 mt-5">
+        <video src={`${FILE_BASE_URL}bv-card-motion.mp4`} className="w-full h-auto md:h-[450px] object-contain" autoPlay loop muted></video>
       </div>
       <CalenderModal />
       {/* <AdBanner /> */}
-      <Ads />
+      {/* <Ads /> */}
+      <Partners type={PartnerType.BV_SOCIAL}/>
       <Editorials />
       <PodcastStations />
       <Footer />

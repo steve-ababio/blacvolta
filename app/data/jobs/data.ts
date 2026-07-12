@@ -160,83 +160,83 @@ export interface JobData {
       ],
     },
   
-    {
-      id: "associate-media-production-operations",
-      title: "Associate, Media Production & Operations",
-      company: "BV Social / BlacVolta",
-      parent: "",
-      location: "Ghana",
-      type: "Full-time",
-      overview:
-        "The Associate, Media Production & Operations will support and manage the end-to-end execution of BV’s media output — including the BlacVolta Podcast, digital content, and branded productions. This role is responsible for coordinating production, supporting creative development, managing distribution, and ensuring content translates into audience growth and revenue opportunities.",
-      responsibilities: [
-        {
-          category: "Production & Operations",
-          items: [
-            "Coordinate end-to-end production across podcasts, video shoots, and branded content",
-            "Manage production timelines, schedules, and deliverables",
-            "Work closely with videographers, editors, sound engineers, and creatives",
-            "Ensure all content meets BV’s quality and brand standards",
-          ],
-        },
-        {
-          category: "Podcast & Content Management",
-          items: [
-            "Support the execution of the BlacVolta Podcast (planning, recording, post-production, release)",
-            "Manage episode calendars and ensure consistent weekly output",
-            "Assist in developing new podcast formats, segments, and show ideas",
-            "Coordinate guest bookings, briefs, and recording logistics",
-          ],
-        },
-        {
-          category: "Creative Development",
-          items: [
-            "Contribute to content ideas, formats, and storytelling approaches",
-            "Support development of new shows and original series under BV",
-            "Work with the team to ensure content stays culturally relevant and engaging",
-          ],
-        },
-        {
-          category: "Distribution & Growth",
-          items: [
-            "Oversee distribution across YouTube, Spotify, Apple Podcasts, and social platforms",
-            "Ensure content is properly optimized for reach, engagement, and consistency",
-            "Track performance and suggest improvements based on audience insights",
-            "Coordinate rollout of snippets, clips, and campaign assets",
-          ],
-        },
-        {
-          category: "Client & Commercial Support",
-          items: [
-            "Assist in managing branded content and client productions",
-            "Support execution of campaign deliverables and partnerships",
-            "Work with the team to align production with client objectives and timelines",
-            "Identify opportunities to monetize content and grow revenue streams",
-          ],
-        },
-      ],
-      success: [
-        "Consistent, high-quality content output across platforms",
-        "Smooth, efficient production workflows",
-        "Growth in podcast listeners, views, and engagement",
-        "Strong execution of branded content and client projects",
-        "Contribution to new shows and content formats",
-      ],
-      requirements: [
-        "1–3 years in media production, content, or creative operations",
-        "Experience working on podcasts, video production, or digital content",
-        "Strong organizational and project management skills",
-        "Good understanding of content distribution and social platforms",
-        "Ability to multitask and execute in a fast-paced environment",
-        "Strong communication and teamwork skills",
-      ],
-      niceToHave: [
-        "Basic knowledge of editing tools (Premiere Pro, Final Cut, CapCut, etc.)",
-        "Experience with podcast platforms (Spotify, Apple Podcasts, YouTube)",
-        "Interest in entertainment, culture, and storytelling in Africa",
-        "Experience working with brands or client projects",
-      ],
-    },
+    // {
+    //   id: "associate-media-production-operations",
+    //   title: "Associate, Media Production & Operations",
+    //   company: "BV Social / BlacVolta",
+    //   parent: "",
+    //   location: "Ghana",
+    //   type: "Full-time",
+    //   overview:
+    //     "The Associate, Media Production & Operations will support and manage the end-to-end execution of BV’s media output — including the BlacVolta Podcast, digital content, and branded productions. This role is responsible for coordinating production, supporting creative development, managing distribution, and ensuring content translates into audience growth and revenue opportunities.",
+    //   responsibilities: [
+    //     {
+    //       category: "Production & Operations",
+    //       items: [
+    //         "Coordinate end-to-end production across podcasts, video shoots, and branded content",
+    //         "Manage production timelines, schedules, and deliverables",
+    //         "Work closely with videographers, editors, sound engineers, and creatives",
+    //         "Ensure all content meets BV’s quality and brand standards",
+    //       ],
+    //     },
+    //     {
+    //       category: "Podcast & Content Management",
+    //       items: [
+    //         "Support the execution of the BlacVolta Podcast (planning, recording, post-production, release)",
+    //         "Manage episode calendars and ensure consistent weekly output",
+    //         "Assist in developing new podcast formats, segments, and show ideas",
+    //         "Coordinate guest bookings, briefs, and recording logistics",
+    //       ],
+    //     },
+    //     {
+    //       category: "Creative Development",
+    //       items: [
+    //         "Contribute to content ideas, formats, and storytelling approaches",
+    //         "Support development of new shows and original series under BV",
+    //         "Work with the team to ensure content stays culturally relevant and engaging",
+    //       ],
+    //     },
+    //     {
+    //       category: "Distribution & Growth",
+    //       items: [
+    //         "Oversee distribution across YouTube, Spotify, Apple Podcasts, and social platforms",
+    //         "Ensure content is properly optimized for reach, engagement, and consistency",
+    //         "Track performance and suggest improvements based on audience insights",
+    //         "Coordinate rollout of snippets, clips, and campaign assets",
+    //       ],
+    //     },
+    //     {
+    //       category: "Client & Commercial Support",
+    //       items: [
+    //         "Assist in managing branded content and client productions",
+    //         "Support execution of campaign deliverables and partnerships",
+    //         "Work with the team to align production with client objectives and timelines",
+    //         "Identify opportunities to monetize content and grow revenue streams",
+    //       ],
+    //     },
+    //   ],
+    //   success: [
+    //     "Consistent, high-quality content output across platforms",
+    //     "Smooth, efficient production workflows",
+    //     "Growth in podcast listeners, views, and engagement",
+    //     "Strong execution of branded content and client projects",
+    //     "Contribution to new shows and content formats",
+    //   ],
+    //   requirements: [
+    //     "1–3 years in media production, content, or creative operations",
+    //     "Experience working on podcasts, video production, or digital content",
+    //     "Strong organizational and project management skills",
+    //     "Good understanding of content distribution and social platforms",
+    //     "Ability to multitask and execute in a fast-paced environment",
+    //     "Strong communication and teamwork skills",
+    //   ],
+    //   niceToHave: [
+    //     "Basic knowledge of editing tools (Premiere Pro, Final Cut, CapCut, etc.)",
+    //     "Experience with podcast platforms (Spotify, Apple Podcasts, YouTube)",
+    //     "Interest in entertainment, culture, and storytelling in Africa",
+    //     "Experience working with brands or client projects",
+    //   ],
+    // },
     {
       id: "business-operations-associate-blacvolta-lifestyle",
       title: "Business Operations Associate – BlacVolta Lifestyle",

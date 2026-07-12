@@ -47,7 +47,7 @@ export default function CalenderModal(){
               className="w-full"
             >
               <div className="text-center pb-8 mt-6">
-                  <h2 className="font-kamerik font-bold text-[25px] md:text-[30px] text-white">UPCOMING EVENTS</h2>
+                  <h2 className="font-kamerik font-bold text-[25px] md:text-[30px] text-white">UPCOMING EVENTS - ACCRA</h2>
               </div>
               <div className="max-w-[40rem] w-[90%] mx-auto">
                   <Calendar

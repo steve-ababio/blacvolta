@@ -344,7 +344,7 @@ export default function App() {
               <div className="order-2 lg:order-1">
                 <div className="relative rounded-2xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
                   <img 
-                    src="/assets/images/bvteam/joseph.jpg" 
+                    src="/assets/images/bvteam/joey.jpg" 
                     alt="Joseph Adjei" 
                     className="w-full aspect-[4/4] object-cover"
                     referrerPolicy="no-referrer"

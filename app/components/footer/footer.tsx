@@ -178,7 +178,7 @@ export default function Footer() {
                         </form>
                     </div> */}
                     <div className="lg:col-span-3 flex flex-col gap-4">
-                        <h4 className="text-white text-sm font-semibold tracking-wider uppercase">Stay Tuned</h4>
+                        <h4 className="text-white text-sm font-semibold tracking-wider uppercase">Legal</h4>
                         <div className="flex flex-col gap-4">
                         <Link href="/terms-and-privacy" className="hover:text-white text-sm transition-colors duration-200">
                             Privacy Policy

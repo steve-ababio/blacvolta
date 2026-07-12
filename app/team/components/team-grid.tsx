@@ -37,7 +37,7 @@ export default function TeamGrid() {
                             src={member.image}
                             alt={member.name}
                             className={`w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-[1.04] filter grayscale group-hover:grayscale-0 ${
-                                member.adjust ? 'object-[center_-20px]' : 'object-[center_20px]'
+                                member.adjust ? 'object-[center_-20px]' : 'object-[center_0px]'
                             }`}
                             referrerPolicy="no-referrer"
                         />

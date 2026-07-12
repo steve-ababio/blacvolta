@@ -159,7 +159,7 @@ export default function MobileMenu({closeMobileMenu,isOpen}:MobileMenuProps){
                     })
                 }
             </div>
-            <motion.div 
+            {/* <motion.div 
                 variants={footerVariants}
                 className="text-center before:content-[''] before:mb-3 before:block w-[85%] mx-auto before:h-[1px] before:w-full before:bg-[#707070] relative z-20"
             >
@@ -174,7 +174,7 @@ export default function MobileMenu({closeMobileMenu,isOpen}:MobileMenuProps){
                         <RiMailLine size={30} />
                     </NavItem>
                 </div>
-            </motion.div>
+            </motion.div> */}
         </motion.div>
     )
 }

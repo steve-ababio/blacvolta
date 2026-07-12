@@ -45,7 +45,7 @@ export default function TeamModal({ selectedMember, setSelectedMember }: TeamMod
                             <img 
                                 src={selectedMember.image} 
                                 alt={selectedMember.name}
-                                className="w-full h-full object-cover"
+                                className={`${selectedMember.adjust ? 'object-[center_-20px]' : 'object-[center_0px]'} w-full h-full object-cover`}
                                 referrerPolicy="no-referrer"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/60 via-transparent to-transparent" />
@@ -55,7 +55,7 @@ export default function TeamModal({ selectedMember, setSelectedMember }: TeamMod
                         <div className="w-full md:w-[55%] p-6 md:p-10 flex flex-col overflow-y-auto">
                             <div className="mb-6">
                                 <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">{selectedMember.name}</h2>
-                                <p className="text-sm text-[#f47b25] font-medium tracking-wide uppercase mt-1">{selectedMember.role}</p>
+                                <p className="text-sm text-blacvolta-gold font-medium tracking-wide uppercase mt-1">{selectedMember.role}</p>
                             </div>
 
                             <div className="flex-grow">

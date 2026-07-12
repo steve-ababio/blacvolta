@@ -16,12 +16,12 @@ export default function Footer() {
         },
         {
             icon: <RiYoutubeLine className="w-5 h-5 text-white" />,
-            href: "https://youtube.com/blacvolta",
+            href: "https://www.youtube.com/channel/UCpC51bsXpPfXmpjE2vyElgg",
             label: "Youtube"
         },
         {
             icon: <RiTiktokLine className="w-5 h-5 text-white" />,
-            href: "https://tiktok.com/blacvolta",
+            href: "https://www.tiktok.com/@blacvolta",
             label: "Tiktok"
         },
         {

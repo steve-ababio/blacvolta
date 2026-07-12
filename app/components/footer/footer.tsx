@@ -99,7 +99,7 @@ export default function Footer() {
                             />
                         </Link>
                         <p className="text-sm leading-relaxed text-neutral-400 max-w-sm">
-                            The Platform Behind Africa's Creative Economy. We curate, connect, and elevate African culture, nightlife, and lifestyle experiences.
+                            The Platform Behind Africa&apos;s Creative Economy. We curate, connect, and elevate African culture, nightlife, and lifestyle experiences.
                         </p>
                         {/* Social Icons */}
                         <div className="flex items-center gap-3 mt-2">

@@ -7,4 +7,5 @@ export enum merchandiseType {
 export enum PartnerType{
   BV_SOCIAL='BV_SOCIAL',
   BV_CARD='BV_CARD',
+  BV_HOME='BV_HOME'
 }

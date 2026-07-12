@@ -23,7 +23,7 @@ export default async function HomePage()
       <CalenderModal />
       {/* <AdBanner /> */}
       {/* <Ads /> */}
-      <Partners type={PartnerType.BV_SOCIAL}/>
+      <Partners type={PartnerType.BV_HOME}/>
       <Editorials />
       <PodcastStations />
       <Footer />

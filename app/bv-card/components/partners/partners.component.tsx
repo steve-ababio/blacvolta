@@ -70,17 +70,21 @@ const bvSocialPartners = [
 export default function Partners({type}:{type:PartnerType}) {
   return (
     <section className="pt-10 pb-20 text-center px-6 md:px-20 overflow-hidden">
-      {type === PartnerType.BV_CARD ? <h2 className="text-blacvolta-gold text-2xl md:text-3xl lg:text-4xl font-semibold leading-[160%] mb-12">
+      {type === PartnerType.BV_CARD ? <h2 className="text-blacvolta-gold text-2xl md:text-3xl lg:text-4xl font-semibold leading-[160%] mb-2 md:mb-5">
         Featured Partners
-      </h2> : 
-      <h2 className="text-[#a6e804] text-2xl md:text-3xl lg:text-5xl font-semibold leading-[160%] mb-12">
+      </h2> : type === PartnerType.BV_SOCIAL ?
+      <h2 className="text-[#a6e804] text-2xl md:text-3xl lg:text-5xl font-semibold leading-[160%] mb-2 md:mb-5">
         Partners
-      </h2>}
+      </h2>:
+      <h2 className="text-white text-2xl md:text-3xl lg:text-5xl font-semibold leading-[160%]  mb-2 md:mb-5">
+        Partners
+      </h2>        
+      } 
 
       <div className="relative overflow-hidden w-full [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
         <div className="marquee-container flex w-max flex-nowrap">
           <div className="marquee-track flex flex-nowrap shrink-0 gap-2 md:gap4 items-center justify-around">
-            {(type === PartnerType.BV_CARD ? bvCardPartners : bvSocialPartners).map((company, i) => (
+            {((type === PartnerType.BV_CARD || type === PartnerType.BV_HOME) ? bvCardPartners : bvSocialPartners).map((company, i) => (
               <div key={company.name + "-1-" + i} className="flex rounded-md py-4 flex-col items-center gap-2">
                 <Image
                   src={company.url}

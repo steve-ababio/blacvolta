@@ -45,7 +45,7 @@ export default function TeamModal({ selectedMember, setSelectedMember }: TeamMod
                             <img 
                                 src={selectedMember.image} 
                                 alt={selectedMember.name}
-                                className={`${selectedMember.adjust ? 'object-[center_-20px]' : 'object-[center_0px]'} w-full h-full object-cover`}
+                                className={`${selectedMember.adjust ? 'object-[center_-70px]' : 'object-[center_0px]'} w-full h-full object-cover`}
                                 referrerPolicy="no-referrer"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/60 via-transparent to-transparent" />

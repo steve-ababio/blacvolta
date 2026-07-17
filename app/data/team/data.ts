@@ -36,7 +36,7 @@ export const bvteam = [
       image:"/assets/images/bvteam/emmanuel-asare.JPG",
       name: "Emmanuel Asare",
       role: "Cinematographer and Visual Director Lead",
-      adjust:false,
+      adjust:true,
       bio: "Emmanuel Asare is a Ghanaian cinematographer and visual director leading BlacVolta Media. He specializes in videography, cinematic storytelling, and high-impact content creation across entertainment, lifestyle, and corporate spaces. He has led and executed campaigns across Africa, delivering premium visual productions for brands, cultural platforms, and major experiences. His work is defined by strong storytelling and clean, modern visuals that elevate every brand he works with. Through BlacVolta Media, Emmanuel continues to shape compelling visual narratives across the continent.",
     },
   ];

@@ -66,6 +66,48 @@ const bvSocialPartners = [
     name:"Spotify",url:"/assets/images/bvsocialpartners/spotify.png",location:"",invert:true
   }
 ];
+const bvMainPartners = [
+  {
+    name:"Spotify",url:"/assets/images/bvsocialpartners/spotify.png",location:"",invert:true
+  },
+  {
+    name:"Martell",url:"/assets/images/bvsocialpartners/martell-logo.png",location:"",invert:true
+  },
+  {
+    name:"Momo MTN",url:"/assets/images/bvsocialpartners/momo_mtn.png",location:"",invert:false
+  },
+	{
+    name:"Gold Key",url:"/assets/images/bvsocialpartners/goldkey.png",location:"",invert:true
+  },
+  {
+    name:"DevTraco Plus",url:"/assets/images/bvsocialpartners/devtracoplus.png",location:"",invert:false
+  },
+  {
+    name:"Emy Africa",url:"/assets/images/bvsocialpartners/emy-africa.png",location:"",invert:true
+  },
+  {
+    name:"Hennessey",url:"/assets/images/bvsocialpartners/hennessy.png",location:"",invert:true
+  },
+  {
+    name:"Guba",url:"/assets/images/bvsocialpartners/guba.png",location:"",invert:true
+  },
+  {
+    name:"Akwaaba Uk",url:"/assets/images/bvsocialpartners/akwaaba.png",location:"",invert:false
+  },
+  {
+    name:"Afrofuture",url:"/assets/images/bvsocialpartners/afrofuture.png",location:"",invert:false
+  },
+  {
+    name:"MTN",url:"/assets/images/bvsocialpartners/mtn.png",location:"",invert:false
+  },
+   {
+    name:"Visa",url:"/assets/images/bvsocialpartners/visa.png",location:"",invert:false
+  },
+  {
+    name:"Africa Fintech Summit",url:"/assets/images/bvsocialpartners/africa-summit.png",location:"",invert:false
+  },
+];
+
 
 export default function Partners({type}:{type:PartnerType}) {
   return (
@@ -84,7 +126,7 @@ export default function Partners({type}:{type:PartnerType}) {
       <div className="relative overflow-hidden w-full [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
         <div className="marquee-container flex w-max flex-nowrap">
           <div className="marquee-track flex flex-nowrap shrink-0 gap-2 md:gap4 items-center justify-around">
-            {((type === PartnerType.BV_CARD || type === PartnerType.BV_HOME) ? bvCardPartners : bvSocialPartners).map((company, i) => (
+            {(type === PartnerType.BV_CARD ? bvCardPartners : type === PartnerType.BV_HOME ? bvMainPartners : bvSocialPartners).map((company, i) => (
               <div key={company.name + "-1-" + i} className="flex rounded-md py-4 flex-col items-center gap-2">
                 <Image
                   src={company.url}
@@ -114,7 +156,7 @@ export default function Partners({type}:{type:PartnerType}) {
             {/* border-[0.5px] border-blacvolta-gold/50 */}
           </div>
           <div className="marquee-track flex flex-nowrap shrink-0 gap-2 md:gap-4 items-center justify-around">
-            {(type === PartnerType.BV_CARD ? bvCardPartners : bvSocialPartners).map((company, i) => (
+            {(type === PartnerType.BV_CARD ? bvCardPartners : type === PartnerType.BV_HOME ? bvMainPartners : bvSocialPartners).map((company, i) => (
               <div key={company.name + "-2-" + i} className="flex rounded-md py-4 flex-col items-center gap-2">
                 <Image
                   src={company.url}

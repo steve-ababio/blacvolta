@@ -12,7 +12,7 @@ export default function LeafletMap() {
     if (!mapRef.current || mapInstanceRef.current) return;
 
     // Center coordinates for Accra, Ghana
-    const position: [number, number] = [5.6037, -0.1870];
+    const position: [number, number] = [5.6672,  0.2134];
 
     // Initialize map
     const map = L.map(mapRef.current, {

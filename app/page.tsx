@@ -21,13 +21,11 @@ export default async function HomePage()
         <video src={`${FILE_BASE_URL}bv-card-motion.mp4`} className="w-full h-auto md:h-[450px] object-contain" autoPlay loop muted></video>
       </div>
       <CalenderModal />
-      {/* <AdBanner /> */}
       {/* <Ads /> */}
       <Partners type={PartnerType.BV_HOME}/>
-      <Editorials />
       <PodcastStations />
+      <Editorials />
       <Footer />
-      {/* <TicketPopup /> */}
     </main>
   );
 }

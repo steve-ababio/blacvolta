@@ -148,6 +148,18 @@ export class EmailService {
         htmlContent = this.renderJobApplicationEmail(htmlContent,payload);
         await this.sendEmail(managerEmail,subject,htmlContent,attachment);
     }
+    async sendContactEmail(payload: { name: string; email: string; subject: string; message: string }) {
+        const managerEmail = process.env.STORE_EMAIL as string || "booking@blacvolta.com";
+        const htmlContent = `
+            <h3>New Contact Us Submission</h3>
+            <p><strong>Name:</strong> ${this.escapeHtml(payload.name)}</p>
+            <p><strong>Email:</strong> ${this.escapeHtml(payload.email)}</p>
+            <p><strong>Subject:</strong> ${this.escapeHtml(payload.subject)}</p>
+            <p><strong>Message:</strong></p>
+            <p>${this.escapeHtml(payload.message).replace(/\n/g, '<br>')}</p>
+        `;
+        await this.sendEmail(managerEmail, `Contact Us: ${payload.subject}`, htmlContent);
+    }
     private async getHtmlContent(filename: string): Promise<string> {
       try {
           return await readFile(path.join(TEMPLATE_PATH, filename), 'utf8');

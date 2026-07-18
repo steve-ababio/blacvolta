@@ -45,12 +45,12 @@ export default function Footer() {
         { label: "Home", href: "/" },
         { label: "BV Lifestyle Card", href: "/bv-card" },
         { label: "BV Social", href: "/bv-social" },
-        { label: "Event Calendar", href: "/#bv-calender" },
+        { label: "Events", href: "/#bv-calender" },
         { label: "Editorials", href: "/editorials" }
     ];
 
     const companyLinks = [
-        { label: "Merchandise", href: "/merchandise" },
+        { label: "Shop", href: "/merchandise" },
         { label: "Jobs", href: "/jobs" },
         { label: "Team", href: "/team" },
         { label: "About Us", href: "/about" }

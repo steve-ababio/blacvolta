@@ -16,7 +16,7 @@ export default function Editorials(){
      if(isLoading) return <ArticleCardLoader size={3}/>;
     const news = data!.data.articles;
     return(
-        <section className="flex flex-col pt-0">
+        <section className="flex flex-col pt-12">
             <div className="px-[5%]">
                 <h2 className="text-[25px] pb-8 font-kamerik font-bold md:text-[30px] text-center text-bvlight">EDITORIALS</h2>
                 <div className="justify-between items-center md:items-start w-full grid grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(360px,1fr))] gap-10 lg:gap-6">

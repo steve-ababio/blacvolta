@@ -38,14 +38,23 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 'use client'
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { 
   Palette, 
   Users, 
   Landmark, 
+  Mail,
+  Phone,
+  MapPin,
+  Loader2,
+  Send,
+  CheckCircle,
+  AlertCircle
 } from "lucide-react";
 import NavBar from "../components/navbar/navbar";
 import Footer from "../components/footer/footer";
+import InteractiveMap from "../components/interactive-map/interactive-map";
 
 const NavItem = ({ href, children }: { href: string; children: React.ReactNode }) => (
   <a href={href} className="text-sm font-medium hover:text-[white] transition-colors">
@@ -96,6 +105,50 @@ const WorkCard = ({ image, title, description }: { image: string; title: string;
 );
 
 export default function App() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus('idle');
+    setErrorMessage("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setStatus('success');
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        setStatus('error');
+        setErrorMessage(data.error || "Something went wrong. Please try again.");
+      }
+    } catch (err) {
+      console.error(err);
+      setStatus('error');
+      setErrorMessage("Failed to send message. Please check your network connection.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-primary selection:bg-primary selection:text-white">
       <NavBar />
@@ -468,6 +521,192 @@ export default function App() {
             <p className="mt-10 text-[#D4CEC4] font-body font-light text-[15px]">
               BlacVolta is building the engine behind it.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Us Section */}
+      <section className="py-16 md:py-24 bg-[#0a0a0a] border-t border-zinc-900 relative overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#D49A35]/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-[#D49A35]/5 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-1 rounded-full border border-[#D49A35]/40 text-[#D49A35] text-xs font-bold tracking-widest uppercase mb-4 bg-[#D49A35]/5">
+              Get In Touch
+            </span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl text-white font-black tracking-tight mb-4">
+              Contact Us
+            </h2>
+            {/* <p className="text-zinc-400 max-w-xl mx-auto font-light">
+              Have questions, partnership proposals, or want to join the renaissance? Reach out to us.
+            </p> */}
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            {/* Contact Info */}
+            <div className="lg:col-span-5 space-y-8">
+              <div className="glass-panel p-8 md:p-10 rounded-2xl border border-white/5 bg-zinc-900/20 backdrop-blur-md">
+                <h3 className="text-2xl font-bold text-white mb-6">Contact Information</h3>
+                
+                <div className="space-y-4">
+                  <div className="flex items-center gap-0">
+                    <div className="w-12 h-12 flex items-center justify-start shrink-0">
+                      <Mail className="text-white w-5 h-5" />
+                    </div>
+                    <div>
+                      {/* <p className="text-xs uppercase tracking-wider text-zinc-500 font-bold mb-1">Email Us</p> */}
+                      <a href="mailto:booking@blacvolta.com" className="text-white hover:text-[#D49A35] transition-colors text-base font-medium">
+                        booking@blacvolta.com
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-0">
+                    <div className="w-12 h-12 flex items-center justify-start shrink-0">
+                      <Phone className="text-white w-5 h-5" />
+                    </div>
+                    <div>
+                      {/* <p className="text-xs uppercase tracking-wider text-zinc-500 font-bold mb-1">Call Us</p> */}
+                      <a href="tel:+233500000000" className="text-white hover:text-[#D49A35] transition-colors text-base font-medium font-sans">
+                        +233 (0) 50 000 0000
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-0">
+                    <div className="w-12 h-12  flex items-center justify-start shrink-0">
+                      <MapPin className="text-white w-5 h-5" />
+                    </div>
+                    <div>
+                      {/* <p className="text-xs uppercase tracking-wider text-zinc-500 font-bold mb-1">Office Location</p> */}
+                      <p className="text-white text-base leading-relaxed">
+                        Accra, Ghana
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="glass-panel p-2 rounded-2xl border border-white/5 bg-zinc-900/20 backdrop-blur-md overflow-hidden h-[300px]">
+                <InteractiveMap />
+              </div>
+
+              <div className="glass-panel p-8 rounded-2xl border border-white/5 bg-zinc-900/10 text-center">
+                <p className="text-[#D4CEC4] text-sm font-light leading-relaxed">
+                  Our team typically responds within 24–48 business hours. For urgent booking requests, please state "URGENT" in the subject line.
+                </p>
+              </div>
+            </div>
+
+            {/* Contact Form */}
+            <div className="lg:col-span-7">
+              <form onSubmit={handleSubmit} className="glass-panel p-8 md:p-10 rounded-2xl border border-white/5 bg-zinc-900/20 backdrop-blur-md space-y-6">
+                {status === 'success' && (
+                  <div className="flex items-start gap-3 bg-emerald-500/10 border border-emerald-500/30 p-4 rounded-xl text-emerald-400 text-sm">
+                    <CheckCircle className="w-5 h-5 shrink-0 mt-0.5" />
+                    <div>
+                      <h4 className="font-bold text-white mb-1">Message Sent!</h4>
+                      <p>Thank you for reaching out. We have received your message and will get back to you shortly.</p>
+                    </div>
+                  </div>
+                )}
+
+                {status === 'error' && (
+                  <div className="flex items-start gap-3 bg-rose-500/10 border border-rose-500/30 p-4 rounded-xl text-rose-400 text-sm">
+                    <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" />
+                    <div>
+                      <h4 className="font-bold text-white mb-1">Submission Failed</h4>
+                      <p>{errorMessage}</p>
+                    </div>
+                  </div>
+                )}
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label htmlFor="name" className="text-xs font-bold uppercase tracking-wider text-zinc-400 block">
+                      Full Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      required
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-full bg-white/5 border border-white/10 text-white focus:outline-none focus:border-white transition-colors text-sm font-sans"
+                      placeholder="John Doe"
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <label htmlFor="email" className="text-xs font-bold uppercase tracking-wider text-zinc-400 block">
+                      Email Address
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-full bg-white/5 border border-white/10 text-white focus:outline-none focus:border-white transition-colors text-sm font-sans"
+                      placeholder="john@example.com"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <label htmlFor="subject" className="text-xs font-bold uppercase tracking-wider text-zinc-400 block">
+                    Subject
+                  </label>
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    required
+                    value={formData.subject}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-full bg-white/5 border border-white/10 text-white focus:outline-none focus:border-white transition-colors text-sm font-sans"
+                    placeholder="Partnership Proposal"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label htmlFor="message" className="text-xs font-bold uppercase tracking-wider text-zinc-400 block">
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    required
+                    rows={5}
+                    value={formData.message}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-white transition-colors text-sm font-sans resize-none"
+                    placeholder="Write your message here..."
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full bg-white  text-black font-bold py-3.5 px-6 rounded-xl transition-all duration-300 transform active:scale-[0.98] flex items-center justify-center gap-2 text-sm shadow-[0_4px_20px_rgba(212,154,53,0.25)] hover:shadow-[0_4px_25px_rgba(212,154,53,0.4)] disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {loading ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-4 h-4" />
+                      Send Message
+                    </>
+                  )}
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </section>

@@ -149,7 +149,7 @@ export default function MobileMenu({closeMobileMenu,isOpen}:MobileMenuProps){
                                     showPill={hoveredTab !== null ? isHovered : isActive}
                                     onMouseEnter={() => setHoveredTab(label)}
                                     onClick={() =>{
-                                        label === "HOME" || label === "EVENT CALENDAR" ? closeMobileMenu() : null;
+                                        label === "HOME" || label === "EVENTS" ? closeMobileMenu() : null;
                                     }}
                                 >
                                     {label}

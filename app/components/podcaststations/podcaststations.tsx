@@ -2,7 +2,7 @@ import PodcastCard from "@/app/components/podcastcard/podcastcard"
 
 export default function PodcastStations(){
     return(
-        <section className="flex flex-col pb-10 bg-black pt-[3rem]">
+        <section className="flex flex-col pb-10 bg-black pt-0">
             <div className="px-[5%]">
                 <h2 className="pb-8 text-[25px] kamerik font-bold md:text-[30px] text-center text-white">OUR PODCAST STATIONS</h2>
                 <div className="flex flex-col sm:flex-row gap-[30px]">

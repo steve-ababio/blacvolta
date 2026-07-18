@@ -10,3 +10,4 @@ const nextConfig = {
 };
 
 export default nextConfig;
+// touch comment to trigger Next.js dev server reload

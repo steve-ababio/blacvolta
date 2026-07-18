@@ -12,7 +12,7 @@ export const menuItems = [
         href: "/bv-social"
     },
     {
-        label: "EVENT CALENDAR",
+        label: "EVENTS",
         href: "/#bv-calender"
     },
     {
@@ -20,7 +20,7 @@ export const menuItems = [
         href: "/editorials"
     },
     {
-        label: "MERCHANDISE",
+        label: "SHOP",
         href: "/merchandise"
     },
     {

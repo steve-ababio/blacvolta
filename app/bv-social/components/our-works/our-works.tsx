@@ -137,6 +137,29 @@ export default function OurWorks() {
     };
   }, [selectedItem]);
 
+  // Handle browser back button on mobile/desktop when modal is open
+  useEffect(() => {
+    if (!selectedItem) return;
+
+    // Push state so back button action closes the modal rather than navigating away
+    window.history.pushState({ modalOpen: true }, '');
+
+    const handlePopState = () => {
+      setSelectedItem(null);
+    };
+
+    window.addEventListener('popstate', handlePopState);
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+      // If closed manually (e.g. Close button, clicking backdrop, Escape key),
+      // pop the history state to keep browser history clean.
+      if (window.history.state?.modalOpen) {
+        window.history.back();
+      }
+    };
+  }, [selectedItem]);
+
   // Escape key handler to close modal
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -223,15 +246,20 @@ export default function OurWorks() {
                     />
                   }
                   {
-                  work.type === "video" &&
-                   <div className="relative aspect-video w-full bg-black">
-                      <iframe
-                        src={`https://www.youtube.com/embed/${getYoutubeId(work.videoUrl || '')}?autoplay=1&rel=0`}
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        className="absolute inset-0 w-full h-full border-0"
-                      />
-                    </div>
+                    work.type === "video" && (
+                      <div className="relative w-full h-full bg-black flex items-center justify-center">
+                        <img
+                          src={getYoutubeThumbnail(work.videoUrl || '')}
+                          className="w-full h-full object-cover opacity-80 group-hover:opacity-95 group-hover:scale-105 transition-all duration-500"
+                          alt=""
+                        />
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors duration-300">
+                          <span className="p-4 rounded-full bg-[#a6e804] text-black shadow-[0_0_20px_rgba(166,232,4,0.4)] transform group-hover:scale-110 transition-all duration-300">
+                            <Play className="w-6 h-6 fill-current translate-x-[1px]" />
+                          </span>
+                        </div>
+                      </div>
+                    )
                   }
                   <div className="absolute bottom-3 right-3">
                     <span className="p-1.5 rounded-full bg-black/80 backdrop-blur-md border border-zinc-800 text-zinc-300 flex items-center justify-center">

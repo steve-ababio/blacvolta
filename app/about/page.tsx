@@ -557,7 +557,7 @@ export default function App() {
                     <div>
                       {/* <p className="text-xs uppercase tracking-wider text-zinc-500 font-bold mb-1">Email Us</p> */}
                       <a href="mailto:booking@blacvolta.com" className="text-white hover:text-[#D49A35] transition-colors text-base font-medium">
-                        booking@blacvolta.com
+                        blacvolta@gmail.com
                       </a>
                     </div>
                   </div>
@@ -568,8 +568,8 @@ export default function App() {
                     </div>
                     <div>
                       {/* <p className="text-xs uppercase tracking-wider text-zinc-500 font-bold mb-1">Call Us</p> */}
-                      <a href="tel:+233500000000" className="text-white hover:text-[#D49A35] transition-colors text-base font-medium font-sans">
-                        +233 (0) 50 000 0000
+                      <a href="tel:+233540973552" className="text-white hover:text-[#D49A35] transition-colors text-base font-medium font-sans">
+                        +233 (0) 54 097 3552
                       </a>
                     </div>
                   </div>

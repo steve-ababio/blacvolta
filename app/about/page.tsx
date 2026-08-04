@@ -594,7 +594,7 @@ export default function App() {
 
               <div className="glass-panel p-8 rounded-2xl border border-white/5 bg-zinc-900/10 text-center">
                 <p className="text-[#D4CEC4] text-sm font-light leading-relaxed">
-                  Our team typically responds within 24–48 business hours. For urgent booking requests, please state "URGENT" in the subject line.
+                  Our team typically responds within 24–48 business hours. For urgent booking requests, please state URGENT in the subject line.
                 </p>
               </div>
             </div>

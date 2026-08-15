@@ -30,7 +30,14 @@ export const bvteam = [
       adjust:false,
       bio: ""
     },
-   
+   {
+      id:4,
+      image:"/assets/images/bvteam/dewan.jpg",
+      name: "Ridwan Kadri",
+      role: "Talents Associate",
+      adjust:true,
+      bio:''
+    },
     {
       id:4,
       image:"/assets/images/bvteam/emmanuel-asare.JPG",
@@ -39,4 +46,28 @@ export const bvteam = [
       adjust:true,
       bio: "Emmanuel Asare is a Ghanaian cinematographer and visual director leading BlacVolta Media. He specializes in videography, cinematic storytelling, and high-impact content creation across entertainment, lifestyle, and corporate spaces. He has led and executed campaigns across Africa, delivering premium visual productions for brands, cultural platforms, and major experiences. His work is defined by strong storytelling and clean, modern visuals that elevate every brand he works with. Through BlacVolta Media, Emmanuel continues to shape compelling visual narratives across the continent.",
     },
+    {
+      id:5,
+      image:"/assets/images/bvteam/judy.jpg",
+      name: "Judy Mamely Adjei",
+      role: "Executive Support & Operations | BlacVolta",
+      adjust:false,
+      bio:""
+      },
+     {
+      id:6,
+      image:"/assets/images/bvteam/christabel.jpg",
+      name: "Christabelle Boateng",
+      role: "Business Operations | Partnerships",
+      adjust:false,
+      bio:''
+      },
+     {
+      id:7,
+      image:"/assets/images/bvteam/kenneth.jpg",
+      name: "Kenneth Opare",
+      role: "Visual Designer",
+      adjust:false,
+      bio: "Kenneth Opare is a Ghanaian visual creative specializing in graphic design, motion graphics, and video editing. His work sits at the intersection of visual storytelling, culture, and contemporary creativity, with a focus on creating visuals that feel intentional, authentic, and memorable. Kenneth is passionate about the creative process and the growth of Africa’s creative industry. Through his work, he aims to contribute to a more authentic and connected creative culture while continuously pushing his craft forward. At Blacvolta, Kenneth brings together design, motion, and visual storytelling to help transform ideas into engaging experiences. He is driven by curiosity, originality, and a desire to create work that not only looks good, but leaves an impression.",
+    }
   ];

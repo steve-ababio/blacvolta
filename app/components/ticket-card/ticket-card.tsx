@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
-import { Ticket, Users, Hash, Calendar, Sparkles } from "lucide-react";
+import { Ticket, Users, Hash, Calendar, Sparkles, Link } from "lucide-react";
 import { Button } from "../ui/button";
 import { Badge } from "../ui/badge";
 import {
@@ -170,13 +170,14 @@ const TicketCard = ({ ticket, eventId, ticketType }: TicketCardProps) => {
                     </div>
 
                     {/* Purchase button */}
-                    <Button
-                        onClick={handleButtonClick}
-                        disabled={isSoldOut}
-                        className="w-full ticket-gradient hover:opacity-90 disabled:cursor-not-allowed text-primary-foreground font-semibold h-12 text-base rounded-xl transition-all duration-300 hover:ticket-shadow"
-                    >
-                        {isSoldOut ? 'Sold Out' : (ticketType === "RSVP" ? 'Get RSVP Now' : 'Get Ticket Now')}
-                    </Button>
+                    <Link href={`https://blacvolta.com/app/events/${eventId}`}>
+                        <Button
+                            disabled={isSoldOut}
+                            className="w-full ticket-gradient hover:opacity-90 disabled:cursor-not-allowed text-primary-foreground font-semibold h-12 text-base rounded-xl transition-all duration-300 hover:ticket-shadow"
+                        >
+                            {isSoldOut ? 'Sold Out' : (ticketType === "RSVP" ? 'Get RSVP Now' : 'Get Ticket Now')}
+                        </Button>
+                    </Link>
                 </div>
             </div>
 

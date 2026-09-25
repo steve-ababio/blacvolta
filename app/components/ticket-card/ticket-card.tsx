@@ -170,13 +170,8 @@ const TicketCard = ({ ticket, eventId, ticketType }: TicketCardProps) => {
                     </div>
 
                     {/* Purchase button */}
-                    <Link href={`https://blacvolta.com/app/events/${eventId}`}>
-                        <Button
-                            disabled={isSoldOut}
-                            className="w-full ticket-gradient hover:opacity-90 disabled:cursor-not-allowed text-primary-foreground font-semibold h-12 text-base rounded-xl transition-all duration-300 hover:ticket-shadow"
-                        >
-                            {isSoldOut ? 'Sold Out' : (ticketType === "RSVP" ? 'Get RSVP Now' : 'Get Ticket Now')}
-                        </Button>
+                    <Link href={`https://blacvolta.com/app/events/${eventId}`} className="w-full ticket-gradient hover:opacity-90 disabled:cursor-not-allowed text-primary-foreground font-semibold h-12 text-base rounded-xl transition-all duration-300 hover:ticket-shadow">
+                        {isSoldOut ? 'Sold Out' : (ticketType === "RSVP" ? 'Get RSVP Now' : 'Get Ticket Now')}
                     </Link>
                 </div>
             </div>

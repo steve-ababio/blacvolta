@@ -1,6 +1,18 @@
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
 import { Ticket, Users, Hash, Calendar, Sparkles } from "lucide-react";
 import { Button } from "../ui/button";
 import { Badge } from "../ui/badge";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "../ui/dialog";
+import { StoreButton } from "@/app/download/components/store-buttons/store-buttons";
 
 interface TicketData {
   id: string;
@@ -19,18 +31,38 @@ interface TicketData {
 
 interface TicketCardProps {
   ticket: TicketData;
-  eventId:string;
-  ticketType:string;
-  
+  eventId: string;
+  ticketType: string;
 }
 
-const TicketCard = ({ ticket,eventId,ticketType }: TicketCardProps) => {
+const TicketCard = ({ ticket, eventId, ticketType }: TicketCardProps) => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     const availabilityPercentage = (ticket.quantity_available / ticket.quantity_total) * 100;
     const isLowStock = availabilityPercentage <= 20;
     const isOnSale = ticket.status === "On Sale";
-    function navigateToApp(){
-        window.location.href = `https://blacvolta.com/app/events/${eventId}`;
-    }
+    const isSoldOut = ticket.quantity_available === 0;
+
+    const handleButtonClick = () => {
+        if (typeof window !== "undefined") {
+            const userAgent = navigator.userAgent || navigator.vendor || "";
+            const isAndroid = /android/i.test(userAgent);
+            const isIOS = /iPad|iPhone|iPod/i.test(userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
+            if (isAndroid) {
+                window.location.href = "https://play.google.com/store/apps/details?id=com.blacvolta.app&pcampaignid=web_share";
+                return;
+            }
+
+            if (isIOS) {
+                window.location.href = "https://apps.apple.com/in/app/blacvolta/id6745515524";
+                return;
+            }
+        }
+
+        setIsModalOpen(true);
+    };
+
     return (
         <div className="relative group max-w-30 w-full shadow-lg">
         {/* Glow effect */}
@@ -133,16 +165,64 @@ const TicketCard = ({ ticket,eventId,ticketType }: TicketCardProps) => {
 
             {/* Purchase button */}
             <Button 
-                onClick={navigateToApp}
-                // disabled={!isOnSale || ticket.quantity_available === 0}
+                onClick={handleButtonClick}
+                disabled={isSoldOut}
                 className="w-full ticket-gradient hover:opacity-90 disabled:cursor-not-allowed text-primary-foreground font-semibold h-12 text-base rounded-xl transition-all duration-300 hover:ticket-shadow"
             >
-                { ticket.quantity_available === 0 ? 'Sold Out' : (ticketType === "RSVP" ? 'Get RSVP Now' : 'Get Ticket Now')}
+                { isSoldOut ? 'Sold Out' : (ticketType === "RSVP" ? 'Get RSVP Now' : 'Get Ticket Now')}
             </Button>
             </div>
         </div>
+
+        {/* Download App Modal */}
+        <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+            <DialogContent className="bg-neutral-950 border border-neutral-800 text-white p-6 sm:p-8 rounded-2xl max-w-md w-full shadow-2xl">
+                <DialogHeader className="flex flex-col items-center text-center space-y-3">
+                    <div className="w-16 h-16 rounded-2xl bg-neutral-900 border border-neutral-800 flex items-center justify-center p-3 shadow-inner">
+                        <Image 
+                            src="/assets/images/logo.png" 
+                            alt="BlacVolta Logo" 
+                            width={48} 
+                            height={48} 
+                            className="object-contain" 
+                        />
+                    </div>
+                    <DialogTitle className="text-2xl font-bold tracking-tight text-white font-display">
+                        Get the BlacVolta App
+                    </DialogTitle>
+                    <DialogDescription className="text-sm text-neutral-400">
+                        To {ticketType === "RSVP" ? "RSVP for" : "purchase tickets for"} <span className="text-white font-semibold">{ticket.name}</span>, download the BlacVolta app available on iOS and Android.
+                    </DialogDescription>
+                </DialogHeader>
+
+                <div className="flex flex-col gap-3 mt-4">
+                    <StoreButton 
+                        store="apple" 
+                        href="https://apps.apple.com/in/app/blacvolta/id6745515524" 
+                        className="w-full justify-center py-3"
+                    />
+                    <StoreButton 
+                        store="google" 
+                        href="https://play.google.com/store/apps/details?id=com.blacvolta.app&pcampaignid=web_share" 
+                        className="w-full justify-center py-3"
+                    />
+                </div>
+
+                {/* <div className="mt-4 text-center">
+                    <a 
+                        href={`https://blacvolta.com/app/events/${eventId}`} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="text-xs text-neutral-500 hover:text-neutral-300 transition-colors underline underline-offset-4"
+                    >
+                        Continue to Web App
+                    </a>
+                </div> */}
+            </DialogContent>
+        </Dialog>
         </div>
     );
 };
 
 export default TicketCard;
+

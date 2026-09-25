@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import { Ticket, Users, Hash, Calendar, Sparkles } from "lucide-react";
 import { Button } from "../ui/button";
@@ -37,46 +37,36 @@ interface TicketCardProps {
 
 const TicketCard = ({ ticket, eventId, ticketType }: TicketCardProps) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const appOpenedRef = useRef(false);
 
     const availabilityPercentage = (ticket.quantity_available / ticket.quantity_total) * 100;
     const isLowStock = availabilityPercentage <= 20;
     const isOnSale = ticket.status === "On Sale";
     const isSoldOut = ticket.quantity_available === 0;
-    const [isAppOpen, setIsAppOpen] = useState(false);
+
     useEffect(() => {
-        document.addEventListener('visibilitychange', () => {
-            if (document.visibilityState === 'hidden') {
-                setIsAppOpen(true);
-                console.log('Browser became hidden — app may have opened');
+        const handleVisibilityChange = () => {
+            if (document.visibilityState === "hidden") {
+                appOpenedRef.current = true;
+                console.log("Browser became hidden — app may have opened");
             }
-        });
-    }, [isAppOpen])
+        };
+
+        document.addEventListener("visibilitychange", handleVisibilityChange);
+        return () => {
+            document.removeEventListener("visibilitychange", handleVisibilityChange);
+        };
+    }, []);
+
     const handleButtonClick = () => {
-        setIsAppOpen(false);
+        appOpenedRef.current = false;
         window.location.href = `https://blacvolta.com/app/events/${eventId}`;
 
         setTimeout(() => {
-            if (!isAppOpen) {
-                if (typeof window !== "undefined") {
-                    const userAgent = navigator.userAgent || navigator.vendor || "";
-                    const isAndroid = /android/i.test(userAgent);
-                    const isIOS = /iPad|iPhone|iPod/i.test(userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
-
-                    if (isAndroid) {
-                        window.location.href = "https://play.google.com/store/apps/details?id=com.blacvolta.app&pcampaignid=web_share";
-                        return;
-                    }
-
-                    if (isIOS) {
-                        window.location.href = "https://apps.apple.com/in/app/blacvolta/id6745515524";
-                        return;
-                    }
-                }
+            if (!appOpenedRef.current && document.visibilityState !== "hidden") {
                 setIsModalOpen(true);
             }
-        }, 2500);
-
-
+        }, 2000);
     };
 
     return (

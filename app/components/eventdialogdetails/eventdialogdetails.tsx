@@ -4,7 +4,7 @@ import Link from "next/link";
 import { formatDateTime } from "@/app/utils/utils";
 
 export default function EventDialogDetails(props:BvEvent){
-    const {cover_image,start_date,title,location,description,category,timezone,id} = props;
+    const {featured_image_url,start_date,title,location,description,category,timezone,id} = props;
     const time = formatDateTime(start_date,timezone);
 
     return (
@@ -13,7 +13,7 @@ export default function EventDialogDetails(props:BvEvent){
                 <div className="m-[10px] place-content-center h-full w-full relative rounded-lg">
                     <Image
                         priority
-                        src={cover_image.value}
+                        src={featured_image_url ?? ""}
                         style={{borderRadius:"10px",height:'auto',width:'auto',display:"block"}}
                         height={0}
                         width={0}

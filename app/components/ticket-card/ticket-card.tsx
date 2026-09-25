@@ -19,11 +19,12 @@ interface TicketData {
 
 interface TicketCardProps {
   ticket: TicketData;
-  eventId:string
+  eventId:string;
+  ticketType:string;
   
 }
 
-const TicketCard = ({ ticket,eventId }: TicketCardProps) => {
+const TicketCard = ({ ticket,eventId,ticketType }: TicketCardProps) => {
     const availabilityPercentage = (ticket.quantity_available / ticket.quantity_total) * 100;
     const isLowStock = availabilityPercentage <= 20;
     const isOnSale = ticket.status === "On Sale";
@@ -134,9 +135,9 @@ const TicketCard = ({ ticket,eventId }: TicketCardProps) => {
             <Button 
                 onClick={navigateToApp}
                 disabled={!isOnSale || ticket.quantity_available === 0}
-                className="w-full ticket-gradient hover:opacity-90 text-primary-foreground font-semibold h-12 text-base rounded-xl transition-all duration-300 hover:ticket-shadow"
+                className="w-full ticket-gradient hover:opacity-90 disabled:cursor-not-allowed text-primary-foreground font-semibold h-12 text-base rounded-xl transition-all duration-300 hover:ticket-shadow"
             >
-                {ticket.quantity_available === 0 ? 'Sold Out' : 'Get Ticket'}
+                { ticket.quantity_available === 0 ? 'Sold Out' : (ticketType === "RSVP" ? 'Get RSVP Now' : 'Get Ticket Now')}
             </Button>
             </div>
         </div>

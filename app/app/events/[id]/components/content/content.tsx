@@ -1,6 +1,6 @@
 'use client'
 import PulseLoader from "@/app/components/pulseloader/pulseloader";
-import { formatDateTime, isUUID } from "@/app/utils/utils";
+import { formatDateTime, isNumber } from "@/app/utils/utils";
 import { VscDebugDisconnect } from "react-icons/vsc";
 import useSWR from "swr";
 import EventHeader from "../header/header";
@@ -10,7 +10,7 @@ import EventDetailFooter from "../eventdetailsfooter/eventdetailsfooter";
 
 const fetcher = (url:string) => fetch(url).then(res => res.json());
 export default function EventContent({id}:{id:string}){
-    const endpoint = isUUID(id)
+    const endpoint = isNumber(id)
           ? `https://api.blacvolta.com/api/events/${id}`
           : `https://api.blacvolta.com/api/events/ref/${id}`;
     const {data,error,isLoading} = useSWR(endpoint,fetcher);
@@ -59,6 +59,7 @@ export default function EventContent({id}:{id:string}){
               lat={event.location?.latitude}
               long={event.location?.longitude}
               tickets={event.tickets}
+              ticketType={event.ticket_type}
           />
         </main>
       </main>

@@ -18,11 +18,12 @@ type EventDetailFooterProps = {
     phonenumber:string,
     long:number,
     lat:number,
-    tickets:Ticket[]
+    tickets:Ticket[],
+    ticketType:string
     
 }
 
-export default function EventDetailFooter({id,description,lat,long,flyerImagePath,phonenumber,tickets,venue,eventName,eventDate,eventTime}:EventDetailFooterProps){
+export default function EventDetailFooter({id,description,lat,long,flyerImagePath,ticketType,phonenumber,tickets,venue,eventName,eventDate,eventTime}:EventDetailFooterProps){
     const [downloading,setDownloading] = useState(false);
     const actions = [
         { 
@@ -112,6 +113,7 @@ export default function EventDetailFooter({id,description,lat,long,flyerImagePat
                                 ticket={ticket}
                                 eventId={id}
                                 key={ticket.id}
+                                ticketType={ticketType}
                             />   
                         ))
                     }

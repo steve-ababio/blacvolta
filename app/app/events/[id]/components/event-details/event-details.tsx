@@ -9,12 +9,12 @@ interface DetailItemProps {
   value: string;
   delay?: number;
 }
-interface EventDetailsProps{
-    eventDate:string,
-    eventTime:string,
-    venue:string,
-    ticketLink:string,
-    mapUrl:string
+interface EventDetailsProps {
+  eventDate: string,
+  eventTime: string,
+  venue: string,
+  ticketLink: string,
+  mapUrl: string
 }
 const DetailItem = ({ icon, label, value, delay = 0 }: DetailItemProps) => (
   <motion.div
@@ -28,51 +28,51 @@ const DetailItem = ({ icon, label, value, delay = 0 }: DetailItemProps) => (
     </div>
     <div>
       <p className="text-sm  text-muted-foreground">{label}</p>
-      {value.startsWith("https") || value.startsWith("http") || label === "Location"? <Link className="underline" href={value} >{value}</Link>: <p className="font-medium text-white">{value}</p>}
+      {value.startsWith("https") || value.startsWith("http") || label === "Location" ? <Link className="underline" href={value} >{value}</Link> : <p className="font-medium text-white">{value}</p>}
     </div>
   </motion.div>
 );
 
-function validateDate(date:Date){
-    return date instanceof Date && isFinite(date.getTime());
+function validateDate(date: Date) {
+  return date instanceof Date && isFinite(date.getTime());
 }
-const EventDetails = ({eventDate,eventTime,venue,ticketLink,mapUrl}:EventDetailsProps) => {
-    const isValidateDate = validateDate(new Date(eventDate));
+const EventDetails = ({ eventDate, eventTime, venue, ticketLink, mapUrl }: EventDetailsProps) => {
+  const isValidateDate = validateDate(new Date(eventDate));
   return (
     <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6, delay: 0.2 }}
-    className=" rounded-2xl py-6 px-3 sm:px-6 sm:border sm:border-slate-200"
-  >
-    <div className="space-y-5">
-      <DetailItem
-        icon={<Calendar className="h-5 w-5" />}
-        label="Date"
-        value={isValidateDate ? eventDate :""}
-        delay={0.3}
-      />
-      <DetailItem
-        icon={<Clock className="h-5 w-5" />}
-        label="Time"
-        value={eventTime ?? ""}
-        delay={0.4}
-      />
-     
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 0.2 }}
+      className=" rounded-2xl py-6 px-3 sm:px-6 sm:border sm:border-slate-200"
+    >
+      <div className="space-y-5">
+        <DetailItem
+          icon={<Calendar className="h-5 w-5" />}
+          label="Date"
+          value={isValidateDate ? eventDate : ""}
+          delay={0.3}
+        />
+        <DetailItem
+          icon={<Clock className="h-5 w-5" />}
+          label="Time"
+          value={eventTime ?? ""}
+          delay={0.4}
+        />
+
         <DetailItem
           icon={<MapPin className="h-5 w-5" />}
           label="Location"
           value={venue ?? ""}
           delay={0.5}
         />
-      <DetailItem
-        icon={<TicketIcon className="h-5 w-5" />}
-        label="Ticket Link"
-        value={ticketLink ?? ""}
-        delay={0.5}
-      />
-    </div>
-  </motion.div>
+        <DetailItem
+          icon={<TicketIcon className="h-5 w-5" />}
+          label="Ticket Link"
+          value={ticketLink ?? ""}
+          delay={0.5}
+        />
+      </div>
+    </motion.div>
   );
 };
 

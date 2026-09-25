@@ -15,6 +15,8 @@ const createEventPromise = function(eventattributes:EventAttributes):Promise<str
     })
 } 
 
+export const isUUID = (value: string) =>
+  /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(value);
 
 type EventDetails = {
     eventDate:string,

@@ -1,29 +1,35 @@
 import { htmlToText } from "@/app/utils/paystack/utils";
 import { Metadata } from "next";
 import EventContent from "./components/content/content";
+import { isUUID } from "@/app/utils/utils";
 
 
-export async function generateMetadata({params}:{params:{id:string}}):Promise<Metadata>{
+export async function generateMetadata({params}:{params:{id:string,slug:string}}):Promise<Metadata>{
   try{
-      const response = await fetch(`https://api.blacvolta.com/api/events/${params.id}`,{
+    const { id } = params;
+
+    const endpoint = isUUID(id)
+      ? `https://api.blacvolta.com/api/events/${id}`
+      : `https://api.blacvolta.com/api/events/ref/${id}`;
+      const response = await fetch(endpoint,{
         next: { revalidate: 300 }, // cache for 5 mins
-      }
-    );
-   
+      })
+     
     if (!response.ok) throw new Error("Failed");
       const json = await response.json();
       const metadata = json.data;
+      console.log(metadata);
       return{
           title:metadata?.title,
           description:htmlToText(metadata?.description).slice(0,30),
           alternates:{
-              canonical:`https://blacvolta.com/app/events/${params.id}`
+              canonical:endpoint
           },
           openGraph:{
               title:metadata?.title,
               description:htmlToText(metadata?.description).slice(0,30),
-              images:[metadata.cover_image.value],
-              url: `https://blacvolta.com/app/events/${params.id}`
+              images:[metadata.featured_image_url],
+              url: endpoint
           }
       }
   }catch(error){

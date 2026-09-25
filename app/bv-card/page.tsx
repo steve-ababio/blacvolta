@@ -146,6 +146,14 @@ const FAQ = () => {
         {
           question: "How do I reach customer support?",
           answer: "You can contact us through the in-app chat support, email support@blacvolta.com, or call our 24/7 helpline."
+        },
+        {
+          question: "How to delete my BlacVolta account?",
+          answer: "If you would like to permanently delete your BlacVolta acccount, send an email to support@blacvolta.com using the email address associated wit your account. Subject: Delete My Account. Once we receive your request, we will verify that you are the account owner before processing the deletion. Simply deleting or uninstalling the BlacVolta app from your device does not deleted you account."
+        },
+        {
+          question:"What will be deleted?",
+          answer: "Once your request has been verified and processed, we delete your account and profile information, login credentials, saved preferences, linked account activities, events and RSVPs where we are not legally required to retain, and other personal information associated with your account. Certain information may need to be retained where require for legitimate legal, regulatory, security or operational purposes. This can include transaction and payment records, information required by law, fraud/security or dispute records, and anonymised or aggregrated analytics. Once the deletion process is completed, we confirm it with the user."
         }
       ]
     },
@@ -165,7 +173,7 @@ const FAQ = () => {
           answer: "Simply present your BlacVolta Card at partner venues to enjoy skip-the-queue access and other VIP privileges."
         }
       ]
-    }
+    },
   ];
 
   const filteredFAQ = faqData.map(category => ({

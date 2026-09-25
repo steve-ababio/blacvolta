@@ -43,6 +43,7 @@ export default function Footer() {
 
     const exploreLinks = [
         { label: "Home", href: "/" },
+        { label: "BV Tickets", href: "/bv-tickets" },
         { label: "BV Lifestyle Card", href: "/bv-card" },
         { label: "BV Social", href: "/bv-social" },
         { label: "Events", href: "/#bv-calender" },
@@ -179,14 +180,23 @@ export default function Footer() {
                     </div> */}
                     <div className="lg:col-span-3 flex flex-col gap-4">
                         <h4 className="text-white text-sm font-semibold tracking-wider uppercase">Legal</h4>
-                        <div className="flex flex-col gap-4">
-                        <Link href="/terms-and-privacy" className="hover:text-white text-sm transition-colors duration-200">
-                            Privacy Policy
-                        </Link>
-                        <Link href="/regulatory-and-disclosure" className="hover:text-white text-sm transition-colors duration-200">
-                            Regulatory & Disclosure
-                        </Link>
-                    </div>
+                        <div className="flex flex-col gap-3">
+                            <Link href="/terms-and-privacy" className="hover:text-white text-sm transition-colors duration-200">
+                                Privacy Policy
+                            </Link>
+                            <Link href="/refund-policy" className="hover:text-white text-sm transition-colors duration-200">
+                                Refund Policy
+                            </Link>
+                            <Link href="/event-cancellation-and-rescheduling-policy" className="hover:text-white text-sm transition-colors duration-200">
+                                Cancellation &amp; Rescheduling Policy
+                            </Link>
+                            <Link href="/affiliate-policy" className="hover:text-white text-sm transition-colors duration-200">
+                                Affiliate Program Policy
+                            </Link>
+                            <Link href="/regulatory-and-disclosure" className="hover:text-white text-sm transition-colors duration-200">
+                                Regulatory &amp; Disclosure
+                            </Link>
+                        </div>
                     </div>
 
                 </div>

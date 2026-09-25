@@ -1,7 +1,11 @@
 export const menuItems = [
     {
         label: "HOME",
-        href: "/"
+        href: "/home"
+    },
+    {
+        label: "BV TICKETS",
+        href: "/bv-tickets"
     },
     {
         label: "BV LIFESTYLE CARD",
@@ -9,12 +13,12 @@ export const menuItems = [
     },
     {
         label: "BV SOCIAL",
-        href: "/bv-social"
+        href: "/"
     },
-    {
-        label: "EVENTS",
-        href: "/#bv-calender"
-    },
+    // {
+    //     label: "EVENTS",
+    //     href: "/#bv-calender"
+    // },
     {
         label: "EDITORIALS",
         href: "/editorials"
@@ -23,10 +27,10 @@ export const menuItems = [
         label: "SHOP",
         href: "/merchandise"
     },
-    {
-        label: "JOBS",
-        href: "/jobs"
-    },
+    // {
+    //     label: "JOBS",
+    //     href: "/jobs"
+    // },
     {
         label: "TEAM",
         href: "/team"

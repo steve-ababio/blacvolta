@@ -55,20 +55,20 @@ const EventDetails = ({eventDate,eventTime,venue,ticketLink,mapUrl}:EventDetails
       <DetailItem
         icon={<Clock className="h-5 w-5" />}
         label="Time"
-        value={eventTime}
+        value={eventTime ?? ""}
         delay={0.4}
       />
      
         <DetailItem
           icon={<MapPin className="h-5 w-5" />}
           label="Location"
-          value={venue}
+          value={venue ?? ""}
           delay={0.5}
         />
       <DetailItem
         icon={<TicketIcon className="h-5 w-5" />}
         label="Ticket Link"
-        value={ticketLink}
+        value={ticketLink ?? ""}
         delay={0.5}
       />
     </div>

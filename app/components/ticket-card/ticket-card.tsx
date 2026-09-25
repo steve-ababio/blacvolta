@@ -134,7 +134,7 @@ const TicketCard = ({ ticket,eventId,ticketType }: TicketCardProps) => {
             {/* Purchase button */}
             <Button 
                 onClick={navigateToApp}
-                disabled={!isOnSale || ticket.quantity_available === 0}
+                // disabled={!isOnSale || ticket.quantity_available === 0}
                 className="w-full ticket-gradient hover:opacity-90 disabled:cursor-not-allowed text-primary-foreground font-semibold h-12 text-base rounded-xl transition-all duration-300 hover:ticket-shadow"
             >
                 { ticket.quantity_available === 0 ? 'Sold Out' : (ticketType === "RSVP" ? 'Get RSVP Now' : 'Get Ticket Now')}

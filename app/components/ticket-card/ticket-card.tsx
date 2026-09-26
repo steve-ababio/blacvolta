@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
-import { Ticket, Users, Hash, Calendar, Sparkles, Link } from "lucide-react";
+import { Ticket, Users, Hash, Calendar, Sparkles } from "lucide-react";
 import { Button } from "../ui/button";
 import { Badge } from "../ui/badge";
 import {
@@ -13,6 +13,7 @@ import {
     DialogDescription,
 } from "../ui/dialog";
 import { StoreButton } from "@/app/download/components/store-buttons/store-buttons";
+import Link from "next/link";
 
 interface TicketData {
     id: string;
@@ -44,19 +45,19 @@ const TicketCard = ({ ticket, eventId, ticketType }: TicketCardProps) => {
     const isOnSale = ticket.status === "On Sale";
     const isSoldOut = ticket.quantity_available === 0;
 
-    useEffect(() => {
-        const handleVisibilityChange = () => {
-            if (document.visibilityState === "hidden") {
-                appOpenedRef.current = true;
-                console.log("Browser became hidden — app may have opened");
-            }
-        };
+    // useEffect(() => {
+    //     const handleVisibilityChange = () => {
+    //         if (document.visibilityState === "hidden") {
+    //             appOpenedRef.current = true;
+    //             console.log("Browser became hidden — app may have opened");
+    //         }
+    //     };
 
-        document.addEventListener("visibilitychange", handleVisibilityChange);
-        return () => {
-            document.removeEventListener("visibilitychange", handleVisibilityChange);
-        };
-    }, []);
+    //     document.addEventListener("visibilitychange", handleVisibilityChange);
+    //     return () => {
+    //         document.removeEventListener("visibilitychange", handleVisibilityChange);
+    //     };
+    // }, []);
 
     const handleButtonClick = () => {
         appOpenedRef.current = false;
@@ -170,8 +171,10 @@ const TicketCard = ({ ticket, eventId, ticketType }: TicketCardProps) => {
                     </div>
 
                     {/* Purchase button */}
-                    <Link href={`https://blacvolta.com/app/events/${eventId}`} className="w-full ticket-gradient hover:opacity-90 disabled:cursor-not-allowed text-primary-foreground font-semibold h-12 text-base rounded-xl transition-all duration-300 hover:ticket-shadow">
-                        {isSoldOut ? 'Sold Out' : (ticketType === "RSVP" ? 'Get RSVP Now' : 'Get Ticket Now')}
+                    <Link href={`https://blacvolta.com/app/events/${eventId}`} className="w-full block">
+                       <Button  className="w-full block ticket-gradient hover:opacity-90 disabled:cursor-not-allowed text-primary-foreground font-semibold h-12 text-base rounded-xl transition-all duration-300 hover:ticket-shadow">
+                            {isSoldOut ? 'Sold Out' : (ticketType === "RSVP" ? 'Get RSVP Now' : 'Get Ticket Now')}
+                        </Button>
                     </Link>
                 </div>
             </div>

@@ -59,11 +59,10 @@ const TicketCard = ({ ticket, eventId, ticketType }: TicketCardProps) => {
     //     };
     // }, []);
 
-    function openApp(url: string,) {
+    function openApp(eventId: string,) {
         const now = Date.now();
-        window.location.href = url;
+        window.location.href = `blacvolta://app/events/${eventId}`;
         setTimeout(() => {
-            // If we're still here after ~1.5s, the app probably didn't open
             if (Date.now() - now < 2000) {
                 const os = getDeviceOS();
                 if(os === "ios"){
@@ -193,9 +192,7 @@ const TicketCard = ({ ticket, eventId, ticketType }: TicketCardProps) => {
 
                     {/* Purchase button */}
                     {/* <a href={`https://blacvolta.com/app/events/${eventId}`} className="w-full block"> */}
-                    <Button onClick={() => openApp(
-                        `https://blacvolta.com/app/events/${eventId}`,
-                    )
+                    <Button onClick={() => openApp(eventId)
                     } className="w-full block ticket-gradient hover:opacity-90 disabled:cursor-not-allowed text-primary-foreground font-semibold h-12 text-base rounded-xl transition-all duration-300 hover:ticket-shadow">
                         {isSoldOut ? 'Sold Out' : (ticketType === "RSVP" ? 'Get RSVP Now' : 'Get Ticket Now')}
                     </Button>

@@ -194,7 +194,7 @@ const TicketCard = ({ ticket, eventId, ticketType }: TicketCardProps) => {
                     {/* Purchase button */}
                     {/* <a href={`https://blacvolta.com/app/events/${eventId}`} className="w-full block"> */}
                     <Button onClick={() => openApp(
-                        'https://blacvolta.com/app/events/123',
+                        `https://blacvolta.com/app/events/${eventId}`,
                     )
                     } className="w-full block ticket-gradient hover:opacity-90 disabled:cursor-not-allowed text-primary-foreground font-semibold h-12 text-base rounded-xl transition-all duration-300 hover:ticket-shadow">
                         {isSoldOut ? 'Sold Out' : (ticketType === "RSVP" ? 'Get RSVP Now' : 'Get Ticket Now')}

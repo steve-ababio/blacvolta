@@ -8,10 +8,12 @@ import HeroSection from './components/HeroSection';
 import MerchantBenefits from './components/MerchantBenefits';
 import MerchantJourney from './components/MerchantJourney';
 import EcosystemSection from './components/EcosystemSection';
+import BuiltForYourNextEvent from './components/BuiltForYourNextEvent';
 import CustomerJourney from './components/CustomerJourney';
 import TicketsFAQ from './components/TicketsFAQ';
 import TicketsCTA from './components/TicketsCTA';
 import MerchantOnboardingModal from './components/MerchantOnboardingModal';
+import Calculator from './components/calculator';
 
 export default function BVTicketsPage() {
   const [isOnboardingOpen, setIsOnboardingOpen] = useState(false);
@@ -25,38 +27,23 @@ export default function BVTicketsPage() {
   };
 
   return (
-    <main className="min-h-screen bg-black text-white selection:bg-blacvolta-gold selection:text-black">
-      {/* Global Navigation */}
+    <main className="min-h-screen bg-[#050507] text-white selection:bg-blacvolta-gold selection:text-black">
       <NavBar />
-
-      {/* Hero Banner */}
       <HeroSection onOpenOnboarding={handleOpenOnboarding} />
+      <div className="overflow-hidden border-y border-black bg-black py-3 text-blacvolta-gold">
+        <div className="flex w-max animate-marquee gap-9 whitespace-nowrap text-white font-display text-base font-semibold uppercase tracking-[0.08em]">
+          {[...Array(2)].flatMap((_, copy) => ["Concerts", "Nightlife", "Food", "Culture", "Wellness", "Community", "Experiences"].map((item) => <span key={`${copy}-${item}`} className="flex items-center gap-9">{item}</span>))}
+        </div>
+      </div>
 
-      {/* Why BV Tickets? Merchant Benefits + Interactive 5% Fee Calculator */}
-      <MerchantBenefits onOpenOnboarding={handleOpenOnboarding} />
-
-      {/* How It Works - 3-Step Merchant Journey */}
-      <MerchantJourney onOpenOnboarding={handleOpenOnboarding} />
-
-      {/* More Than Ticketing - Ecosystem Proposition */}
+      <MerchantBenefits/>
+      <MerchantJourney />
+      <Calculator />
       <EcosystemSection />
-
-      {/* For Customers - Discover. Book. Go. */}
+      <BuiltForYourNextEvent />
       <CustomerJourney />
-
-      {/* Frequently Asked Questions (Dual Tabbed + Searchable) */}
       <TicketsFAQ />
-
-      {/* Final Call to Action */}
       <TicketsCTA onOpenOnboarding={handleOpenOnboarding} />
-
-      {/* Partner Registration Onboarding Modal */}
-      {/* <MerchantOnboardingModal
-        isOpen={isOnboardingOpen}
-        onClose={handleCloseOnboarding}
-      /> */}
-
-      {/* Global Footer */}
       <Footer />
     </main>
   );

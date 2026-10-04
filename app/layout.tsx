@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     default:"Blacvolta",
     template:`%s | Blacvolta`
   },
-  description: "The Platform Behind Africa's Creative Economy",
+  description: "BlacVolta is an African media and technology company based in Accra, Ghana, covering entertainment, lifestyle, corporate affairs, hospitality, nightlife and the creative economy. Through digital media, original storytelling, podcasts and digital marketing services, we connect audiences, creators and brands. Through its vision for the creative economy, we build infrastructure through ticketing, commerce and lifestyle payments on the BlacVolta Appp and BlacVolta Visa Card. Our ecosystem also includes Entertainment Week Ghana, a summit connecting the creative economy with business, technology and capital.",
 };
 
 export default function RootLayout({

@@ -60,6 +60,7 @@ export default function EventContent({id}:{id:string}){
               long={event.location?.longitude}
               tickets={event.tickets}
               ticketType={event.ticket_type}
+              eventRef={event.event_ref}
           />
         </main>
       </main>

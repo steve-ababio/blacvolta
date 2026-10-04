@@ -14,14 +14,6 @@ export default function Description(){
                         className="max-w-[400px] max-h-32 w-full h-full object-cover"
                     />
                 </div>
-                <p className="mb-4">
-                    BV social is a forward-thinking digital marking agency dedicated to helping businesses amplify their online presence and achieve measurable results.
-                    We specialize in crafting tailored strategies that integrate social media marketing content creation, paid advertising, and analytics to drive engagement, growth and ROI.
-                </p>
-                <p>
-                    At BV Social, we blend creativity with data-driven insights to build impactful campaigns that resonate with audiences across diverse platforms.
-                    Whether you&apos;re looking to elevate brand awareness, generate leads, or faster community loyalty, our team of experts is committed to turning you digital goals into reality.
-                </p>
             </div>
             <h1 className="pt-10 underline text-white font-semibold text-2xl text-center">What we offer</h1>
             <div className="px-2 md:px-[100px] lg:px-[200px] mt-10 md:mt-28">

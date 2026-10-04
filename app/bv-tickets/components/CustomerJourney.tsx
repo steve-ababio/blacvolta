@@ -1,126 +1,201 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Search, Ticket, CreditCard, Smartphone, CheckCircle2, ShieldCheck, Sparkles, QrCode } from 'lucide-react';
-import Link from 'next/link';
+import React, { useState } from 'react';
+import { ArrowRight,MousePointer2 } from 'lucide-react';
+import { Button } from '@/app/components/ui/button';
+import { openApp } from '@/app/utils/utils';
+
+// export default function CustomerJourney() {
+//   function Eyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
+//     return <p className={`mb-5 text-lg font-bold text-blacvolta-gold uppercase tracking-[0.24em]`}>{children}</p>;
+//   }
+//   return (
+//     <section id="buyers" className="overflow-hidden bg-ink text-background">
+//       <div className="mx-auto grid max-w-[1440px] lg:grid-cols-2">
+//         <div className="flex items-center px-5 py-20 md:px-10 lg:py-28">
+//           <div className="max-w-xl">
+//             <Eyebrow light>For ticket buyers</Eyebrow>
+//             <h2 className="font-display text-6xl text-white font-extrabold uppercase leading-[0.9] tracking-normal md:text-8xl">Discover.<br />Book.
+//               <span className="text-blacvolta-gold">Go.</span></h2>
+//             <p className="mt-7 max-w-md text-gray-300">Find something worth going to, book your ticket and get ready for the experience.</p>
+//             <Button asChild size="lg" onClick={()=>openApp()} className="mt-8 bg-white cursor-pointer text-black px-16 py-7 hover:bg-white rounded-none hover:text-blacvolta-gold">
+//               <span>Explore BV Tickets <ArrowRight size={17} /></span>
+//             </Button>
+//           </div>
+//         </div>
+//         <div className="relative min-h-[590px]">
+//           <img src="/assets/images/bv-tickets/concert.jpg" alt="Live concert atmosphere" className="absolute inset-0 size-full object-cover opacity-75" />
+//           <div className="absolute inset-0 bg-gradient-to-r from-[#0c0905] via-transparent to-transparent" />
+//           <div className="absolute left-1/2 top-1/2 w-[280px] -translate-x-1/2 -translate-y-1/2 py-3  bg-transparent">
+//             <img src='/assets/images/bv-tickets/iphone-ticket.png' alt="Phone" className='size-full object-cover' />
+//           </div>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
 
 export default function CustomerJourney() {
+  const [currentStep, setCurrentStep] = useState(0);
+
   const steps = [
     {
-      step: '01',
-      title: 'Discover',
-      description: 'Explore events and experiences on BlacVolta.',
-      icon: Search,
+      image: "/assets/images/bv-tickets/iphone-ticket-1.png",
+      alt: "Step 1 - Discover an event",
+      // Position of the clickable area
+      hotspot: {
+        top: "89%",
+        left: "30%",
+        width: "70%",
+        height: "20%",
+      },
     },
     {
-      step: '02',
-      title: 'Choose',
-      description: "Find the event and ticket that's right for you.",
-      icon: Ticket,
+      image: "/assets/images/bv-tickets/iphone-ticket-2.png",
+      alt: "Step 2 - Select your ticket",
+      hotspot: {
+        top: "18%",
+        left: "48%",
+        width: "70%",
+        height: "15%",
+      },
     },
     {
-      step: '03',
-      title: 'Pay',
-      description: 'Purchase your ticket through a simple checkout.',
-      icon: CreditCard,
+      image: "/assets/images/bv-tickets/iphone-ticket-3.png",
+      alt: "Step 3 - Complete payment",
+      hotspot: {
+        top: "31%",
+        left: "50%",
+        width: "70%",
+        height: "12%",
+      },
     },
     {
-      step: '04',
-      title: 'Access',
-      description: 'Keep all your BV Tickets in one place and access them easily through the BlacVolta app.',
-      icon: Smartphone,
-    },
-    {
-      step: '05',
-      title: 'Go',
-      description: 'Show up, scan your ticket and enjoy the experience.',
-      icon: CheckCircle2,
+      image: "/assets/images/bv-tickets/iphone-ticket-4.png",
+      alt: "Step 4 - Get your ticket",
+      hotspot: null,
     },
   ];
 
+  function handleNextStep() {
+    if (currentStep < steps.length - 1) {
+      setCurrentStep((prev) => prev + 1);
+    }
+  }
+
+  function Eyebrow({
+    children,
+    light = false,
+  }: {
+    children: React.ReactNode;
+    light?: boolean;
+  }) {
+    return (
+      <p className="mb-5 text-lg font-bold text-blacvolta-gold uppercase tracking-[0.24em]">
+        {children}
+      </p>
+    );
+  }
+
   return (
-    <section className="py-24 lg:py-32 bg-[#050507] relative overflow-hidden border-t border-white/10">
-      {/* Ambient background blur */}
-      {/* <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[650px] h-[450px] bg-amber-500/10 blur-[160px] rounded-full pointer-events-none" /> */}
+    <section
+      id="buyers"
+      className="overflow-hidden bg-ink text-background"
+    >
+      <div className="mx-auto grid max-w-[1440px] lg:grid-cols-2">
 
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.06] border border-white/10 text-blacvolta-gold text-xs font-bold uppercase tracking-wider mb-4 shadow-xl"
-          >
-            {/* <Sparkles className="w-3.5 h-3.5" /> */}
-            For Ticket Buyers
-          </motion.div>
+        {/* LEFT SIDE */}
+        <div className="flex items-center px-5 py-20 md:px-10 lg:py-28">
+          <div className="max-w-xl">
+            <Eyebrow light>For ticket buyers</Eyebrow>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight font-futura"
-          >
-            Discover. Book. Go.
-          </motion.h2>
+            <h2 className="font-display text-6xl text-white font-extrabold uppercase leading-[0.9] tracking-normal md:text-8xl">
+              Discover.
+              <br />
+              Book.
+              <span className="text-blacvolta-gold">Go.</span>
+            </h2>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-base sm:text-lg text-zinc-400 mt-4 max-w-xl mx-auto font-normal"
-          >
-            Find something worth going to, book your ticket and get ready for the experience.
-          </motion.p>
+            <p className="mt-7 max-w-md text-gray-300">
+              Find something worth going to, book your ticket and get ready
+              for the experience.
+            </p>
+
+            <Button
+              asChild
+              size="lg"
+              onClick={() => openApp()}
+              className="mt-8 cursor-pointer rounded-none bg-white px-16 py-7 text-black hover:bg-white hover:text-blacvolta-gold"
+            >
+              <span>
+                Explore BV Tickets
+                <ArrowRight size={17} />
+              </span>
+            </Button>
+
+            {/* STEP INDICATOR */}
+            <div className="mt-10 flex gap-2">
+              {steps.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentStep(index)}
+                  className={`h-2 transition-all duration-300 rounded-md ${
+                    index === currentStep
+                      ? "w-10 bg-blacvolta-gold"
+                      : "w-2 bg-white/30"
+                  }`}
+                  aria-label={`Go to step ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
         </div>
 
-        {/* 5-Step Customer Cards Bento Row */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 mb-16">
-          {steps.map((item, index) => {
-            const Icon = item.icon;
-            return (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="group bg-black border border-blacvolta-gold hover:border-blacvolta-gold/60 rounded-2xl p-6 transition-all duration-300 flex flex-col justify-between backdrop-blur-xl hover:-translate-y-1 hover:shadow-2xl"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <span className="text-xl font-black font-mono text-blacvolta-gold">
-                      {item.step}
-                    </span>
-                    <div className="w-11 h-11 rounded-2xl flex items-center justify-center text-blacvolta-gold group-hover:bg-blacvolta-gold group-hover:text-black transition-colors shadow-lg">
-                      <Icon className="w-5 h-5" />
-                    </div>
-                  </div>
+        {/* RIGHT SIDE */}
+        <div className="relative min-h-[590px]">
 
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-blacvolta-gold transition-colors tracking-tight">
-                    {item.title}
-                  </h3>
+          {/* Background */}
+          <img
+            src="/assets/images/bv-tickets/concert.jpg"
+            alt="Live concert atmosphere"
+            className="absolute inset-0 size-full object-cover opacity-75"
+          />
 
-                  <p className="text-xs text-zinc-400 leading-relaxed font-normal">
-                    {item.description}
-                  </p>
-                </div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0c0905] via-transparent to-transparent" />
 
-                <div className="mt-8 pt-4 border-t border-white/10 text-[10px] text-zinc-200 font-mono">
-                  Buyer Step #{index + 1}
-                </div>
-              </motion.div>
-            );
-          })}
+          {/* PHONE */}
+          <div className="absolute left-1/2 top-1/2 w-[280px] -translate-x-1/2 -translate-y-1/2">
+
+            <div className="relative">
+
+              <img
+                key={currentStep}
+                src={steps[currentStep].image}
+                alt={steps[currentStep].alt}
+                className="size-full object-cover transition-opacity duration-300"
+              />
+              {steps[currentStep].hotspot && (
+                <button
+                  onClick={handleNextStep}
+                  aria-label={`Continue to step ${currentStep + 2}`}
+                  className="absolute z-10 cursor-pointer"
+                  style={{
+                    top: steps[currentStep].hotspot.top,
+                    left: steps[currentStep].hotspot.left,
+                    width: steps[currentStep].hotspot.width,
+                    height: steps[currentStep].hotspot.height,
+                  }}
+                >
+                  {/* Optional visual indicator */}
+                  <span className="absolute inset-0 animate-pulse rounded-full border-4 h-8 w-8 border-white" />
+                  <MousePointer2  className='absolute inset-0 rounded-full text-white h-8 w-8 ' size={24} />
+                </button>
+              )}
+
+            </div>
+
+          </div>
         </div>
-
-        {/* Mobile App & EventShield Feature Spotlight */}
-
       </div>
     </section>
   );

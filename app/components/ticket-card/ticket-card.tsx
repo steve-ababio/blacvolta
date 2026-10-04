@@ -14,6 +14,7 @@ import {
 } from "../ui/dialog";
 import { StoreButton } from "@/app/download/components/store-buttons/store-buttons";
 import Link from "next/link";
+import { openApp } from "@/app/utils/utils";
 
 interface TicketData {
     id: string;
@@ -33,10 +34,11 @@ interface TicketData {
 interface TicketCardProps {
     ticket: TicketData;
     eventId: string;
+    eventRef:string;
     ticketType: string;
 }
 
-const TicketCard = ({ ticket, eventId, ticketType }: TicketCardProps) => {
+const TicketCard = ({ ticket, eventId,eventRef, ticketType }: TicketCardProps) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const appOpenedRef = useRef(false);
 
@@ -59,37 +61,7 @@ const TicketCard = ({ ticket, eventId, ticketType }: TicketCardProps) => {
     //     };
     // }, []);
 
-    function openApp(eventId: string,) {
-        const now = Date.now();
-        window.location.href = `blacvolta://app/events/${eventId}`;
-        setTimeout(() => {
-            if (Date.now() - now < 2000) {
-                const os = getDeviceOS();
-                if(os === "ios"){
-                    window.location.href = "https://apps.apple.com/in/app/blacvolta/id6745515524";
-                }else if(os === "android"){
-                     window.location.href = "https://play.google.com/store/apps/details?id=com.blacvolta.app&pcampaignid=web_share"
-                }
-            }
-        }, 1500);
-    }
-    function getDeviceOS(): 'android' | 'ios' | 'other' {
-        if (typeof navigator === 'undefined') {
-            return 'other';
-        }
-        const ua = navigator.userAgent;
-        if (/android/i.test(ua)) {
-            return 'android';
-        }
-        if (
-            /iPhone|iPad|iPod/i.test(ua) ||
-            (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
-        ) {
-            return 'ios';
-        }
 
-        return 'other';
-    }
     return (
         <div className="relative group max-w-30 w-full shadow-lg">
             {/* Glow effect */}
@@ -192,7 +164,7 @@ const TicketCard = ({ ticket, eventId, ticketType }: TicketCardProps) => {
 
                     {/* Purchase button */}
                     {/* <a href={`https://blacvolta.com/app/events/${eventId}`} className="w-full block"> */}
-                    <Button onClick={() => openApp(eventId)
+                    <Button onClick={() => openApp(eventRef)
                     } className="w-full block ticket-gradient hover:opacity-90 disabled:cursor-not-allowed text-primary-foreground font-semibold h-12 text-base rounded-xl transition-all duration-300 hover:ticket-shadow">
                         {isSoldOut ? 'Sold Out' : (ticketType === "RSVP" ? 'Get RSVP Now' : 'Get Ticket Now')}
                     </Button>

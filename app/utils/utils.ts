@@ -3,56 +3,90 @@ import { FILE_UPLOAD_URL } from "../constants";
 import { GroupedProduct } from "../types/types";
 import { Product } from "../data/product";
 
-const createEventPromise = function(eventattributes:EventAttributes):Promise<string>{
-    return new Promise((resolve,reject)=>{
-        createEvent(eventattributes,
-            function(error,value){
-            if(error){
-                return reject(error);
-            }
-            resolve(value);
-        })
-    })
-} 
+const createEventPromise = function (eventattributes: EventAttributes): Promise<string> {
+  return new Promise((resolve, reject) => {
+    createEvent(eventattributes,
+      function (error, value) {
+        if (error) {
+          return reject(error);
+        }
+        resolve(value);
+      })
+  })
+}
+export function openApp(eventId?: string,) {
+  const now = Date.now();
+  const os = getDeviceOS();
+  if (eventId) window.location.href = `blacvolta://app/events/${eventId}`;
+  else window.location.href = `blacvolta://app`;
+  if (os === "other") {
+    return window.location.href = "https://blacvolta.com/download"
+  }
+  setTimeout(() => {
+    if (Date.now() - now < 2000) {
+      if (os === "ios") {
+        window.location.href = "https://apps.apple.com/in/app/blacvolta/id6745515524";
+      } else if (os === "android") {
+        window.location.href = "https://play.google.com/store/apps/details?id=com.blacvolta.app&pcampaignid=web_share"
+      }
+    }
+  }, 1500);
 
+}
+function getDeviceOS(): 'android' | 'ios' | 'other' {
+  if (typeof navigator === 'undefined') {
+    return 'other';
+  }
+  const ua = navigator.userAgent;
+  if (/android/i.test(ua)) {
+    return 'android';
+  }
+  if (
+    /iPhone|iPad|iPod/i.test(ua) ||
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+  ) {
+    return 'ios';
+  }
+  return 'other';
+}
 export const isNumber = (value: string): boolean => {
   return value.trim() !== '' && !isNaN(Number(value));
 };
 type EventDetails = {
-    eventDate:string,
-    eventTime:string,
-    venue:string,
-    description:string,
-    eventName:string
+  eventDate: string,
+  eventTime: string,
+  venue: string,
+  description: string,
+  eventName: string
 }
-export function downloadFile(hrefvalue:string,filename:string){
-    const link = document.createElement("a");
-    link.href = hrefvalue;
-    link.download = filename;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+export function downloadFile(hrefvalue: string, filename: string) {
+  const link = document.createElement("a");
+  link.href = hrefvalue;
+  link.download = filename;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 }
-function formatTime(hourstring:string,other:string){
-    const [minutestring,meridian] = other.split(" ");
-    let hour = parseInt(hourstring,10);
-    let minute = parseInt(minutestring,10);
-    if(hour != 12 && meridian === "PM"){
-        hour += 12;
-    }
-    if(hour === 12 && meridian === "AM"){
-        hour = 0;
-    }
-    return [hour,minute];
+function formatTime(hourstring: string, other: string) {
+  const [minutestring, meridian] = other.split(" ");
+  let hour = parseInt(hourstring, 10);
+  let minute = parseInt(minutestring, 10);
+  if (hour != 12 && meridian === "PM") {
+    hour += 12;
+  }
+  if (hour === 12 && meridian === "AM") {
+    hour = 0;
+  }
+  return [hour, minute];
 }
-export async function uploadImage(image:File){
-    const imageformdata = new FormData();
-    imageformdata.append("image",image)
-    const imageresponse = await fetch(FILE_UPLOAD_URL,{method:"POST",body:imageformdata});
-    const {file_name} = await imageresponse.json();
-    return file_name as string;
+export async function uploadImage(image: File) {
+  const imageformdata = new FormData();
+  imageformdata.append("image", image)
+  const imageresponse = await fetch(FILE_UPLOAD_URL, { method: "POST", body: imageformdata });
+  const { file_name } = await imageresponse.json();
+  return file_name as string;
 }
-export async function addToCalender(e:React.MouseEvent,{eventDate,eventTime,venue,eventName,description}:EventDetails){
+export async function addToCalender(e: React.MouseEvent, { eventDate, eventTime, venue, eventName, description }: EventDetails) {
   const date = new Date(eventDate);
   const [rawHour, rawMinute] = eventTime.split(":");
   const [hour, minute] = formatTime(rawHour, rawMinute);
@@ -76,103 +110,103 @@ export async function addToCalender(e:React.MouseEvent,{eventDate,eventTime,venu
     location: venue,
     description: description,
   };
-    const value = await createEventPromise(event);
-    downloadFile(`data:text/calendar,${encodeURIComponent(value)}`,"calendar-event");
+  const value = await createEventPromise(event);
+  downloadFile(`data:text/calendar,${encodeURIComponent(value)}`, "calendar-event");
 }
 
 export const setTokens = (accessToken: string, refreshToken: string) => {
-    localStorage.setItem('accessToken', accessToken);
-    localStorage.setItem('refreshToken', refreshToken);
-  };
-  
-  export const getAccessToken = () =>
-    localStorage.getItem('accessToken');
-  
-  export const getRefreshToken = () =>
-    localStorage.getItem('refreshToken');
-  
-  export const clearTokens = () => {
-    localStorage.removeItem('accessToken');
-    localStorage.removeItem('refreshToken');
-  };
-  export function formatEventDate(date: Date) {
-    const yyyy = date.getFullYear();
-    const mm = String(date.getMonth() + 1).padStart(2, '0');
-    const dd = String(date.getDate()).padStart(2, '0');
-    
-    const formatted = `${yyyy}-${mm}-${dd}`;
-    return formatted;
+  localStorage.setItem('accessToken', accessToken);
+  localStorage.setItem('refreshToken', refreshToken);
+};
+
+export const getAccessToken = () =>
+  localStorage.getItem('accessToken');
+
+export const getRefreshToken = () =>
+  localStorage.getItem('refreshToken');
+
+export const clearTokens = () => {
+  localStorage.removeItem('accessToken');
+  localStorage.removeItem('refreshToken');
+};
+export function formatEventDate(date: Date) {
+  const yyyy = date.getFullYear();
+  const mm = String(date.getMonth() + 1).padStart(2, '0');
+  const dd = String(date.getDate()).padStart(2, '0');
+
+  const formatted = `${yyyy}-${mm}-${dd}`;
+  return formatted;
+}
+export function formatDateTime(
+  date: string | Date,
+  timezone: string = Intl.DateTimeFormat().resolvedOptions().timeZone
+): string {
+  const parsedDate = typeof date === 'string' ? new Date(date) : date;
+
+  if (isNaN(parsedDate.getTime())) {
+    return '';
   }
-  export function formatDateTime(
-    date: string | Date,
-    timezone: string = Intl.DateTimeFormat().resolvedOptions().timeZone
-  ): string {
-    const parsedDate = typeof date === 'string' ? new Date(date) : date;
-  
-    if (isNaN(parsedDate.getTime())) {
-      return '';
+
+  return new Intl.DateTimeFormat('en-US', {
+    hour: 'numeric',
+    minute: '2-digit',
+    hour12: true,
+    timeZone: timezone,
+  }).format(parsedDate);
+}
+
+export function formatDate(date: Date) {
+  const yyyy = date.getFullYear();
+  const mm = String(date.getMonth() + 1).padStart(2, '0');
+  const dd = String(date.getDate()).padStart(2, '0');
+
+  const formatted = `${yyyy}-${mm}-${dd}`;
+  return formatted;
+}
+
+export const formatMoney = (amount: number, currency: string) =>
+  `${formatCurrency(amount, currency)}`;
+
+
+export function formatCurrency(amount: number, currency = 'GHS', locale = 'en-GH'): string {
+  return new Intl.NumberFormat(locale, {
+    style: 'currency',
+    currency,
+  }).format(amount);
+}
+
+export function groupProducts(products: Product[]): GroupedProduct[] {
+  const grouped: Record<string, GroupedProduct> = {};
+
+  products.forEach((product) => {
+    if (!grouped[product.type]) {
+      grouped[product.type] = {
+        type: product.type,
+        name: product.type,
+        variants: [],
+      };
     }
-  
-    return new Intl.DateTimeFormat('en-US', {
-      hour: 'numeric',
-      minute: '2-digit',
-      hour12: true,
-      timeZone: timezone,
-    }).format(parsedDate);
-  }
-  
-  export function formatDate(date: Date) {
-    const yyyy = date.getFullYear();
-    const mm = String(date.getMonth() + 1).padStart(2, '0');
-    const dd = String(date.getDate()).padStart(2, '0');
-    
-    const formatted = `${yyyy}-${mm}-${dd}`;
-    return formatted;
-  }
 
-  export const formatMoney = (amount: number, currency: string) =>
-    `${formatCurrency(amount, currency)}`;
-
-
-  export function formatCurrency(amount: number,currency = 'GHS',locale = 'en-GH'): string {
-    return new Intl.NumberFormat(locale, {
-        style: 'currency',
-        currency,
-    }).format(amount);
-  }
-
-  export function groupProducts(products: Product[]): GroupedProduct[] {
-    const grouped: Record<string, GroupedProduct> = {};
-  
-    products.forEach((product) => {
-      if (!grouped[product.type]) {
-        grouped[product.type] = {
-          type: product.type,
-          name: product.type,
-          variants: [],
-        };
-      }
-  
-      grouped[product.type].variants.push({
-        id: product.id,
-        foreground: product.foreground,
-        background: product.background,
-        imageUrls: product.imageUrls,
-        price: product.price,
-        currency: product.currency,
-        quantity: product.quantity,
-        sizes:product.sizes,
-        name:product.name,
-        category:product.category,
-        type:product.type,
-        description:product.description
-      });
+    grouped[product.type].variants.push({
+      id: product.id,
+      foreground: product.foreground,
+      background: product.background,
+      imageUrls: product.imageUrls,
+      price: product.price,
+      currency: product.currency,
+      quantity: product.quantity,
+      sizes: product.sizes,
+      name: product.name,
+      category: product.category,
+      type: product.type,
+      description: product.description
     });
-  
-    return Object.values(grouped);
-  }
+  });
 
-  
+  return Object.values(grouped);
+}
+
+
 export function formatLabel(val: string): string {
   return val.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
 }

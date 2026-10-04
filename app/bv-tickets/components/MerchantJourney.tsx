@@ -1,133 +1,34 @@
 'use client';
 
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { UserPlus, CalendarPlus, BarChart3, CheckCircle2, ArrowRight, ShieldCheck, Ticket, Users, DollarSign, Bell, Search, TrendingUp, Sparkles } from 'lucide-react';
-import { Button } from '@/app/components/ui/button';
+import { ArrowRight } from 'lucide-react';
+import React from 'react';
 
-interface MerchantJourneyProps {
-  onOpenOnboarding: () => void;
-}
-
-export default function MerchantJourney({ onOpenOnboarding }: MerchantJourneyProps) {
-  const [activeStep, setActiveStep] = useState<number>(1);
-
-  const steps = [
-    {
-      id: 1,
-      number: '01',
-      title: 'Create your account',
-      subtitle: 'Register as a BV Tickets Partner and set up your merchant account.',
-      icon: UserPlus,
-      badge: 'Step 1 • Onboarding',
-    },
-    {
-      id: 2,
-      number: '02',
-      title: 'List your event',
-      subtitle: 'Add your event details, ticket types and pricing through your merchant dashboard.',
-      icon: CalendarPlus,
-      badge: 'Step 2 • Event Setup',
-    },
-    {
-      id: 3,
-      number: '03',
-      title: 'Sell & manage',
-      subtitle: "Once your account is approved, you're ready to sell. Track your ticket sales and manage your event from your dashboard.",
-      icon: BarChart3,
-      badge: 'Step 3 • Live Control',
-    },
-  ];
-
+function ProcessCard({ number, title, body, image }: { number: string; title: string; body: string; image: string }) {
   return (
-    <section id="how-it-works" className="py-24 lg:py-32 bg-[#060608] relative overflow-hidden border-t border-white/10">
-      
-      {/* Subtle background ambient blur */}
-      {/* <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-blacvolta-gold/10 blur-[170px] rounded-full pointer-events-none" /> */}
-
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.06] border border-white/10 text-blacvolta-gold text-xs font-bold uppercase tracking-wider mb-4 shadow-xl"
-          >
-            {/* <Sparkles className="w-3.5 h-3.5" /> */}
-            Merchant Console Overview
-          </motion.div>
-
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight font-futura"
-          >
-            Get listed. Get discovered. Get selling.
-          </motion.h2>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-base sm:text-lg text-zinc-200 mt-4 font-normal"
-          >
-            A simple 3-step journey designed for event organizers to set up ticketing, track live revenue, and control attendee check-in.
-          </motion.p>
+    <article>
+      <div className="mb-6 flex items-center justify-between border-b border-border pb-4">
+        <span className="text-base font-bold uppercase tracking-[0.16em] text-blacvolta-gold">Step {number}</span>
+        <ArrowRight size={16} />
+      </div>
+      <img src={image} alt="merchant dashboard" className="w-auto h-[220px] rounded-lg shadow-lg" />
+      <h3 className="mt-6 font-display text-3xl font-semibold text-black uppercase tracking-normal">{title}</h3>
+      <p className="mt-3 max-w-sm text-sm leading-6 text-muted-foreground">{body}</p>
+    </article>
+  );
+}
+export default function MerchantJourney() {
+  function Eyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
+    return <p className={`mb-5 text-lg font-bold text-zinc-700 uppercase tracking-[0.24em]`}>{children}</p>;
+  }
+  return (
+    <section id="how" className="px-5 py-20 md:px-10 md:py-28 bg-white">
+      <div className="mx-auto max-w-[1320px]">
+        <div className="grid gap-8 lg:grid-cols-2"><div><Eyebrow>How it works</Eyebrow><h2 className="font-display text-5xl font-bold uppercase text-black leading-[0.95] tracking-normal md:text-7xl">Get listed.<br />Get discovered.<br /><span className="text-blacvolta-gold">Get selling.</span></h2></div><p className="max-w-md self-end text-base leading-7 text-muted-foreground">A simple 3-step journey to set up your event, sell tickets and manage your attendees.</p></div>
+        <div className="mt-16 grid gap-12 lg:grid-cols-3">
+          <ProcessCard number="01" title="Create your account" body="Register as a BV Tickets Partner and set up your merchant account." image="/assets/images/merchant/merchant-1.JPG" />
+          <ProcessCard number="02" title="List your event" body="Add your event details, ticket types and pricing through your merchant dashboard." image="/assets/images/merchant/merchant-3.JPG" />
+          <ProcessCard number="03" title="Sell & manage" body="Track ticket sales, monitor your event and manage attendees from your dashboard." image="/assets/images/merchant/merchant-2.JPG" />
         </div>
-
-        {/* 3 Step Selectors */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          {steps.map((step) => {
-            const Icon = step.icon;
-            const isActive = activeStep === step.id;
-
-            return (
-              <button
-                key={step.id}
-                // onClick={() => setActiveStep(step.id)}
-                className={`text-left p-6 sm:p-8 rounded-3xl border border-blacvolta-gold  transition-all duration-300 relative overflow-hidden flex flex-col justify-between`}
-              >
-                {/* {isActive && (
-                  <div className="absolute top-0 left-0 right-0 h-1.5" />
-                )} */}
-
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className={`text-3xl font-black text-blacvolta-gold`}>
-                      {step.number}
-                    </span>
-                    <div className={`w-12 h-12 rounded-2xl flex items-center justify-center text-blacvolta-gold`}>
-                      <Icon className="w-6 h-6" />
-                    </div>
-                  </div>
-
-                  <h3 className={`text-xl font-bold mb-2 tracking-tight ${isActive ? 'text-white' : 'text-zinc-300'}`}>
-                    {step.title}
-                  </h3>
-
-                  <p className="text-xs text-zinc-400 leading-relaxed font-normal">
-                    {step.subtitle}
-                  </p>
-                </div>
-
-                <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs">
-                  <span className="text-white font-medium">{step.badge}</span>
-                  {/* <span className={`font-bold flex items-center gap-1 ${isActive ? 'text-blacvolta-gold' : 'text-zinc-500'}`}>
-                    {isActive ? 'Live View' : 'Click to preview'}
-                  </span> */}
-                </div>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Verve-Style Dribbble Dashboard Mockup Container (Image 1 Inspiration) */}
-
       </div>
     </section>
   );

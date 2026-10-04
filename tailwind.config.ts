@@ -163,6 +163,9 @@ const config: Config = {
             "background-position":"-100%"
           }
         },
+        "ticket-marquee": {
+          to: { "transform": "translateX(-50%)" }
+        },
         "accordion-down": {
           from: {
             height: "0",
@@ -196,6 +199,7 @@ const config: Config = {
         "card-loading":"cardloading 1s linear infinite",
         "flip": 'flip 10s infinite ease-in-out',
         "floatingGlow": 'floatingGlow 6s ease-in-out infinite',
+        "marquee":'ticket-marquee 24s linear infinite'
       }
     },
   },

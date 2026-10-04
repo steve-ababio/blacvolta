@@ -24,13 +24,14 @@ export default function Calculator() {
         <div className="relative min-h-[420px] lg:min-h-[740px]">
           <div>
             <div className="absolute inset-0 bg-gradient-to-r from-[#0c0905]/90 via-[#0c0905]/65 to-[#0c0905]/10" />
-            <img src="/assets/images/bv-tickets/ticket.jfif" alt="Friends sharing a vibrant dining experience" className="absolute inset-0 size-full object-cover" /><div className="absolute inset-0 bg-gradient-to-t from-[#0c0905]/65 to-transparent" /><p className="absolute bottom-8 left-8 max-w-xs font-display text-3xl text-blacvolta-gold font-semibold uppercase leading-tight">Good experiences deserve a full house.</p></div>
+            <img src="/assets/images/bv-tickets/ticket.jfif" alt="Friends sharing a vibrant dining experience" className="absolute inset-0 size-full object-cover" /><div className="absolute inset-0 bg-gradient-to-t from-[#0c0905]/65 to-transparent" />
+            <p className="absolute bottom-8 left-8 max-w-xs font-display text-3xl text-blacvolta-gold font-semibold uppercase leading-tight">Good experiences deserve a full house.</p></div>
           </div>
           
         <div className="flex items-center px-5 py-16 md:px-14 lg:py-20">
           <div className="w-full max-w-xl">
             <Eyebrow light>Interactive 5% fee estimator</Eyebrow>
-            <h2 className="font-display text-5xl font-extrabold uppercase text-white leading-[0.95] tracking-normal md:text-6xl">Know what<br />you'll make.</h2>
+            <h2 className="font-display text-5xl font-extrabold uppercase text-white leading-[0.95] tracking-normal md:text-6xl">Know what<br />you&apos;ll make.</h2>
             <p className="mt-4 text-sm text-zinc-400">See exact payout figures before you list your tickets.</p>
             <div className="mt-10 border-y border-[#f8f5ee]/20 py-7">
               <label htmlFor="price" className="flex items-end justify-between text-white text-xs font-extrabold uppercase tracking-[0.16em]"><span>Ticket price</span><span className="font-display text-3xl text-white">{money(ticketPrice)}</span></label>

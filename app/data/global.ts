@@ -4,10 +4,6 @@ export const menuItems = [
         href: "/home"
     },
     {
-        label: "BV TICKETS",
-        href: "/bv-tickets"
-    },
-    {
         label: "BV LIFESTYLE CARD",
         href: "/bv-card"
     },
@@ -26,6 +22,10 @@ export const menuItems = [
     {
         label: "SHOP",
         href: "/merchandise"
+    },
+    {
+        label: "BV TICKETS",
+        href: "/bv-tickets"
     },
     // {
     //     label: "JOBS",

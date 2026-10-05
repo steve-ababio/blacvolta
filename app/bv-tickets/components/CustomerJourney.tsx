@@ -153,7 +153,7 @@ export default function CustomerJourney() {
 
         {/* RIGHT SIDE */}
         <div className="relative min-h-[590px]">
-
+              
           {/* Background */}
           <img
             src="/assets/images/bv-tickets/concert.jpg"
@@ -167,7 +167,7 @@ export default function CustomerJourney() {
           <div className="absolute left-1/2 top-1/2 w-[280px] -translate-x-1/2 -translate-y-1/2">
 
             <div className="relative">
-
+              <div className={`absolute inset-0 rounded-[48px] w-full h-full ${currentStep === 3 ?'':'bg-black opacity-45'}`}></div>
               <img
                 key={currentStep}
                 src={steps[currentStep].image}
@@ -178,7 +178,7 @@ export default function CustomerJourney() {
                 <button
                   onClick={handleNextStep}
                   aria-label={`Continue to step ${currentStep + 2}`}
-                  className="absolute z-10 cursor-pointer"
+                  className="absolute z-10 cursor-pointer shadow-2xl"
                   style={{
                     top: steps[currentStep].hotspot.top,
                     left: steps[currentStep].hotspot.left,
@@ -187,8 +187,9 @@ export default function CustomerJourney() {
                   }}
                 >
                   {/* Optional visual indicator */}
-                  <span className="absolute inset-0 animate-pulse rounded-full border-4 h-8 w-8 border-white" />
-                  <MousePointer2  className='absolute inset-0 rounded-full text-white h-8 w-8 ' size={24} />
+                  <span className="absolute shadow-2xl inset-0 animate-pulse rounded-full border-4 h-8 w-8 border-white" />
+                  <div className='absolute animate-pulse inset-0 rounded-full bg-white h-8 w-8'></div>
+                  {/* <MousePointer2  className='absolute inset-0 rounded-full text-white h-8 w-8 ' size={24} /> */}
                 </button>
               )}
 

@@ -24,11 +24,11 @@ export default function NavItem({
     onClick
 }: NavItemProps) {
     const active = showPill !== undefined ? showPill : (isActive || isHovered);
-    const textColor = active ? "text-white" : "text-bvgray hover:text-white";
+    const textColor = active ? "text-white" : "text-zinc-300 hover:text-white";
 
     return (
         <Link 
-            className={`h-fit relative py-2 px-6 font-kamerik font-normal rounded-full md:text-xs transition-colors duration-200 block ${textColor}`} 
+            className={`h-fit relative py-2 px-6 font-kamerik font-semibold rounded-full md:text-xs transition-colors duration-200 block ${textColor}`} 
             href={href || ""}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
@@ -46,4 +46,4 @@ export default function NavItem({
             )}
         </Link>
     )
-}
+}

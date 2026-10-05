@@ -66,7 +66,7 @@ export default function BuiltForYourNextEvent() {
   { title: "Parties & nightlife", image: '/assets/images/bv-tickets/ticket.jfif' },
   { title: "Brunches & dinners", image: '/assets/images/bv-tickets/brunch.jpg' },
   { title: "Wellness & fitness", image: '/assets/images/bv-tickets/wellness.jpg' },
-  { title: "Networking & conferences", image:'/assets/images/bv-tickets/conference.jpg' },
+  { title: "Networking & conferences", image:'/assets/images/bv-tickets/conference.JPG' },
   { title: "Pop-ups & experiences", image: '/assets/images/bv-tickets/social.jpg', className: "md:col-span-2" },
 ];
 
